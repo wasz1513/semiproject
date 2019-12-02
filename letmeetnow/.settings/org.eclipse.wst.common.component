@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="letmeetnow">
+    <wb-module deploy-name="letmeet">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="letmeetnow"/>
-        <property name="java-output-path" value="/letmeetnow/build/classes"/>
+        <property name="java-output-path" value="/letmeet/build/classes"/>
+        <property name="context-root" value="letmeet"/>
     </wb-module>
 </project-modules>
