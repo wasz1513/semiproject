@@ -20,20 +20,20 @@
 		</tr>
 	
 		<tr>
-			<td>판매내역</td>
-			<td>구매내역</td>
-			<td>관심목록</td>
+			<td><a href="buy.jsp">판매내역</a></td>
+			<td><a href="sale.jsp">구매내역</a></td>
+			<td><a href="interestlist.jsp">관심목록</a></td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				내 동네 설정 / 인증
+				<a href="changeinfo.jsp">내 동네 설정 / 인증</a>
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				키워드 등록
+				<a href="keyword.jsp">키워드 등록</a>
 			</td>
 		</tr>
 		
