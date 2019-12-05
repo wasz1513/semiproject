@@ -4,7 +4,7 @@
    				</td>
 			</tr>
 			<tr>
-				<td>
+				<td height="150" colspan="4">
 					KH B Class 3 Member
 				</td>
 			</tr>

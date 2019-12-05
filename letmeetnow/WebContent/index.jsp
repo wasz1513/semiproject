@@ -4,27 +4,50 @@
 <jsp:include page="/template/header.jsp"></jsp:include>				
 
 <div align="center">
-	<h2>게시글 최신순으로 ~12개</h2>
-	<table>
+	<h2>게시글 최신순으로 ~11개 + 게시글 전체보기</h2>
+	<table width="800">
 		<tr>
-			<th>1번게시물</th>
-			<th>2번게시물</th>
-			<th>3번게시물</th>
-			<th>4번게시물</th>	
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>	
 		</tr>
 		<tr>
-			<th>5번게시물</th>
-			<th>6번게시물</th>
-			<th>7번게시물</th>
-			<th>8번게시물</th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
 		</tr>	
 		<tr>
-			<th>9번게시물</th>
-			<th>10번게시물</th>
-			<th>11번게시물</th>
-			<th>12번게시물</th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th>더보기</th>
 		</tr>
 	</table>
+	
+	<h2>가까운 위치 인기게시글 ~ 11개 + 게시글 전체보기</h2>
+	<table>
+		<tr>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>	
+		</tr>
+		<tr>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+		</tr>	
+		<tr>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th><img src="https:placehold.it/200x200"></th>
+			<th>더보기</th>
+		</tr>
+	</table>
+	
 </div>					
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
