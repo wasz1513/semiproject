@@ -1,0 +1,63 @@
+@charset "EUC-KR";
+        .custom-list{
+            list-style: none;
+            margin:0;
+            padding:0;
+            display:inline-block;
+            
+            width:150px;
+        }
+        .custom-list > li{
+            background-color:black;
+            color:white;
+            padding:15px;
+            cursor:pointer;
+        }
+        .custom-list li:hover{
+            background-color:gray;
+            color:black;
+        }
+        
+        /* 2차 이상의 메뉴 스타일 */
+        .custom-list ul{
+            list-style: none;
+            padding:0;
+            margin:0;
+            
+            position: absolute;
+            margin-left: 135px;
+            margin-top: -36px;
+            
+            /* 2차 이상의 메뉴는 처음에 숨김 처리 */
+            display: none;
+        }
+        .custom-list ul > li{
+            background-color:black;
+            color:white;
+            padding:15px;
+            width:150px;
+        }
+        
+        /*
+            메뉴를 표시하는 방법
+            1. :hover
+            2. :checked
+        */
+        
+        .menu-wrap > label{
+            display: block;
+        }
+        .menu-wrap > #custom-menu{
+            display: none;
+        }
+        
+        .menu-wrap > .custom-list li:hover > ul{
+            display: block;
+        }
+        
+        .menu-wrap > .custom-list{
+            display:none;
+        }
+        .menu-wrap > #custom-menu:checked + .custom-list{
+            display: inline-block;
+        }
