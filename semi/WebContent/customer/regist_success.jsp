@@ -4,11 +4,12 @@
     
     <jsp:include page ="/template/header.jsp"></jsp:include>
     
-    <div>
+    <article class="w-40">
     
-    	<h2>회원가입을 축하합니다!</h2>
     
-    </div>
+    		<h2>회원가입을 축하합니다!</h2>
+        
+    </article>
     
     <jsp:include page ="/template/footer.jsp"></jsp:include>
     
