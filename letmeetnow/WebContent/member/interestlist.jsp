@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>���ɸ��</h1>
-	<h2>���ɸ�� ���̺�?�ʿ�?</h2>
+	<h1>관심목록</h1>
+	<h2>관심목록 테이블?필요?</h2>
 </body>
 </html>

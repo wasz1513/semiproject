@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="left">
-	ÆÐ¼ÇÀÇ·ù<br><br>
-	ÆÐ¼ÇÀâÈ­<br><br>
-	È­ÀåÇ°/¹Ì¿ë<br><br>
-	µðÁöÅÐ/°¡Àü<br><br>
-	°¡±¸/ÀÎÅ×¸®¾î<br><br>
-	Ãâ»ê/À°¾Æ<br><br>
-	½ÄÇ°<br><br>
-	½ºÆ÷Ã÷/·¹Àú<br><br>
-	»ýÈ°/°Ç°­<br><br>
-	¿©Çà/¹®È­<br><br>
+	íŒ¨ì…˜ì˜ë¥˜<br><br>
+	íŒ¨ì…˜ìž¡í™”<br><br>
+	í™”ìž¥í’ˆ/ë¯¸ìš©<br><br>
+	ë””ì§€í„¸/ê°€ì „<br><br>
+	ê°€êµ¬/ì¸í…Œë¦¬ì–´<br><br>
+	ì¶œì‚°/ìœ¡ì•„<br><br>
+	ì‹í’ˆ<br><br>
+	ìŠ¤í¬ì¸ /ë ˆì €<br><br>
+	ìƒí™œ/ê±´ê°•<br><br>
+	ì—¬í–‰/ë¬¸í™”<br><br>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>	
