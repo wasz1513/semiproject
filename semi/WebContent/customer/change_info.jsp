@@ -3,14 +3,9 @@
     
     
     
-<!-- get 메소드를 이용하여 전체 데이터를 불러와야 함. -->
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+    
+<jsp:include page="/template/header.jsp"></jsp:include>
+
 <h1>회원정보 수정</h1>
 <form action="change_info.do" method="post">
 
@@ -50,5 +45,4 @@
 		<input type="submit" value="수정">
 	</div>
 </form>
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>
