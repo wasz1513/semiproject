@@ -3,6 +3,8 @@ package beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -20,6 +22,12 @@ public class CustomerDao {
 			e.printStackTrace();
 		}
 	}
+	
+	//getConnection
+	public Connection getConnection() throws Exception{
+		return source.getConnection();
+	}
+	//로그인 기능
 	public boolean login(CustomerDto dto) throws Exception{
 		Connection con = getConnection();
 		String sql = "select * from customer where customer_id=? and customer_pw=?";
@@ -31,12 +39,38 @@ public class CustomerDao {
 		con.close();
 		return result;
 	}
-	
-	//getConnection
-	public Connection getConnection() throws Exception{
-		return source.getConnection();
+	//getList 기능(모두 불러오기)
+	public List<CustomerDto> getList(CustomerDto dto) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from customer where customer_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, dto.getCustomer_id());
+		ResultSet rs = ps.executeQuery();
+		
+		List<CustomerDto> list = new ArrayList<>();
+		while(rs.next()) {
+			CustomerDto dto2 =new CustomerDto();
+			dto2.setCustomer_no(rs.getInt("customer_no"));
+			dto2.setCustomer_name(rs.getString("customer_name"));
+			dto2.setCustomer_birth(rs.getString("customer_birth"));
+			dto2.setCustomer_nickname(rs.getString("customer_nickname"));
+			dto2.setCustomer_id(rs.getString("customer_id"));
+			dto2.setCustomer_pw(rs.getString("customer_pw"));
+			dto2.setCustomer_phone(rs.getString("customer_phone"));
+			dto2.setCustomer_email(rs.getString("customer_email"));
+			dto2.setCustomer_post(rs.getString("customer_post"));
+			dto2.setCustomer_basic_address(rs.getString("customer_basic_address"));
+			dto2.setCustomer_extra_address(rs.getString("customer_extra_address"));
+			dto2.setCustomer_grade(rs.getString("customer_grade"));
+			dto2.setCustomer_joindate(rs.getString("customer_joindate"));
+			dto2.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
+			list.add(dto2);
+		}
+		
+		con.close();
+		return list;
 	}
-	
+
 	//회원 비밀번호 변경
 	public void ChangePassword(CustomerDto dto) throws Exception{
 		Connection con = getConnection();
