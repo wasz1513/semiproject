@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
@@ -11,7 +11,7 @@
 <title>Semi</title>
 <style>
 	
-/* 	header ºÎºÐ ¹üÀ§¼³Á¤ */
+/* 	header ë¶€ë¶„ ë²”ìœ„ì„¤ì • */
 	.row-multi.col-4>.a{
 		width:20%;
 		
@@ -63,7 +63,7 @@
 	}
 
 
-/* ½½¶óÀÌ´õ ¿µ¿ª ½ºÅ¸ÀÏ */
+/* ìŠ¬ë¼ì´ë” ì˜ì—­ ìŠ¤íƒ€ì¼ */
 
     
     nav{
@@ -74,7 +74,7 @@
 </style>
 
 <!-- ================================================================ -->
-<!-- ½½¶óÀÌ´õ -->
+<!-- ìŠ¬ë¼ì´ë” -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script>
@@ -91,59 +91,59 @@ function loadSlider(){
 
 </head>
 <body onload="loadSlider();">
-<!-- 	¸ÞÀÎÆäÀÌÁö -->
+<!-- 	ë©”ì¸íŽ˜ì´ì§€ -->
 	<main>
 		
-<!-- 		Çì´õ -->
-<!-- 			·Î°í / °Ë»öÃ¢ / ·Î±×ÀÎ / °ü½É¸ñ·Ï -->
+<!-- 		í—¤ë” -->
+<!-- 			ë¡œê³  / ê²€ìƒ‰ì°½ / ë¡œê·¸ì¸ / ê´€ì‹¬ëª©ë¡ -->
 		<header>
 			
 			<div class="row-multi col-4">
-<!-- 				·Î°í -->
+<!-- 				ë¡œê³  -->
 				<div class="a">
 					<img src="http://placehold.it/180x50">
 				</div>
-<!-- 				°Ë»öÃ¢ -->
+<!-- 				ê²€ìƒ‰ì°½ -->
 				<div class="b">
 					<form action="#" method="get">
 						<input type="text" name="key" size="80%">
-						<input type="submit" value="°Ë»ö">
+						<input type="submit" value="ê²€ìƒ‰">
 					</form>
 				</div>
-<!-- 					·Î±×ÀÎ / ¸¶ÀÌÆäÀÌÁö -->
+<!-- 					ë¡œê·¸ì¸ / ë§ˆì´íŽ˜ì´ì§€ -->
 				<div class="c">
-<%-- 					<%if(¼¼¼Çid==null){ %> --%>
-<!-- 						<a>·Î±×ÀÎ</a> -->
+<%-- 					<%if(ì„¸ì…˜id==null){ %> --%>
+<!-- 						<a>ë¡œê·¸ì¸</a> -->
 					<div class="menu-wrap1">
-						<label for="custom-menu1">·Î±×ÀÎ</label>
+						<label for="custom-menu1">ë¡œê·¸ì¸</label>
       				  	<input type="checkbox" id="custom-menu1">
       				  	<ul class="custom-list">
-      				  		<li>·Î±×ÀÎ</li>
-			             	<li>È¸¿ø°¡ÀÔ</li>
-			                <li>¾ÆÀÌµð/ºñ¹Ð¹øÈ£Ã£±â</li>		
+      				  		<li>ë¡œê·¸ì¸</li>
+			             	<li>íšŒì›ê°€ìž…</li>
+			                <li>ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°</li>		
       				  	</ul>
 					</div>
 <%-- 					<%}else{ %> --%>
-<!-- 						<a>¸¶ÀÌÆäÀÌÁö</a> -->
+<!-- 						<a>ë§ˆì´íŽ˜ì´ì§€</a> -->
 <!-- 					<div class="menu-wrap2"> -->
-<!-- 						<label for="custom-menu2">¸¶ÀÌÆäÀÌÁö</label> -->
+<!-- 						<label for="custom-menu2">ë§ˆì´íŽ˜ì´ì§€</label> -->
 <!--       				  	<input type="checkbox" id="custom-menu2"> -->
 <!--       				  	<ul class="custom-list"> -->
-<!--       				  		<li>ÇÁ·ÎÇÊº¸±â</li> -->
-<!-- 			             	<li>Å°¿öµåÀÔ·Â</li> -->
-<!-- 			                <li>À§Ä¡¼öÁ¤</li> -->
+<!--       				  		<li>í”„ë¡œí•„ë³´ê¸°</li> -->
+<!-- 			             	<li>í‚¤ì›Œë“œìž…ë ¥</li> -->
+<!-- 			                <li>ìœ„ì¹˜ìˆ˜ì •</li> -->
 <!--       				  	</ul> -->
 <!-- 					</div> -->
 <%-- 					<%} %> --%>
 				</div>
-<!-- 				°ü½É¸ñ·Ï -->
+<!-- 				ê´€ì‹¬ëª©ë¡ -->
 				<div class="d">
 					<div class="menu-wrap3">
-						<label for="custom-menu3">°ü½É¸ñ·Ï</label>
+						<label for="custom-menu3">ê´€ì‹¬ëª©ë¡</label>
       				  	<input type="checkbox" id="custom-menu3">
       				  	<ul class="custom-list">
-      				  		<li>Å°¿öµå</li>
-			             	<li>Âò»óÇ°</li>
+      				  		<li>í‚¤ì›Œë“œ</li>
+			             	<li>ì°œìƒí’ˆ</li>
 			                <li>????</li>		
       				  	</ul>
 					</div>
@@ -151,28 +151,28 @@ function loadSlider(){
 			</div>
 		
 			
-<!-- 			Ä«Å×°í¸® / ÀÎ±â°Ë»ö¾î -->
+<!-- 			ì¹´í…Œê³ ë¦¬ / ì¸ê¸°ê²€ìƒ‰ì–´ -->
 			<div class="row-multi col-2">
 				<div class="a">
 					<div class="menu-wrap">
-						<label for="custom-menu">Ä«Å×°í¸®</label>
+						<label for="custom-menu">ì¹´í…Œê³ ë¦¬</label>
       				  	<input type="checkbox" id="custom-menu">
       				  	<ul class="custom-list">
-      				  		<li>ÆÐ¼ÇÀÇ·ù</li>
-			             	<li>ÆÐ¼ÇÀâÈ­</li>
-			                <li>È­ÀåÇ°/¹Ì¿ë</li>
-			                <li>µðÁöÅÐ/°¡Àü</li>
-			                <li>°¡±¸/ÀÎÅ×¸®¾î</li>
-			                <li>Ãâ»ê/À°¾Æ</li>
-			                <li>½ÄÇ°</li>
-			                <li>½ºÆ÷Ã÷/·¹Àú</li>
-			                <li>»ýÈ°/°Ç°­</li>
-			                <li>¿©Çà/¹®È­</li>
+      				  		<li>íŒ¨ì…˜ì˜ë¥˜</li>
+			             	<li>íŒ¨ì…˜ìž¡í™”</li>
+			                <li>í™”ìž¥í’ˆ/ë¯¸ìš©</li>
+			                <li>ë””ì§€í„¸/ê°€ì „</li>
+			                <li>ê°€êµ¬/ì¸í…Œë¦¬ì–´</li>
+			                <li>ì¶œì‚°/ìœ¡ì•„</li>
+			                <li>ì‹í’ˆ</li>
+			                <li>ìŠ¤í¬ì¸ /ë ˆì €</li>
+			                <li>ìƒí™œ/ê±´ê°•</li>
+			                <li>ì—¬í–‰/ë¬¸í™”</li>
       				  	</ul>
 					</div>
 				</div>
 				<div class="b">
-					ÀÎ±â°Ë»ö¾î °Ë»ö¾î1 °Ë»ö¾î 2 °Ë»ö¾î3
+					ì¸ê¸°ê²€ìƒ‰ì–´ ê²€ìƒ‰ì–´1 ê²€ìƒ‰ì–´ 2 ê²€ìƒ‰ì–´3
 				</div>
 			</div>
 			
@@ -182,8 +182,8 @@ function loadSlider(){
 		
 
 		
-<!-- 		³»¿ë -->
-<!-- 			ÀÎ±â°Ô½Ã±Û / Å°¿öµå °Ô½Ã±Û / ±ÙÁ¢À§Ä¡ -->
+<!-- 		ë‚´ìš© -->
+<!-- 			ì¸ê¸°ê²Œì‹œê¸€ / í‚¤ì›Œë“œ ê²Œì‹œê¸€ / ê·¼ì ‘ìœ„ì¹˜ -->
 		<section>
 				
 		

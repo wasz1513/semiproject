@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 		</section>
 		
-<!-- 		г╙ем -->
+<!-- 		М▒╦М└╟ -->
 		<footer>
 			<div class="row-left">
 				<div>
-					╢Г╠ыЁ╙╤С
+					К▀╧Й╥╪К┌≤К²╪
 				</div>
 				<div>
 					kh2 b class
