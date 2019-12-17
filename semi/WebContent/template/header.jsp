@@ -126,7 +126,7 @@ function loadSlider(){
       				  	</ul>
 					</div>
 <%-- 					<%}else{ %> --%>
-						<a href="/customer/info.jsp">마이페이지</a>
+<!-- 						<a>마이페이지</a> -->
 <!-- 					<div class="menu-wrap2"> -->
 <!-- 						<label for="custom-menu2">마이페이지</label> -->
 <!--       				  	<input type="checkbox" id="custom-menu2"> -->

@@ -175,7 +175,7 @@ public class CustomerDto {
 	}
 	
 	//시간 변환 - 가입일자
-		public String getJoindateWithFormat() throws ParseException {
+		public String getCustomer_joindateWithFormat() throws ParseException {
 			if(customer_joindate == null) {
 				return "";
 			}
@@ -192,7 +192,7 @@ public class CustomerDto {
 		}
 		
 		//시간 변환 -  최종로그인
-				public String getLast_loginWithFormat() throws ParseException {
+				public String getCustomer_lastloginWithFormat() throws ParseException {
 					if(customer_lastlogin == null) {
 						return"";
 					}
@@ -200,7 +200,7 @@ public class CustomerDto {
 					SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 					Date date = read.parse(customer_lastlogin);
 					
-					SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 E요일 H시 m분");
+					SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 H시 m분");
 					String time = write.format(date);
 					
 					return time;

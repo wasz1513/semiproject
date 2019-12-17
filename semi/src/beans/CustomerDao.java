@@ -96,6 +96,8 @@ public class CustomerDao {
 					dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 					dto.setCustomer_extra_address(rs.getString("customer_extra_address"));
 					dto.setCustomer_grade(rs.getString("customer_grade"));
+					dto.setCustomer_joindate(rs.getString("customer_joindate"));
+					dto.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
 
 					
 				}
