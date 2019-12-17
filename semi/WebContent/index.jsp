@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>	
 
-			<!-- 		¸Þ´º(³×ºñ) -->
+			<!-- 		ë©”ë‰´(ë„¤ë¹„) -->
 			<nav>
 				<div class="swiper-container">
 				    <div class="swiper-wrapper">
@@ -14,76 +14,76 @@
 			</nav>	
 
 			<div class="row">
-				<h2>ÀÎ±â°Ô½Ã±Û</h2>
+				<h2>ì¸ê¸°ê²Œì‹œê¸€</h2>
 			</div>
 			<div class="row-multi col-4">
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div class="more">
-					<a>´õº¸±â</a>
+					<a>ë”ë³´ê¸°</a>
 				</div>
 			</div>
 			
 			<div class="row">
-				<h2>Å°¿öµå °Ô½Ã±Û</h2>
+				<h2>í‚¤ì›Œë“œ ê²Œì‹œê¸€</h2>
 			</div>
 			<div class="row-multi col-4">
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
-					<h3>Á¦¸ñ</h3>
+					<h3>ì œëª©</h3>
 				</div>
 				<div class="more">
-					<a>´õº¸±â</a>
+					<a>ë”ë³´ê¸°</a>
 				</div>
 			</div>
 		
