@@ -38,10 +38,11 @@
 		width:20%;
 	}
 	
-	.banner{
+	.custom-list{
 		position:absolute;
+		
 	}
-	
+
 </style>
 </head>
 <body test>
@@ -67,9 +68,27 @@
 <!-- 					로그인 / 마이페이지 -->
 				<div class="c">
 <%-- 					<%if(세션id==null){ %> --%>
-					<a href="#">로그인</a>
+						<a>로그인</a>
+<!-- 					<div class="menu-wrap1"> -->
+<!-- 						<label for="custom-menu1">로그인</label> -->
+<!--       				  	<input type="checkbox" id="custom-menu1"> -->
+<!--       				  	<ul class="custom-list1"> -->
+<!--       				  		<li>로그인</li> -->
+<!-- 			             	<li>회원가입</li> -->
+<!-- 			                <li>아이디/비밀번호찾기</li>		 -->
+<!--       				  	</ul> -->
+<!-- 					</div> -->
 <%-- 					<%}else{ %> --%>
-					<a href="#">마이페이지</a>
+						<a>마이페이지</a>
+<!-- 					<div class="menu-wrap2"> -->
+<!-- 						<label for="custom-menu2">마이페이지</label> -->
+<!--       				  	<input type="checkbox" id="custom-menu2"> -->
+<!--       				  	<ul class="custom-list2"> -->
+<!--       				  		<li>프로필보기</li> -->
+<!-- 			             	<li>키워드입력</li> -->
+<!-- 			                <li>위치수정</li> -->
+<!--       				  	</ul> -->
+<!-- 					</div> -->
 <%-- 					<%} %> --%>
 				</div>
 <!-- 				관심목록 -->
@@ -78,6 +97,8 @@
 				</div>
 			</div>
 		
+			
+<!-- 			카테고리 / 인기검색어 -->
 			<div class="row-multi col-2">
 				<div class="a">
 					<div class="menu-wrap">
@@ -102,10 +123,11 @@
 				</div>
 			</div>
 			
+	
+			
 		</header>
 		
 <!-- 		메뉴(네비) -->
-<!-- 			카테고리 / 인기검색어 -->
 		<nev>
 			<div class="row benner">
 				<div>
