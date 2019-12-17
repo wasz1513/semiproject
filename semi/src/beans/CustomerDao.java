@@ -1,10 +1,12 @@
 package beans;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 
 public class CustomerDao {
 
@@ -22,10 +24,11 @@ public class CustomerDao {
 		return source.getConnection();
 	}
 
+		
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
 		
-		String sql ="insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql ="insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,null,sysdate,sysdate)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_id());

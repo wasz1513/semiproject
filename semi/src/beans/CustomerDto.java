@@ -15,6 +15,13 @@ public class CustomerDto {
 	private String customer_grade;
 	private String customer_joindate;
 	private String customer_lastlogin;
+	
+	
+	
+
+	public CustomerDto() {
+		super();
+	}
 
 	public int getCustomer_no() {
 		return customer_no;
