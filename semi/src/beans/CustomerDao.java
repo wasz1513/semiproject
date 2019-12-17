@@ -133,6 +133,29 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
+
+	public String find(String customer_name, String customer_phone) throws Exception {
+		Connection con = this.getConnection();
+		
+		String sql = "select customer_id from customer where customer_name =? "
+				+ "and customer_phone=?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, customer_name);
+		ps.setString(2, customer_phone );
+		
+		ResultSet rs = ps.executeQuery();
+		
+		String customer_id = null;
+		
+		if(rs.next()) {
+			customer_id = rs.getString("customer_id");
+			
+		}
+		con.close();
+		
+		return customer_id;
+	}
 	
 }
 

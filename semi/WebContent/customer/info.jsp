@@ -54,7 +54,9 @@
 			<td><%=dto.getCustomer_lastloginWithFormat()%></td>
 		</tr>
 	</table>
-    		
+    		<div>
+					<input type="submit" value="수정">	
+				</div>
     </div>    
     
     </article>
