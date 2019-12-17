@@ -1,4 +1,7 @@
 @charset "EUC-KR";
+
+/* ========================================================================================= */
+/* 	카테고리 */
         .custom-list{
             list-style: none;
             margin:0;
@@ -37,13 +40,15 @@
             padding:15px;
             width:150px;
         }
+                
         
         /*
             메뉴를 표시하는 방법
             1. :hover
             2. :checked
         */
-        
+ 
+/* ========================================================================================= */       
 /*          카테고리 */
         .menu-wrap > label{
             display: block;
@@ -63,7 +68,8 @@
         .menu-wrap > #custom-menu:checked + .custom-list{
             display: inline-block;
         }
-        
+
+/* ========================================================================================= */
 /*         로그인 */
 		.menu-wrap1 > label{
             display: block;
@@ -72,18 +78,21 @@
             display: none;
         }
         
-        .menu-wrap1 > .custom-list1 li:hover > ul{
+        .menu-wrap1 > .custom-list li:hover > ul{
             display: block;
         }
         
-        .menu-wrap1 > .custom-list1{
+        .menu-wrap1 > .custom-list{
             display:none;
         }
         
-        .menu-wrap1 > #custom-menu1:checked + .custom-list1{
+        .menu-wrap1 > #custom-menu1:checked + .custom-list{
             display: inline-block;
+            left: 1200px;
         }
 
+
+/* ========================================================================================= */
 /* 		마이페이지 */
 		.menu-wrap2 > label{
             display: block;
@@ -92,15 +101,45 @@
             display: none;
         }
         
-        .menu-wrap2 > .custom-list2 li:hover > ul{
+        .menu-wrap2 > .custom-list li:hover > ul{
             display: block;
         }
         
-        .menu-wrap2 > .custom-list2{
+        .menu-wrap2 > .custom-list{
             display:none;
         }
         
-        .menu-wrap2 > #custom-menu2:checked + .custom-list2{
+        .menu-wrap2 > #custom-menu2:checked + .custom-list{
             display: inline-block;
+            left: 1200px;
         }
+        
+/* ========================================================================================= */
+/* 		관심목록 */
+		.menu-wrap3 > label{
+            display: block;
+        }
+        .menu-wrap3 > #custom-menu3{
+            display: none;
+        }
+        
+        .menu-wrap3 > .custom-list li:hover > ul{
+            display: block;
+        }
+        
+        .menu-wrap3 > .custom-list{
+            display:none;
+        }
+        
+        .menu-wrap3 > #custom-menu3:checked + .custom-list{
+            display: inline-block;
+            left: 1300px;
+        }
+        
+        
+/*  ================================================== */
+/* 위치를 고정  */
+        .custom-list{
+		position:absolute;
+		}
         
