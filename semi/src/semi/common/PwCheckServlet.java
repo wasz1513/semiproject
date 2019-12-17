@@ -1,0 +1,40 @@
+package semi.common;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import beans.CustomerDao;
+import beans.CustomerDto;
+
+@WebServlet(urlPatterns = "/customer/check_pw.do")
+public class PwCheckServlet extends HttpServlet {
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			CustomerDao dao = new CustomerDao();
+			CustomerDto dto = new CustomerDto();
+			dto.setCustomer_pw(req.getParameter("customer_pw"));
+			dto.setCustomer_id("fbguswls");
+			String go = req.getParameter("go");
+			boolean result = dao.login(dto);
+			
+			if(result) {
+				resp.sendRedirect(req.getContextPath()+go);
+			}else {
+				resp.sendRedirect("check.jsp?error");
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			resp.sendError(500);
+		}
+		
+		
+		
+	}
+}
