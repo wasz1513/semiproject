@@ -19,6 +19,17 @@ public class CustomerDto {
 	
 	
 
+	@Override
+	public String toString() {
+		return "CustomerDto [customer_no=" + customer_no + ", customer_name=" + customer_name + ", customer_birth="
+				+ customer_birth + ", customer_nickname=" + customer_nickname + ", customer_id=" + customer_id
+				+ ", customer_pw=" + customer_pw + ", customer_phone=" + customer_phone + ", customer_email="
+				+ customer_email + ", customer_post=" + customer_post + ", customer_basic_address="
+				+ customer_basic_address + ", customer_extra_address=" + customer_extra_address + ", customer_grade="
+				+ customer_grade + ", customer_joindate=" + customer_joindate + ", customer_lastlogin="
+				+ customer_lastlogin + "]";
+	}
+
 	public CustomerDto() {
 		super();
 	}
