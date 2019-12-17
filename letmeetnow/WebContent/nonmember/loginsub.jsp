@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
-	<a href="login.jsp">·Î±×ÀÎ</a>
-	<a href="#">È¸¿ø°¡ÀÔ</a>
-	<a href="../member/mypage.jsp">¸¶ÀÌÆäÀÌÁö</a>
-	<a href="#">ÂÊÁö</a>
-	<a href="#">±¤°í¼¾ÅÍ</a>
-	<a href="#">°í°´¼¾ÅÍ</a>
+	<a href="login.jsp">ë¡œê·¸ì¸</a>
+	<a href="#">íšŒì›ê°€ìž…</a>
+	<a href="../member/mypage.jsp">ë§ˆì´íŽ˜ì´ì§€</a>
+	<a href="#">ìª½ì§€</a>
+	<a href="#">ê´‘ê³ ì„¼í„°</a>
+	<a href="#">ê³ ê°ì„¼í„°</a>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
