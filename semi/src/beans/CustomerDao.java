@@ -1,33 +1,37 @@
 package beans;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 public class CustomerDao {
 	
-	//DB 연결식
-	private static DataSource source;
-	static {
-		try {
-			InitialContext ctx = new InitialContext();
-			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	//DB 연결식
+//	private static DataSource source;
+//	static {
+//		try {
+//			InitialContext ctx = new InitialContext();
+//			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+//		}catch(NamingException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	
+//	//getConnection
+//	public Connection getConnection() throws Exception{
+//		return source.getConnection();
+//	}
 	
-	//getConnection
-	public Connection getConnection() throws Exception{
-		return source.getConnection();
+	//구방식 getConnection()
+	public Connection getConnection() throws Exception {
+		Class.forName("oracle.jdbc.OracleDriver");
+		return DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh23", "kh23");
 	}
 	
 	//회원 비밀번호 변경
 	public void ChangePassword(CustomerDto dto) throws Exception{
 		Connection con = getConnection();
-		String sql = "update customer set customer_pw=? where customer_id";
+		String sql = "update customer set customer_pw=? where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_pw());
 		ps.setString(2, dto.getCustomer_id());
