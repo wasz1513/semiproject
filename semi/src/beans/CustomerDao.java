@@ -70,12 +70,44 @@ public class CustomerDao {
 	}
 	
 	//단일조회
-//	public  CustomerDto get(String id) throws Exception{
-//		Connection con = getConnection();
-//		
-//		con.close();
-//		
-//	}
+			public CustomerDto get(String customer_id) throws Exception{
+				Connection con = getConnection();
+				
+				String sql = "select * from customer where customer_id=?";
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1, customer_id);
+				ResultSet rs = ps.executeQuery();
+				
+				CustomerDto dto;
+				
+				if(rs.next()) {
+					
+					dto = new CustomerDto();
+					
+					dto.setCustomer_no(rs.getInt("customer_no"));
+					dto.setCustomer_name(rs.getString("customer_name"));
+					dto.setCustomer_birth(rs.getString("customer_birth"));
+					dto.setCustomer_nickname(rs.getString("customer_nickname"));
+					dto.setCustomer_id(rs.getString("customer_id"));
+					dto.setCustomer_pw(rs.getString("customer_pw"));
+					dto.setCustomer_phone(rs.getString("customer_phone"));
+					dto.setCustomer_email(rs.getString("customer_email"));
+					dto.setCustomer_post(rs.getString("customer_post"));
+					dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
+					dto.setCustomer_extra_address(rs.getString("customer_extra_address"));
+					dto.setCustomer_grade(rs.getString("customer_grade"));
+
+					
+				}
+				else {
+					dto = null;
+				}
+				
+				con.close();
+				
+				return dto;
+			}
+
 	
 	
 	

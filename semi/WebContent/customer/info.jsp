@@ -5,9 +5,9 @@
     
 <%
 
-	String id = (String)session.getAttribute("customer_id");
+	String customer_id = (String)session.getAttribute("customer_id");
 	CustomerDao dao = new CustomerDao();
-	CustomerDto dto = dao.get(id);
+	CustomerDto dto = dao.get(customer_id);
 
 %>
     
@@ -17,13 +17,45 @@
     	
     	<div>
     		
-    		<h2>회원 정보</h2>
-    		<div>
-    			<h4></h4>
-    		</div>
+    		<h2><%=dto.getCustomer_name()%>님의 회원 정보</h2>
+    		<table>
+		<tr>
+			<th>아이디</th>
+			<td><%=dto.getCustomer_id()%></td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td><%=dto.getCustomer_name()%></td>
+		</tr>
+		<tr>
+			<th>등급</th>
+			<td><%=dto.getCustomer_grade()%></td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><%=dto.getCustomer_phone()%></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><%=dto.getCustomer_email()%></td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td>
+			<%=dto.getCustomer_address() %>
+			</td>
+		</tr>
+		<tr>
+			<th>가입일</th>
+			<td><%=dto.getCustomer_joindateWithFormat()%></td>
+		</tr>
+		<tr>
+			<th>최종로그인</th>
+			<td><%=dto.getCustomer_lastloginWithFormat()%></td>
+		</tr>
+	</table>
     		
-    		
-    	</div>    
+    </div>    
     
     </article>
     
