@@ -2,6 +2,7 @@ package beans;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -19,17 +20,22 @@ public class CustomerDao {
 			e.printStackTrace();
 		}
 	}
+	public boolean login(CustomerDto dto) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from customer where customer_id=? and customer_pw=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, dto.getCustomer_id());
+		ps.setString(2, dto.getCustomer_pw());
+		ResultSet rs = ps.executeQuery();
+		boolean result=rs.next();
+		con.close();
+		return result;
+	}
 	
 	//getConnection
 	public Connection getConnection() throws Exception{
 		return source.getConnection();
 	}
-	
-//	//구방식 getConnection()
-//	public Connection getConnection() throws Exception {
-//		Class.forName("oracle.jdbc.OracleDriver");
-//		return DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh23", "kh23");
-//	}
 	
 	//회원 비밀번호 변경
 	public void ChangePassword(CustomerDto dto) throws Exception{
