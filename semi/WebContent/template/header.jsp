@@ -13,33 +13,53 @@
 /* 	header 부분 범위설정 */
 	.row-multi.col-4>.a{
 		width:20%;
-		text-align:center;
+		
 	}	
 	
 	.row-multi.col-4>.b{
 		width:60%;
 		margin-top:13px;
-		text-align:center;
+		
 	}
 	
 	.row-multi.col-4>.c{
 		width:10%;
 		margin-top:14px;
-		text-align:center;
+		
 	}
 	
 	.row-multi.col-4>.d{
 		width:10%;
 		margin-top:14px;
-		text-align:center;
+		
 	}
 	
 	.row-multi.col-2>.a{
 		width:20%;
 	}
 	
-
+	.row-multi.col-4>*{
+		text-align:center;
+	}
 	
+	.row-multi.col-2>*{
+		text-align:center;
+	}
+	
+	main{
+		width: 100%;
+		margin: auto;
+	}
+	
+	header, section, footer {
+		width: 1200px;
+		margin: auto;
+		padding: 2rem;
+	}
+	
+	.row-multi.col-4 > .more{
+		margin-top: 120px;
+	}
 
 </style>
 </head>
@@ -134,13 +154,13 @@
 		</header>
 		
 <!-- 		메뉴(네비) -->
-		<nev>
+		<nav>
 			<div class="row benner">
 				<div>
-					<img src="http://placehold.it/932x300">
+					<img src="http://placehold.it/1600x300">
 				</div>
 			</div>
-		</nev>
+		</nav>
 		
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->

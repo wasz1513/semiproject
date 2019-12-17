@@ -1,7 +1,7 @@
 @charset "EUC-KR";
 
 /* ========================================================================================= */
-/* 	카테고리 */
+/* 	리스트 디자인*/
         .custom-list{
             list-style: none;
             margin:0;
@@ -22,24 +22,24 @@
         }
         
         /* 2차 이상의 메뉴 스타일 */
-        .custom-list ul{
-            list-style: none;
-            padding:0;
-            margin:0;
+/*         .custom-list ul{ */
+/*             list-style: none; */
+/*             padding:0; */
+/*             margin:0; */
             
-            position: absolute;
-            margin-left: 135px;
-            margin-top: -36px;
+/*             position: absolute; */
+/*             margin-left: 135px; */
+/*             margin-top: -36px; */
             
-            /* 2차 이상의 메뉴는 처음에 숨김 처리 */
-            display: none;
-        }
-        .custom-list ul > li{
-            background-color:black;
-            color:white;
-            padding:15px;
-            width:150px;
-        }
+/*             2차 이상의 메뉴는 처음에 숨김 처리 */
+/*             display: none; */
+/*         } */
+/*         .custom-list ul > li{ */
+/*             background-color:black; */
+/*             color:white; */
+/*             padding:15px; */
+/*             width:150px; */
+/*         } */
                 
         
         /*
@@ -63,6 +63,7 @@
         
         .menu-wrap > .custom-list{
             display:none;
+            margin-left:-54px;
         }
         
         .menu-wrap > #custom-menu:checked + .custom-list{
@@ -84,11 +85,11 @@
         
         .menu-wrap1 > .custom-list{
             display:none;
+            margin-left:-54px;
         }
         
         .menu-wrap1 > #custom-menu1:checked + .custom-list{
             display: inline-block;
-            left: 1200px;
         }
 
 
@@ -107,11 +108,11 @@
         
         .menu-wrap2 > .custom-list{
             display:none;
+            margin-left:-54px;
         }
         
         .menu-wrap2 > #custom-menu2:checked + .custom-list{
             display: inline-block;
-            left: 1200px;
         }
         
 /* ========================================================================================= */
@@ -129,11 +130,11 @@
         
         .menu-wrap3 > .custom-list{
             display:none;
+            margin-left:-54px;
         }
         
         .menu-wrap3 > #custom-menu3:checked + .custom-list{
             display: inline-block;
-            left: 1300px;
         }
         
         

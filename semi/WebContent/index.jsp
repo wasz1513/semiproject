@@ -9,15 +9,34 @@
 			<div class="row-multi col-4">
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div class="more">
+					<a>歹焊扁</a>
 				</div>
 			</div>
 			
@@ -27,15 +46,34 @@
 			<div class="row-multi col-4">
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
 				</div>
 				<div>
 					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>力格</h3>
+				</div>
+				<div class="more">
+					<a>歹焊扁</a>
 				</div>
 			</div>
 			

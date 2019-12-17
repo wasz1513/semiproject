@@ -15,14 +15,8 @@
             - 홈페이지는 브라우저 가운데 위치한다
             - 영역별 내부 여백은 글자 2개 높이만큼으로 한다.
 */
-main {
-	width: 1000px;
-	margin: auto;
-}
+	
 
-header, section, footer {
-	padding: 2rem;
-}
 
 /*        내부 영역 스타일*/
 /*
@@ -146,3 +140,4 @@ article {
 .row-multi.col-5>* {
 	width: 20%;
 }
+
