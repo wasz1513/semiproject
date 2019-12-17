@@ -1,32 +1,35 @@
 package beans;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 public class CustomerDao {
 	
 //	//DB 연결식
-//	private static DataSource source;
-//	static {
-//		try {
-//			InitialContext ctx = new InitialContext();
-//			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
-//		}catch(NamingException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	//getConnection
-//	public Connection getConnection() throws Exception{
-//		return source.getConnection();
-//	}
-	
-	//구방식 getConnection()
-	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		return DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh23", "kh23");
+	private static DataSource source;
+	static {
+		try {
+			InitialContext ctx = new InitialContext();
+			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		}catch(NamingException e) {
+			e.printStackTrace();
+		}
 	}
+	
+	//getConnection
+	public Connection getConnection() throws Exception{
+		return source.getConnection();
+	}
+	
+//	//구방식 getConnection()
+//	public Connection getConnection() throws Exception {
+//		Class.forName("oracle.jdbc.OracleDriver");
+//		return DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh23", "kh23");
+//	}
 	
 	//회원 비밀번호 변경
 	public void ChangePassword(CustomerDto dto) throws Exception{
@@ -38,17 +41,18 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
-	//회원 정보 변경(닉네임, 폰번호, post, 기본주소, 상세주소)
+	//회원 정보 변경(닉네임, 폰번호, post, 기본주소, 상세주소 / ID)
 	public void updateCustomerInfo(CustomerDto dto) throws Exception{
 		Connection con = getConnection();
-		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_post=?,customer_basic_address=?,customer_extra_address=? where id=?";
+		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email,customer_post=?,customer_basic_address=?,customer_extra_address=? where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_nickname());
 		ps.setString(2, dto.getCustomer_phone());
-		ps.setString(3, dto.getCustomer_post());
-		ps.setString(4, dto.getCustomer_basic_address());
-		ps.setString(5, dto.getCustomer_extra_address());
-		ps.setString(6, dto.getCustomer_id());
+		ps.setString(3, dto.getCustomer_email());
+		ps.setString(4, dto.getCustomer_post());
+		ps.setString(5, dto.getCustomer_basic_address());
+		ps.setString(6, dto.getCustomer_extra_address());
+		ps.setString(7, dto.getCustomer_id());
 		ps.execute();
 		con.close();
 	}
