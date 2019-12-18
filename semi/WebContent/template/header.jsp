@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/input.css">
 <title>Semi</title>
 <style>
 	
@@ -60,7 +61,9 @@
 	
 	.row-multi.col-4 > .more{
 		margin-top: 120px;
+
 	}
+
 
 
 /* 슬라이더 영역 스타일 */
@@ -89,8 +92,15 @@ function loadSlider(){
 
 </script>
 
+<% 
+String id = (String)session.getAttribute("customer_id"); 
+boolean login = id!=null;
+String grade = (String)session.getAttribute("customer_grade");
+boolean master = grade != null && grade.equals("관리자");
+%>
+
 </head>
-<body onload="loadSlider();">
+<body onload="loadSlider();" test>
 <!-- 	메인페이지 -->
 	<main>
 		
@@ -98,43 +108,46 @@ function loadSlider(){
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 		<header>
 			
-			<div class="row-multi col-4">
+			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
 				<div class="a">
 					<img src="http://placehold.it/180x50">
 				</div>
 <!-- 				검색창 -->
-				<div class="b">
+				<div class="b">	
 					<form action="#" method="get">
-						<input type="text" name="key" size="80%">
-						<input type="submit" value="검색">
+						<input class="main-bar-input" type="text" name="key" size="80%" height="40">
+						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
 					</form>
 				</div>
 <!-- 					로그인 / 마이페이지 -->
 				<div class="c">
-<%-- 					<%if(세션id==null){ %> --%>
+					<%if(!login){ %>
 <!-- 						<a>로그인</a> -->
 					<div class="menu-wrap1">
 						<label for="custom-menu1">로그인</label>
       				  	<input type="checkbox" id="custom-menu1">
       				  	<ul class="custom-list">
-      				  		<li>로그인</li>
-			             	<li>회원가입</li>
-			                <li>아이디/비밀번호찾기</li>		
+      				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
+			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
+			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
+			                <li><a href="#">비밀번호찾기</a></li>		
       				  	</ul>
 					</div>
-<%-- 					<%}else{ %> --%>
+					<%}else{ %>
 <!-- 						<a>마이페이지</a> -->
-<!-- 					<div class="menu-wrap2"> -->
-<!-- 						<label for="custom-menu2">마이페이지</label> -->
-<!--       				  	<input type="checkbox" id="custom-menu2"> -->
-<!--       				  	<ul class="custom-list"> -->
-<!--       				  		<li>프로필보기</li> -->
-<!-- 			             	<li>키워드입력</li> -->
-<!-- 			                <li>위치수정</li> -->
-<!--       				  	</ul> -->
-<!-- 					</div> -->
-<%-- 					<%} %> --%>
+					<div class="menu-wrap2">
+						<label for="custom-menu2">마이페이지</label>
+      				  	<input type="checkbox" id="custom-menu2">
+      				  	<ul class="custom-list">
+      				  		<li>프로필보기</li>
+      				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
+			             	<li>키워드입력</li>
+			                <li>위치수정</li>
+			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
+      				  	</ul>
+					</div>
+					<%} %>
 				</div>
 <!-- 				관심목록 -->
 				<div class="d">
@@ -185,6 +198,3 @@ function loadSlider(){
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 		<section>
-				
-		
-		
