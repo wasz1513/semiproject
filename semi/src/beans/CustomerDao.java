@@ -122,7 +122,7 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
-	//회원 탈퇴
+	//회원탈퇴
 	public void withdrawal(int customer_no) throws Exception{
 		Connection con = getConnection();
 		
