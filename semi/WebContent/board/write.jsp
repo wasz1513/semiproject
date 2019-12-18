@@ -5,7 +5,7 @@
 <div align="center">
 
 	<h2>게시글 작성</h2>
-	<h5>타인에 대한 비방글은 예고 없이 삭제될 수 있습니다</h5>
+	
 	
 	<form action="write.do" method="post">
 		<%if(request.getParameter("superno") != null){ %>
@@ -20,6 +20,7 @@
 					<select name="head">
 						<option value="">선택하세요</option>
 						<option>공지</option>
+						<option>정보</option>
 						
 					</select>		
 				</td>

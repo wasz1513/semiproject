@@ -1,4 +1,4 @@
-package semi;
+package bean;
 
 	public class BoardDto{
 	private int no;
@@ -8,7 +8,25 @@ package semi;
 	private String wdate;
 	private int readcount;
 	private String content;
+	private String writer;
 	
+	public BoardDto(int no, String head, String title, int replycount, String wdate, int readcount, String content,
+			String writer) {
+		super();
+		this.no = no;
+		this.head = head;
+		this.title = title;
+		this.replycount = replycount;
+		this.wdate = wdate;
+		this.readcount = readcount;
+		this.content = content;
+		this.writer = writer;
+	}
+
+	public BoardDto() {
+		super();
+	}
+
 	public int getNo() {
 		return no;
 	}
@@ -65,22 +83,12 @@ package semi;
 		this.content = content;
 	}
 
-	public BoardDto() {
-		super();
+	public String getWriter() {
+		return writer;
 	}
 
-	public BoardDto(int no, String head, String title, int replycount, String wdate, int readcount, String content) {
-		super();
-		this.no = no;
-		this.head = head;
-		this.title = title;
-		this.replycount = replycount;
-		this.wdate = wdate;
-		this.readcount = readcount;
-		this.content = content;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
-	
-		
-	
 	}
 	

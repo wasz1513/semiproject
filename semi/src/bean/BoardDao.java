@@ -1,4 +1,4 @@
-package semi;
+package bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -137,36 +137,26 @@ public class BoardDao {
 //		return list;
 //	}
 //
-//	//등록 - 새글도 등록하고 답글도 등록해야함
-//	//새글일 경우 no, head, title, content가 들어있다
-//	//답글일 경우 no, groupno, superno, depth, head, title, content가 들어있다
-//	public void write(GoodsDto dto) throws Exception{
-//		Connection con = getConnection();
-//		
-//		String sql = "insert into board"
-//							+ "(no, head, title, writer, content, groupno, superno, depth) "
-//							+ "values(?, ?, ?, ?, ?, ?, ?, ?)";
-//		PreparedStatement ps = con.prepareStatement(sql);
-//		ps.setInt(1, dto.getNo());
-//		ps.setString(2, dto.getHead());
-//		ps.setString(3, dto.getTitle());
-//		ps.setString(4, dto.getWriter());
-//		ps.setString(5, dto.getContent());
-//		if(dto.getGroupno() == 0) {//새글
-//			ps.setInt(6, dto.getNo());//새글 번호
-//			ps.setNull(7, Types.INTEGER);//null을 설정
-//			ps.setInt(8, 0);//새글은 차수가 0
-//		}
-//		else {//답글
-//			ps.setInt(6, dto.getGroupno());//원본글 그룹번호
-//			ps.setInt(7, dto.getSuperno());//원본글 번호
-//			ps.setInt(8, dto.getDepth() + 1);//원본글 차수 + 1
-//		}
-//		
-//		ps.execute();
-//		
-//		con.close();
-//	}
+	
+	public void write(BoardDto dto) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "insert into board"
+							+ "(no, head, title,content,writer,readcount) "
+							+ "value(board_seq.nextbal, ?, ?, ?, ?, ?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, dto.getNo());
+		ps.setString(1, dto.getHead());
+		ps.setString(2, dto.getTitle());
+		ps.setString(3, dto.getContent());
+		ps.setString(4, dto.getWriter());
+//		ps.setInt(6, dto.getReadcount());
+		
+		
+		ps.execute();
+		
+		con.close();
+	}
 //
 //	//시퀀스 생성명령
 //	public int getSequence() throws Exception{
@@ -184,8 +174,8 @@ public class BoardDao {
 //		return seq;
 //	}
 //	
-//	//단일조회
-//	public GoodsDto get(int no) throws Exception{
+	//단일조회
+//	public BoardDto get(int no) throws Exception{
 //		Connection con = getConnection();
 //		
 //		String sql = "select * from board where no = ?";
@@ -193,33 +183,22 @@ public class BoardDao {
 //		ps.setInt(1, no);
 //		ResultSet rs = ps.executeQuery();
 //		
-//		//ResultSet ----> BoardDto 변환
-//		GoodsDto dto;
+//		BoardDto dto;
 //		if(rs.next()) {
-//			int no2 = rs.getInt("no");
-//			String head = rs.getString("head");
-//			String writer = rs.getString("writer");
-//			String wdate = rs.getString("wdate");
-//			String title = rs.getString("title");
-//			String content = rs.getString("content");
-//			int readcount = rs.getInt("readcount");
-//			int replycount = rs.getInt("replycount");
-//			int groupno = rs.getInt("groupno");
-//			int superno = rs.getInt("superno");
-//			int depth = rs.getInt("depth");
-//			
-//			dto = new GoodsDto(
-//					no, head, title, writer, wdate, 
-//					readcount, replycount, content, groupno, superno, depth);
+////		   int no =rs.getInt("no");
+//		   String head = rs.getString("head");
+//		   String writer = rs.getString("writer");
+//		   
+//
 //		}
 //		else {
 //			dto = null;
 //		}
 //		
 //		con.close();
-//		return dto;
+////		return dto;
 //	}
-//	
+	
 //	//조회수 증가
 //	public void cu(int no) throws Exception{
 //		Connection con = getConnection();
@@ -305,6 +284,22 @@ public class BoardDao {
 //		ps.execute();
 //		con.close();
 //	}
+	
+// 시퀀스
+	public int getSequence() throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select board_seq.nextval from dual";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		
+		int seq = rs.getInt(1);
+		con.close();
+		
+		return seq;
+	}
+	
 	
 }
 	
