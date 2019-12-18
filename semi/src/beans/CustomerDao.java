@@ -122,6 +122,7 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
+	
 	//회원 탈퇴
 	public void withdrawal(int customer_no) throws Exception{
 		Connection con = getConnection();
@@ -133,7 +134,8 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
-
+	
+	//아이디찾기
 	public String find(String customer_name, String customer_phone) throws Exception {
 		Connection con = this.getConnection();
 		
