@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/input.css">
 <title>Semi</title>
 <style>
 	
@@ -113,10 +114,10 @@ boolean master = grade != null && grade.equals("관리자");
 					<img src="http://placehold.it/180x50">
 				</div>
 <!-- 				검색창 -->
-				<div class="b">
+				<div class="b">	
 					<form action="#" method="get">
-						<input type="text" name="key" size="80%">
-						<input type="submit" value="검색">
+						<input class="main-bar-input" type="text" name="key" size="80%" height="40">
+						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
 					</form>
 				</div>
 <!-- 					로그인 / 마이페이지 -->
