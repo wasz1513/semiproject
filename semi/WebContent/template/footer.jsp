@@ -23,7 +23,6 @@
 				<h5>id = <%= id %></h5>
 				<h5>grade = <%= grade %></h5>
 				<h5>로그인 상태 = <%= id != null %></h5>
-			
 		</footer>
 	</main>
 
