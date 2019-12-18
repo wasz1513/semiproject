@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.CustomerDao;
-import beans.CustomerDto;
+import semi.bean.CustomerDao;
+import semi.bean.CustomerDto;
 
 @WebServlet(urlPatterns = "/customer/check_pw.do")
 public class PwCheckServlet extends HttpServlet {
