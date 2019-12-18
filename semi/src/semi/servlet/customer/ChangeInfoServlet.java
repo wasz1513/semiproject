@@ -1,4 +1,4 @@
-package semi.customer;
+package semi.servlet.customer;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.CustomerDao;
-import beans.CustomerDto;
+import semi.bean.CustomerDao;
+import semi.bean.CustomerDto;
 
 @WebServlet(urlPatterns = "/customer/change_info.do")
 public class ChangeInfoServlet extends HttpServlet {
@@ -27,7 +27,7 @@ public class ChangeInfoServlet extends HttpServlet {
 			dto.setCustomer_basic_address(req.getParameter("customer_basic_address"));
 			dto.setCustomer_extra_address(req.getParameter("customer_extra_address"));
 			//session에서 불러 오는 것 추가 후 반드시 변경할 것.
-			dto.setCustomer_id("fbguswls");
+			dto.setCustomer_id((String)req.getSession().getAttribute("customer_id"));
 			dao.updateCustomerInfo(dto);
 			resp.sendRedirect(req.getContextPath());
 			

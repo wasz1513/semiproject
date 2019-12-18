@@ -13,11 +13,11 @@
 			
 				<h2>회원 가입</h2>
 				<div>
-					<label>아이디</label>
-					<input type="text" name ="customer_id" required>
+					<label for="id">아이디</label>
+					<input id="id" type="text" name ="customer_id" required>
 				</div>
 				<div>
-					<label>비밀번호</label>
+					<label for="pw">비밀번호</label>
 					<input type="password" name ="customer_pw" required>
 				</div>
 				<div>
