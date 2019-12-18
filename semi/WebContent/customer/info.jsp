@@ -11,53 +11,60 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<article class="w-40">
+    
+    <article class ="w-40">
+    	
+    	<div>
+    		
+    		<h2><%=dto.getCustomer_name()%>님의 회원 정보</h2>
+    		<div>
+    			아이디
+				<%=dto.getCustomer_id()%>
+    		</div>
+		
+			<div>
+				이름
+				<%=dto.getCustomer_name()%>
+			</div>
+			
+			<div>
+				등급
+				<%=dto.getCustomer_grade()%>
+			</div>
+			
+			<div>
+				전화번호
+				<%=dto.getCustomer_phone()%>
+			</div>
+		
+			<div>
+				이메일
+				<%=dto.getCustomer_email()%>
+			</div>
+			
+			<div>
+				주소
+				<%=dto.getCustomer_address() %>
+			</div>
+		
+			<div>
+				가입일
+				<%=dto.getCustomer_joindateWithFormat()%>
+			</div>
+		
+			<div>
+				최종로그인
+				<%=dto.getCustomer_lastloginWithFormat()%>
+			</div>
 
-	<div>
-
-		<h2><%=dto.getCustomer_name()%>님의 회원 정보
-		</h2>
-		<table>
-			<tr>
-				<th>아이디</th>
-				<td><%=dto.getCustomer_id()%></td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td><%=dto.getCustomer_name()%></td>
-			</tr>
-			<tr>
-				<th>등급</th>
-				<td><%=dto.getCustomer_grade()%></td>
-			</tr>
-			<tr>
-				<th>전화번호</th>
-				<td><%=dto.getCustomer_phone()%></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td><%=dto.getCustomer_email()%></td>
-			</tr>
-			<tr>
-				<th>주소</th>
-				<td><%=dto.getCustomer_address()%></td>
-			</tr>
-			<tr>
-				<th>가입일</th>
-				<td><%=dto.getCustomer_joindateWithFormat()%></td>
-			</tr>
-			<tr>
-				<th>최종로그인</th>
-				<td><%=dto.getCustomer_lastloginWithFormat()%></td>
-			</tr>
-		</table>
-		<div>
-		<form action="<%=request.getContextPath()%>/customer/change_info.jsp" method>
-			<input type="submit" value="회원정보 수정">
-		</form>
-		</div>
-	</div>
-
-</article>
+    		<div>
+    				<a href="check_pw.jsp?go=/customer/change_pw.jsp"><input type="submit" value="비밀번호 변경"></a>
+					<a href="check_pw.jsp?go=/customer/change_info.jsp"><input type="submit" value="회원정보 수정">	</a>
+					<a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input type="submit" value="회원탈퇴"></a>
+				</div>
+    </div>    
+    
+    </article>
+    
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

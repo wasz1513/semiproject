@@ -99,11 +99,11 @@ public class CustomerDao {
 	}
 
 	// 회원 탈퇴
-	public void withdrawal(int customer_no) throws Exception {
+	public void withrawal(String customer_id) throws Exception {
 		Connection con = getConnection();
-		String sql = "delete from customer where customer_no=?";
+		String sql = "delete customer where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, customer_no);
+		ps.setString(1, customer_id);
 		ps.execute();
 		con.close();
 	}
@@ -111,7 +111,9 @@ public class CustomerDao {
 	// 회원가입
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
+
 		String sql = "insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate)";
+
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_name());
 		ps.setString(2, dto.getCustomer_birth());
