@@ -46,6 +46,8 @@ public void write(GoodsDto dto) throws Exception{
 //	return seq;
 //}
 
+
+//단일 조회
 public GoodsDto get(int no)throws Exception{
 	Connection con= getcConnection();
 	
@@ -64,7 +66,8 @@ public GoodsDto get(int no)throws Exception{
 			con.close();
 			return dto;
 }
-
+////조회수 증가
+//public void readcountupdate()
 
 
 }
