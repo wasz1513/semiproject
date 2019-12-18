@@ -111,9 +111,7 @@ public class CustomerDao {
 	// 회원가입
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
-
-		String sql = "insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,null,sysdate,sysdate)";
-
+		String sql = "insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_name());
 		ps.setString(2, dto.getCustomer_birth());
@@ -125,11 +123,8 @@ public class CustomerDao {
 		ps.setString(8, dto.getCustomer_post());
 		ps.setString(9, dto.getCustomer_basic_address());
 		ps.setString(10, dto.getCustomer_extra_address());
-
 		ps.execute();
-
 		con.close();
-
 	}
 	// 단일조회
 	public CustomerDto get(String customer_id) throws Exception {
