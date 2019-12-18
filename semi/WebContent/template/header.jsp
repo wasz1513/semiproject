@@ -60,15 +60,15 @@
 		padding: 2rem;
 	}
 	
-	header{
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding:0;
-	}
+/* 	header{ */
+/*     background-color: #fff; */
+/*     position: fixed; */
+/*     top: 0; */
+/*     left: 0; */
+/*     right: 0; */
+/*     z-index: 100; */
+/*     padding:0; */
+/* 	} */
 	
 	
 	.row-multi.col-4 > .more{
@@ -81,7 +81,7 @@
 
     
     nav{
-    	margin-top:110px;
+/*     	margin-top:110px; */
     	height: 300px;
     	z-index: 10;
     }
@@ -111,7 +111,6 @@ boolean master = grade != null && grade.equals("관리자");
 
 </head>
 <body onload="loadSlider();" test>
-id=<%=id %>
 <!-- 	메인페이지 -->
 	<main>
 <!-- 		헤더 -->
@@ -133,7 +132,6 @@ id=<%=id %>
 <!-- 					로그인 / 마이페이지 -->
 				<div class="c">
 					<%if(id==null){ %>
-						<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<div class="menu-wrap1">
 						<label for="custom-menu1">로그인</label>
       				  	<input type="checkbox" id="custom-menu1">
