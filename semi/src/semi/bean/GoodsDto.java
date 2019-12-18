@@ -2,121 +2,100 @@ package semi.bean;
 
 public class GoodsDto {
 
-	private int no;
-	private String title;
-	private String category;
-	private String content;
-	private String state;
-	private int price;
-	private int readcount;
-	private int replycount;
-	private String writetime;
+	private int goods_no;
+	private String goods_title;
+	private String goods_category;
+	private String goods_content;
+	private String goods_state;
+	private int goods_price;
+	private int goods_readcount;
+	private int goods_replycount;
+	private String goods_writetime;
 	private String customer_id;
-	
-	public String getCustomer_id() {
-		return customer_id;
-	}
-
-	public void setCustomer_id(String customer_id) {
-		this.customer_id = customer_id;
-	}
-
 	public GoodsDto() {
 		super();
 	}
-
-	public int getNo() {
-		return no;
+	public int getGoods_no() {
+		return goods_no;
 	}
-
-	public void setNo(int no) {
-		this.no = no;
+	public void setGoods_no(int goods_no) {
+		this.goods_no = goods_no;
 	}
-
-	public String getTitle() {
-		return title;
+	public String getGoods_title() {
+		return goods_title;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public void setGoods_title(String goods_title) {
+		this.goods_title = goods_title;
 	}
-
-	public String getCategory() {
-		return category;
+	public String getGoods_category() {
+		return goods_category;
 	}
-
-	public void setCategory(String category) {
-		this.category = category;
+	public void setGoods_category(String goods_category) {
+		this.goods_category = goods_category;
 	}
-
-	public String getContent() {
-		return content;
+	public String getGoods_content() {
+		return goods_content;
 	}
-
-	public void setContent(String content) {
-		this.content = content;
+	public void setGoods_content(String goods_content) {
+		this.goods_content = goods_content;
 	}
-
-	public String getState() {
-		return state;
+	public String getGoods_state() {
+		return goods_state;
 	}
-
-	public void setState(String state) {
-		this.state = state;
+	public void setGoods_state(String goods_state) {
+		this.goods_state = goods_state;
 	}
-
-	public int getPrice() {
-		return price;
+	public int getGoods_price() {
+		return goods_price;
 	}
-
-	public void setPrice(int price) {
-		this.price = price;
+	public void setGoods_price(int goods_price) {
+		this.goods_price = goods_price;
 	}
-
-	public int getReadcount() {
-		return readcount;
+	public int getGoods_readcount() {
+		return goods_readcount;
 	}
-
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
+	public void setGoods_readcount(int goods_readcount) {
+		this.goods_readcount = goods_readcount;
 	}
-
-	public int getReplycount() {
-		return replycount;
+	public int getGoods_replycount() {
+		return goods_replycount;
 	}
-
-	public void setReplycount(int replycount) {
-		this.replycount = replycount;
+	public void setGoods_replycount(int goods_replycount) {
+		this.goods_replycount = goods_replycount;
 	}
-
-	public String getWritetime() {
-		return writetime;
+	public String getGoods_writetime() {
+		return goods_writetime;
 	}
-
-	public void setWritetime(String writetime) {
-		this.writetime = writetime;
+	public void setGoods_writetime(String goods_writetime) {
+		this.goods_writetime = goods_writetime;
 	}
-
-	public GoodsDto(int no, String title, String category, String content, String state, int price, int readcount,
-			int replycount, String writetime, String customer_id) {
-		super();
-		this.no = no;
-		this.title = title;
-		this.category = category;
-		this.content = content;
-		this.state = state;
-		this.price = price;
-		this.readcount = readcount;
-		this.replycount = replycount;
-		this.writetime = writetime;
+	public String getCustomer_id() {
+		return customer_id;
+	}
+	public void setCustomer_id(String customer_id) {
 		this.customer_id = customer_id;
 	}
-
+	public GoodsDto(int goods_no, String goods_title, String goods_category, String goods_content, String goods_state,
+			int goods_price, int goods_readcount, int goods_replycount, String goods_writetime, String customer_id) {
+		super();
+		this.goods_no = goods_no;
+		this.goods_title = goods_title;
+		this.goods_category = goods_category;
+		this.goods_content = goods_content;
+		this.goods_state = goods_state;
+		this.goods_price = goods_price;
+		this.goods_readcount = goods_readcount;
+		this.goods_replycount = goods_replycount;
+		this.goods_writetime = goods_writetime;
+		this.customer_id = customer_id;
+	}
 	@Override
 	public String toString() {
-		return "GoodsDto [no=" + no + ", title=" + title + ", category=" + category + ", content=" + content
-				+ ", state=" + state + ", price=" + price + ", readcount=" + readcount + ", replycount=" + replycount
-				+ ", writetime=" + writetime + "]";
+		return "GoodsDto [goods_no=" + goods_no + ", goods_title=" + goods_title + ", goods_category=" + goods_category
+				+ ", goods_content=" + goods_content + ", goods_state=" + goods_state + ", goods_price=" + goods_price
+				+ ", goods_readcount=" + goods_readcount + ", goods_replycount=" + goods_replycount
+				+ ", goods_writetime=" + goods_writetime + ", customer_id=" + customer_id + "]";
 	}
+	
 	
 }

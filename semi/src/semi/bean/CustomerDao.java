@@ -1,12 +1,14 @@
 package semi.bean;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import java.sql.Connection;
 
 public class CustomerDao {
 
@@ -39,11 +41,10 @@ public class CustomerDao {
 	}
 
 	// getList 기능(모두 불러오기)
-	public List<CustomerDto> getList(CustomerDto dto) throws Exception {
+	public List<CustomerDto> getList() throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from customer where customer_id=?";
+		String sql = "select * from customer";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, dto.getCustomer_id());
 		ResultSet rs = ps.executeQuery();
 
 		List<CustomerDto> list = new ArrayList<>();
@@ -124,13 +125,9 @@ public class CustomerDao {
 		ps.setString(8, dto.getCustomer_post());
 		ps.setString(9, dto.getCustomer_basic_address());
 		ps.setString(10, dto.getCustomer_extra_address());
-
 		ps.execute();
-
 		con.close();
-
 	}
-
 	// 단일조회
 	public CustomerDto get(String customer_id) throws Exception {
 		Connection con = getConnection();
@@ -195,4 +192,51 @@ public class CustomerDao {
 		return customer_id;
 	}
 
+	//비밀번호 찾기 기능
+	public boolean find_pw(CustomerDto dto) throws Exception{
+		Connection con = getConnection();
+		boolean result;
+		if(dto.getCustomer_email()==null) {
+			String sql = "select * from customer where customer_id=? and customer_name=? and customer_phone=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getCustomer_id());
+			ps.setString(2, dto.getCustomer_name());
+			ps.setString(3, dto.getCustomer_phone());
+			ResultSet rs = ps.executeQuery();
+			result = rs.next();
+			
+		}else {
+			String sql = "select * from customer where customer_id=? and customer_name=? and customer_email=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getCustomer_id());
+			ps.setString(2, dto.getCustomer_name());
+			ps.setString(3, dto.getCustomer_email());
+			ResultSet rs = ps.executeQuery();
+			result = rs.next();
+		}
+		
+		con.close();
+		
+		return result;
+		
+	}
+	//임시비밀번호 발급
+	public String random_pw(CustomerDto dto) throws Exception{
+		Random r = new Random();
+		String base = "0123456789!@#$%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+		String encrype = "";
+		for(int i = 0 ; i<8;i++) {
+			int result = r.nextInt(67);
+			encrype += base.charAt(result);
+		}
+		Connection con = getConnection();
+		String sql = "update customer set customer_pw=? where customer_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, encrype);
+		ps.setString(2, dto.getCustomer_id());
+		ps.execute();
+		
+		con.close();
+		return encrype;
+	}
 }

@@ -17,6 +17,7 @@ public class WithrawalCustomer extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+
 			
 			req.setCharacterEncoding("UTF-8");
 			
@@ -25,7 +26,9 @@ public class WithrawalCustomer extends HttpServlet{
 			
 			session.removeAttribute("customer_id");
 			session.removeAttribute("customer_grade");
-			
+
+	
+
 			CustomerDao dao = new CustomerDao();
 			dao.withrawal(id);
 			
