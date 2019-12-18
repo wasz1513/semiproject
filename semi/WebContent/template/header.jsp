@@ -120,8 +120,8 @@ function loadSlider(){
 						<label for="custom-menu1">로그인</label>
       				  	<input type="checkbox" id="custom-menu1">
       				  	<ul class="custom-list">
-      				  		<li>로그인</li>
-			             	<li>회원가입</li>
+      				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
+			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</li>
 			                <li>아이디/비밀번호찾기</li>		
       				  	</ul>
 					</div>
