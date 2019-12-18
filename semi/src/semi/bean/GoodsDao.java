@@ -57,9 +57,10 @@ public class GoodsDao {
 	public GoodsDto get(int no) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select *from where no=? ";
+		String sql = "select * from goods where no=? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
+		
 		ResultSet rs = ps.executeQuery();
 
 		GoodsDto dto;

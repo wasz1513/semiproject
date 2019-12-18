@@ -31,7 +31,9 @@ public class GoodsWriteServlet extends HttpServlet {
 //상세보기로
 		GoodsDao dao = new GoodsDao();
 			int no=dao.getSequence();
+			
 			dto.setNo(no);
+			
 			dao.write(dto);
 			
 			resp.sendRedirect("content.jsp?no="+no);
