@@ -99,6 +99,7 @@ boolean master = grade != null && grade.equals("관리자");
 
 </head>
 <body onload="loadSlider();" test>
+id=<%=id %>
 <!-- 	메인페이지 -->
 	<main>
 <!-- 		헤더 -->
