@@ -5,7 +5,7 @@
 <% 
 int no= Integer.parseInt((request.getParameter("no"))); 
  GoodsDao goodsdao= new GoodsDao(); 
- goodsdao.readcountupdate(); //조회수 증가
+ goodsdao.readcountupdate(no); //조회수 증가
  GoodsDto goodsdto = goodsdao.get(no); //게시글 불러오기
 %>
 

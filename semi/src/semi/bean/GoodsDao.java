@@ -58,7 +58,7 @@ public class GoodsDao {
 	public GoodsDto get(int no) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from goods where no=? ";
+		String sql = "select * from goods where goods_no=? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 
@@ -85,12 +85,12 @@ public class GoodsDao {
 	}
 
 //조회수 증가
-	public void readcountupdate() throws Exception {
+	public void readcountupdate(int no) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "update goods set readcount = readcount+1 where no = ?";
+		String sql = "update goods set goods_readcount = goods_readcount+1 where goods_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
-//	ps.setInt(1,no);
+		ps.setInt(1, no);
 		ps.execute();
 
 		con.close();
