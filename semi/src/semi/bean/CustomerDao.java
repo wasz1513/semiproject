@@ -111,7 +111,7 @@ public class CustomerDao {
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
 
-		String sql = "insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,null,sysdate,sysdate)";
+		String sql = "insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate)";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_name());
