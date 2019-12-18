@@ -1,5 +1,5 @@
-<%@page import="beans.CustomerDto"%>
-<%@page import="beans.CustomerDao"%>
+<%@page import="semi.bean.CustomerDto"%>
+<%@page import="semi.bean.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
