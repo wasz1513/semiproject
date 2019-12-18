@@ -41,11 +41,10 @@ public class CustomerDao {
 	}
 
 	// getList 기능(모두 불러오기)
-	public List<CustomerDto> getList(CustomerDto dto) throws Exception {
+	public List<CustomerDto> getList() throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from customer where customer_id=?";
+		String sql = "select * from customer";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, dto.getCustomer_id());
 		ResultSet rs = ps.executeQuery();
 
 		List<CustomerDto> list = new ArrayList<>();
@@ -224,6 +223,7 @@ public class CustomerDao {
 		return result;
 		
 	}
+	//임시비밀번호 발급
 	public String random_pw(CustomerDto dto) throws Exception{
 		Random r = new Random();
 		String base = "0123456789!@#$%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -232,7 +232,6 @@ public class CustomerDao {
 			int result = r.nextInt(67);
 			encrype += base.charAt(result);
 		}
-		
 		Connection con = getConnection();
 		String sql = "update customer set customer_pw=? where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
