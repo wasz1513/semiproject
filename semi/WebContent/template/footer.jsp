@@ -1,12 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
+		</section>
+<!-- 		푸터 -->
+		<footer>
+			<div class="row-left">
+				<div>
+					당근나라
+				</div>
+				<div>
+					kh2 b class
+				</div>
+				<div>
+					team 3
+				</div>
+			</div>
+		</footer>
+	</main>
 </body>
-</html>
+</html>>

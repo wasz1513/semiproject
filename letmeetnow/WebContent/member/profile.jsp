@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
 create table member(<br>
-	È¸¿øÄÚµå primary key / (member_seq.nextval)<br>
-	ÀüÈ­¹øÈ£  not null<br>
-	´Ğ³×ÀÓ not null<br>
-	ÁÖ¼Ò(À§Ä¡Á¤º¸) not null<br>
-	È°µ¿¹îÁö default 0<br>
-	¸Å³Ê¿Âµµ default 36.5<br>
-	ÆÇ¸Å»óÇ° default 0<br>
-	¹ŞÀº ¸Å³Ê Æò°¡ default null<br>
-	¹ŞÀº °Å·¡ ÈÄ±â default null<br>
+	íšŒì›ì½”ë“œ primary key / (member_seq.nextval)<br>
+	ì „í™”ë²ˆí˜¸  not null<br>
+	ë‹‰ë„¤ì„ not null<br>
+	ì£¼ì†Œ(ìœ„ì¹˜ì •ë³´) not null<br>
+	í™œë™ë±ƒì§€ default 0<br>
+	ë§¤ë„ˆì˜¨ë„ default 36.5<br>
+	íŒë§¤ìƒí’ˆ default 0<br>
+	ë°›ì€ ë§¤ë„ˆ í‰ê°€ default null<br>
+	ë°›ì€ ê±°ë˜ í›„ê¸° default null<br>
 	)
 </div>
 

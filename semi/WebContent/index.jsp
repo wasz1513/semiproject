@@ -1,217 +1,91 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/list.css">
-<title>Semi</title>
-<style>
-	
-/* 	header ºÎºÐ ¹üÀ§¼³Á¤ */
-	.row-multi.col-4>.a{
-		width:20%;
-		text-align:center;
-	}	
-	
-	.row-multi.col-4>.b{
-		width:60%;
-		margin-top:13px;
-		text-align:center;
-	}
-	
-	.row-multi.col-4>.c{
-		width:10%;
-		margin-top:14px;
-		text-align:center;
-	}
-	
-	.row-multi.col-4>.d{
-		width:10%;
-		margin-top:14px;
-		text-align:center;
-	}
-	
-	.row-multi.col-2>.a{
-		width:20%;
-	}
-	
-	.custom-list{
-		position:absolute;
-		
-	}
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
-</style>
-</head>
-<body test>
-<!-- 	¸ÞÀÎÆäÀÌÁö -->
-	<main>
-		
-<!-- 		Çì´õ -->
-<!-- 			·Î°í / °Ë»öÃ¢ / ·Î±×ÀÎ / °ü½É¸ñ·Ï -->
-		<header>
-			
-			<div class="row-multi col-4">
-<!-- 				·Î°í -->
-				<div class="a">
-					<img src="http://placehold.it/180x50">
-				</div>
-<!-- 				°Ë»öÃ¢ -->
-				<div class="b">
-					<form action="#" method="get">
-						<input type="text" name="key" size="80%">
-						<input type="submit" value="°Ë»ö">
-					</form>
-				</div>
-<!-- 					·Î±×ÀÎ / ¸¶ÀÌÆäÀÌÁö -->
-				<div class="c">
-<%-- 					<%if(¼¼¼Çid==null){ %> --%>
-						<a>·Î±×ÀÎ</a>
-<!-- 					<div class="menu-wrap1"> -->
-<!-- 						<label for="custom-menu1">·Î±×ÀÎ</label> -->
-<!--       				  	<input type="checkbox" id="custom-menu1"> -->
-<!--       				  	<ul class="custom-list1"> -->
-<!--       				  		<li>·Î±×ÀÎ</li> -->
-<!-- 			             	<li>È¸¿ø°¡ÀÔ</li> -->
-<!-- 			                <li>¾ÆÀÌµð/ºñ¹Ð¹øÈ£Ã£±â</li>		 -->
-<!--       				  	</ul> -->
-<!-- 					</div> -->
-<%-- 					<%}else{ %> --%>
-						<a>¸¶ÀÌÆäÀÌÁö</a>
-<!-- 					<div class="menu-wrap2"> -->
-<!-- 						<label for="custom-menu2">¸¶ÀÌÆäÀÌÁö</label> -->
-<!--       				  	<input type="checkbox" id="custom-menu2"> -->
-<!--       				  	<ul class="custom-list2"> -->
-<!--       				  		<li>ÇÁ·ÎÇÊº¸±â</li> -->
-<!-- 			             	<li>Å°¿öµåÀÔ·Â</li> -->
-<!-- 			                <li>À§Ä¡¼öÁ¤</li> -->
-<!--       				  	</ul> -->
-<!-- 					</div> -->
-<%-- 					<%} %> --%>
-				</div>
-<!-- 				°ü½É¸ñ·Ï -->
-				<div class="d">
-					°ü½É¸ñ·Ï 
-				</div>
-			</div>
-		
-			
-<!-- 			Ä«Å×°í¸® / ÀÎ±â°Ë»ö¾î -->
-			<div class="row-multi col-2">
-				<div class="a">
-					<div class="menu-wrap">
-						<label for="custom-menu">Ä«Å×°í¸®</label>
-      				  	<input type="checkbox" id="custom-menu">
-      				  	<ul class="custom-list">
-      				  		<li>ÆÐ¼ÇÀÇ·ù</li>
-			             	<li>ÆÐ¼ÇÀâÈ­</li>
-			                <li>È­ÀåÇ°/¹Ì¿ë</li>
-			                <li>µðÁöÅÐ/°¡Àü</li>
-			                <li>°¡±¸/ÀÎÅ×¸®¾î</li>
-			                <li>Ãâ»ê/À°¾Æ</li>
-			                <li>½ÄÇ°</li>
-			                <li>½ºÆ÷Ã÷/·¹Àú</li>
-			                <li>»ýÈ°/°Ç°­</li>
-			                <li>¿©Çà/¹®È­</li>
-      				  	</ul>
-					</div>
-				</div>
-				<div class="b">
-					ÀÎ±â°Ë»ö¾î °Ë»ö¾î1 °Ë»ö¾î 2 °Ë»ö¾î3
-				</div>
-			</div>
-			
-	
-			
-		</header>
-		
-<!-- 		¸Þ´º(³×ºñ) -->
-		<nev>
-			<div class="row benner">
-				<div>
-					<img src="http://placehold.it/932x300">
-				</div>
-			</div>
-		</nev>
-		
-<!-- 		³»¿ë -->
-<!-- 			ÀÎ±â°Ô½Ã±Û / Å°¿öµå °Ô½Ã±Û / ±ÙÁ¢À§Ä¡ -->
-		<section>
-		
-			<div class="row">
-				<h2>ÀÎ±â°Ô½Ã±Û</h2>
-			</div>
-			<div class="row-multi col-4">
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-			</div>
-			
-			<div class="row">
-				<h2>Å°¿öµå °Ô½Ã±Û</h2>
-			</div>
-			<div class="row-multi col-4">
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-			</div>
-			
-			<div class="row">
-				<h2>±ÙÁ¢À§Ä¡ °Ô½Ã±Û</h2>
-			</div>
-			<div class="row-multi col-4">
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-				</div>
-			</div>
-			
-		</section>
-		
-<!-- 		ÇªÅÍ -->
-		<footer>
-			<div class="row-left">
-				<div>
-					´ç±Ù³ª¶ó
-				</div>
-				<div>
-					kh2 b class
-				</div>
-				<div>
-					team 3
-				</div>
-			</div>
-		</footer>
-		
-	</main>
+<jsp:include page="/template/header.jsp"></jsp:include>	
 
-</body>
-</html>
+			<!-- 		ë©”ë‰´(ë„¤ë¹„) -->
+			<nav>
+				<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				      <div class="swiper-slide"><img src="./image/kh.jpg"></div>
+				      <div class="swiper-slide"><img src="./image/sad.gif"></div>			 
+				    </div>
+				</div>
+			</nav>	
+
+			<div class="row">
+				<h2>ì¸ê¸°ê²Œì‹œê¸€</h2>
+			</div>
+			<div class="row-multi col-4">
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div class="more">
+					<a>ë”ë³´ê¸°</a>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h2>í‚¤ì›Œë“œ ê²Œì‹œê¸€</h2>
+			</div>
+			<div class="row-multi col-4">
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div>
+					<img src="http://placehold.it/200x200">
+					<h3>ì œëª©</h3>
+				</div>
+				<div class="more">
+					<a>ë”ë³´ê¸°</a>
+				</div>
+			</div>
+		
+			
+<jsp:include page="/template/footer.jsp"></jsp:include>	
