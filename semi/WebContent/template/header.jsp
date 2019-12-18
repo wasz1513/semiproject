@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    String id = (String)session.getAttribute("customer_id");
+    
+
+    %>
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
@@ -64,7 +70,6 @@
 	}
 
 
-
 /* 슬라이더 영역 스타일 */
 
     
@@ -92,6 +97,7 @@ function loadSlider(){
 </script>
 
 </head>
+
 <body onload="loadSlider();">
 <!-- 	메인페이지 -->
 	<main>
@@ -114,29 +120,28 @@ function loadSlider(){
 				</div>
 <!-- 					로그인 / 마이페이지 -->
 				<div class="c">
-<%-- 					<%if(세션id==null){ %> --%>
-<!-- 						<a>로그인</a> -->
+					<%if(id==null){ %>
+						<a>로그인</a>
 					<div class="menu-wrap1">
 						<label for="custom-menu1">로그인</label>
       				  	<input type="checkbox" id="custom-menu1">
       				  	<ul class="custom-list">
       				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
-			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</li>
+			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 			                <li>아이디/비밀번호찾기</li>		
       				  	</ul>
 					</div>
-<%-- 					<%}else{ %> --%>
-<!-- 						<a>마이페이지</a> -->
-<!-- 					<div class="menu-wrap2"> -->
-<!-- 						<label for="custom-menu2">마이페이지</label> -->
-<!--       				  	<input type="checkbox" id="custom-menu2"> -->
-<!--       				  	<ul class="custom-list"> -->
-<!--       				  		<li>프로필보기</li> -->
-<!-- 			             	<li>키워드입력</li> -->
-<!-- 			                <li>위치수정</li> -->
-<!--       				  	</ul> -->
-<!-- 					</div> -->
-<%-- 					<%} %> --%>
+					<%}else{ %>
+					<div class="menu-wrap2">
+						<label for="custom-menu2">마이페이지</label>
+      				  	<input type="checkbox" id="custom-menu2">
+      				  	<ul class="custom-list">
+      				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
+			             	<li>키워드입력</li>
+			                <li>위치수정</li>
+      				  	</ul>
+					</div>
+					<%} %>
 				</div>
 <!-- 				관심목록 -->
 				<div class="d">
