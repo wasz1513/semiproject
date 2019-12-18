@@ -1,4 +1,4 @@
-package semi.customer;
+package semi.servlet.customer;
 
 import java.io.IOException;
 

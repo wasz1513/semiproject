@@ -1,4 +1,4 @@
-package beans;
+package semi.bean;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -84,7 +84,7 @@ public class CustomerDao {
 	// 회원 정보 변경(닉네임, 폰번호, post, 기본주소, 상세주소 / ID)
 	public void updateCustomerInfo(CustomerDto dto) throws Exception {
 		Connection con = getConnection();
-		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email,customer_post=?,customer_basic_address=?,customer_extra_address=? where customer_id=?";
+		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email=?,customer_post=?,customer_basic_address=?,customer_extra_address=? where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_nickname());
 		ps.setString(2, dto.getCustomer_phone());
@@ -93,16 +93,6 @@ public class CustomerDao {
 		ps.setString(5, dto.getCustomer_basic_address());
 		ps.setString(6, dto.getCustomer_extra_address());
 		ps.setString(7, dto.getCustomer_id());
-		ps.execute();
-		con.close();
-	}
-
-	// 마지막 접속시간 변경
-	public void updateLastLogin(int customer_no) throws Exception {
-		Connection con = getConnection();
-		String sql = "update customer set customer_lastlogin=sysdate where customer_no=?";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, customer_no);
 		ps.execute();
 		con.close();
 	}
@@ -116,7 +106,6 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
-
 
 	// 회원가입
 	public void regist(CustomerDto dto) throws Exception {

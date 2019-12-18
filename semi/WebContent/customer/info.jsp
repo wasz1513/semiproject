@@ -1,15 +1,16 @@
-<%@page import="beans.CustomerDto"%>
-<%@page import="beans.CustomerDao"%>
+<%@page import="semi.bean.CustomerDto"%>
+<%@page import="semi.bean.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+	pageEncoding="UTF-8"%>
+
 <%
 	String customer_id = (String)session.getAttribute("customer_id");
 	CustomerDao dao = new CustomerDao();
 	CustomerDto dto = dao.get(customer_id);
 %>
-    
+
 <jsp:include page="/template/header.jsp"></jsp:include>
+
     
     <article class ="w-40">
     	
@@ -63,5 +64,5 @@
     
     </article>
     
+
 <jsp:include page="/template/footer.jsp"></jsp:include>
-    

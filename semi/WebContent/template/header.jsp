@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
@@ -65,7 +66,6 @@
 	}
 
 
-
 /* 슬라이더 영역 스타일 */
 
     
@@ -89,9 +89,7 @@ function loadSlider(){
 	     loop: true,
 	  });
 }
-
 </script>
-
 <% 
 String id = (String)session.getAttribute("customer_id"); 
 boolean login = id!=null;
@@ -101,9 +99,9 @@ boolean master = grade != null && grade.equals("관리자");
 
 </head>
 <body onload="loadSlider();" test>
+id=<%=id %>
 <!-- 	메인페이지 -->
 	<main>
-		
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 		<header>
@@ -122,8 +120,8 @@ boolean master = grade != null && grade.equals("관리자");
 				</div>
 <!-- 					로그인 / 마이페이지 -->
 				<div class="c">
-					<%if(!login){ %>
-<!-- 						<a>로그인</a> -->
+					<%if(id==null){ %>
+						<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<div class="menu-wrap1">
 						<label for="custom-menu1">로그인</label>
       				  	<input type="checkbox" id="custom-menu1">
@@ -135,12 +133,11 @@ boolean master = grade != null && grade.equals("관리자");
       				  	</ul>
 					</div>
 					<%}else{ %>
-<!-- 						<a>마이페이지</a> -->
 					<div class="menu-wrap2">
 						<label for="custom-menu2">마이페이지</label>
       				  	<input type="checkbox" id="custom-menu2">
       				  	<ul class="custom-list">
-      				  		<li>프로필보기</li>
+      				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
       				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
@@ -188,9 +185,6 @@ boolean master = grade != null && grade.equals("관리자");
 					인기검색어 검색어1 검색어 2 검색어3
 				</div>
 			</div>
-			
-	
-			
 		</header>
 		
 

@@ -1,4 +1,4 @@
-package semi.customer;
+package semi.servlet.customer;
 
 import java.io.IOException;
 
@@ -36,7 +36,7 @@ public class CustomerLoginServlet extends HttpServlet{
 				dao.updateLastLogin(customer_id);
 				
 				
-				resp.sendRedirect("../index.jsp");
+				resp.sendRedirect(req.getContextPath());
 				
 			}
 			else {
