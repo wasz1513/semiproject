@@ -26,7 +26,7 @@ public class PwCheckServlet extends HttpServlet {
 			if(result) {
 				resp.sendRedirect(req.getContextPath()+go);
 			}else {
-				resp.sendRedirect("check.jsp?error");
+				resp.sendRedirect("check_pw.jsp?error");
 			}
 			
 		}catch(Exception e) {
