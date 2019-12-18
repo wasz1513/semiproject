@@ -16,6 +16,7 @@ public class WithrawalCustomer extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			req.setCharacterEncoding("UTF-8");
 			CustomerDto dto = new CustomerDto();
 			CustomerDao dao = new CustomerDao();
 			String id = (String)req.getSession().getAttribute("customer_id");
