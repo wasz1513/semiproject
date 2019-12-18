@@ -54,7 +54,7 @@
 		margin: auto;
 	}
 	
-	header, section, footer {
+	header, footer, article{
 		width: 1200px;
 		margin: auto;
 		padding: 2rem;
@@ -106,7 +106,7 @@ function loadSlider(){
 String id = (String)session.getAttribute("customer_id"); 
 boolean login = id!=null;
 String grade = (String)session.getAttribute("customer_grade");
-boolean master = grade != null && grade.equals("관리자");
+boolean master = grade != null && grade.equals("운영자");
 %>
 
 </head>
@@ -120,7 +120,9 @@ boolean master = grade != null && grade.equals("관리자");
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
 				<div class="a">
-					<img src="http://placehold.it/180x50">
+					<a href="<%=request.getContextPath()%>">
+						<img src="http://placehold.it/180x50">
+					</a>
 				</div>
 <!-- 				검색창 -->
 				<div class="b">	
@@ -197,5 +199,6 @@ boolean master = grade != null && grade.equals("관리자");
 			</div>
 		</header>
 		
+<section>
 
 		
