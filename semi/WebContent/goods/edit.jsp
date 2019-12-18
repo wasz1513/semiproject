@@ -1,11 +1,24 @@
+<%@page import="semi.bean.GoodsDto"%>
+<%@page import="semi.bean.GoodsDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%
+	int goods_no = Integer.parseInt(request.getParameter("goods_no"));
+	GoodsDao dao = new GoodsDao();
+	GoodsDto dto = dao.get(goods_no);
+	
+	%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div class=row align="center">
 
 <h2>상품 등록</h2>
-<form action="write.do" method="post">
+<form action="edit.do" method="post">
+
+<input type="hidden"  name="no" value="<%=dto.getGoods_no()%>">
+	
 	<table border="1" width="70%">
 		<tr>
 			<th>카테고리</th>
@@ -28,7 +41,7 @@
 		<tr>
 			<th>제목</th>
 			<td>
-				<input type="text" name="title" required>
+				<input type="text" name="title" value="<%=dto.getGoods_title() %>" required>
 			</td>
 		</tr>
 		<tr>
@@ -39,12 +52,13 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea name="content" required rows="15"cols="100" style="resize: vertical;"></textarea>
+				<textarea name="content" required rows="15"cols="100" 
+				style="resize: vertical;"><%=dto.getGoods_content() %></textarea>
 			</td>
 		</tr>
 		<tr>
-		<td colspan="2" align="center">
-				<input type="submit" value="등록하기">
+			<td colspan="2" align="center">
+				<input type="submit" value="수정하기">
 				<a href="goods_list.jsp">
 				<input type="button" value="목록보기">
 				</a>
