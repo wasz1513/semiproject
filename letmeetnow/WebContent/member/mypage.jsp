@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
@@ -9,61 +9,61 @@
 	
 		<tr>
 			<td>
-				ÇÁ·ÎÇÊ »çÁø
+				í”„ë¡œí•„ ì‚¬ì§„
 			</td>
 			<td>
-				´Ð³×ÀÓ / ÁÖ¼Ò / È¸¿øÄÚµå
+				ë‹‰ë„¤ìž„ / ì£¼ì†Œ / íšŒì›ì½”ë“œ
 			</td>
 			<td>
-				<a href="profile.jsp">ÇÁ·ÎÇÊº¸±â</a>
+				<a href="profile.jsp">í”„ë¡œí•„ë³´ê¸°</a>
 			</td>
 		</tr>
 	
 		<tr>
-			<td><a href="buy.jsp">ÆÇ¸Å³»¿ª</a></td>
-			<td><a href="sale.jsp">±¸¸Å³»¿ª</a></td>
-			<td><a href="interestlist.jsp">°ü½É¸ñ·Ï</a></td>
+			<td><a href="buy.jsp">íŒë§¤ë‚´ì—­</a></td>
+			<td><a href="sale.jsp">êµ¬ë§¤ë‚´ì—­</a></td>
+			<td><a href="interestlist.jsp">ê´€ì‹¬ëª©ë¡</a></td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				<a href="changeinfo.jsp">³» µ¿³× ¼³Á¤ / ÀÎÁõ</a>
+				<a href="changeinfo.jsp">ë‚´ ë™ë„¤ ì„¤ì • / ì¸ì¦</a>
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				<a href="keyword.jsp">Å°¿öµå µî·Ï</a>
+				<a href="keyword.jsp">í‚¤ì›Œë“œ ë“±ë¡</a>
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				¸ð¾Æº¸±â
+				ëª¨ì•„ë³´ê¸°
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				Ä£±¸ÃÊ´ë
+				ì¹œêµ¬ì´ˆëŒ€
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				´ç±Ù¸¶ÄÏ °øÀ¯
+				ë‹¹ê·¼ë§ˆì¼“ ê³µìœ 
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				°øÁö»çÇ×
+				ê³µì§€ì‚¬í•­
 			</td>
 		</tr>
 		
 		<tr>
 			<td colspan="3">
-				¹®ÀÇÇÏ±â
+				ë¬¸ì˜í•˜ê¸°
 			</td>
 		</tr>
 		

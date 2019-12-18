@@ -1,15 +1,14 @@
-<%@page import="semi.GoodsDto"%>
-<%@page import="semi.GoodsDao"%>
+<%@page import="semi.BoardDao"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
-	//[1] 번호 받고 [2] 게시글 불러오고 [3] 입력창에 출력
-	int no = Integer.parseInt(request.getParameter("no"));
-	GoodsDao dao = new GoodsDao();
-	GoodsDto dto = dao.get(no);
-%>
+//[1] 번호 받고 [2] 게시글 불러오고 [3] 입력창에 출력
+    	int no = Integer.parseInt(request.getParameter("no"));
+    	BoardDao dao = new BoardDao();
+    	BoardDto dto = dao.get(no);
+    %>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 

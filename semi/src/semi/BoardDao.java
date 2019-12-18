@@ -11,7 +11,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class GoodsDao {
+public class BoardDao {
 	private static DataSource source;
 	static {
 		try {
@@ -28,7 +28,7 @@ public class GoodsDao {
 	}
 	
 	//목록
-	public List<GoodsDto> getList() throws Exception{
+	public List<BoardDto> getList() throws Exception{
 		Connection con = getConnection();
 		
 //		String sql = "select * from ("
@@ -39,12 +39,13 @@ public class GoodsDao {
 //								+ "order siblings by groupno desc, no asc"
 //							+ ")A"
 //						+ ") where rn between ? and ?";
+		
 		String sql = "select * from goods order by goods_no";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
-		List<GoodsDto> list = new ArrayList<>();
+		List<BoardDto> list = new ArrayList<>();
 		while(rs.next()) {
-			GoodsDto dto = new GoodsDto();
+			BoardDto dto = new BoardDto();
 			list.add(dto);
 		}
 		con.close();
@@ -82,10 +83,10 @@ public class GoodsDao {
 //		return list;
 //	}
 //	
-//	//검색
-//	public List<GoodsDto> search(String type, String keyword, int start, int finish) throws Exception{
-//		Connection con = getConnection();
-//		
+	//검색
+	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
+		Connection con = getConnection();
+		
 //		String sql = "select * from ("
 //							+ "select rownum rn, A.* from("
 //								+ "select * from board "
@@ -95,11 +96,18 @@ public class GoodsDao {
 //								+ "order siblings by groupno desc, no asc"
 //							+ ")A"
 //						+ ") where rn between ? and ?";
-//		PreparedStatement ps = con.prepareStatement(sql);
-//		ps.setString(1, keyword);
-//		ps.setInt(2, start);
-//		ps.setInt(3, finish);
-//		ResultSet rs = ps.executeQuery();
+		String sql = "select * from goods order by goods_no";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		List<BoardDto> list = new ArrayList<>();
+		while(rs.next()) {
+			BoardDto dto = new BoardDto();
+			list.add(dto);
+		}
+		con.close();
+		return list;
+		
+	}
 //		
 //		//변환
 //		List<GoodsDto> list = new ArrayList<>();

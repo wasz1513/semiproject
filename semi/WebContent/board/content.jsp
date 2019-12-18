@@ -1,3 +1,5 @@
+<%@page import="semi.BoardDao"%>
+<%@page import="semi.BoardDto"%>
 <%@page import="home.bean.ReplyDto"%>
 <%@page import="java.util.List"%>
 <%@page import="home.bean.ReplyDao"%>
@@ -13,8 +15,8 @@
 <%
 	//[1] 번호를 받고 [2] 조회수 증가시킨 뒤 게시글을 불러오고 [3] 출력
 	int no = Integer.parseInt(request.getParameter("no"));
-	GoodsDao bdao = new GoodsDao();
-	GoodsDto bdto = bdao.get(no);//게시글 불러오기 
+	BoardDao bdao = new BoardDao();
+	BoardDto bdto = bdao.get(no);//게시글 불러오기 
 	
 // 	MemberDao mdao = new MemberDao();
 // 	MemberDto mdto = mdao.get(bdto.getWriter());

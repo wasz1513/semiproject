@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
@@ -7,31 +7,31 @@
 
 <table>
 	<tr>
-		<th>���̵�</th>
+		<th>아이디</th>
 		<td></td>	
 	</tr>
 	<tr>
-		<th>��й�ȣ</th>
+		<th>비밀번호</th>
 		<td></td>
 	</tr>
 	<tr>
-		<th>�̸�</th>
+		<th>이름</th>
 		<td></td>
 	</tr>
 	<tr>
-		<th>�г���</th>
+		<th>닉네임</th>
 		<td></td>
 	</tr>
 	<tr>
-		<th>��ȭ��ȣ</th>
+		<th>전화번호</th>
 		<td></td>
 	</tr>
 	<tr>
-		<th>�̸���</th>	
+		<th>이메일</th>	
 		<td></td>
 	</tr>
 	<tr>
-		<th rowspan="3">�ּ�</th>
+		<th rowspan="3">주소</th>
 		<td></td>
 	</tr>
 	<tr>
@@ -41,11 +41,11 @@
 		<td></td>
 	</tr>
 	<tr>
-		<th>����</th>
+		<th>질문</th>
 		<td></td>
 	</tr>
 	<tr>
-		<th>�亯</th>
+		<th>답변</th>
 		<td></td>
 	</tr>
 </table>

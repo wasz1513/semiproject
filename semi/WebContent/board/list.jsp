@@ -1,37 +1,35 @@
-<%@page import="semi.GoodsDto"%>
-<%@page import="java.util.List"%>
-<%@page import="semi.GoodsDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-GoodsDao dao = new GoodsDao();
-List<GoodsDto> list = dao.getList();
-%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+
 
 <div align="center">
 	
-	<h2>ê³µì§€ ê²Œì‹œíŒ</h2>
+	<h2>°øÁö °Ô½ÃÆÇ</h2>
 	<br>
 	 
 	<table border="1" width="90%">
-		<thead>		
+		<thead>
 			<tr>
 				<th>NO</th>
+				<th>HEAD</th>
 				<th width="50%">TITLE</th>
+				<th>WRITER</th>
 				<th>DATE</th>
 				<th>READS</th>
 			</tr>
 		</thead>
 		    	<tbody align="center">
-			<%for(GoodsDto dto : list){ %>
-                   
+			 <%
+                   for (int i = 1; i <= 20; i++) {
+                     %>
                 <tr>
-                    <td><%=dto.getGOODS_no()%></td>
-                    <td><%=dto.getGOODS_title()%></td>
-                    <td><%=dto.getGOODS_writetime()%></td>
-                    <td><%=dto.getGOODS_readcount()%></td>
-                    <td align="left">?</td>
-                    
+                  <%
+                   for (int j = 2; j <= 7; j++) {
+                   %>
+                    <td>?</td>
+                    <%
+                        }
+                    %>
                 </tr>
                     <%
                         }
@@ -39,26 +37,26 @@ List<GoodsDto> list = dao.getList();
                 
                    
                    
-
+</thead>
 </tbody>
 <tfoot>
 			<tr>
 				<td colspan="9" align="right">
-					<a href="write.jsp">ê¸€ì“°ê¸°</a>
+					<a href="write.jsp">±Û¾²±â</a>
 				</td>
 			</tr>
 		</tfoot>
 </table>
-<h4>[ì´ì „] 1 2 3 4 5 6 7 8 9 10 [ë‹¤ìŒ]</h4>
+<h4>[ÀÌÀü] 1 2 3 4 5 6 7 8 9 10 [´ÙÀ½]</h4>
 <foam action="list.jsp" method="get">
 
 <select name="type">
-<option value="title">ì œëª©</option>
-<option value="writer">ìž‘ì„±ìž<option>
+<option value="title">Á¦¸ñ</option>
+<option value="writer">ÀÛ¼ºÀÚ<option>
 </select>
 
-<input type="search" name="keyword" placeholder="ê²€ìƒ‰ì–´" required>
-<input type="submit" value="ê²€ìƒ‰">
+<input type="search" name="keyword" placeholder="°Ë»ö¾î" required>
+<input type="submit" value="°Ë»ö">
 <br><br>
 
 </select>

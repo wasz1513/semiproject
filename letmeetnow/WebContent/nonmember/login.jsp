@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
 
-	<h2>·Î±×ÀÎÆäÀÌÁö</h2>
+	<h2>ë¡œê·¸ì¸íŽ˜ì´ì§€</h2>
 	<form action="login.do" method="post">
 		<table width="450">
 			<tr>
@@ -22,10 +22,10 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="checkbox" value="?">ID ÀúÀå
+					<input type="checkbox" value="?">ID ì €ìž¥
 				</td>
 				<td align="right">
-					<input type="submit" value="·Î±×ÀÎ">
+					<input type="submit" value="ë¡œê·¸ì¸">
 				</td>
 			</tr>
 		</table>
@@ -35,13 +35,13 @@
 		<tbody align="center">
 			<tr>
 				<td>
-					<a href="#">È¸¿ø°¡ÀÔ</a>
+					<a href="#">íšŒì›ê°€ìž…</a>
 				</td>
 				<td>
-					<a href="#">ID Ã£±â</a>
+					<a href="#">ID ì°¾ê¸°</a>
 				</td>
 				<td>
-					<a href="#">PW Ã£±â</a>
+					<a href="#">PW ì°¾ê¸°</a>
 				</td>
 			</tr>
 		</tbody>
