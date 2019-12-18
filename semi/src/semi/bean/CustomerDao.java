@@ -84,7 +84,7 @@ public class CustomerDao {
 	// 회원 정보 변경(닉네임, 폰번호, post, 기본주소, 상세주소 / ID)
 	public void updateCustomerInfo(CustomerDto dto) throws Exception {
 		Connection con = getConnection();
-		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email,customer_post=?,customer_basic_address=?,customer_extra_address=? where customer_id=?";
+		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email=?,customer_post=?,customer_basic_address=?,customer_extra_address=? where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_nickname());
 		ps.setString(2, dto.getCustomer_phone());
