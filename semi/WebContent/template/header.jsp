@@ -142,7 +142,7 @@ boolean master = grade != null && grade.equals("관리자");
       				  		<li>프로필보기</li>
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
-			                <li>로그아웃</li>
+			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
       				  	</ul>
 					</div>
 					<%} %>
