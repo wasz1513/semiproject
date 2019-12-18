@@ -12,7 +12,7 @@ import semi.bean.GoodsDao;
 import semi.bean.GoodsDto;
 
 
-@WebServlet(urlPatterns = "/goods/write.do")
+@WebServlet(urlPatterns = "/goods/goods_write.do")
 public class GoodsWriteServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,9 +34,9 @@ public class GoodsWriteServlet extends HttpServlet {
 			
 			dto.setGoods_no(goods_no);
 			
-			dao.write(dto);
+			dao.goods_write(dto);
 			
-			resp.sendRedirect("content.jsp?no="+goods_no);
+			resp.sendRedirect("content.jsp?goods_no="+goods_no);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
