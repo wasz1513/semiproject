@@ -20,7 +20,7 @@ public class ChangePasswordServlet extends HttpServlet {
 			CustomerDao dao = new CustomerDao();
 			CustomerDto dto = new CustomerDto();
 //          세션이 아직 구현되지 않아 아래 더미 데이터를 이용하여 테스트 완료함.				
-			dto.setCustomer_id("fbguswls");
+			dto.setCustomer_id((String)req.getSession().getAttribute("customer_id"));
 //			(String)req.getSession().getAttribute("customer_id")
 			dto.setCustomer_pw(req.getParameter("customer_pw"));
 			System.out.println(dto.getCustomer_id()+"/"+dto.getCustomer_pw());
