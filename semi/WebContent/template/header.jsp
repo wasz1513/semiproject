@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
@@ -60,6 +61,7 @@
 	
 	.row-multi.col-4 > .more{
 		margin-top: 120px;
+
 	}
 
 
@@ -187,4 +189,4 @@ function loadSlider(){
 		<section>
 				
 		
-		
+
