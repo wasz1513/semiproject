@@ -93,15 +93,11 @@ function loadSlider(){
 	     loop: true,
 	  });
 }
-
 </script>
-
 </head>
-
 <body onload="loadSlider();">
 <!-- 	메인페이지 -->
 	<main>
-		
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 		<header>
@@ -139,6 +135,7 @@ function loadSlider(){
       				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
+			                <li><a href="">로그아웃</a></li>
       				  	</ul>
 					</div>
 					<%} %>
@@ -182,9 +179,6 @@ function loadSlider(){
 					인기검색어 검색어1 검색어 2 검색어3
 				</div>
 			</div>
-			
-	
-			
 		</header>
 		
 
