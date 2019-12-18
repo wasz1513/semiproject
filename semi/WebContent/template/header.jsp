@@ -187,6 +187,3 @@ function loadSlider(){
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 		<section>
-				
-		
-
