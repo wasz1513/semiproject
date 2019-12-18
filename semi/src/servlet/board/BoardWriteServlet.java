@@ -1,4 +1,4 @@
-package bean;
+package servlet.board;
 
 import java.io.IOException;
 
@@ -7,6 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import bean.BoardDao;
+import bean.BoardDto;
+import beans.CustomerDao;
+import beans.CustomerDto;
 
 @WebServlet(urlPatterns="/board/write.do")
 public class BoardWriteServlet extends HttpServlet{
@@ -21,19 +26,25 @@ public class BoardWriteServlet extends HttpServlet{
 		  dto.setTitle(req.getParameter("title"));
 		  dto.setContent(req.getParameter("content"));
 		
-		  dto.setWriter(req.getParameter("Writer"));
+//		  dto.setWriter(Integer.parseInt(req.getParameter("Writer")));
 		  
 		  
-		  String id = (String)req.getSession().getAttribute("id");
-		  dto.setWriter(id);
+		  String id = (String)req.getSession().getAttribute("customer_id");
+		  
+		  CustomerDao dao2 = new CustomerDao();
+		  CustomerDto dto2 = dao2.get("customer_id");
+		  System.out.println(dto2);
+		  dto.setWriter(dto2.getCustomer_no());
 		  
 		  BoardDao dao = new BoardDao();
 		  int no = dao.getSequence();
-		  dto.setNo(no);;
+		  
+		  dto.setNo(no);
+		  
 		  dao.write(dto);
 		  
-//		 resp.sendRedirect("list2.jsp");
-		 resp.sendRedirect("content.jsp?no="+no); 
+//		 resp.sendRedirect("list.jsp");
+		 resp.sendRedirect("content.jsp?no="+dto.getNo()); 
 	}
 	  catch(Exception e) {
 		  e.printStackTrace();

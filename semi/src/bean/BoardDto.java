@@ -1,6 +1,8 @@
 package bean;
 
 	public class BoardDto{
+	
+	
 	private int no;
 	private String head;
 	private String title;
@@ -8,10 +10,10 @@ package bean;
 	private String wdate;
 	private int readcount;
 	private String content;
-	private String writer;
+	private int writer;
 	
 	public BoardDto(int no, String head, String title, int replycount, String wdate, int readcount, String content,
-			String writer) {
+			int writer) {
 		super();
 		this.no = no;
 		this.head = head;
@@ -83,11 +85,11 @@ package bean;
 		this.content = content;
 	}
 
-	public String getWriter() {
+	public int getWriter() {
 		return writer;
 	}
 
-	public void setWriter(String writer) {
+	public void setWriter(int writer) {
 		this.writer = writer;
 	}
 	}

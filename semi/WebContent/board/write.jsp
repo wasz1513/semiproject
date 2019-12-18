@@ -8,10 +8,9 @@
 	
 	
 	<form action="write.do" method="post">
-		<%if(request.getParameter("superno") != null){ %>
-		<!-- 답변글일 경우에는 no가 있기 때문에 등록시 사용하도록 숨김 첨부해야한다 -->
-		<input type="hidden" name="superno" value="<%=request.getParameter("superno")%>">
-		<%} %>
+<%-- 		<%if(request.getParameter("superno") != null){ %> --%>
+<%-- 		<input type="hidden" name="superno" value="<%=request.getParameter("superno")%>"> --%>
+<%-- 		<%} %> --%>
 	
 		<table border="1" width="70%">
 			<tr>
@@ -39,7 +38,8 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="submit" value="등록하기">
+					
+				  	<input type="submit" value="등록하기">
 					<a href="list.jsp">
 						<input type="button" value="목록보기">
 					</a>

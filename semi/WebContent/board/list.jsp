@@ -6,15 +6,14 @@
     pageEncoding="UTF-8"%>
 <%
 	BoardDao dao = new BoardDao();
-List<BoardDto> list2 = dao.getList();
+	List<BoardDto> list = dao.getList();
 %>
-
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 	<div align="center">
 		
-		<h1>-  공 지 사 항  -</h1>
+		<h1>  N O T I C E  </h1>
 		<br><br>
 		 
 		<table border="1" width="90%">
@@ -29,12 +28,23 @@ List<BoardDto> list2 = dao.getList();
 				</tr>
 			</thead>
 			<tbody align="center">
-				<%for(BoardDto dto : list2){ %>
+				<%for(BoardDto dto : list){ %>
 	                   
 	                <tr>
 	                    <td><%=dto.getNo()%></td>
-	                    <td><%=dto.getHead()%></td>
-	                    <td><%=dto.getTitle()%></td>
+	                    
+	                    <td>
+	                    <font color="Orange">
+	                    <%=dto.getHead()%>
+	                    </font>
+	                    </td>
+	                    
+	                    <td>
+	                   	 	<a href="content.jsp?no=<%=dto.getNo()%>">
+	                    		<%=dto.getTitle()%>
+	                    	</a>
+	                    </td>
+	                    
 	                    <td><%=dto.getWdate()%></td>
 	                    <td><%=dto.getWriter()%></td>
 	                    <td><%=dto.getReadcount()%></td>
@@ -47,7 +57,7 @@ List<BoardDto> list2 = dao.getList();
 			<tfoot>
 				<tr>
 					<td colspan="9" align="right">
-						<a href="write.jsp">글쓰기</a>
+						<a href="write.jsp">write</a>
 					</td>
 				</tr>
 			</tfoot>

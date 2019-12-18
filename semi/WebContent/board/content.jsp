@@ -1,15 +1,15 @@
+<%@page import="beans.CustomerDto"%>
+<%@page import="beans.CustomerDao"%>
 <%@page import="bean.BoardDto"%>
 <%@page import="bean.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% 
+<% 
     int no =Integer.parseInt(request.getParameter("no"));
     BoardDao dao = new BoardDao();
     BoardDto dto = dao.get(no);
-    %>
-    
-    
-    
+%>   
+ 
     
  <jsp:include page="/template/header.jsp"></jsp:include>
  
@@ -31,17 +31,18 @@
  </tr>
  <tr>
  <td>
- 댓글수 <%=dto.getReplycount()%>
+ 댓글수  <%=dto.getReplycount()%>
  조회수 <%=dto.getReadcount()%>
  </td>
  </tr>
  <tr>
   <td align="right">
-  <a href="write.jsp"><input type="button"value="글쓰기"></a>
+  <a href="write.jsp"><input type="button"value="글쓰기">
   <a href="#"><input type="button"value="답글쓰기">
-  <a href="#"><input type="button"value="수정">
-  <a href="#"><input type="button"value="삭제">
+  <a href="edit.jsp?no=<%=dto.getNo()%>"><input type="button"value="수정">
+  <a href="delete.do?no=<%=dto.getNo()%>"><input type="button"value="삭제">
   <a href="list.jsp"><input type="button"value="목록">
+  
     </td>
    </tr>
    
