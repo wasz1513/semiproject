@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.CustomerDao;
-import beans.CustomerDto;
+import semi.bean.CustomerDao;
+import semi.bean.CustomerDto;
 
 @WebServlet(urlPatterns = "/customer/check_pw.do")
 public class PwCheckServlet extends HttpServlet {
@@ -19,7 +19,7 @@ public class PwCheckServlet extends HttpServlet {
 			CustomerDao dao = new CustomerDao();
 			CustomerDto dto = new CustomerDto();
 			String pw = req.getParameter("customer_pw");
-			String id = "fbguswls";
+			String id = (String)req.getSession().getAttribute("customer_id");
 			String go = req.getParameter("go");
 			boolean result = dao.login(id, pw);
 			

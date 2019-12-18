@@ -1,4 +1,4 @@
-package beans;
+package semi.bean;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -176,10 +176,10 @@ public class CustomerDto {
 		if (customer_joindate == null) {
 			return "";
 		} else {
-
-			SimpleDateFormat read = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss.S");
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 			Date date = read.parse(customer_joindate);
-			SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+			
+			SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 H시 m분");
 			String time = write.format(date);
 
 			return time;
