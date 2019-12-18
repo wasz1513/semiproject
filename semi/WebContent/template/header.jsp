@@ -98,7 +98,7 @@ function loadSlider(){
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 		<header>
 			
-			<div class="row-multi col-4">
+			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
 				<div class="a">
 					<img src="http://placehold.it/180x50">
