@@ -1,4 +1,4 @@
-package beans;
+package semi.bean;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

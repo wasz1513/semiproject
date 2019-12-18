@@ -1,4 +1,4 @@
-package servlet;
+package semi.servlet.customer;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.CustomerDao;
-import beans.CustomerDto;
+import semi.bean.CustomerDao;
+import semi.bean.CustomerDto;
 
 @WebServlet(urlPatterns = "/customer/login.do")
 public class CustomerLoginServlet extends HttpServlet{
