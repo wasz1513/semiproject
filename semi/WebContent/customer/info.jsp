@@ -4,8 +4,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	String customer_id = "fbguswls";
-	//(String)session.getAttribute("customer_id");
+	String customer_id = (String)session.getAttribute("customer_id");
 	CustomerDao dao = new CustomerDao();
 	CustomerDto dto = dao.get(customer_id);
 %>
