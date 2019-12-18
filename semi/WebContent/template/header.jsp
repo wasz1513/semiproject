@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
@@ -63,6 +62,7 @@
 		margin-top: 120px;
 
 	}
+
 
 
 /* 슬라이더 영역 스타일 */
