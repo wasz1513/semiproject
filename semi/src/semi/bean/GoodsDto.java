@@ -7,12 +7,20 @@ public class GoodsDto {
 	private String category;
 	private String content;
 	private String state;
-	
 	private int price;
 	private int readcount;
 	private int replycount;
 	private String writetime;
+	private String customer_id;
 	
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
 	public GoodsDto() {
 		super();
 	}
@@ -90,7 +98,7 @@ public class GoodsDto {
 	}
 
 	public GoodsDto(int no, String title, String category, String content, String state, int price, int readcount,
-			int replycount, String writetime) {
+			int replycount, String writetime, String customer_id) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -101,6 +109,7 @@ public class GoodsDto {
 		this.readcount = readcount;
 		this.replycount = replycount;
 		this.writetime = writetime;
+		this.customer_id = customer_id;
 	}
 
 	@Override

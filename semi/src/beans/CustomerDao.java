@@ -117,6 +117,7 @@ public class CustomerDao {
 		con.close();
 	}
 
+
 	// 회원가입
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
