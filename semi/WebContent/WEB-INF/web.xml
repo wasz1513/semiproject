@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- web.xml 파일 : 프로젝트의 운영 설정을 기곳에 재정의 서버 설정보다 우선 적용 -->
+
+<web-app version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee   
+	http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+	<!-- 가능한 설정 : 세션만료시간 설정, 에러페이지 설정, 필터설정, 서블릿설정 -->
+	
+<!--						세션유지시간 -->
+	<session-config>
+		<session-timeout>720</session-timeout>
+	</session-config>
+	
+<!-- 						필터설정 -->
+<!-- 			순서 : Encoding / TestAdmin /  LoginCheck / Admin / BoardAuthCheck-->
+<!-- 	EncodingFilter -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>home.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+</web-app>
