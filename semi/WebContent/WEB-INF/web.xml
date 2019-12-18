@@ -20,7 +20,7 @@
 <!-- 	EncodingFilter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>home.filter.EncodingFilter</filter-class>
+		<filter-class>semi.filter.EncodingFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
