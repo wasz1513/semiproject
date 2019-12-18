@@ -97,16 +97,6 @@ public class CustomerDao {
 		con.close();
 	}
 
-	// 마지막 접속시간 변경
-	public void updateLastLogin(int customer_no) throws Exception {
-		Connection con = getConnection();
-		String sql = "update customer set customer_lastlogin=sysdate where customer_no=?";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, customer_no);
-		ps.execute();
-		con.close();
-	}
-
 	// 회원 탈퇴
 	public void withdrawal(int customer_no) throws Exception {
 		Connection con = getConnection();
