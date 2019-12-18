@@ -58,7 +58,9 @@
 			</div>
 
     		<div>
-					<a href="check_pw.jsp?go=/customer/change_pw.jsp"><input type="submit" value="회원정보 수정">	</a>
+    				<a href="check_pw.jsp?go=/customer/change_pw.jsp"><input type="submit" value="비밀번호 변경"></a>
+					<a href="check_pw.jsp?go=/customer/change_info.jsp"><input type="submit" value="회원정보 수정">	</a>
+					<a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input type="submit" value="회원탈퇴"></a>
 				</div>
     </div>    
     

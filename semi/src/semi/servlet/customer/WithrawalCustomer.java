@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import semi.bean.CustomerDao;
 import semi.bean.CustomerDto;
@@ -14,14 +15,21 @@ import semi.bean.CustomerDto;
 @WebServlet(urlPatterns="/customer/customer_withrawal.do")
 public class WithrawalCustomer extends HttpServlet{
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			CustomerDto dto = new CustomerDto();
+			
+			req.setCharacterEncoding("UTF-8");
+			
+			HttpSession session = req.getSession();
+			String id = (String)session.getAttribute("customer_id");
+			
+			session.removeAttribute("customer_id");
+			session.removeAttribute("customer_grade");
+			
 			CustomerDao dao = new CustomerDao();
-			String id = (String)req.getSession().getAttribute("customer_id");
-			dao.get(id);
-			dao.withdrawal(dto.getCustomer_no());
-			resp.sendRedirect(req.getContextPath());
+			dao.withrawal(id);
+			
+			resp.sendRedirect("withrawal.jsp");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
