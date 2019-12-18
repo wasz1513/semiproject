@@ -59,6 +59,17 @@
 		padding: 2rem;
 	}
 	
+	header{
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding:0;
+	}
+	
+	
 	.row-multi.col-4 > .more{
 		margin-top: 120px;
 
@@ -70,6 +81,7 @@
 
     
     nav{
+    	margin-top:110px;
     	height: 300px;
     	z-index: 10;
     }
@@ -195,6 +207,3 @@ boolean master = grade != null && grade.equals("관리자");
 		
 
 		
-<!-- 		내용 -->
-<!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
-		<section>

@@ -3,15 +3,22 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>	
 
-			<!-- 		메뉴(네비) -->
+<!-- 		메뉴(네비) -->
 			<nav>
 				<div class="swiper-container">
 				    <div class="swiper-wrapper">
 				      <div class="swiper-slide"><img src="./image/kh.jpg"></div>
-				      <div class="swiper-slide"><img src="./image/sad.gif"></div>			 
+				      <div class="swiper-slide"><img src="./image/sad.gif"></div>
+				      <div class="swiper-slide"><img src="./image/sad.gif"></div>		 
 				    </div>
 				</div>
 			</nav>	
+
+
+<!-- 		내용 -->
+<!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
+		<section>
+			
 
 			<div class="row">
 				<h2>인기게시글</h2>
