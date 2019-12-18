@@ -66,8 +66,17 @@ public GoodsDto get(int no)throws Exception{
 			con.close();
 			return dto;
 }
-////조회수 증가
-//public void readcountupdate()
+//조회수 증가
+public void readcountupdate() throws Exception{
+	Connection con = getcConnection();
+		
+		String sql ="update goods set readcount = readcount+1 where no = ?";
+	PreparedStatement ps = con.prepareStatement(sql);
+//	ps.setInt(1,no);
+	ps.execute();
+	
+	con.close();
+}
 
 
 }
