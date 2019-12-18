@@ -187,6 +187,7 @@ public class CustomerDao {
 		con.close();
 	}
 
+	// id찾기 기능
 	public String find(String customer_name, String customer_phone) throws Exception {
 		Connection con = this.getConnection();
 

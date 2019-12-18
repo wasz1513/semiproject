@@ -1,4 +1,4 @@
-package servlet;
+package semi.customer;
 
 import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
