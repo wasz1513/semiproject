@@ -100,7 +100,7 @@ boolean master = grade != null && grade.equals("관리자");
 %>
 
 </head>
-<body onload="loadSlider();">
+<body onload="loadSlider();" test>
 <!-- 	메인페이지 -->
 	<main>
 		
@@ -141,6 +141,7 @@ boolean master = grade != null && grade.equals("관리자");
       				  	<input type="checkbox" id="custom-menu2">
       				  	<ul class="custom-list">
       				  		<li>프로필보기</li>
+      				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
 			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>

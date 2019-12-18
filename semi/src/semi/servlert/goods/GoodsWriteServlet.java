@@ -1,7 +1,6 @@
 package semi.servlert.goods;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.bean.GoodsDao;
 import semi.bean.GoodsDto;
 
 
@@ -22,15 +22,19 @@ public class GoodsWriteServlet extends HttpServlet {
 			dto.setCategory(req.getParameter("category"));
 			dto.setTitle(req.getParameter("title"));
 			dto.setContent(req.getParameter("content"));
-
-//			String id =req.getSession().getAttribute("id");
-//상세보기로
-//		GoodsDao dao= new GoodsDao();
-//			int no=dao.getSequence();
-//			dto.setNo(no);
-//			dao.write(dto)
+			dto.setPrice(Integer.parseInt(req.getParameter("price")));
 			
-	//		resp.sendRedirect("content.jsp?no="+no);
+
+			String customer_id =(String)req.getSession().getAttribute("id");
+			dto.setCustomer_id(customer_id);
+			
+//상세보기로
+		GoodsDao dao = new GoodsDao();
+			int no=dao.getSequence();
+			dto.setNo(no);
+			dao.write(dto);
+			
+			resp.sendRedirect("content.jsp?no="+no);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
