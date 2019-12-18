@@ -18,10 +18,10 @@ public class PwCheckServlet extends HttpServlet {
 		try {
 			CustomerDao dao = new CustomerDao();
 			CustomerDto dto = new CustomerDto();
-			dto.setCustomer_pw(req.getParameter("customer_pw"));
-			dto.setCustomer_id("fbguswls");
+			String pw = req.getParameter("customer_pw");
+			String id = "fbguswls";
 			String go = req.getParameter("go");
-			boolean result = dao.login(dto);
+			boolean result = dao.login(id, pw);
 			
 			if(result) {
 				resp.sendRedirect(req.getContextPath()+go);

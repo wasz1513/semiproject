@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <div align="center">
 <table width="1000">
 	<tbody>
 		<td width="20%" align="center">
-			<a href="<%=request.getContextPath()%>/nonmember/category.jsp">Ä«Å×°í¸®</a>	<!-- ºñÈ¸¿ø -->
+			<a href="<%=request.getContextPath()%>/nonmember/category.jsp">ì¹´í…Œê³ ë¦¬</a>	<!-- ë¹„íšŒì› -->
 		</td>
 		<td>
 			<a href="#"><img src="https:placehold.it/800x200"></a>

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,14 +23,14 @@
 				<td align="center" valign="middle">
 					<form action="#" method="get">
 						<input type="text" name="?">
-						<input type="submit" value="°Ë»ö">
+						<input type="submit" value="ê²€ìƒ‰">
 					</form>
 				</td>
 				<td align="center" valign="middle">
-					<a href="<%= request.getContextPath()%>/nonmember/loginsub.jsp">·Î±×ÀÎ</a>
+					<a href="<%= request.getContextPath()%>/nonmember/loginsub.jsp">ë¡œê·¸ì¸</a>
 				</td>
 				<td align="center" valign="middle">
-					<a href="#">°ü½É»óÇ°</a>
+					<a href="#">ê´€ì‹¬ìƒí’ˆ</a>
 				</td>
 			</tr>
 			<tr>

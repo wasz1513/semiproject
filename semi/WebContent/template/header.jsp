@@ -61,13 +61,18 @@
 	
 	.row-multi.col-4 > .more{
 		margin-top: 120px;
+
 	}
+
+
 /* 슬라이더 영역 스타일 */
+
     
     nav{
     	height: 300px;
     	z-index: 10;
     }
+
 </style>
 
 <!-- ================================================================ -->
@@ -83,6 +88,7 @@ function loadSlider(){
 	     loop: true,
 	  });
 }
+
 </script>
 
 </head>

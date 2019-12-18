@@ -1,5 +1,9 @@
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CustomerDto {
 	private int customer_no;
 	private String customer_name;
@@ -15,6 +19,10 @@ public class CustomerDto {
 	private String customer_grade;
 	private String customer_joindate;
 	private String customer_lastlogin;
+
+	public CustomerDto() {
+		super();
+	}
 
 	public int getCustomer_no() {
 		return customer_no;
@@ -84,6 +92,13 @@ public class CustomerDto {
 		return customer_post;
 	}
 
+	public String getPostStr() {
+		if (customer_post == null)
+			return "";
+		else
+			return customer_post;
+	}
+
 	public void setCustomer_post(String customer_post) {
 		this.customer_post = customer_post;
 	}
@@ -92,12 +107,28 @@ public class CustomerDto {
 		return customer_basic_address;
 	}
 
+	public String getCustomer_basic_addressStr() {
+
+		if (customer_basic_address == null)
+			return "";
+		else
+			return customer_basic_address;
+	}
+
 	public void setCustomer_basic_address(String customer_basic_address) {
 		this.customer_basic_address = customer_basic_address;
 	}
 
 	public String getCustomer_extra_address() {
 		return customer_extra_address;
+	}
+
+	public String getCustomer_extra_addressStr() {
+
+		if (customer_extra_address == null)
+			return "";
+		else
+			return customer_extra_address;
 	}
 
 	public void setCustomer_extra_address(String customer_extra_address) {
@@ -127,4 +158,48 @@ public class CustomerDto {
 	public void setCustomer_lastlogin(String customer_lastlogin) {
 		this.customer_lastlogin = customer_lastlogin;
 	}
+
+	// 주소통합
+	public String getCustomer_address() {
+
+		if (customer_post != null && customer_basic_address != null && customer_extra_address != null) {
+			return "[" + customer_post + "] " + customer_basic_address + " " + customer_extra_address;
+		}
+
+		else {
+			return "";
+		}
+	}
+
+	// 시간 변환 - 가입일자
+	public String getCustomer_joindateWithFormat() throws ParseException {
+		if (customer_joindate == null) {
+			return "";
+		} else {
+
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss.S");
+			Date date = read.parse(customer_joindate);
+			SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+			String time = write.format(date);
+
+			return time;
+		}
+
+	}
+
+	// 시간 변환 - 최종로그인
+	public String getCustomer_lastloginWithFormat() throws ParseException {
+		if (customer_lastlogin == null) {
+			return "";
+		} else {
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+			Date date = read.parse(customer_lastlogin);
+
+			SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 H시 m분");
+			String time = write.format(date);
+
+			return time;
+		}
+	}
+
 }
