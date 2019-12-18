@@ -19,6 +19,7 @@ public class CustomerDao {
 			e.printStackTrace();
 		}
 	}
+
 	public Connection getConnection() throws Exception {
 		return source.getConnection();
 	}
@@ -192,6 +193,56 @@ public class CustomerDao {
 		}
 		con.close();
 		return customer_id;
+	}
+
+	// 검색기능(admin용)
+	public List<CustomerDto> search(String type, String keyword, int start, int finish) throws Exception {
+		Connection con = this.getConnection();
+		String sql = "select * from(" + " select rownum R, C.* from customer C where " + type
+				+ " like '%'||?||'%' order by customer_no)" + " where R between 1 and 10";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ResultSet rs = ps.executeQuery();
+		List<CustomerDto> list = new ArrayList<>();
+		while (rs.next()) {
+			CustomerDto dto = new CustomerDto();
+			dto.setCustomer_no(rs.getInt("customer_no"));
+			dto.setCustomer_name(rs.getString("customer_name"));
+			dto.setCustomer_birth(rs.getString("customer_birth"));
+			dto.setCustomer_nickname(rs.getString("customer_nickname"));
+			dto.setCustomer_id(rs.getString("customer_id"));
+			dto.setCustomer_pw(rs.getString("customer_pw"));
+			dto.setCustomer_phone(rs.getString("customer_phone"));
+			dto.setCustomer_email(rs.getString("customer_email"));
+			dto.setCustomer_post(rs.getString("customer_post"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
+			dto.setCustomer_extra_address(rs.getString("customer_extra_address"));
+			dto.setCustomer_grade(rs.getString("customer_grade"));
+			dto.setCustomer_joindate(rs.getString("customer_joindate"));
+			dto.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
+			list.add(dto);
+		}
+		con.close();
+		return list;
+	}
+
+	public int getCount(String type, String keyword) throws Exception {
+		Connection con = getConnection();
+		boolean isSearch = type != null && keyword != null;
+
+		String sql = "select count(*) from customer";
+		if (isSearch) {
+			sql += " where " + type + " like '%'||?||'%'";
+		}
+		PreparedStatement ps = con.prepareStatement(sql);
+		if (isSearch) {
+			ps.setString(1, keyword);
+		}
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
 	}
 
 }

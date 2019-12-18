@@ -7,10 +7,58 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 <%  
 	CustomerDao dao = new CustomerDao();
-	List<CustomerDto> list = dao.getList();
+	
+	String type = request.getParameter("type");
+	String keyword = request.getParameter("keyword");
+	boolean isSearch = type!=null && keyword!=null;
+	List<CustomerDto> list;
+	
+	
+	int pagesize = 10;
+	int navsize = 10;
+	int pno;
+	try{
+		pno = Integer.parseInt(request.getParameter("pno"));
+		if(pno <= 0) throw new Exception();
+	}
+	catch(Exception e){
+		pno = 1;
+	}
+	
+	int finish = pno * pagesize;
+	int start = finish - (pagesize - 1);
+	
+	int count = dao.getCount(type, keyword);
+	
+	if(isSearch){
+		list = dao.search(type, keyword, start, finish);
+	}else{
+		list = dao.getList();
+	}
 %>
 <article>
 	<div class="row">
+	
+	<form action="list.jsp" method="get">
+		<div class="w-50">
+			<div class="row-multi col3">
+				<div>
+					<select name="type">
+						<option value="customer_id">아이디</option>
+						<option value="customer_name">이름</option>
+						<option value="customer_grade">회원등급</option>
+					</select>
+				</div>
+				<div>
+					<input type="text" name="keyword" <% if(keyword!=null)%>value="<%=keyword%>">
+				</div>
+				<div>
+					<input type="submit" value="검색">
+				</div>
+			</div>
+		</div>
+	</form>
+	
 	<table>
 		<thead>
 			<tr>
@@ -37,8 +85,17 @@
 			<%} %>
 		</tbody>	
 	</table>
+	
+	<div class="w-50">
+		<jsp:include page="/template/adminlistnav.jsp">
+			<jsp:param name="pno" value="<%=pno%>"/>
+			<jsp:param name="count" value="<%=count%>"/>
+			<jsp:param name="navsize" value="<%=navsize%>"/>
+			<jsp:param name="pagesize" value="<%=pagesize%>"/>
+		</jsp:include>
 	</div>
-
+	
+	</div>
 
 </article>
 

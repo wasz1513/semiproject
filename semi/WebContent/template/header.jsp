@@ -107,7 +107,7 @@ function loadSlider(){
 String id = (String)session.getAttribute("customer_id"); 
 boolean login = id!=null;
 String grade = (String)session.getAttribute("customer_grade");
-boolean master = grade != null && grade.equals("운영자");
+boolean master = grade != null && grade.equals("관리자");
 %>
 
 </head>
