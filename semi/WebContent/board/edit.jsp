@@ -1,3 +1,4 @@
+<%@page import="semi.BoardDto"%>
 <%@page import="semi.BoardDao"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"

@@ -1,14 +1,8 @@
 <%@page import="semi.BoardDao"%>
 <%@page import="semi.BoardDto"%>
-<%@page import="home.bean.ReplyDto"%>
 <%@page import="java.util.List"%>
-<%@page import="home.bean.ReplyDao"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
-<%@page import="home.bean.MemberDto"%>
-<%@page import="home.bean.MemberDao"%>
-<%@page import="home.bean.BoardDto"%>
-<%@page import="home.bean.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
