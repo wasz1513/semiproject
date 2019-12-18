@@ -78,7 +78,7 @@
 				<td><%=dto.getCustomer_name() %></td>
 				<td><%=dto.getCustomer_grade() %></td>
 				<td>포인트 미구현</td>
-				<td>회원정보</td>
+				<td><a href="info.jsp?id=<%=dto.getCustomer_id()%>">회원정보</a></td>
 				<td>회원탈퇴</td>
 				<td>????</td>
 			</tr>
