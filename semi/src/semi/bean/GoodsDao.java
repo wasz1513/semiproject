@@ -20,6 +20,7 @@ public class GoodsDao {
 			e.printStackTrace();
 		}
 	}
+
 	public Connection getConnection() throws Exception {
 		return source.getConnection();
 	}
@@ -60,7 +61,7 @@ public class GoodsDao {
 		String sql = "select * from goods where no=? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
-		
+
 		ResultSet rs = ps.executeQuery();
 
 		GoodsDto dto;
@@ -82,7 +83,17 @@ public class GoodsDao {
 		con.close();
 		return dto;
 	}
-////조회수 증가
-//public void readcountupdate()
+
+//조회수 증가
+	public void readcountupdate() throws Exception {
+		Connection con = getConnection();
+
+		String sql = "update goods set readcount = readcount+1 where no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+//	ps.setInt(1,no);
+		ps.execute();
+
+		con.close();
+	}
 
 }
