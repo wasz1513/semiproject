@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
 <title>Semi</title>
 <style>
 	
@@ -57,9 +62,31 @@
 	.row-multi.col-4 > .more{
 		margin-top: 120px;
 	}
+/* 슬라이더 영역 스타일 */
+    
+    nav{
+    	height: 300px;
+    	z-index: 10;
+    }
 </style>
+
+<!-- ================================================================ -->
+<!-- 슬라이더 -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script>
+function loadSlider(){
+	 var swiper = new Swiper('.swiper-container', {
+		 autoplay:{
+		     delay:3000,
+	     },
+	     loop: true,
+	  });
+}
+</script>
+
 </head>
-<body test>
+<body onload="loadSlider();">
 <!-- 	메인페이지 -->
 	<main>
 		
@@ -149,18 +176,8 @@
 			
 		</header>
 		
-<!-- 		메뉴(네비) -->
-		<nav>
-			<div class="row benner">
-				<div>
-					<img src="http://placehold.it/1600x300">
-				</div>
-			</div>
-		</nav>
+
 		
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 		<section>
-				
-		
-	
