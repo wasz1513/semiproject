@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/input.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/admin.css">
 <title>Semi</title>
 <style>
 	
@@ -113,9 +114,22 @@ boolean master = grade != null && grade.equals("운영자");
 <body onload="loadSlider();" test>
 <!-- 	메인페이지 -->
 	<main>
+	
+		<%if(master){ %>
+			<div class="menu-master">
+				<label for="custom-menu-admin">운영자페이지</label>
+      			<input type="checkbox" id="custom-menu-admin">
+      			<ul class="custom-list">
+      				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
+			       	<li><a href="#">상품리스트</a></li>
+			        <li><a href="#">운영현황</a></li>	
+      			</ul>
+			</div>
+		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 		<header>
+			
 			
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->

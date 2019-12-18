@@ -39,11 +39,10 @@ public class CustomerDao {
 	}
 
 	// getList 기능(모두 불러오기)
-	public List<CustomerDto> getList(CustomerDto dto) throws Exception {
+	public List<CustomerDto> getList() throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from customer where customer_id=?";
+		String sql = "select * from customer order by customer_no";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, dto.getCustomer_id());
 		ResultSet rs = ps.executeQuery();
 
 		List<CustomerDto> list = new ArrayList<>();
