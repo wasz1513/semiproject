@@ -1,9 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 		</section>
-		
 <!-- 		푸터 -->
 		<footer>
 			<div class="row-left">
@@ -27,8 +25,8 @@
 				<h5>로그인 상태 = <%= id != null %></h5>
 			
 		</footer>
-		
 	</main>
 
 </body>
 </html>
+

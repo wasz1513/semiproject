@@ -4,11 +4,9 @@
     pageEncoding="UTF-8"%>
     
 <%
-
 	String customer_id = (String)session.getAttribute("customer_id");
 	CustomerDao dao = new CustomerDao();
 	CustomerDto dto = dao.get(customer_id);
-
 %>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
