@@ -110,22 +110,36 @@ public class CustomerDao {
 		ps.execute();
 		con.close();
 	}
+	
+	// 회원가입시퀀스 번호 뽑기
+	public int getSequence() throws Exception {
+		Connection con = getConnection();
 
+		String sql = "select customer_seq.nextval from dual";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int seq = rs.getInt(1);
+		con.close();
+		return seq;
+	}
+	
 	// 회원가입
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
-		String sql = "insert into customer values(customer_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate)";
+		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, dto.getCustomer_name());
-		ps.setString(2, dto.getCustomer_birth());
-		ps.setString(3, dto.getCustomer_nickname());
-		ps.setString(4, dto.getCustomer_id());
-		ps.setString(5, dto.getCustomer_pw());
-		ps.setString(6, dto.getCustomer_phone());
-		ps.setString(7, dto.getCustomer_email());
-		ps.setString(8, dto.getCustomer_post());
-		ps.setString(9, dto.getCustomer_basic_address());
-		ps.setString(10, dto.getCustomer_extra_address());
+		ps.setInt(1, dto.getCustomer_no());
+		ps.setString(2, dto.getCustomer_name());
+		ps.setString(3, dto.getCustomer_birth());
+		ps.setString(4, dto.getCustomer_nickname());
+		ps.setString(5, dto.getCustomer_id());
+		ps.setString(6, dto.getCustomer_pw());
+		ps.setString(7, dto.getCustomer_phone());
+		ps.setString(8, dto.getCustomer_email());
+		ps.setString(9, dto.getCustomer_post());
+		ps.setString(10, dto.getCustomer_basic_address());
+		ps.setString(11, dto.getCustomer_extra_address());
 		ps.execute();
 		con.close();
 	}
@@ -291,6 +305,16 @@ public class CustomerDao {
 		
 		con.close();
 		return encrype;
+	}
+	
+	//admin용 회원탈퇴(id로 탈퇴)
+	public void withdrawal(String customer_id) throws Exception {
+		Connection con = getConnection();
+		String sql = "delete from customer where customer_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ps.execute();
+		con.close();
 	}
 
 }

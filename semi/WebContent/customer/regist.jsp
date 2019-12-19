@@ -5,28 +5,40 @@
     
     
   
-	<form action = "regist.do" method="post">
+	<form action = "regist.do" method="post" enctype="multipart/form-data">
 		
 		<article class = "w-40">
 			
 			<div>
 			
 				<h2>회원 가입</h2>
-				<div>
-					<label for="id">아이디</label>
-					<input id="id" type="text" name ="customer_id" required>
-				</div>
-				<div>
-					<label for="pw">비밀번호</label>
-					<input type="password" name ="customer_pw" required>
-				</div>
-				<div>
-					<label>이름</label>
-					<input type="text" name ="customer_name" required>
-				</div>
-				<div>
-					<label>닉네임</label>
-					<input type="text" name ="customer_nickname" required>
+				<div class="row-multi col-2">
+					<div class="col-2-first">
+						<div>
+							<img src="http://placehold.it/100x70?text=이미지">
+						</div>
+						<div>
+							<input type="file" name="file" accept=".jpg, .png, .gif">
+						</div>
+					</div>
+					<div class="col-2-second">
+						<div>
+							<label for="id">아이디</label>
+							<input id="id" type="text" name ="customer_id" required>
+						</div>
+						<div>
+							<label for="pw">비밀번호</label>
+							<input type="password" name ="customer_pw" required>
+						</div>
+						<div>
+							<label>이름</label>
+							<input type="text" name ="customer_name" required>
+						</div>
+						<div>
+							<label>닉네임</label>
+							<input type="text" name ="customer_nickname" required>
+						</div>
+					</div>
 				</div>
 				<div>
 					<label>생년월일</label>

@@ -17,6 +17,9 @@ public class CutomerOutServlet extends HttpServlet{
 		try {
 			String customer_id = req.getParameter("id");
 			CustomerDao dao = new CustomerDao();
+			dao.withdrawal(customer_id);
+			
+			resp.sendRedirect("list.jsp");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
