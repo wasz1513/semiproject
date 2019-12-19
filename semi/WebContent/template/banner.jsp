@@ -8,10 +8,15 @@
     
     nav{
 /*     	margin-top:110px; */
-    	height: 300px;
+    	height: 380px;
     	z-index: 10;
     }
+    
+    #banner1{
+    	padding:0 100;
+    }
 
+	
 
 </style>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
@@ -32,9 +37,10 @@ function loadSlider(){
 			<nav>
 				<div class="swiper-container">
 				    <div class="swiper-wrapper">
-				      <div class="swiper-slide"><img src="./image/kh.jpg"></div>
-				      <div class="swiper-slide"><img src="./image/sad.gif"></div>
-				      <div class="swiper-slide"><img src="./image/sad.gif"></div>		 
+				      <div class="swiper-slide" id="banner1"><img src="<%=request.getContextPath()%>/image/banner01.png"></div>
+				      <div class="swiper-slide" id="banner2"><img src="<%=request.getContextPath()%>/image/banner02.png"></div>
+				      <div class="swiper-slide" id="banner3"><img src="<%=request.getContextPath()%>/image/banner03.png"></div>	
+				      <div class="swiper-slide" id="banner4"><img src="<%=request.getContextPath()%>/image/banner04.png"></div>	 
 				    </div>
 				</div>
 			</nav>	
