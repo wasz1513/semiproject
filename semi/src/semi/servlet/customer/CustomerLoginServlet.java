@@ -27,8 +27,8 @@ public class CustomerLoginServlet extends HttpServlet{
 			boolean result = dao.login(customer_id, customer_pw);
 			
 			if(result) {
-				
-				CustomerDto dto = new CustomerDto();
+				// 로그인 회원 정보 조회 : 등급가져오기
+				CustomerDto dto = dao.get(customer_id);
 				req.getSession().setAttribute("customer_id", customer_id);
 				req.getSession().setAttribute("customer_grade", dto.getCustomer_grade());
 				

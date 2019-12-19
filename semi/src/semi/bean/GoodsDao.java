@@ -29,7 +29,10 @@ public class GoodsDao {
 	public void goods_write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
+
 		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id) values(goods_seq.nextval,?,?,?,?,?)";
+
+	
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getGoods_category());
 		ps.setString(2, dto.getGoods_title());
@@ -89,13 +92,17 @@ public class GoodsDao {
 		return dto;
 	}
 
+
 //상품 등록 조회수 증가
 	public void readcountupdate(int goods_no) throws Exception {
+
 		Connection con = getConnection();
 
 		String sql = "update goods set goods_readcount = goods_readcount+1 where goods_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
+
 	ps.setInt(1,goods_no);
+
 		ps.execute();
 
 		con.close();

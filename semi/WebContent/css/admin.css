@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.menu-master {
+	position: fixed;
+	margin-left: 1700px;
+}
+
+.custom-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 150px;
+}
+
+.custom-list>li {
+	background-color: black;
+	color: white;
+	padding: 15px;
+	cursor: pointer;
+}
+
+.custom-list li:hover {
+	background-color: gray;
+	color: black;
+}
+
+.menu-master>label {
+	display: block;
+}
+
+.menu-master>#custom-menu-admin {
+	display: none;
+}
+
+.menu-master>.custom-list li:hover>ul {
+	display: block;
+}
+
+.menu-master>.custom-list {
+	display: none;
+	margin-left: -54px;
+}
+
+.menu-master>#custom-menu-admin:checked+.custom-list {
+	display: inline-block;
+}

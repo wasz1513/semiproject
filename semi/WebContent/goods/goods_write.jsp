@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<style>
+article {
+	margin: auto;
+}
+</style>
+
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<div class=row align="center">
+<article>
 
+
+	<div class="row">
 <h2>상품 등록</h2>
 <form action="goods_write.do" method="post">
 	<table border="1" width="70%">
@@ -62,7 +70,7 @@
 
 </div>
 
-
+</article>
 
 
 

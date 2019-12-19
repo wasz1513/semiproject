@@ -162,10 +162,12 @@ public class CustomerDto {
 	// 주소통합
 	public String getCustomer_address() {
 
-		if (customer_post != null && customer_basic_address != null && customer_extra_address != null) {
+		if (customer_post != null && customer_basic_address != null && customer_extra_address == null) {
+			return "[" + customer_post + "] " + customer_basic_address;
+		} 
+		else if(customer_post != null && customer_basic_address != null && customer_extra_address != null) {
 			return "[" + customer_post + "] " + customer_basic_address + " " + customer_extra_address;
 		}
-
 		else {
 			return "";
 		}
