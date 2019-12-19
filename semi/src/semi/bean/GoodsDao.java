@@ -144,50 +144,51 @@ public class GoodsDao {
 	}
 
 	
-	//목록
+	//기본목록(인기게시글)
 	
-		public List<GoodsDto> getList(int start , int finish) throws Exception{
-			Connection con = getConnection();
+			public List<GoodsDto> getList(int start , int finish ) throws Exception{
+				Connection con = getConnection();
+			
+			
+				
+			String sql =  "select * from("
+					+ "select rownum rn, J.* from("
+					+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC"
+					+ ")J"
+					+ ")where rn between ? and ? "; 
+				
+				
+				PreparedStatement ps = con.prepareStatement(sql);
 		
-		
+				ps.setInt(1, start);
+				ps.setInt(2, finish);
+				ResultSet rs = ps.executeQuery();
+				
+				//변환
+				List<GoodsDto> list = new ArrayList<>() ;
+				
+				
+				while(rs.next()) {			
+					GoodsDto dto =new GoodsDto();
+					dto.setRn(rs.getInt("rn"));
+					dto.setCustomer_id(rs.getString("customer_id"));
+					dto.setGoods_no(rs.getInt("goods_no"));
+					dto.setGoods_price(rs.getInt("goods_price"));
+					dto.setGoods_readcount(rs.getInt("goods_readcount"));
+					dto.setGoods_replycount(rs.getInt("goods_replycount"));
+					dto.setGoods_writetime(rs.getString("goods_writetime"));
+					dto.setGoods_title(rs.getString("goods_title"));
+					dto.setGoods_category(rs.getString("goods_category"));
+					dto.setGoods_content(rs.getString("goods_content"));
+					dto.setGoods_state(rs.getString("goods_state"));
 			
-		String sql =  "select * from("
-				+ "select rownum rn, A.* from("
-				+ "select * from goods order by goods_no desc"
-				+ ")A"
-				+ ")where rn between ? and ? "; 
-			
-			
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, start);
-			ps.setInt(2, finish);
-			ResultSet rs = ps.executeQuery();
-			
-			//변환
-			List<GoodsDto> list = new ArrayList<>() ;
-			
-			
-			while(rs.next()) {			
-				GoodsDto dto =new GoodsDto();
-				dto.setRn(rs.getInt("rn"));
-				dto.setCustomer_id(rs.getString("customer_id"));
-				dto.setGoods_no(rs.getInt("goods_no"));
-				dto.setGoods_price(rs.getInt("goods_price"));
-				dto.setGoods_readcount(rs.getInt("goods_readcount"));
-				dto.setGoods_replycount(rs.getInt("goods_replycount"));
-				dto.setGoods_writetime(rs.getString("goods_writetime"));
-				dto.setGoods_title(rs.getString("goods_title"));
-				dto.setGoods_category(rs.getString("goods_category"));
-				dto.setGoods_content(rs.getString("goods_content"));
-				dto.setGoods_state(rs.getString("goods_state"));
-			
-				list.add(dto);
+					list.add(dto);
+				}
+				
+				con.close();
+				
+				return list;
 			}
-			
-			con.close();
-			
-			return list;
-		}
 	
 	
 		
@@ -238,7 +239,7 @@ public class GoodsDao {
 		
 		
 			
-			//페이지 카운트
+			//글 개수 구하기
 			public int getCount(String type , String keyword) throws Exception{
 				Connection con = getConnection();
 				
@@ -249,7 +250,7 @@ public class GoodsDao {
 				String sql = "select count(*) from goods";
 				
 				if(isSearch) {
-					sql += "where"+type+"like '%'||?||'%'" ;
+					sql += " where "+type+" like '%'||?||'%'order by goods_no desc" ;
 				}
 				
 				PreparedStatement ps = con.prepareStatement(sql);
