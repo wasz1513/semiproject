@@ -36,15 +36,16 @@ public class GoodsDao {
 		Connection con = this.getConnection();
 
 
-		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id) values(goods_seq.nextval,?,?,?,?,?)";
+		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id) values(?,?,?,?,?,?)";
 
 	
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, dto.getGoods_category());
-		ps.setString(2, dto.getGoods_title());
-		ps.setString(3, dto.getGoods_content());
-		ps.setInt(4, dto.getGoods_price());
-		ps.setString(5, dto.getCustomer_id());
+		ps.setInt(1, dto.getGoods_no());
+		ps.setString(2, dto.getGoods_category());
+		ps.setString(3, dto.getGoods_title());
+		ps.setString(4, dto.getGoods_content());
+		ps.setInt(5, dto.getGoods_price());
+		ps.setString(6, dto.getCustomer_id());
 		ps.execute();
 		con.close();
 	}

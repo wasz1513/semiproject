@@ -29,7 +29,7 @@ public class GoodsWriteServlet extends HttpServlet {
 			dto.setCustomer_id(session_id);
 			
 //상세보기로
-		GoodsDao dao = new GoodsDao();
+			GoodsDao dao = new GoodsDao();
 			int goods_no=dao.getSequence();
 			
 			dto.setGoods_no(goods_no);
@@ -37,7 +37,7 @@ public class GoodsWriteServlet extends HttpServlet {
 			dao.goods_write(dto);
 			
 			resp.sendRedirect("goods_content.jsp?goods_no="+goods_no);
-		} 
+		}
 		catch (Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
