@@ -35,13 +35,14 @@
 
 
 		<div align="center" class="row row-multi col-2" >
+			<form action ="write.do" method="post">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1문의/신고">
+				<a href="list.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
-				<a href="list.jsp"></a>			
+				</a>			
 				</div>
 			<br><br><br>
 			<div>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</div>
-			<form action ="write.do">
 			
 			
 			
@@ -72,6 +73,7 @@
 			</div>
 			<div align="right">
 				<input type="submit" value="상담 신청">
+				
 			</div>
 			</div>
 

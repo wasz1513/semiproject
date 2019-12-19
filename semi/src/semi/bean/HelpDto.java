@@ -1,4 +1,4 @@
-package semi.servlet.help;
+package semi.bean;
 
 public class HelpDto {
 	

@@ -1,4 +1,4 @@
-package semi.servlet.help;
+package semi.bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class HelpDao {
 	private static DataSource source;
 	static {
 		try {
-			Context ctx = new InitialContext();
+			InitialContext ctx=new InitialContext();
 			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class HelpDao {
 	public List<HelpDto> getList() throws Exception {
 		Connection con = getConnection();
 //		String sql = "select*from board order by no desc";
-		String sql = "select * from help order by board_no desc";
+		String sql = "select * from help order by board_NO desc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 
@@ -42,7 +42,7 @@ public class HelpDao {
 		while (rs.next()) {
 			HelpDto dto = new HelpDto();
 
-			dto.setBoard_NO(rs.getInt("board_no"));
+			dto.setBoard_NO(rs.getInt("board_NO"));
 			dto.setHdate(rs.getString("hdate"));
 			dto.setContent(rs.getString("content"));
 			dto.setHead(rs.getString("head"));
@@ -61,15 +61,13 @@ public class HelpDao {
 	public void write(HelpDto dto) throws Exception {
 		Connection con =getConnection();
 		
-		String sql="insert into write(board_no,head,reply,write,content,hdate) "
-				+ "values(help_seq.nextval,?,?,?,?))";
+		String sql="insert into help(board_NO,head,reply,write,content,hdate) "
+				+ "values(help_seq.nextval,?,null,?,?,sysdate)";
 		PreparedStatement ps =con.prepareStatement(sql);
-		ps.setInt(1, dto.getBoard_NO());
-		ps.setString(2, dto.getHead());
-		ps.setString(3, dto.getReply());
-		ps.setString(4, dto.getWrite());
-		ps.setString(5, dto.getContent());
-		ps.setString(6, dto.getHdate());
+		ps.setString(1, dto.getHead());
+		ps.setString(2, dto.getWrite());
+		ps.setString(3, dto.getContent());
+
 		
 		ps.execute();
 		
