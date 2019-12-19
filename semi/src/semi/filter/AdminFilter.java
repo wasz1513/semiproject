@@ -20,7 +20,7 @@ public class AdminFilter implements Filter{
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
 		String grade = (String)req.getSession().getAttribute("customer_grade");
-		boolean admin = grade.equals("관리자");
+		boolean admin = grade!=null && grade.equals("관리자");
 		if(admin) {
 			chain.doFilter(request, response);
 		}else {
