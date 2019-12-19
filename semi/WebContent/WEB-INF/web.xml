@@ -16,7 +16,7 @@
 	</session-config>
 	
 <!-- 						필터설정 -->
-<!-- 			순서 : Encoding / TestAdmin /  LoginCheck / Admin / BoardAuthCheck-->
+<!-- 			순서 : Encoding /GoodsAuthorityCheckFilter-->
 <!-- 	EncodingFilter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -25,6 +25,17 @@
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 이 필터는 게시글 수정/삭제 시 본인이나 관리자만 통과하도록 차단하는 필터 -->
+	<filter>
+		<filter-name>goodsAuthorityCheckFilter</filter-name>
+		<filter-class>semi.filter.GoodsAuthorityCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>goodsAuthorityCheckFilter</filter-name>
+		<url-pattern>/goods/goods_edit.do</url-pattern>
+		<url-pattern>/goods/goods_edit.jsp</url-pattern>
+		<url-pattern>/goods/goods_delete.do</url-pattern>
 	</filter-mapping>
 	
 </web-app>

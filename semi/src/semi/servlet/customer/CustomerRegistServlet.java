@@ -32,8 +32,6 @@ public class CustomerRegistServlet extends HttpServlet{
 			MultipartRequest mRequest = new MultipartRequest(req, path, size, encoding, new DefaultFileRenamePolicy());
 			
 			
-			req.setCharacterEncoding("UTF-8");
-			
 			CustomerDto dto = new CustomerDto();
 			dto.setCustomer_id(mRequest.getParameter("customer_id"));
 			dto.setCustomer_pw(mRequest.getParameter("customer_pw"));
