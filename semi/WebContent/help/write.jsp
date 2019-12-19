@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<jsp:include page="/template/header.jsp"></jsp:include>
+
+<div align="center">
+
 <title>신고/문의하기</title>
 <style>
 .row.row-multi::after {
@@ -32,18 +32,18 @@
 	width: 20%
 }
 </style>
-</head>
-<body>
-		<div align="center">
+
+
 		<div align="center" class="row row-multi col-2" >
-				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
-				<a href="help"></a> 
-				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="목록보기">
-				<a href="help/list"></a> 
-			</div>
+				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1문의/신고">
+				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
+				<a href="list.jsp"></a>			
+				</div>
 			<br><br><br>
 			<div>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</div>
-
+			<form action ="write.do">
+			
+			
 			
 			<br>
 		
@@ -59,6 +59,7 @@
 			</div>
 		
 			<div>
+			
 				<textarea name="content" required rows="20" cols="100"
 					style="resize: vertical;"></textarea>
 			</div>
@@ -76,7 +77,6 @@
 
 
 
-
+				</form>
 		</div>
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>
