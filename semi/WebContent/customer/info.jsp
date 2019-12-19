@@ -48,6 +48,9 @@
 							등급
 							<%=dto.getCustomer_grade()%>
 						</div>
+							<a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트</a>
+							<%=dto.getCustomer_point()%>
+						</div>
     				</div>
     			</div>
 			
@@ -65,7 +68,7 @@
 				주소
 				<%=dto.getCustomer_address() %>
 			</div>
-		
+			
 			<div>
 				가입일
 				<%=dto.getCustomer_joindateWithFormat()%>
