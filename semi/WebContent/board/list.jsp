@@ -1,17 +1,12 @@
 
-<%@page import="bean.BoardDao"%>
+<%@page import="semi.bean.BoardDto"%>
+<%@page import="semi.bean.BoardDao"%>
 <%@page import="java.util.List"%>
-<%@page import="bean.BoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
-
-
 BoardDao dao = new BoardDao();
-	List<BoardDto> list = dao.getList();
-	
-	
+List<BoardDto> list = dao.getList();
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -21,7 +16,7 @@ BoardDao dao = new BoardDao();
 		<h1>  N O T I C E  </h1>
 		<br><br>
 		 
-		<table border="1" width="90%">
+		<table border="1" width="45%">
 			<thead>		
 				<tr>
 					<th>NO</th>
