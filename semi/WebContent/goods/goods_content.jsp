@@ -1,4 +1,6 @@
-
+<%@page import="semi.bean.GoodsReplyDao"%>
+<%@page import="semi.bean.GoodsReplyDto"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="semi.bean.GoodsDto"%>
@@ -60,22 +62,75 @@
 
 			</td>
 		</tr>
+
+		<tr>
+			<td>
+			<%
+		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
+		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
+		
+		
+		%>
+				<table border="1" width="100%">
+				<%for(GoodsReplyDto goodsreplydto : list ) {%>
+					<tr>
+						<th width="100"><img src="http://placehold.it/100X100">
+						</th>
+						<td><%=goodsreplydto.getGoods_reply_writer() %>
+						
+						<%if(goodsdto.getCustomer_id().equals(goodsreplydto.getGoods_reply_writer())){ %>
+						<!-- 판매글 판매자의 댓글에만 판매자 표시 -->
+						<font color="red">(판매자)</font>
+						<%} %>
+						
+						 		<%=goodsreplydto.getGoods_reply_writetime() %>
+								
+								답글
+								
+								<% if(session_id.equals(goodsreplydto.getGoods_reply_writer())){%>
+								<!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 -->
+								<a href="#">수정</a>
+								<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>								
+						 		<% }%>
+						 		
+						   <br><br> 
+					  <%=goodsreplydto.getGoods_reply_content()%>
+						</td>
+					</tr>
+					<%} %>
+				</table>
+
+			</td>
+		</tr>
+
 		<!-- 댓글 작성칸 -->
-		<!-- 아직 안함 -->
+		
+	<tr>
+	<td  align="right">
+	<form action="goods_reply_insert.do"method="post">
+	<input type ="hidden" name ="goods_no" value="<%=goodsdto.getGoods_no()%>">
+	<textarea name ="goods_content" rows="4" cols="100" required></textarea>
+	<input type="submit" value="등록">
+	
+	</form>
+	</td>
+	</tr>
 
 		<!-- 버튼 -->
 		<tr>
-			<td align="right"><a href="goods_write.jsp"><input
-					type="button" value="글쓰기"></a> <a href="#"><input
-					type="button" value="답글쓰기"></a> <%
- 	if (isAdmin || isMine) {
- %> <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 -->
-				<a href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>"><input
-					type="button" value="수정"></a> <a
-				href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>"><input
-					type="button" value="삭제"></a> <%
- 	}
- %> <a href="#"><input
+			<td align="right">
+			<a href="goods_write.jsp"><input type="button" value="글쓰기"></a> 
+			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
+			<input type="button" value="답글쓰기"></a> 
+			
+					<%if (isAdmin || isMine){%>
+					 <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 -->
+				<a href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
+				<input type="button" value="수정"></a>
+				 <a href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>">
+				<input type="button" value="삭제"></a>
+				 <%} %>
+				  <a href="goods_list.jsp"><input
 					type="button" value="목록"></a></td>
 		</tr>
 		</table>
