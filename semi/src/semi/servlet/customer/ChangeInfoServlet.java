@@ -29,7 +29,7 @@ public class ChangeInfoServlet extends HttpServlet {
 			//session에서 불러 오는 것 추가 후 반드시 변경할 것.
 			dto.setCustomer_id((String)req.getSession().getAttribute("customer_id"));
 			dao.updateCustomerInfo(dto);
-			resp.sendRedirect(req.getContextPath());
+			resp.sendRedirect(req.getContextPath()+"/customer/info.jsp");
 			
 		}catch(Exception e){
 			e.printStackTrace();

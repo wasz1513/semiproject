@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/input.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/admin.css">
 <title>Semi</title>
 <style>
 	
@@ -54,11 +55,22 @@
 		margin: auto;
 	}
 	
-	header, section, footer {
+	header, footer, article{
 		width: 1200px;
 		margin: auto;
 		padding: 2rem;
 	}
+	
+/* 	header{ */
+/*     background-color: #fff; */
+/*     position: fixed; */
+/*     top: 0; */
+/*     left: 0; */
+/*     right: 0; */
+/*     z-index: 100; */
+/*     padding:0; */
+/* 	} */
+	
 	
 	.row-multi.col-4 > .more{
 		margin-top: 120px;
@@ -70,6 +82,7 @@
 
     
     nav{
+/*     	margin-top:110px; */
     	height: 300px;
     	z-index: 10;
     }
@@ -102,14 +115,29 @@ boolean master = grade != null && grade.equals("관리자");
 
 <!-- 	메인페이지 -->
 	<main>
+	
+		<%if(master){ %>
+			<div class="menu-master">
+				<label for="custom-menu-admin">운영자페이지</label>
+      			<input type="checkbox" id="custom-menu-admin">
+      			<ul class="custom-list">
+      				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
+			       	<li><a href="#">상품리스트</a></li>
+			        <li><a href="#">운영현황</a></li>	
+      			</ul>
+			</div>
+		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 		<header>
 			
+			
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
 				<div class="a">
-					<img src="http://placehold.it/180x50">
+					<a href="<%=request.getContextPath()%>">
+						<img src="http://placehold.it/180x50">
+					</a>
 				</div>
 <!-- 				검색창 -->
 				<div class="b">	
@@ -121,7 +149,6 @@ boolean master = grade != null && grade.equals("관리자");
 <!-- 					로그인 / 마이페이지 -->
 				<div class="c">
 					<%if(id==null){ %>
-						<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<div class="menu-wrap1">
 						<label for="custom-menu1">로그인</label>
       				  	<input type="checkbox" id="custom-menu1">
@@ -187,8 +214,6 @@ boolean master = grade != null && grade.equals("관리자");
 			</div>
 		</header>
 		
+<section>
 
 		
-<!-- 		내용 -->
-<!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
-		<section>
