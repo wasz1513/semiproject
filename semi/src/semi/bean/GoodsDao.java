@@ -92,22 +92,17 @@ public class GoodsDao {
 		return dto;
 	}
 
-<<<<<<< HEAD
-//조회수 증가
-	public void readcountupdate(int no) throws Exception {
-=======
+
 //상품 등록 조회수 증가
 	public void readcountupdate(int goods_no) throws Exception {
->>>>>>> refs/remotes/origin/master
+
 		Connection con = getConnection();
 
 		String sql = "update goods set goods_readcount = goods_readcount+1 where goods_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
-<<<<<<< HEAD
-		ps.setInt(1, no);
-=======
+
 	ps.setInt(1,goods_no);
->>>>>>> refs/remotes/origin/master
+
 		ps.execute();
 
 		con.close();
