@@ -12,8 +12,6 @@
 	CustomerDto dto = dao.get(customer_id);
 	
 	CustomerFilesDao fdao = new CustomerFilesDao();
-	CustomerFilesDto fdto = new CustomerFilesDto();
-	
 	List<CustomerFilesDto> flist = fdao.getList(dto.getCustomer_no());
 %>
 
@@ -28,7 +26,9 @@
     			<div class="row-multi col-2">
     				<div class="col-2-first">
     				<%if(flist.size()>0) {%>
-    					<img src="download.do?no=<%=fdto.getCustomer_files_no()%>">
+    					<%for(CustomerFilesDto fdto : flist){ %>
+    						<img src="download.do?no=<%=fdto.getCustomer_files_no()%>" width="100" height="100">
+    					<%} %>
     				<%}else{ %>
     					<img src="http://placehold.it/100x100">
     				<%} %>

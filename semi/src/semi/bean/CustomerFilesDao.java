@@ -41,7 +41,7 @@ public class CustomerFilesDao {
 	
 	public List<CustomerFilesDto> getList(int origin) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "select * from customer_files where Origin=? order by customer_files_no";
+		String sql = "select * from customer_files where origin=? order by customer_files_no";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, origin);
 		ResultSet rs = ps.executeQuery();

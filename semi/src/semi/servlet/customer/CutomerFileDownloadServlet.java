@@ -26,7 +26,7 @@ public class CutomerFileDownloadServlet extends HttpServlet{
 			CustomerFilesDao dao = new CustomerFilesDao();
 			CustomerFilesDto dto = dao.filesInfo(no);
 			
-			File target = new File("D:/upload/home", dto.getSavename());
+			File target = new File("D:\\upload\\kh23\\customer", dto.getSavename());
 			byte[] data = FileUtils.readFileToByteArray(target);
 		
 
