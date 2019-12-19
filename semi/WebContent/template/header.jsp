@@ -156,7 +156,7 @@ boolean master = grade != null && grade.equals("관리자");
       				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
-			                <li><a href="#">비밀번호찾기</a></li>		                			
+			                <li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
       				  	</ul>
 					</div>
 					<%}else{ %>
