@@ -35,16 +35,16 @@ public class CustomerRegistServlet extends HttpServlet{
 			req.setCharacterEncoding("UTF-8");
 			
 			CustomerDto dto = new CustomerDto();
-			dto.setCustomer_id(req.getParameter("customer_id"));
-			dto.setCustomer_pw(req.getParameter("customer_pw"));
-			dto.setCustomer_name(req.getParameter("customer_name"));
-			dto.setCustomer_nickname(req.getParameter("customer_nickname"));
-			dto.setCustomer_birth(req.getParameter("customer_birth"));
-			dto.setCustomer_email(req.getParameter("customer_email"));
-			dto.setCustomer_phone(req.getParameter("customer_phone"));
-			dto.setCustomer_post(req.getParameter("customer_post"));
-			dto.setCustomer_basic_address(req.getParameter("customer_basic_address"));
-			dto.setCustomer_extra_address(req.getParameter("customer_extra_address"));
+			dto.setCustomer_id(mRequest.getParameter("customer_id"));
+			dto.setCustomer_pw(mRequest.getParameter("customer_pw"));
+			dto.setCustomer_name(mRequest.getParameter("customer_name"));
+			dto.setCustomer_nickname(mRequest.getParameter("customer_nickname"));
+			dto.setCustomer_birth(mRequest.getParameter("customer_birth"));
+			dto.setCustomer_email(mRequest.getParameter("customer_email"));
+			dto.setCustomer_phone(mRequest.getParameter("customer_phone"));
+			dto.setCustomer_post(mRequest.getParameter("customer_post"));
+			dto.setCustomer_basic_address(mRequest.getParameter("customer_basic_address"));
+			dto.setCustomer_extra_address(mRequest.getParameter("customer_extra_address"));
 			
 			CustomerDao dao = new CustomerDao();
 			int seq = dao.getSequence();
@@ -61,7 +61,7 @@ public class CustomerRegistServlet extends HttpServlet{
 				fdto.setFilesize(file.length());		
 				
 				CustomerFilesDao fdao = new CustomerFilesDao();
-//				fdao.edit(fdto);
+				fdao.edit(fdto);
 			}
 			
 			

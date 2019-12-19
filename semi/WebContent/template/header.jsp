@@ -156,7 +156,7 @@ boolean master = grade != null && grade.equals("관리자");
       				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
-			                <li><a href="#">비밀번호찾기</a></li>		
+			                <li><a href="#">비밀번호찾기</a></li>		                			
       				  	</ul>
 					</div>
 					<%}else{ %>
@@ -169,6 +169,8 @@ boolean master = grade != null && grade.equals("관리자");
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
 			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
+			                <li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>	
+			                <li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>
       				  	</ul>
 					</div>
 					<%} %>

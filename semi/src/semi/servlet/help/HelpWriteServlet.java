@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.bean.CustomerDao;
+import semi.bean.HelpDao;
+import semi.bean.HelpDto;
+
 @WebServlet(urlPatterns = "/help/write.do")
 public class HelpWriteServlet extends HttpServlet {
 	@Override
@@ -16,17 +20,16 @@ public class HelpWriteServlet extends HttpServlet {
 		try {
 			
 			HelpDto dto= new HelpDto();
-			dto.setBoard_NO(Integer.parseInt(req.getParameter("board_no")));;
-			dto.setHdate(req.getParameter("hdate"));
 			dto.setContent(req.getParameter("content"));
 			dto.setHead(req.getParameter("head"));
 			
-			String id=(String) req.getSession().getAttribute("id");
+			String id=(String) req.getSession().getAttribute("customer_id");
 			dto.setWrite(id);
-			
-			HelpDao dao= new HelpDao();
+		
+			HelpDao dao=new HelpDao();
 			dao.write(dto);
 			
+	
 			resp.sendRedirect("list.jsp");
 			
 
