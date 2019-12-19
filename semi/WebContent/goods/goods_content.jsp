@@ -40,7 +40,7 @@ memory = new HashSet<>();
 <div align="center">
 	<h2>상품등록 상세보기</h2>
 
-	<table border="1" width="70%">
+	<div border="1" width="70%">
 		<tr>
 
 			<td><%=goodsdto.getGoods_title() %></td>

@@ -44,7 +44,11 @@
 		</tr>
 		<tr>
 		<td colspan="2" align="center">
-				<input type="submit" value="등록하기">
+		<a href="goods_content.jsp">
+		<input type="submit" value="등록하기">
+		</a>
+				
+				
 				<a href="goods_list.jsp">
 				<input type="button" value="목록보기">
 				</a>

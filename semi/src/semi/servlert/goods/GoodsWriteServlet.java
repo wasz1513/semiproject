@@ -25,8 +25,8 @@ public class GoodsWriteServlet extends HttpServlet {
 			dto.setGoods_content(req.getParameter("goods_content"));
 			
 
-			String customer_id =(String)req.getSession().getAttribute("id");
-			dto.setCustomer_id(customer_id);
+			String session_id =(String)req.getSession().getAttribute("customer_id");
+			dto.setCustomer_id(session_id);
 			
 //상세보기로
 		GoodsDao dao = new GoodsDao();
@@ -36,7 +36,7 @@ public class GoodsWriteServlet extends HttpServlet {
 			
 			dao.goods_write(dto);
 			
-			resp.sendRedirect("content.jsp?goods_no="+goods_no);
+			resp.sendRedirect("goods_content.jsp?goods_no="+goods_no);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
