@@ -17,7 +17,6 @@ List<CustomerFilesDto> flist = fdao.getList(dto.getCustomer_no());
 
 <h1>회원정보 수정</h1>
 <form action="change_info.do" method="post" enctype="multipart/form-data">
-
 <!-- get 메소드 추가시 input에 placeholder를 dto.get으로 가져와야함. -->
 	<div class="row-multi col-2">
 		<div class="col-2-first">
@@ -39,6 +38,10 @@ List<CustomerFilesDto> flist = fdao.getList(dto.getCustomer_no());
 			</div>
 			<div>
 				닉네임 : <input type="text" name="customer_nickname" value="<%=dto.getCustomer_nickname()%>">
+			</div>
+			<div>
+				포인트 : <%=dto.getCustomer_point()%>
+						
 			</div>
 		</div>
 	</div>
