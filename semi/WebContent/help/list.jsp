@@ -1,21 +1,19 @@
-<%@page import="semi.servlet.help.HelpDto"%>
+<%@page import="semi.bean.HelpDto"%>
 <%@page import="java.util.List"%>
-<%@page import="semi.servlet.help.HelpDao"%>
+<%@page import="semi.bean.HelpDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
     
-    <% 
+<jsp:include page="/template/header.jsp"></jsp:include>
+ 
+  <% 
     HelpDao dao =new HelpDao();
     List<HelpDto> list =dao.getList();
      
     %>
-    
-    
-<jsp:include page="/template/header.jsp"></jsp:include>
 <div align="center">
 
-<title>신고/문의하기</title>
 <style>
 .row.row-multi::after {
 	content: "";
@@ -44,6 +42,7 @@
 }
 </style>
 
+<title>신고/문의하기</title>
 		<div align="center" >
 		<div class="row row-multi col-2" >
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
@@ -66,7 +65,7 @@
 			</thead>
 			<tbody align="center">
 			<%for(HelpDto dto : list){ %>
-			<tr>
+		  	<tr>
 				<td><%=dto.getBoard_NO()%></td>
 				<td><%=dto.getHdate()%></td>
 				<td><%=dto.getHead()%></td>
