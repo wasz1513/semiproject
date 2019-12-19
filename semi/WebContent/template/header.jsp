@@ -80,20 +80,7 @@
 
 </style>
 
-<!-- ================================================================ -->
-<!-- 슬라이더 -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-function loadSlider(){
-	 var swiper = new Swiper('.swiper-container', {
-		 autoplay:{
-		     delay:3000,
-	     },
-	     loop: true,
-	  });
-}
-</script>
+
 <% 
 String id = (String)session.getAttribute("customer_id"); 
 boolean login = id!=null;
