@@ -237,4 +237,7 @@ public class CustomerDao {
 		con.close();
 		return encrype;
 	}
-}
+
+	
+	}
+
