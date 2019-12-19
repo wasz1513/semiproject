@@ -13,6 +13,8 @@ int goods_no= Integer.parseInt(request.getParameter("goods_no"));
  String session_id = (String)session.getAttribute("customer_id");
  String session_grade = (String)session.getAttribute("customer_grade");
 
+//  System.out.println(session_id);
+//  System.out.println(session_grade);
  boolean isMine = session_id.equals(goodsdto.getCustomer_id());//사용자 id ==작성자 id
  boolean isAdmin = session_grade.equals("관리자");//사용자 권한 == 관리자
  
