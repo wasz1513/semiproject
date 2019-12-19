@@ -19,7 +19,7 @@ BoardDto dto = dao.get(no);
 	<form action="edit.do" method="post">
 	<input type="hidden" name="no" value="<%=dto.getNo()%>">
 
-		<table border="1" width="70%">
+		<table border="1" width="30%">
 			<caption>
 				<tr>
 					<th>말머리</th>
