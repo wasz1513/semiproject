@@ -61,7 +61,7 @@ public class CustomerRegistServlet extends HttpServlet{
 				fdto.setFilesize(file.length());		
 				
 				CustomerFilesDao fdao = new CustomerFilesDao();
-//				fdao.edit(fdto);
+				fdao.edit(fdto);
 			}
 			
 			
