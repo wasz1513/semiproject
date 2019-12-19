@@ -79,4 +79,17 @@ public class CustomerFilesDao {
 		con.close();
 		return dto;
 	}
+	
+	public void update(CustomerFilesDto dto) throws Exception{
+		Connection con = this.getConnection();
+		String sql = "update customer_files set uploadname=?, savename=?, filetype=?, filesize=? where origin=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, dto.getUploadname());
+		ps.setString(2, dto.getSavename());
+		ps.setString(3, dto.getFiletype());
+		ps.setLong(4, dto.getFilesize());
+		ps.setInt(5, dto.getOrigin());
+		ps.execute();
+		con.close();
+	}
 }
