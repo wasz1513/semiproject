@@ -28,7 +28,7 @@ public class CustomerFilesDao {
 	
 	public void edit(CustomerFilesDto dto) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "insert into files values(customer_files_seq.nextval, ?, ?, ?, ? ,?)";
+		String sql = "insert into customer_files values(customer_files_seq.nextval, ?, ?, ?, ? ,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getOrigin());
 		ps.setString(2, dto.getUploadname());
@@ -41,7 +41,7 @@ public class CustomerFilesDao {
 	
 	public List<CustomerFilesDto> getList(int origin) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "select * from files where Origin=? order by customer_files_no";
+		String sql = "select * from customer_files where Origin=? order by customer_files_no";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, origin);
 		ResultSet rs = ps.executeQuery();
@@ -62,7 +62,7 @@ public class CustomerFilesDao {
 	
 	public CustomerFilesDto filesInfo(int no) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "select * from files where customer_files_no=?";
+		String sql = "select * from customer_files where customer_files_no=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ResultSet rs = ps.executeQuery();
