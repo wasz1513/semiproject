@@ -139,9 +139,10 @@ boolean master = grade != null && grade.equals("관리자");
 		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
-		<header class="">
-			
-			
+
+=======
+		<header>		
+>>>>>>> refs/remotes/origin/master
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
 				<div class="logo">
@@ -166,7 +167,7 @@ boolean master = grade != null && grade.equals("관리자");
       				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
-			                <li><a href="#">비밀번호찾기</a></li>		                			
+			                <li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
       				  	</ul>
 					</div>
 					<%}else{ %>
@@ -175,7 +176,8 @@ boolean master = grade != null && grade.equals("관리자");
       				  	<input type="checkbox" id="custom-menu2">
       				  	<ul class="custom-list">
       				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
-      				  		<li><a href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
+      				  		<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트 내역</a></li>
+      				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
 			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
