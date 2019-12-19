@@ -32,12 +32,13 @@ public class GoodsDao {
 	}
 
 //상품 등록 기능
-	public void write(GoodsDto dto) throws Exception {
+	public void goods_write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
-		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id)"
-				+ " values(?,?,?,?,?,?)";
-		
+
+		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id) values(?,?,?,?,?,?)";
+
+	
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getGoods_no());
 		ps.setString(2, dto.getGoods_category());
@@ -127,7 +128,7 @@ public class GoodsDao {
 		
 	}
 //상품등록 수정
-	public void goodsEdit(GoodsDto dto) throws Exception {
+	public void goods_edit(GoodsDto dto) throws Exception {
 	Connection con = getConnection();
 	String sql ="update goods set goods_category=?, goods_title=?, goods_price=?, goods_content=? where goods_no=?";
 	PreparedStatement ps = con.prepareStatement(sql);
@@ -138,6 +139,7 @@ public class GoodsDao {
 	ps.setInt(5, dto.getGoods_no());
 	
 	ps.execute();
+	
 	con.close();
 	
 		
