@@ -2,6 +2,7 @@ package semi.bean;
 
 public class GoodsDto {
 
+	private int rn;
 	private int goods_no;
 	private String goods_title;
 	private String goods_category;
@@ -12,6 +13,34 @@ public class GoodsDto {
 	private int goods_replycount;
 	private String goods_writetime;
 	private String customer_id;
+	
+	
+	
+	
+	
+	
+	public GoodsDto(int rn, int goods_no, String goods_title, String goods_category, String goods_content,
+			String goods_state, int goods_price, int goods_readcount, int goods_replycount, String goods_writetime,
+			String customer_id) {
+		super();
+		this.rn = rn;
+		this.goods_no = goods_no;
+		this.goods_title = goods_title;
+		this.goods_category = goods_category;
+		this.goods_content = goods_content;
+		this.goods_state = goods_state;
+		this.goods_price = goods_price;
+		this.goods_readcount = goods_readcount;
+		this.goods_replycount = goods_replycount;
+		this.goods_writetime = goods_writetime;
+		this.customer_id = customer_id;
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
 	public GoodsDto() {
 		super();
 	}
