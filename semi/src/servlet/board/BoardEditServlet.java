@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.BoardDao;
-import bean.BoardDto;
+import semi.bean.BoardDao;
+import semi.bean.BoardDto;
 
 @WebServlet(urlPatterns="/board/edit.do")
 public class BoardEditServlet extends HttpServlet{

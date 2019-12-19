@@ -28,7 +28,7 @@
 		<input type="submit" value="Login">
 	</div>
 	<div>
-		<a href="find.jsp">아이디 찾기</a>/<a href="#">비밀번호 찾기</a>
+		<a href="find.jsp">아이디 찾기</a>/<a href="find_pw.jsp">비밀번호 찾기</a>
 		<a href="regist.jsp">회원가입</a>
 	</div>
 

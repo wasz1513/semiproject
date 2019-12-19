@@ -7,7 +7,7 @@ customer_withrawal.do<%@ page language="java" contentType="text/html; charset=UT
     <article class="w-40">
     
     
-    		<h2>회원가입을 축하합니다!</h2>
+    		<h2>비밀번호 변경이 완료되었습니다.</h2>
         
     </article>
     

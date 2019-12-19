@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.BoardDao;
-import bean.BoardDto;
-import beans.CustomerDao;
-import beans.CustomerDto;
+import semi.bean.BoardDao;
+import semi.bean.BoardDto;
+import semi.bean.CustomerDao;
+import semi.bean.CustomerDto;
 
 @WebServlet(urlPatterns="/board/write.do")
 public class BoardWriteServlet extends HttpServlet{
