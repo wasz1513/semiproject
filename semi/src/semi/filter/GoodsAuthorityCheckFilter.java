@@ -19,6 +19,8 @@ public class GoodsAuthorityCheckFilter  implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		//관리자이거나 본인 글인 경우만 통과 시키고 나머지는 403 송출
+		//게시글을 수정하고 삭제할때
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
@@ -31,14 +33,14 @@ public class GoodsAuthorityCheckFilter  implements Filter{
 		GoodsDto dto = dao.get(goods_no);
 		
 		
-		String customer_id = (String) session.getAttribute("customer_id");
-		String customer_grade = (String) session.getAttribute("customer_grade");
+		String session_id = (String) session.getAttribute("customer_id");
+		String session_grade = (String) session.getAttribute("customer_grade");
 		
 		
-		boolean isAdmin = customer_grade.equals("관리자");
-		boolean isMine = customer_id.equals(dto.getCustomer_id());
+		boolean isAdmin = session_grade.equals("관리자");
+		boolean isMine = session_id.equals(dto.getCustomer_id());
 		if(isAdmin || isMine) {
-			chain.doFilter(request, response);
+			chain.doFilter(request, response);//통과
 			
 		}
 		else {
