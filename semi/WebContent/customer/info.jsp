@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="semi.bean.CustomerFilesDto"%>
+<%@page import="semi.bean.CustomerFilesDao"%>
 <%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,6 +10,11 @@
 	String customer_id = (String)session.getAttribute("customer_id");
 	CustomerDao dao = new CustomerDao();
 	CustomerDto dto = dao.get(customer_id);
+	
+	CustomerFilesDao fdao = new CustomerFilesDao();
+	CustomerFilesDto fdto = new CustomerFilesDto();
+	
+	List<CustomerFilesDto> flist = fdao.getList(dto.getCustomer_no());
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -17,20 +25,31 @@
     	<div>
     		
     		<h2><%=dto.getCustomer_name()%>님의 회원 정보</h2>
-    		<div>
-    			아이디
-				<%=dto.getCustomer_id()%>
-    		</div>
-		
-			<div>
-				이름
-				<%=dto.getCustomer_name()%>
-			</div>
-			
-			<div>
-				등급
-				<%=dto.getCustomer_grade()%>
-			</div>
+    			<div class="row-multi col-2">
+    				<div class="col-2-first">
+    				<%if(flist.size()>0) {%>
+    					<img src="download.do?no=<%=fdto.getCustomer_files_no()%>">
+    				<%}else{ %>
+    					<img src="http://placehold.it/100x100">
+    				<%} %>
+    				</div>
+    				<div class="col-2-first">
+			    		<div>
+			    			아이디
+							<%=dto.getCustomer_id()%>
+			    		</div>
+					
+						<div>
+							이름
+							<%=dto.getCustomer_name()%>
+						</div>
+						
+						<div>
+							등급
+							<%=dto.getCustomer_grade()%>
+						</div>
+    				</div>
+    			</div>
 			
 			<div>
 				전화번호
