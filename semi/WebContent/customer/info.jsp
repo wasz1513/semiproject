@@ -48,7 +48,7 @@
 							등급
 							<%=dto.getCustomer_grade()%>
 						</div>
-							포인트
+							<a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트</a>
 							<%=dto.getCustomer_point()%>
 						</div>
     				</div>

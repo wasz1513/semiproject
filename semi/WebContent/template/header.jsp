@@ -163,6 +163,7 @@ boolean master = grade != null && grade.equals("관리자");
       				  	<input type="checkbox" id="custom-menu2">
       				  	<ul class="custom-list">
       				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
+      				  		<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트 내역</a></li>
       				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
