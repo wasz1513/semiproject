@@ -1,3 +1,6 @@
+<%@page import="semi.bean.CustomerFilesDto"%>
+<%@page import="java.util.List"%>
+<%@page import="semi.bean.CustomerFilesDao"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,21 +9,41 @@
 String id = (String)session.getAttribute("customer_id");
 CustomerDao dao = new CustomerDao();
 CustomerDto dto = dao.get(id);
+
+CustomerFilesDao fdao = new CustomerFilesDao();
+List<CustomerFilesDto> flist = fdao.getList(dto.getCustomer_no());
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <h1>회원정보 수정</h1>
-<form action="change_info.do" method="post">
-
+<form action="change_info.do" method="post" enctype="multipart/form-data">
 <!-- get 메소드 추가시 input에 placeholder를 dto.get으로 가져와야함. -->
-	<div>
-		 아이디 : <%=dto.getCustomer_id() %>
-	</div>
-	<div>
-		 이름 : <%=dto.getCustomer_name() %>
-	</div>
-	<div>
-		닉네임 : <input type="text" name="customer_nickname" value="<%=dto.getCustomer_nickname()%>">
+	<div class="row-multi col-2">
+		<div class="col-2-first">
+					<%if(flist.size()>0) {%>
+    					<%for(CustomerFilesDto fdto : flist){ %>
+    						<img src="download.do?no=<%=fdto.getCustomer_files_no()%>" width="100" height="100">
+    					<%} %>
+    				<%}else{ %>
+    					<img src="http://placehold.it/100x100">
+    				<%} %>
+    				<input type="file" name="file" accept=".jpg, .png, .gif">
+		</div>
+		<div class="col-2-second">
+			<div>
+				 아이디 : <%=dto.getCustomer_id() %>
+			</div>
+			<div>
+				 이름 : <%=dto.getCustomer_name() %>
+			</div>
+			<div>
+				닉네임 : <input type="text" name="customer_nickname" value="<%=dto.getCustomer_nickname()%>">
+			</div>
+			<div>
+				포인트 : <%=dto.getCustomer_point()%>
+						
+			</div>
+		</div>
 	</div>
 	<div>
 		폰번호 : <input type="text" name="customer_phone" value="<%=dto.getCustomer_phone() %>">

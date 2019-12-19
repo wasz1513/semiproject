@@ -16,7 +16,7 @@
 	</session-config>
 	
 <!-- 						필터설정 -->
-<!-- 			순서 : Encoding / TestAdmin /  LoginCheck / Admin / BoardAuthCheck-->
+<!-- 			순서 : Encoding/ AdminFilter /GoodsAuthorityCheckFilter-->
 <!-- 	EncodingFilter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -26,5 +26,50 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+<!-- 	AdminFilter -->
+	<filter>
+		<filter-name>adminFilter</filter-name>
+		<filter-class>semi.filter.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>adminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<!-- 이 필터는 게시글 수정/삭제 시 본인이나 관리자만 통과하도록 차단하는 필터 -->
+	<filter>
+		<filter-name>goodsAuthorityCheckFilter</filter-name>
+		<filter-class>semi.filter.GoodsAuthorityCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>goodsAuthorityCheckFilter</filter-name>
+		<url-pattern>/goods/goods_edit.do</url-pattern>
+		<url-pattern>/goods/goods_edit.jsp</url-pattern>
+		<url-pattern>/goods/goods_delete.do</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- 					에러 페이지 설정 -->
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error/403.jsp</location>	
+	</error-page>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>	
+	</error-page>
+	
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error/405.jsp</location>	
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>	
+	</error-page>
+	
+	
+	
 	
 </web-app>
