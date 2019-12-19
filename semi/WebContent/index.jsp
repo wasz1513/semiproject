@@ -3,16 +3,13 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>	
 
-			<!-- 		메뉴(네비) -->
-			<nav>
-				<div class="swiper-container">
-				    <div class="swiper-wrapper">
-				      <div class="swiper-slide"><img src="./image/kh.jpg"></div>
-				      <div class="swiper-slide"><img src="./image/sad.gif"></div>			 
-				    </div>
-				</div>
-			</nav>	
+<jsp:include page="/template/banner.jsp"></jsp:include>
 
+
+<!-- 		내용 -->
+<!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
+					
+		<article>
 			<div class="row">
 				<h2>인기게시글</h2>
 			</div>
@@ -86,6 +83,7 @@
 					<a>더보기</a>
 				</div>
 			</div>
+		</article>
 		
 			
 <jsp:include page="/template/footer.jsp"></jsp:include>	

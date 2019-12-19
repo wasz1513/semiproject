@@ -8,6 +8,9 @@
 <% 
 int goods_no= Integer.parseInt((request.getParameter("goods_no"))); 
  GoodsDao goodsdao= new GoodsDao(); 
+
+ goodsdao.readcountupdate(goods_no); //조회수 증가
+
  GoodsDto goodsdto = goodsdao.get(goods_no); //게시글 불러오기
  
  String customer_id = (String)session.getAttribute("customer_id");
@@ -30,6 +33,7 @@ memory = new HashSet<>();
  goodsdto.setGoods_readcount(goodsdto.getGoods_readcount() + 1);
  goodsdao.readcountupdate(goods_no); //조회수 증가
  }
+
 %>
 
 

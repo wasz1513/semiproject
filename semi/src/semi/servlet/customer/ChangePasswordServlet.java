@@ -1,4 +1,4 @@
-package semi.common;
+package semi.servlet.customer;
 
 import java.io.IOException;
 
@@ -11,33 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import semi.bean.CustomerDao;
 import semi.bean.CustomerDto;
 
-@WebServlet(urlPatterns = "/customer/check_pw.do")
-public class PwCheckServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/customer/change_pw.do")
+public class ChangePasswordServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			req.setCharacterEncoding("UTF-8");
-			String id = (String)req.getSession().getAttribute("customer_id");
-			String pw = req.getParameter("customer_pw");
-			String go = req.getParameter("go");
-
-			System.out.println(id+"/"+pw+"/"+go);
-			System.out.println("pw : "+pw);
 			CustomerDao dao = new CustomerDao();
-			boolean result = dao.login(id, pw);
-			
-			if(result) {
-				resp.sendRedirect(req.getContextPath()+go);
-			}else {
-				resp.sendRedirect("check_pw.jsp?error");
-			}
+			CustomerDto dto = new CustomerDto();
+		
+			dto.setCustomer_id((String)req.getSession().getAttribute("customer_id"));
+
+			dto.setCustomer_pw(req.getParameter("customer_pw"));
+			System.out.println(dto.getCustomer_id()+"/"+dto.getCustomer_pw());
+			dao.ChangePassword(dto);
+			resp.sendRedirect(req.getContextPath()+"/customer/change_pw_result.jsp");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
 		}
-		
-		
 		
 	}
 }
