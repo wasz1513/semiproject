@@ -76,7 +76,7 @@ public class BoardDao {
 		
 		String sql = "insert into board"
 							+ "(no, head, title,content,writer,readcount,replycount,wdate) "
-							+ "value(?, ?, ?, ?, ?, 0,0,'20191216')";
+							+ "values(?, ?, ?, ?, ?, 0,0,'20191216')";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getNo());
 		ps.setString(2, dto.getHead());
@@ -158,8 +158,33 @@ public class BoardDao {
 		
 		return seq;
   }
-	
 }
+	//검색
+//    public List<BoardDto> search(String type, String keyword) throws Exception{
+//	Connection con = getConnection();
+//	
+//	String sql ="select*from board "
+//			+ "where"+type+" order by no desc";
+//	PreparedStatement ps = con.prepareStatement(sql);
+//	ps.setString(1,keyword);
+//	ResultSet rs = ps.executeQuery();
+//	
+//	//변환
+//	List<BoardDto> list = new ArrayList();
+//	
+//	while(rs.next()) {
+//		int no = rs.getInt("no");
+//		String head = rs.getString("head");
+//		String title = rs.getString("title");
+//		String wdate = rs.getString("wdate");
+//		int Writer = rs.getInt("writer");
+//		int reads = rs.getInt("reads");
+//		
+//		
+//	}
+//	 con.close();
+//}
+//}
 
 	
 

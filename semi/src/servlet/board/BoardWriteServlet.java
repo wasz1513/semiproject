@@ -32,7 +32,7 @@ public class BoardWriteServlet extends HttpServlet{
 		  String id = (String)req.getSession().getAttribute("customer_id");
 		  
 		  CustomerDao dao2 = new CustomerDao();
-		  CustomerDto dto2 = dao2.get("customer_id");
+		  CustomerDto dto2 = dao2.get(id);
 		  System.out.println(dto2);
 		  dto.setWriter(dto2.getCustomer_no());
 		  

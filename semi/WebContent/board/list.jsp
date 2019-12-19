@@ -5,8 +5,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	BoardDao dao = new BoardDao();
+
+
+
+BoardDao dao = new BoardDao();
 	List<BoardDto> list = dao.getList();
+	
+	
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>

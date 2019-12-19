@@ -6,13 +6,12 @@
 int no =Integer.parseInt(request.getParameter("no"));
 BoardDao dao = new BoardDao();
 BoardDto dto = dao.get(no);
-
 %>
 
 
 
 
-<jsp:include page="/template/header.jsp">
+<jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
 	<h2>게시글 수정</h2>
@@ -24,25 +23,29 @@ BoardDto dto = dao.get(no);
 			<caption>
 				<tr>
 					<th>말머리</th>
-					<td><select name="head">
+					<td>
+					<select name="head">
 							<option value="">선택하세요</option>
 							<option selected>공지</option>
 							<option>정보</option>
-							
-					</select></td>
+							</select>
+							</td>
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="title" value="????" required>
+					<td><input type="text" name="title" value="<%=dto.getTitle()%>" required>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><textarea name="content" required rows="15"
-							cols="100" style="resize: vertical">??????????</textarea></td>
+					<td colspan="2">
+					<textarea name="content" required rows="15"
+					cols="100" style="resize:vertical"><%=dto.getContent()%></textarea>'
+					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="등록하기"> <a href="list.jsp"> </a> </select>
+					<td colspan="2" align="center">
+					<input type="submit"value="등록하기">
+					 <a href="list.jsp"> </a> 
 			</caption>
 		</table>
 
@@ -51,4 +54,4 @@ BoardDto dto = dao.get(no);
 
 </div>
 
-<jsp:include page="/template/footer.jsp">
+<jsp:include page="/template/footer.jsp"></jsp:include>
