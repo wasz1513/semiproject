@@ -77,6 +77,12 @@
 
 	}
 
+/*로고*/
+.row-multi col-4 logo{
+		display: inline-block;
+
+}
+
 
 /* 슬라이더 영역 스타일 */
 
@@ -134,9 +140,9 @@ boolean master = grade != null && grade.equals("관리자");
 			
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
-				<div class="a">
+				<div class="logo">
 					<a href="<%=request.getContextPath()%>">
-						<img src="http://placehold.it/180x50">
+						<img src="./image/logo.png">
 					</a>
 				</div>
 <!-- 				검색창 -->

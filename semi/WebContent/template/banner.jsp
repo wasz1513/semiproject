@@ -5,9 +5,10 @@
 			<nav>
 				<div class="swiper-container">
 				    <div class="swiper-wrapper">
-				      <div class="swiper-slide"><img src="./image/kh.jpg"></div>
-				      <div class="swiper-slide"><img src="./image/sad.gif"></div>
-				      <div class="swiper-slide"><img src="./image/sad.gif"></div>		 
+				      <div class="swiper-slide"><img src="./image/banner01.png"></div>
+				      <div class="swiper-slide"><img src="./image/banner02.png"></div>
+				      <div class="swiper-slide"><img src="./image/banner03.png"></div>		 
+				      <div class="swiper-slide"><img src="./image/banner04.png"></div>	
 				    </div>
 				</div>
 			</nav>	
