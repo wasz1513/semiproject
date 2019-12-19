@@ -11,7 +11,7 @@ article {
 
 <article>
 
-<<<<<<< HEAD
+
 	<div class="row">
 		<h2>상품 등록</h2>
 		<form action="write.do" method="post">
@@ -49,7 +49,7 @@ article {
 						value="등록하기"></td>
 				</tr>
 			</table>
-=======
+
 <h2>상품 등록</h2>
 <form action="write.do" method="post">
 	<table border="1" width="70%">

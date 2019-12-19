@@ -17,35 +17,35 @@
 			<div><%=customer_id%></div>
 			<div class="row-multi col-2">
 				<div>아이디</div>
-				<div></div>
+				<div><%=dto.getCustomer_id() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>이름</div>
-				<div></div>
+				<div><%=dto.getCustomer_name() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>등급</div>
-				<div></div>
+				<div><%=dto.getCustomer_grade() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>전화번호</div>
-				<div></div>
+				<div><%=dto.getCustomer_phone() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>이메일</div>
-				<div></div>
+				<div><%=dto.getCustomer_email() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>주소</div>
-				<div></div>
+				<div><%=dto.getCustomer_address() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>가입일</div>
-				<div></div>
+				<div><%=dto.getCustomer_joindateWithFormat() %></div>
 			</div>
 			<div class="row-multi col-2">
 				<div>최종로그인</div>
-				<div></div>
+				<div><%=dto.getCustomer_lastloginWithFormat() %></div>
 			</div>
 		
 		</div>
