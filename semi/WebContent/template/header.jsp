@@ -182,7 +182,7 @@ boolean master = grade != null && grade.equals("관리자");
 			                <li>위치수정</li>
 			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 			                <li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>	
-			                <li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>
+			                <li><a href="<%=request.getContextPath()%>/help/help_write.jsp">신고게시판</a></li>
       				  	</ul>
 					</div>
 					<%} %>
