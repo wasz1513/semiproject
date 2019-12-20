@@ -7,17 +7,16 @@
             margin:0;
             padding:0;
             display:inline-block;
-            
             width:150px;
         }
         .custom-list > li{
-            background-color:black;
-            color:white;
+            background-color:white;
+            color:black;
             padding:15px;
             cursor:pointer;
         }
         .custom-list li:hover{
-            background-color:gray;
+            background-color:#ffbf80;
             color:black;
         }
         
@@ -63,11 +62,30 @@
         
         .menu-wrap > .custom-list{
             display:none;
-            margin-left:-54px;
+            margin-top:10px;
+            margin-left:-111px;
+            width:222.39px;
         }
         
         .menu-wrap > #custom-menu:checked + .custom-list{
             display: inline-block;
+        }
+        
+		.menu-wrap > .custom-list > li{
+            background-color:white;
+            color:black;
+            padding:15px;
+            cursor:pointer;
+        }
+        
+        .menu-wrap > .custom-list > li > a{
+            text-decoration: none;        
+            color: black; 
+        }
+        
+        .menu-wrap > .custom-list li:hover{
+            background-color:#ffbf80;
+            color:black;
         }
 
 /* ========================================================================================= */
@@ -90,6 +108,23 @@
         
         .menu-wrap1 > #custom-menu1:checked + .custom-list{
             display: inline-block;
+        }
+        
+        .menu-wrap1 > .custom-list > li{
+            background-color:white;
+            color:black;
+            padding:15px;
+            cursor:pointer;           
+        }
+        
+        .menu-wrap1 > .custom-list > li > a{
+            text-decoration: none;        
+            color: black; 
+        }
+        
+        .menu-wrap1 > .custom-list li:hover{
+            background-color:#ffbf80;
+            color:black;
         }
 
 
@@ -115,6 +150,23 @@
             display: inline-block;
         }
         
+        .menu-wrap2 > .custom-list > li{
+            background-color:white;
+            color:black;
+            padding:15px;
+            cursor:pointer;
+        }
+        
+        .menu-wrap2 > .custom-list > li > a{
+            text-decoration: none;        
+            color: black; 
+        }
+        
+        .menu-wrap2 > .custom-list li:hover{
+            background-color:#ffbf80;
+            color:black;
+        }
+        
 /* ========================================================================================= */
 /* 		관심목록 */
 		.menu-wrap3 > label{
@@ -135,6 +187,23 @@
         
         .menu-wrap3 > #custom-menu3:checked + .custom-list{
             display: inline-block;
+        }
+        
+        .menu-wrap3 > .custom-list > li{
+            background-color:white;
+            color:black;
+            padding:15px;
+            cursor:pointer;
+        }
+        
+        .menu-wrap3 > .custom-list > li > a{
+            text-decoration: none;        
+            color: black; 
+        }
+        
+        .menu-wrap3 > .custom-list li:hover{
+            background-color:#ffbf80;
+            color:black;
         }
         
         

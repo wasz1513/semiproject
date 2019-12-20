@@ -65,7 +65,7 @@ public class HelpDao {
 				+ "values(help_seq.nextval,?,null,?,?,sysdate)";
 		PreparedStatement ps =con.prepareStatement(sql);
 		ps.setString(1, dto.getHead());
-		ps.setString(2, dto.getWrite());
+		ps.setInt(2, dto.getWrite());
 		ps.setString(3, dto.getContent());
 
 		

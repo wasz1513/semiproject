@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+    <%
+    String context = request.getContextPath();
+    %>
+    
+    
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +17,11 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/input.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/admin.css">
+
 <title>Semi</title>
+
 <style>
 	
 /* 	header 부분 범위설정 */
@@ -61,6 +71,10 @@
 		padding: 2rem;
 	}
 	
+	section{
+		width: 100%;
+	}
+	
 /* 	header{ */
 /*     background-color: #fff; */
 /*     position: fixed; */
@@ -85,34 +99,9 @@
 }
 
 
-
-
-/* 슬라이더 영역 스타일 */
-
-    
-    nav{
-/*     	margin-top:110px; */
-    	height: 300px;
-    	z-index: 10;
-    }
-
 </style>
 
-<!-- ================================================================ -->
-<!-- 슬라이더 -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-function loadSlider(){
-	 var swiper = new Swiper('.swiper-container', {
-		 slidesPerView: 3,
-		 autoplay:{
-		     delay:3000,
-	     },
-	     loop: true,
-	  });
-}
-</script>
+
 <% 
 String id = (String)session.getAttribute("customer_id"); 
 boolean login = id!=null;
@@ -121,6 +110,7 @@ boolean master = grade != null && grade.equals("관리자");
 %>
 
 </head>
+
 <body onload="loadSlider();" test>
 
 <!-- 	메인페이지 -->
@@ -132,20 +122,21 @@ boolean master = grade != null && grade.equals("관리자");
       			<input type="checkbox" id="custom-menu-admin">
       			<ul class="custom-list">
       				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
-			       	<li><a href="#">상품리스트</a></li>
+			       	<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 			        <li><a href="#">운영현황</a></li>	
       			</ul>
 			</div>
 		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
-
 		<header>		
+
 			<div class="row-multi col-4 logo">
+
 <!-- 				로고 -->
 				<div class="logo">
 					<a href="<%=request.getContextPath()%>">
-						<img src="./image/logo.png">
+						<img src="<%=request.getContextPath()%>/image/logo.png">
 					</a>
 			</div>
 <!-- 				검색창 -->
@@ -155,7 +146,7 @@ boolean master = grade != null && grade.equals("관리자");
 						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
 					</form>
 				</div>
-<!-- 					로그인 / 마이페이지 -->
+		<!-- 				로그인 / 마이페이지 -->
 				<div class="c">
 					<%if(id==null){ %>
 					<div class="menu-wrap1">
@@ -165,17 +156,21 @@ boolean master = grade != null && grade.equals("관리자");
       				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
-			                <li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
+			                <li><a href="#">비밀번호찾기</a></li>		                			
       				  	</ul>
 					</div>
+					
 					<%}else{ %>
 					<div class="menu-wrap2">
 						<label for="custom-menu2">마이페이지</label>
       				  	<input type="checkbox" id="custom-menu2">
       				  	<ul class="custom-list">
+
+
       				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
       				  		<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트 내역</a></li>
-      				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
+      				  		<li><a href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
+
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
 			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
@@ -184,7 +179,10 @@ boolean master = grade != null && grade.equals("관리자");
       				  	</ul>
 					</div>
 					<%} %>
+					
 				</div>
+				
+				
 <!-- 				관심목록 -->
 				<div class="d">
 					<div class="menu-wrap3">
@@ -205,19 +203,21 @@ boolean master = grade != null && grade.equals("관리자");
 				<div class="a">
 					<div class="menu-wrap">
 						<label for="custom-menu">카테고리</label>
-      				  	<input type="checkbox" id="custom-menu">
+      				  <input  type="checkbox" id="custom-menu">
+      				  
       				  	<ul class="custom-list">
-      				  		<li>패션의류</li>
-			             	<li>패션잡화</li>
-			                <li>화장품/미용</li>
-			                <li>디지털/가전</li>
-			                <li>가구/인테리어</li>
-			                <li>출산/육아</li>
-			                <li>식품</li>
-			                <li>스포츠/레저</li>
-			                <li>생활/건강</li>
-			                <li>여행/문화</li>
+      				  		<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
+			             	<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=패션잡화">패션잡화</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=미용">화장품/미용</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=가전">디지털/가전</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=가구">가구/인테리어</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=육아">출산/육아</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=식품">식품</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=스포츠">스포츠/레저</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=생활">생활/건강</a></li>
+			                <li><a href="<%=context%>/goods/goods_list.jsp?goods_category=여행">여행/문화</a></li>
       				  	</ul>
+      				  	
 					</div>
 				</div>
 				<div class="b">
@@ -225,6 +225,7 @@ boolean master = grade != null && grade.equals("관리자");
 				</div>
 			</div>
 		</header>
+		
 		
 <section>
 
