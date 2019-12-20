@@ -32,13 +32,12 @@ public class GoodsDao {
 	}
 
 //상품 등록 기능
-	public void goods_write(GoodsDto dto) throws Exception {
+	public void write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
-
-		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id) values(?,?,?,?,?,?)";
-
-	
+		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id)"
+				+ " values(?,?,?,?,?,?)";
+		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getGoods_no());
 		ps.setString(2, dto.getGoods_category());
@@ -128,7 +127,7 @@ public class GoodsDao {
 		
 	}
 //상품등록 수정
-	public void goods_edit(GoodsDto dto) throws Exception {
+	public void goodsEdit(GoodsDto dto) throws Exception {
 	Connection con = getConnection();
 	String sql ="update goods set goods_category=?, goods_title=?, goods_price=?, goods_content=? where goods_no=?";
 	PreparedStatement ps = con.prepareStatement(sql);
@@ -139,7 +138,6 @@ public class GoodsDao {
 	ps.setInt(5, dto.getGoods_no());
 	
 	ps.execute();
-	
 	con.close();
 	
 		
@@ -148,49 +146,49 @@ public class GoodsDao {
 	
 	//기본목록(인기게시글)
 	
-			public List<GoodsDto> getList(int start , int finish ) throws Exception{
-				Connection con = getConnection();
-			
-			
-				
-			String sql =  "select * from("
-					+ "select rownum rn, J.* from("
-					+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC"
-					+ ")J"
-					+ ")where rn between ? and ? "; 
-				
-				
-				PreparedStatement ps = con.prepareStatement(sql);
+		public List<GoodsDto> getList(int start , int finish) throws Exception{
+			Connection con = getConnection();
 		
-				ps.setInt(1, start);
-				ps.setInt(2, finish);
-				ResultSet rs = ps.executeQuery();
-				
-				//변환
-				List<GoodsDto> list = new ArrayList<>() ;
-				
-				
-				while(rs.next()) {			
-					GoodsDto dto =new GoodsDto();
-					dto.setRn(rs.getInt("rn"));
-					dto.setCustomer_id(rs.getString("customer_id"));
-					dto.setGoods_no(rs.getInt("goods_no"));
-					dto.setGoods_price(rs.getInt("goods_price"));
-					dto.setGoods_readcount(rs.getInt("goods_readcount"));
-					dto.setGoods_replycount(rs.getInt("goods_replycount"));
-					dto.setGoods_writetime(rs.getString("goods_writetime"));
-					dto.setGoods_title(rs.getString("goods_title"));
-					dto.setGoods_category(rs.getString("goods_category"));
-					dto.setGoods_content(rs.getString("goods_content"));
-					dto.setGoods_state(rs.getString("goods_state"));
+		
 			
-					list.add(dto);
-				}
-				
-				con.close();
-				
-				return list;
+		String sql =  "select * from("
+				+ "select rownum rn, J.* from("
+				+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC"
+				+ ")J"
+				+ ")where rn between ? and ? "; 
+			
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+	
+			ps.setInt(1, start);
+			ps.setInt(2, finish);
+			ResultSet rs = ps.executeQuery();
+			
+			//변환
+			List<GoodsDto> list = new ArrayList<>() ;
+			
+			
+			while(rs.next()) {			
+				GoodsDto dto =new GoodsDto();
+				dto.setRn(rs.getInt("rn"));
+				dto.setCustomer_id(rs.getString("customer_id"));
+				dto.setGoods_no(rs.getInt("goods_no"));
+				dto.setGoods_price(rs.getInt("goods_price"));
+				dto.setGoods_readcount(rs.getInt("goods_readcount"));
+				dto.setGoods_replycount(rs.getInt("goods_replycount"));
+				dto.setGoods_writetime(rs.getString("goods_writetime"));
+				dto.setGoods_title(rs.getString("goods_title"));
+				dto.setGoods_category(rs.getString("goods_category"));
+				dto.setGoods_content(rs.getString("goods_content"));
+				dto.setGoods_state(rs.getString("goods_state"));
+			
+				list.add(dto);
 			}
+			
+			con.close();
+			
+			return list;
+		}
 	
 	
 		
@@ -269,7 +267,48 @@ public class GoodsDao {
 				return count;
 			}
 		
-		
+			public List<GoodsDto> CategorySearch(String goods_category, int start , int finish) throws Exception{
+				Connection con = getConnection();
+			
+			String sql = "select * from("
+					+ "select rownum rn, A.* from("
+					+ "select * from goods where goods_category=? order by goods_no desc"
+					+ ")A"
+					+ ")where rn between ? and ? "; 
+			
+			
+					PreparedStatement ps = con.prepareStatement(sql);
+					ps.setString(1, goods_category);
+					ps.setInt(2, start);
+					ps.setInt(3, finish);
+					ResultSet rs = ps.executeQuery();
+					
+					//변환
+					List<GoodsDto> list = new ArrayList<>() ;
+					
+					
+					while(rs.next()) {			
+						GoodsDto dto =new GoodsDto();
+						dto.setRn(rs.getInt("rn"));
+						dto.setCustomer_id(rs.getString("customer_id"));
+						dto.setGoods_no(rs.getInt("goods_no"));
+						dto.setGoods_price(rs.getInt("goods_price"));
+						dto.setGoods_readcount(rs.getInt("goods_readcount"));
+						dto.setGoods_replycount(rs.getInt("goods_replycount"));
+						dto.setGoods_writetime(rs.getString("goods_writetime"));
+						dto.setGoods_title(rs.getString("goods_title"));
+						dto.setGoods_category(rs.getString("goods_category"));
+						dto.setGoods_content(rs.getString("goods_content"));
+						dto.setGoods_state(rs.getString("goods_state"));
+					
+						list.add(dto);
+					}
+					
+					con.close();
+					
+					return list;
+				}
+			
 		
 		
 }

@@ -11,7 +11,8 @@
     //페이지 크기
     	int pagesize = 28;
     	int navisize = 10;
-    	
+    
+    	String goods_category = request.getParameter("goods_category");
     	
     	//페이징 추가
   	int pno;
@@ -31,18 +32,16 @@
     	String keyword = request.getParameter("keyword");
   
     	
-    	
-    	
-    	
-    	
-    	
     	boolean isSearch = type != null && keyword != null;
     	
     	GoodsDao dao = new GoodsDao();
     	
    		 List<GoodsDto> list;
    		 
-    	if(isSearch){
+    	if(goods_category != null){
+    		list = dao.CategorySearch( goods_category, start, finish);
+    	}
+    	else if(isSearch){
     		list = dao.search(start , finish ,type , keyword);
     	}
     	else{
@@ -107,7 +106,11 @@
 <article>
 
     <div align="center">
-   		<h2>상품리스트</h2>
+    <%if(isSearch){ %>
+    <h2>검색 결과 상품</h2>
+    <%}else{ %>
+    <h2>현재 인기 상품 </h2>
+    <%} %>
    		</div>
    	
 
@@ -120,13 +123,12 @@
       				<h5>동네 : rn=<%=dto.getRn() %></h5>
       				<h3>가격 : <%=dto.getGoods_price() %></h3>
       				<div align="right">조회수 : <%=dto.getGoods_readcount() %> 댓글 : <%=dto.getGoods_replycount() %></div>
-      				
-             </div>
+      		  </div>
         <%} %>
         
 	</div>
         <div align="center" >
-					<a href="goods_write.jsp">
+					<a href="write.jsp">
 					<input  class="btn" type="button" value="상품 등록하기">
 					</a>
 		</div>
