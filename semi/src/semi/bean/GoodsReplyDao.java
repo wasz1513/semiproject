@@ -50,7 +50,7 @@ public class GoodsReplyDao {
 	public List<GoodsReplyDto>goods_reply_getList(int goods_no) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "select *from goods_reply where goods_no = ? order by goods_reply_no asc";
+		String sql = "select * from goods_reply where goods_no = ? order by goods_reply_no asc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, goods_no);
 		ResultSet rs = ps.executeQuery();
@@ -62,9 +62,10 @@ public class GoodsReplyDao {
 			dto.setGoods_reply_writetime(rs.getString("goods_reply_writetime"));
 			dto.setGoods_reply_writer(rs.getString("goods_reply_writer"));
 			dto.setGoods_no(rs.getInt("goods_no"));
+			list.add(dto);
 		}
 		con.close();
-		return null;
+		return list;
 		
 	}
 	//삭제 기능
@@ -73,9 +74,9 @@ public class GoodsReplyDao {
 	public void goods_reply_delete(int goods_reply_no) throws Exception{
 	Connection con  = getConnection();
 	
-	String sql = "goods_reply_delete goods_reply where goods_reply_no = ?";
+	String sql = "delete goods_reply where goods_reply_no = ?";
 	PreparedStatement ps = con.prepareStatement(sql);
-	
+	ps.setInt(1, goods_reply_no);
 	ps.execute();
 	
 	con.close();
