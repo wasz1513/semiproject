@@ -32,7 +32,7 @@ public class GoodsDao {
 	}
 
 //상품 등록 기능
-	public void write(GoodsDto dto) throws Exception {
+	public void goods_write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
 		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id)"
@@ -127,7 +127,7 @@ public class GoodsDao {
 		
 	}
 //상품등록 수정
-	public void goodsEdit(GoodsDto dto) throws Exception {
+	public void goods_edit(GoodsDto dto) throws Exception {
 	Connection con = getConnection();
 	String sql ="update goods set goods_category=?, goods_title=?, goods_price=?, goods_content=? where goods_no=?";
 	PreparedStatement ps = con.prepareStatement(sql);
@@ -267,6 +267,7 @@ public class GoodsDao {
 				return count;
 			}
 		
+
 			public List<GoodsDto> CategorySearch(String goods_category, int start , int finish) throws Exception{
 				Connection con = getConnection();
 			
@@ -308,6 +309,24 @@ public class GoodsDao {
 					
 					return list;
 				}
+
+		//댓글 수를 갱신하는 기능
+			public void goods_reply_calculate( int goods_no) throws Exception{
+				Connection con = getConnection();
+				
+				String sql ="update goods"
+						+ " set goods_replycount =(selete count(*) from goods_reply where goods_no =?)"
+						+"where goods_no =?";
+				
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1, goods_no);
+				ps.setInt(2, goods_no);
+				
+				ps.execute();
+				con.close();
+			
+			}
+
 			
 		
 		

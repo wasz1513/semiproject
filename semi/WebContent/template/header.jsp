@@ -88,6 +88,15 @@
 
 	}
 
+/*로고*/
+.row-multi col-4 logo .logo{
+		display: inline-block;
+		width:200px;
+		height: 46px;
+}
+
+
+
 
 /* 슬라이더 영역 스타일 */
 
@@ -107,6 +116,7 @@
 <script>
 function loadSlider(){
 	 var swiper = new Swiper('.swiper-container', {
+		 slidesPerView: 3,
 		 autoplay:{
 		     delay:3000,
 	     },
@@ -142,18 +152,17 @@ boolean master = grade != null && grade.equals("관리자");
 		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
-		<header>
-			
-			
-			<div class="row-multi col-4 logo">
+
+		<header>		
+
 <!-- 				로고 -->
-				<div class="a">
+				<div class="logo">
 					<a href="<%=request.getContextPath()%>">
-						<img src="http://placehold.it/180x50">
+						<img src="./image/logo.png">
 					</a>
-				</div>
+			</div>
 <!-- 				검색창 -->
-				<div class="b">	
+				<div class="search">	
 					<form action="#" method="get">
 						<input class="main-bar-input" type="text" name="key" size="80%" height="40">
 						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
@@ -178,8 +187,12 @@ boolean master = grade != null && grade.equals("관리자");
 						<label for="custom-menu2">마이페이지</label>
       				  	<input type="checkbox" id="custom-menu2">
       				  	<ul class="custom-list">
+
+
       				  		<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
-      				  		<li><a href="<%=request.getContextPath()%>/goods/write.jsp">상품등록</a></li>
+      				  		<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트 내역</a></li>
+      				  		<li><a href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
+
 			             	<li>키워드입력</li>
 			                <li>위치수정</li>
 			                <li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>

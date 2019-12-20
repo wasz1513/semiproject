@@ -124,7 +124,7 @@ public class CustomerDao {
 		return seq;
 	}
 	
-	// 회원가입
+	// 회원가입(추가사항 : 회원가입시 100포인트 추가)
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
 		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100)";
@@ -141,6 +141,12 @@ public class CustomerDao {
 		ps.setString(10, dto.getCustomer_basic_address());
 		ps.setString(11, dto.getCustomer_extra_address());
 		ps.execute();
+		
+		String sql2="insert into point values(point_seq.nextval,100,sysdate,'회원가입축하금',0,null,null,?)";
+		PreparedStatement ps2 = con.prepareStatement(sql2);
+		ps2.setInt(1, dto.getCustomer_no());
+		ps2.execute();
+		
 		con.close();
 	}
 	// 단일조회

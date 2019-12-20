@@ -17,6 +17,12 @@
 
 <!--  -->
 <article>
+<form action = "point_save.do">
+	<input type="button" value="적립하기">
+</form>
+<form>
+	<input type="button" value="사용하기">
+</form>
 	<div class="row-multi col-4">
 		<div class="point">
 			적립

@@ -1,6 +1,7 @@
 package semi.bean;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -158,34 +159,46 @@ public class BoardDao {
 		
 		return seq;
   }
+
+ //삭제
+public void delete(int no)throws Exception{
+ Connection con = getConnection();
+ 
+ String sql = "delete board where no=?";
+ PreparedStatement ps = con.prepareStatement(sql);
+ ps.setInt(1, no);
+ ps.execute();
+ 
+ con.close();
 }
-	//검색
-//    public List<BoardDto> search(String type, String keyword) throws Exception{
+
+//검색
+//public List<BoardDto> search(String type,String keyword) throws Exception{
 //	Connection con = getConnection();
 //	
-//	String sql ="select*from board "
-//			+ "where"+type+" order by no desc";
+//	String sql = "select*from board "
+//			+ "where writer=? order by no desc";
 //	PreparedStatement ps = con.prepareStatement(sql);
-//	ps.setString(1,keyword);
+//	ps.setString(1, keyword);
 //	ResultSet rs = ps.executeQuery();
 //	
-//	//변환
-//	List<BoardDto> list = new ArrayList();
 //	
-//	while(rs.next()) {
-//		int no = rs.getInt("no");
-//		String head = rs.getString("head");
-//		String title = rs.getString("title");
-//		String wdate = rs.getString("wdate");
-//		int Writer = rs.getInt("writer");
-//		int reads = rs.getInt("reads");
-//		
-//		
-//	}
-//	 con.close();
-//}
-//}
+//	con.close();
+
+//조회수 증가
+ public void cu(int no) throws Exception{
+	Connection con = getConnection();
+	
+	String sql = "update board set readcount = readcount + 1 where no = ?";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1,no);
+	ps.execute();
+	
+	con.close();
+ }
 
 	
+}
+
 
 
