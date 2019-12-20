@@ -3,6 +3,8 @@ package semi.bean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -36,6 +38,26 @@ public void edit(GoodsFilesDto dto )throws Exception{
 	ps.setLong(5, dto.getFilesize());
 	ps.execute();
 	con.close();
+}
+public List<GoodsFilesDto> getList(int origin) throws Exception{
+	Connection con = this.getConnection();
+	String sql = "select * from goods_files where origin=? order by goods_files_no";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1, origin);
+	ResultSet rs = ps.executeQuery();
+	List<GoodsFilesDto> list = new ArrayList<>();
+	while(rs.next()) {
+		GoodsFilesDto dto = new GoodsFilesDto();
+		dto.setGoods_files_no(rs.getInt("goods_files_no"));
+		dto.setOrigin(rs.getInt("origin"));
+		dto.setUploadname(rs.getString("uploadname"));
+		dto.setSavename(rs.getString("savename"));
+		dto.setFiletype(rs.getString("filetype"));
+		dto.setFilesize(rs.getLong("filesize"));
+		list.add(dto);
+	}
+	con.close();
+	return list;
 }
 public GoodsFilesDto filesInfo(int no) throws Exception{
 	Connection con = this.getConnection();

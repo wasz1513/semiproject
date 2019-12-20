@@ -38,12 +38,14 @@ public class GoodsWriteServlet extends HttpServlet {
 			
 			GoodsDao goodsdao = new GoodsDao();
 			int seq = goodsdao.getSequence();
-			goodsdao.goods_write(dto);
+			dto.setGoods_no(seq);
 			
 			String session_id =(String)req.getSession().getAttribute("customer_id");
 			dto.setCustomer_id(session_id);
 			
+			goodsdao.goods_write(dto);
 			
+			//파일등록
 			File file = mRequest.getFile("file");
 			if(file!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
@@ -56,67 +58,64 @@ public class GoodsWriteServlet extends HttpServlet {
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				gfdao.edit(gfdto);
 			}
+			
 			File file2 = mRequest.getFile("file2");
-			if(file!=null) {
+			if(file2!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
 				gfdto.setOrigin(seq);
-				gfdto.setUploadname(mRequest.getOriginalFileName("file"));
-				gfdto.setSavename(mRequest.getFilesystemName("file"));
-				gfdto.setFiletype(mRequest.getContentType("file"));
+				gfdto.setUploadname(mRequest.getOriginalFileName("file2"));
+				gfdto.setSavename(mRequest.getFilesystemName("file2"));
+				gfdto.setFiletype(mRequest.getContentType("file2"));
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				gfdao.edit(gfdto);
 			}
+			
 			File file3 = mRequest.getFile("file3");
-			if(file!=null) {
+			if(file3!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
 				gfdto.setOrigin(seq);
-				gfdto.setUploadname(mRequest.getOriginalFileName("file"));
-				gfdto.setSavename(mRequest.getFilesystemName("file"));
-				gfdto.setFiletype(mRequest.getContentType("file"));
+				gfdto.setUploadname(mRequest.getOriginalFileName("file3"));
+				gfdto.setSavename(mRequest.getFilesystemName("file3"));
+				gfdto.setFiletype(mRequest.getContentType("file3"));
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				gfdao.edit(gfdto);
 			}
 			File file4 = mRequest.getFile("file4");
-			if(file!=null) {
+			if(file4!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
 				gfdto.setOrigin(seq);
-				gfdto.setUploadname(mRequest.getOriginalFileName("file"));
-				gfdto.setSavename(mRequest.getFilesystemName("file"));
-				gfdto.setFiletype(mRequest.getContentType("file"));
+				gfdto.setUploadname(mRequest.getOriginalFileName("file4"));
+				gfdto.setSavename(mRequest.getFilesystemName("file4"));
+				gfdto.setFiletype(mRequest.getContentType("file4"));
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				gfdao.edit(gfdto);
 			}
 			File file5 = mRequest.getFile("file5");
-			if(file!=null) {
+			if(file5!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
 				gfdto.setOrigin(seq);
-				gfdto.setUploadname(mRequest.getOriginalFileName("file"));
-				gfdto.setSavename(mRequest.getFilesystemName("file"));
-				gfdto.setFiletype(mRequest.getContentType("file"));
+				gfdto.setUploadname(mRequest.getOriginalFileName("file5"));
+				gfdto.setSavename(mRequest.getFilesystemName("file5"));
+				gfdto.setFiletype(mRequest.getContentType("file5"));
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				gfdao.edit(gfdto);
 			}
-			resp.sendRedirect("goods_content.jsp");
+
 		
 	
 //상세보기로
-			GoodsDao dao = new GoodsDao();
-			int goods_no=dao.getSequence();
-			
-			dto.setGoods_no(goods_no);
-			
-			dao.goods_write(dto);
-			
-			resp.sendRedirect("goods_content.jsp?goods_no="+goods_no);
+
+			resp.sendRedirect("goods_content.jsp?goods_no="+seq);
 		}
+		
 		catch (Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
