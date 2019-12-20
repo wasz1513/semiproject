@@ -33,7 +33,7 @@ public class GoodsReplyInsertServlet extends HttpServlet {
 					GoodsDao goodsdao = new GoodsDao();
 					goodsdao.goods_reply_calculate(goods_no);//댓글 수 갱신
 					
-					resp.sendRedirect("goods_content.jsp?goods_goods_reply_no="+goods_no);
+					resp.sendRedirect("goods_content.jsp?goods_no="+goods_no);
 					
 		}
 		catch (Exception e) {
