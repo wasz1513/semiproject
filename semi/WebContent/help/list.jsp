@@ -45,10 +45,12 @@
 <title>신고/문의하기</title>
 		<div align="center" >
 		<div class="row row-multi col-2" >
+			<a href="write.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
-				<a href="write.jsp"></a> 
+				</a> 
+			<a href="list.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
-				<a href="list.jsp"></a> 
+				</a> 
 			</div>
 		   <h2>문의/신고 내역</h2>
 		   <h5>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</h5>

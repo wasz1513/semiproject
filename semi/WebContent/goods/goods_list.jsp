@@ -1,8 +1,6 @@
 <%@page import="semi.bean.GoodsDto"%>
 <%@page import="semi.bean.GoodsDao"%>
-<%@page import="semi.bean.BoardDto"%>
 <%@page import="java.util.List"%>
-<%@page import="semi.bean.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     

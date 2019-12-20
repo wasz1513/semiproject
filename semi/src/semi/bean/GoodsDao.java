@@ -268,7 +268,23 @@ public class GoodsDao {
 				return count;
 			}
 		
-		
+		//댓글 수를 갱신하는 기능
+			public void goods_reply_calculate( int goods_no) throws Exception{
+				Connection con = getConnection();
+				
+				String sql ="update goods"
+						+ " set goods_replycount =(selete count(*) from goods_reply where goods_no =?)"
+						+"where goods_no =?";
+				
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1, goods_no);
+				ps.setInt(2, goods_no);
+				
+				ps.execute();
+				con.close();
+			
+			}
+			
 		
 		
 }

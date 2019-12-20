@@ -1,10 +1,21 @@
+<%@page import="semi.bean.CustomerDto"%>
+<%@page import="semi.bean.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<% String customer_id = (String)session.getAttribute("customer_id");
+			CustomerDao cdao = new CustomerDao();
+			CustomerDto cdto = cdao.get(customer_id);
+			int cno = cdto.getCustomer_no();%>
+			
+			
 <jsp:include page="/template/header.jsp"></jsp:include>
+
 
 <div align="center">
 
-<title>신고/문의하기</title>
+
+
 <style>
 .row.row-multi::after {
 	content: "";
@@ -34,17 +45,22 @@
 </style>
 
 
-		<div align="center" class="row row-multi col-2" >
-			<form action ="write.do" method="post">
-				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1문의/신고">
-				<a href="list.jsp">
+
+
+<form action="write.do" method="post">
+<input type="hidden" id="customer_id" value="customrt_jd">
+		<title>신고/문의하기</title>
+		<div align="center" >
+		<div class="row row-multi col-2" >
+			<a href="write.jsp">
+				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
+				</a> 
+			<a href="list.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
-				</a>			
-				</div>
-			<br><br><br>
-			<div>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</div>
-			
-			
+				</a> 
+			</div>
+		   <h2>문의/신고 하기</h2>
+		   <h5>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</h5>
 			
 			<br>
 		
@@ -71,9 +87,10 @@
 			<div align="left">
 				<input type="button" value="사진 첨부하기">
 			</div>
+			
 			<div align="right">
-				<input type="submit" value="상담 신청">
-				
+				<input type="submit" value="1:1상담하기">
+				 <a href="list.jsp"> </a> 
 			</div>
 			</div>
 
