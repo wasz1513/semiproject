@@ -29,6 +29,20 @@
 
 <!--  -->
 <article>
+<!-- 테스트용 버튼키 -->
+<div class="row-multi col-2">
+<form action ="point_save.do" method="post">
+	<input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
+	<input type="text" name="point_save" placeholder="적립포인트">
+	<input type="submit" value="적립하기">
+</form>
+
+<form action ="point_use.do" method="post">
+	<input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
+	<input type="text" name="point_use" placeholder="사용포인트">
+	<input type="submit" value="사용하기" name="">
+</form>
+</div>
 <div class="row-multi col-3">
 	<div>
 	<ul>
