@@ -2,23 +2,7 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<style>
-/* 슬라이더 영역 스타일 */
 
-    
-    nav{
-/*     	margin-top:110px; */
-    	height: 380px;
-    	z-index: 10;
-    }
-    
-    #banner1{
-    	padding:0 100;
-    }
-
-	
-
-</style>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script>
 function loadSlider(){
@@ -31,6 +15,16 @@ function loadSlider(){
 	  });
 }
 </script>
+<style>
+
+.swiper-slide > img {
+	opacity:0.2;
+}
+.swiper-slide-next > img {
+	opacity:1;
+}
+
+</style>
 
 
     <!-- 		메인배너 -->
@@ -44,3 +38,6 @@ function loadSlider(){
 				    </div>
 				</div>
 	</div>
+	
+	
+	

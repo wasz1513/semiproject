@@ -60,6 +60,10 @@
 		padding: 2rem;
 	}
 	
+	section{
+		width: 100%;
+	}
+	
 /* 	header{ */
 /*     background-color: #fff; */
 /*     position: fixed; */
@@ -84,26 +88,8 @@
 }
 
 
-
-
-
 </style>
 
-<!-- ================================================================ -->
-<!-- 슬라이더 -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-function loadSlider(){
-	 var swiper = new Swiper('.swiper-container', {
-		 slidesPerView: 3,
-		 autoplay:{
-		     delay:3000,
-	     },
-	     loop: true,
-	  });
-}
-</script>
 
 <% 
 String id = (String)session.getAttribute("customer_id"); 
@@ -139,7 +125,7 @@ boolean master = grade != null && grade.equals("관리자");
 <!-- 				로고 -->
 				<div class="logo">
 					<a href="<%=request.getContextPath()%>">
-						<img src="./image/logo.png">
+						<img src="<%=request.getContextPath()%>/image/logo.png">
 					</a>
 			</div>
 <!-- 				검색창 -->
