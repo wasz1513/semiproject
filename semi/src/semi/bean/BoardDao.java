@@ -195,7 +195,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	Connection con = getConnection();
 	
 	String sql = "select*from board "
-			+ "where"+type+"like ? order by no desc";
+			+ "where " +type+" like '%'||?||'%' order by no desc";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1, keyword);
 	ResultSet rs = ps.executeQuery();
@@ -234,27 +234,24 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	
 	con.close();
  }
-
- 
 //글 개수 구하기
-	public int getCount(String type , String keyword) throws Exception{
+	public int getCount(String type, String keyword) throws Exception{
 		Connection con = getConnection();
 		
 		boolean isSearch = type != null && keyword != null;
 		
 		String sql = "select count(*) from board";
-		
 		if(isSearch) {
-			sql += " where "+type+" like '%'||?||'%'order by no desc" ;
+			sql += " where "+type+" like '%'||?||'%'";
 		}
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		if(isSearch) {
-		ps.setString(1, keyword);
+			ps.setString(1, keyword);
 		}
-		
 		ResultSet rs = ps.executeQuery();
 		rs.next();
+
 		int count = rs.getInt(1);
 		
 		con.close();
@@ -263,6 +260,22 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	}
 
 	
+	//댓글 수를 갱신하는 기능
+		
+		public void calculate(int no) throws Exception{
+			Connection con = getConnection();
+			
+			String sql = 
+					"update board "
+					+ "set replycount = (select count(*) from reply where origin = ?) "
+					+ "where no = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.setInt(2, no);
+			
+			ps.execute();
+			con.close();
+		}
 }
 
 

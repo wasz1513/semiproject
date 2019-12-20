@@ -128,13 +128,9 @@ boolean master = grade != null && grade.equals("관리자");
 			</div>
 		<%} %>
 <!-- 		헤더 -->
-<<<<<<< HEAD
-<!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 
-=======
-<!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
->>>>>>> refs/remotes/origin/master
 		<header>		
+
 
 			<div class="row-multi col-4 logo">
 

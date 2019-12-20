@@ -1,5 +1,7 @@
 <%@page import="semi.bean.GoodsReplyDao"%>
 <%@page import="semi.bean.GoodsReplyDto"%>
+<%@page import="semi.bean.GoodsFilesDao"%>
+<%@page import="semi.bean.GoodsFilesDto"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
@@ -35,6 +37,12 @@
 		goodsdto.setGoods_readcount(goodsdto.getGoods_readcount() + 1);
 		goodsdao.readcountupdate(goods_no); //조회수 증가
 	}
+	
+	//첨부파일 불러오기
+GoodsFilesDao gfdao = new GoodsFilesDao();
+	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
+	
+	
 %>
 
 
@@ -43,7 +51,7 @@
 <div align="center">
 	<h2>상품등록 상세보기</h2>
 
-	<table border="1" width="70%">
+	<table border="1" width="70%" >
 		<tr>
 
 			<td><%=goodsdto.getGoods_title()%></td>
@@ -54,6 +62,36 @@
 		</tr>
 		<tr height="200">
 			<td valign="top"><%=goodsdto.getGoods_content()%></td>
+		</tr>
+		<tr>
+			<td>
+<!-- 				첨부파일이미지 찍기 -->
+	<%if(flist.size() > 0){ %>
+		<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+		<tr>
+			<td>
+
+				 <ul>
+				 	<%for(GoodsFilesDto gfdto : flist){ %>
+					 	<li>
+					 	<!-- 미리보기 출력 -->
+					 	<img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80" height="50">
+					 	
+					 		<%=gfdto.getUploadname()%>
+					 		(<%=gfdto.getFilesize()%> bytes)
+							<a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
+					 		<img src="../image/download.png" width="15" height="15">
+					 		</a>
+					 	</li>
+				 	<%} %>
+				 </ul>
+
+			</td>
+		</tr>
+		<%} %>
+
+
+			</td>
 		</tr>
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
@@ -85,7 +123,7 @@
 						
 						 		<%=goodsreplydto.getGoods_reply_writetime() %>
 								
-								답글
+						
 								
 								<% if(session_id.equals(goodsreplydto.getGoods_reply_writer())){%>
 								<!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 -->

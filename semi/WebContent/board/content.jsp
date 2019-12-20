@@ -7,9 +7,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int no = Integer.parseInt(request.getParameter("no"));
+	int Origin = Integer.parseInt(request.getParameter("no"));
+
 	BoardDao bdao = new BoardDao();
-	BoardDto bdto = bdao.get(no);
+	BoardDto bdto = bdao.get(Origin);
 %>
 
 
@@ -71,7 +72,7 @@
 	<!-- 댓글 목록  -->
 	<%
 	ReplyDao rdao = new ReplyDao();
-	List<ReplyDto>list = rdao.getList(no);
+	List<ReplyDto>list = rdao.getList(Origin);
 	%>
     <tr>
     <td>
