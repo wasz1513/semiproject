@@ -7,13 +7,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
-
-
 BoardDao dao = new BoardDao();
-	List<BoardDto> list = dao.getList();
-	
-	
+List<BoardDto> list = dao.getList();
+
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -23,7 +19,7 @@ BoardDao dao = new BoardDao();
 		<h1>  N O T I C E  </h1>
 		<br><br>
 		 
-		<table border="1" width="90%">
+		<table border="1" width="45%">
 			<thead>		
 				<tr>
 					<th>NO</th>
@@ -69,17 +65,22 @@ BoardDao dao = new BoardDao();
 				</tr>
 			</tfoot>
 	</table>
-	<h4>[이전] 1 2 3 4 5 6 7 8 9 10 [다음]</h4>
+	<!-- 네비게이터 -->
+<h4>
+	[이전] 1 2 3 4 5 6 7 8 9 10 [다음]
+</h4>
 	
-<foam action="list.jsp" method="get">
+
 
 <select name="type">
 <option value="title">제목</option>
-<option value="writer">작성자<option>
+<option value="writer">작성자</option>
 </select>
 
 <input type="search" name="keyword" placeholder="검색어" required>
 <input type="submit" value="검색">
+
+
 <br><br>
 		</div> 
 

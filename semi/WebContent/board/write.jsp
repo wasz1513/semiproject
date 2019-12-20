@@ -12,7 +12,7 @@
 <%-- 		<input type="hidden" name="superno" value="<%=request.getParameter("superno")%>"> --%>
 <%-- 		<%} %> --%>
 	
-		<table border="1" width="70%">
+		<table border="1" width="30%">
 			<tr>
 				<th>말머리</th>
 				<td>

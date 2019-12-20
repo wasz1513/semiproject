@@ -33,14 +33,14 @@ function loadSlider(){
 </script>
 
 
-    <!-- 		메뉴(네비) -->
-			<nav>
+    <!-- 		메인배너 -->
+	<div class="main-banner">
 				<div class="swiper-container">
 				    <div class="swiper-wrapper">
-				      <div class="swiper-slide" id="banner1"><img src="<%=request.getContextPath()%>/image/banner01.png"></div>
-				      <div class="swiper-slide" id="banner2"><img src="<%=request.getContextPath()%>/image/banner02.png"></div>
-				      <div class="swiper-slide" id="banner3"><img src="<%=request.getContextPath()%>/image/banner03.png"></div>	
-				      <div class="swiper-slide" id="banner4"><img src="<%=request.getContextPath()%>/image/banner04.png"></div>	 
+				      <div class="swiper-slide"><img src="./image/banner01.png" ></div>
+				      <div class="swiper-slide"><img src="./image/banner02.png" ></div>
+				      <div class="swiper-slide"><img src="./image/banner03.png" ></div>		 
+				      <div class="swiper-slide"><img src="./image/banner04.png" ></div>	
 				    </div>
 				</div>
-			</nav>	
+	</div>

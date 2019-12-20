@@ -76,10 +76,34 @@
 
 	}
 
+/*로고*/
+.row-multi col-4 logo .logo{
+		display: inline-block;
+		width:200px;
+		height: 46px;
+}
+
+
+
 
 
 </style>
 
+<!-- ================================================================ -->
+<!-- 슬라이더 -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script>
+function loadSlider(){
+	 var swiper = new Swiper('.swiper-container', {
+		 slidesPerView: 3,
+		 autoplay:{
+		     delay:3000,
+	     },
+	     loop: true,
+	  });
+}
+</script>
 
 <% 
 String id = (String)session.getAttribute("customer_id"); 
@@ -107,16 +131,19 @@ boolean master = grade != null && grade.equals("관리자");
 		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
+
+
 		<header>		
+
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
-				<div class="a">
+				<div class="logo">
 					<a href="<%=request.getContextPath()%>">
-						<img src="http://placehold.it/180x50">
+						<img src="./image/logo.png">
 					</a>
-				</div>
+			</div>
 <!-- 				검색창 -->
-				<div class="b">	
+				<div class="search">	
 					<form action="#" method="get">
 						<input class="main-bar-input" type="text" name="key" size="80%" height="40">
 						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
