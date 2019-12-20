@@ -24,7 +24,7 @@ public class PointDao {
 		return source.getConnection();
 	}
 	//필요한 기능
-	//특정 회원의 전체 포인드 히스토리
+
 	
 	
 	//특정 회원의 포인트 적립
@@ -51,7 +51,7 @@ public class PointDao {
 		ps.setInt(1, point);
 		ps.setString(2, id);
 		ps.execute();
-		String sql2="insert into point values(point_seq.nextval,0,null,null,?,'포인트사용',sysdate,?)";
+		String sql2="insert into point values(point_seq.nextval,0,null,null,?,sysdate,'포인트사용',?)";
 		PreparedStatement ps2 = con.prepareStatement(sql2);
 		ps2.setInt(1, point);
 		ps2.setInt(2, customer);
@@ -70,10 +70,38 @@ public class PointDao {
 		List<PointDto> list = new ArrayList<>();
 		while(rs.next()) {
 			PointDto dto = new PointDto();
-			
+			dto.setPoint_no(rs.getInt("point_no"));
+			dto.setPoint_save(rs.getInt("point_save"));
+			dto.setPoint_save_date(rs.getString("point_save_date"));
+			dto.setPoint_save_details(rs.getString("point_save_details"));
+			dto.setPoint_use(rs.getInt("point_use"));
+			dto.setPoint_use_date(rs.getString("point_use_date"));
+			dto.setPoint_use_details(rs.getString("point_use_details"));
 			list.add(dto);
 		}	
 		con.close();
-		return null;
+		return list;
+	}
+	//특정 회원의 전체 포인드 히스토리
+	public List<PointDto> get(int customer_no) throws Exception{
+		Connection con = getConnection();
+		String sql="select * from point where customer=? order by point_no desc";//point table의 customer
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, customer_no);
+		ResultSet rs = ps.executeQuery();
+		List<PointDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PointDto dto = new PointDto();
+			dto.setPoint_no(rs.getInt("point_no"));
+			dto.setPoint_save(rs.getInt("point_save"));
+			dto.setPoint_save_date(rs.getString("point_save_date"));
+			dto.setPoint_save_details(rs.getString("point_save_details"));
+			dto.setPoint_use(rs.getInt("point_use"));
+			dto.setPoint_use_date(rs.getString("point_use_date"));
+			dto.setPoint_use_details(rs.getString("point_use_details"));
+			list.add(dto);
+		}	
+		con.close();
+		return list;
 	}
 }
