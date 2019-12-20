@@ -16,6 +16,16 @@
 	List<PointDto> plist = dao.get(no);	
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
+<script>
+function check(){
+    // confirm() : 확인창 확인/취소
+        var choice = window.confirm("삭제하시겠습니까?");
+        console.log(choice);
+        if(choice){
+        	location.replace="/semi"
+        }
+    }
+</script>
 <style>
 	.point{
 		margin-top:10px;
@@ -89,7 +99,7 @@
 			</div>
 			<div>
 				<div>적립포인트 : <%=dto.getPoint_save() %></div>
-				<div><input type="button" value="내역삭제"></div>
+				<div><input type="button" value="내역삭제" onclick="check();"></div>
 			</div>
 		</div>
 		<%}else{ %>

@@ -20,7 +20,6 @@ public class PointUseServlet extends HttpServlet{
 			int customer_no = Integer.parseInt(req.getParameter("customer_no"));
 			int point = Integer.parseInt(req.getParameter("point_use"));
 			dao.usePoint(point, id, customer_no);
-			System.out.println(id+"/"+point+"/"+customer_no);
 			resp.sendRedirect(req.getContextPath()+"/customer/point/point_info.jsp");
 		}catch(Exception e){
 			e.printStackTrace();
