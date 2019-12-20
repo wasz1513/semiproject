@@ -10,9 +10,11 @@
 	CustomerDao cdao = new CustomerDao();
 	CustomerDto cdto = cdao.get(id);
 	
-	PointDto dto = new PointDto();
+
 	PointDao dao = new PointDao();
-	List<PointDto> list = dao.getList();
+	int no = cdto.getCustomer_no();
+	List<PointDto> plist = dao.get(no);
+	
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <style>
@@ -54,40 +56,46 @@
 	</div>
 	<div>
 	<ul>
-		<li>보유포인트</li>
-		<li><img src="<%=request.getContextPath()%>/image/pointicon.jpg"><%=cdto.getCustomer_point() %>Point</li>
+		<li>사용가능 쿠폰</li>
+		<li><a>10</a>개(필요없으면 삭제 예정임.)</li>
 	</ul>
 	</div>
 </div>
 
-	<div class="row-multi col-4">
-		<div class="point">
-			적립
+
+	<%for(PointDto dto : plist){ %>
+		<%if(dto.getPoint_save_details() != null){ %>
+		<div class="row-multi col-4">
+			<div class="point">
+				적립
+			</div>
+			<div>
+				<div>적립일자 : <%=dto.getPoint_save_date() %> <br>적립내용 : <%=dto.getPoint_save_details() %> </div>
+			</div>
+			<div>
+			</div>
+			<div>
+				<div>적립포인트 : <%=dto.getPoint_save() %></div>
+				<div><input type="button" value="내역삭제"></div>
+			</div>
 		</div>
-		<div>
-			<div>적립일자 : <br>적립내용 : </div>
+		<%}else{ %>
+		<div class="row-multi col-4">
+			<div class="point">
+				사용
+			</div>
+			<div>
+				<div>사용일자 : <%=dto.getPoint_use_date() %></div>
+				<div>사용내용 : <%=dto.getPoint_use_details() %> </div>
+			</div>
+			<div>
+			</div>
+			<div>
+				<div>사용포인트 : <%=dto.getPoint_use() %></div>
+				<div><input type="button" value="내역삭제"></div>
+			</div>
 		</div>
-		<div>
-		</div>
-		<div>
-			<div>적립포인트</div>
-			<div>내역삭제</div>
-		</div>
-	</div>
-	<div class="row-multi col-4">
-		<div class="point">
-			사용
-		</div>
-		<div>
-			<div>사용일자</div>
-			<div>사용내용</div>
-		</div>
-		<div>
-		</div>
-		<div>
-			<div>사용포인트</div>
-			<div>내역삭제</div>
-		</div>
-	</div>
+		<%} %>
+	<%} %>
 </article>
 <jsp:include page="/template/footer.jsp"></jsp:include>
