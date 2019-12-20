@@ -129,9 +129,7 @@ boolean master = grade != null && grade.equals("관리자");
 		<%} %>
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
-
 		<header>		
-
 
 			<div class="row-multi col-4 logo">
 
