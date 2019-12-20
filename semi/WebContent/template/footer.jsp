@@ -1,5 +1,14 @@
+<%@page import="semi.bean.SessionVisitDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+	SessionVisitDao dao = new SessionVisitDao();
+	int total = dao.total();
+	int today = dao.today();
+
+%>
+
 
 		</section>
 <!-- 		푸터 -->
@@ -13,6 +22,9 @@
 				</div>
 				<div>
 					team 3
+				</div>
+				<div>
+					총 방문자 : <%=total %>  오늘 방문자 : <%=today %>
 				</div>
 			</div>
 			    <% 

@@ -273,8 +273,8 @@ public class GoodsDao {
 				Connection con = getConnection();
 				
 				String sql ="update goods"
-						+ " set goods_replycount =(selete count(*) from goods_reply where goods_no =?)"
-						+"where goods_no =?";
+						+ " set goods_replycount =(select count(*) from goods_reply where goods_no =?)"
+						+" where goods_no =?";
 				
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setInt(1, goods_no);
