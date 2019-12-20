@@ -1,13 +1,13 @@
 package semi.bean;
 
-public class helpfilesDto {
+public class HelpfilesDto {
 
 	private int help_files_no,origin,filesize;
 	private String uploadname,savename,filetype;
-	public helpfilesDto() {
+	public HelpfilesDto() {
 		super();
 	}
-	public helpfilesDto(int help_files_no, int origin, int filesize, String uploadname, String savename,
+	public HelpfilesDto(int help_files_no, int origin, int filesize, String uploadname, String savename,
 			String filetype) {
 		super();
 		this.help_files_no = help_files_no;
