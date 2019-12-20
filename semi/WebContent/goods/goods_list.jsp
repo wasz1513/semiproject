@@ -36,7 +36,7 @@
     	
     	GoodsDao dao = new GoodsDao();
     	
-   		 List<GoodsDto> list;
+   		List<GoodsDto> list;
    		 
     	if(goods_category != null){
     		list = dao.CategorySearch( goods_category, start, finish);
