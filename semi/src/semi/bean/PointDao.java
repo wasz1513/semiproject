@@ -85,7 +85,7 @@ public class PointDao {
 	//특정 회원의 전체 포인드 히스토리
 	public List<PointDto> get(int customer_no) throws Exception{
 		Connection con = getConnection();
-		String sql="select * from point where customer=?";//point table의 customer
+		String sql="select * from point where customer=? order by point_no desc";//point table의 customer
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, customer_no);
 		ResultSet rs = ps.executeQuery();

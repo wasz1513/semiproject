@@ -93,7 +93,7 @@ function check(){
 				적립
 			</div>
 			<div>
-				<div>적립일자 : <%=dto.getPoint_save_date() %> <br>적립내용 : <%=dto.getPoint_save_details() %> </div>
+				<div>적립일자 : <%=dto.getPoint_save_dateWithFormat() %> <br>적립내용 : <%=dto.getPoint_save_details() %> </div>
 			</div>
 			<div>
 			</div>
@@ -108,7 +108,7 @@ function check(){
 				사용
 			</div>
 			<div>
-				<div>사용일자 : <%=dto.getPoint_use_date() %></div>
+				<div>사용일자 : <%=dto.getPoint_use_dateWithFormat() %></div>
 				<div>사용내용 : <%=dto.getPoint_use_details() %> </div>
 			</div>
 			<div>

@@ -1,5 +1,9 @@
 package semi.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PointDto {
 	private int point_no;
 	private int point_save;
@@ -51,4 +55,32 @@ public class PointDto {
 	public void setPoint_use_details(String point_use_details) {
 		this.point_use_details = point_use_details;
 	}
+	// 시간 변환 - 가입일자
+	public String getPoint_use_dateWithFormat() throws ParseException {
+		if (point_use_date == null) {
+			return "";
+		} else {
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+			Date date = read.parse(point_use_date);
+			
+			SimpleDateFormat write = new SimpleDateFormat("y. M. d, H:m");
+			String time = write.format(date);
+
+			return time;
+		}
+	}
+	public String getPoint_save_dateWithFormat() throws ParseException {
+		if (point_save_date == null) {
+			return "";
+		} else {
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+			Date date = read.parse(point_save_date);
+			
+			SimpleDateFormat write = new SimpleDateFormat("y. M. d, H:m");
+			String time = write.format(date);
+
+			return time;
+		}
+	}
+
 }
