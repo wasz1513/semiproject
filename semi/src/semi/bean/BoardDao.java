@@ -54,22 +54,22 @@ public class BoardDao {
 		
 	}
 
-	//검색
-	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
-		Connection con = getConnection();
+//	//검색
+//	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
+//		Connection con = getConnection();
+//		
+//		String sql = "select * from board order by board_no";
+//		PreparedStatement ps = con.prepareStatement(sql);
+//		ResultSet rs = ps.executeQuery();
+//		List<BoardDto> list = new ArrayList<>();
+//		while(rs.next()) {
+//			BoardDto dto = new BoardDto();
+//			list.add(dto);
+//		}
+//		con.close();
+//		return list;
 		
-		String sql = "select * from board order by board_no";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		List<BoardDto> list = new ArrayList<>();
-		while(rs.next()) {
-			BoardDto dto = new BoardDto();
-			list.add(dto);
-		}
-		con.close();
-		return list;
-		
-	}
+//	}
 
 	//등록
 	public void write(BoardDto dto) throws Exception{
@@ -181,6 +181,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1, keyword);
 	ResultSet rs = ps.executeQuery();
+
 	
 	//변환
     List<BoardDto> list = new ArrayList<>();

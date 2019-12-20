@@ -6,9 +6,22 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<% 
+String type = request.getParameter("type");
+String keyword = request.getParameter("keyword");
+
+boolean isSearch = type != null && keyword != null;
+
+
 BoardDao dao = new BoardDao();
-List<BoardDto> list = dao.getList();
+List<BoardDto> list;
+if(isSearch){
+	list=dao.search(type,keyword);
+}
+else{
+	list=dao.getList();
+	
+}
 
 %>
 
