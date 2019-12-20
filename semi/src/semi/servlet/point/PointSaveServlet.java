@@ -16,7 +16,6 @@ public class PointSaveServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			PointDto dto = new PointDto();
 			PointDao dao = new PointDao();
 			String id = (String)req.getSession().getAttribute("customer_id");
 			int customer_no = Integer.parseInt(req.getParameter("customer_no"));

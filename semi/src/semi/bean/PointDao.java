@@ -51,7 +51,7 @@ public class PointDao {
 		ps.setInt(1, point);
 		ps.setString(2, id);
 		ps.execute();
-		String sql2="insert into point values(point_seq.nextval,0,null,null,?,'포인트사용',sysdate,?)";
+		String sql2="insert into point values(point_seq.nextval,0,null,null,?,sysdate,'포인트사용',?)";
 		PreparedStatement ps2 = con.prepareStatement(sql2);
 		ps2.setInt(1, point);
 		ps2.setInt(2, customer);
