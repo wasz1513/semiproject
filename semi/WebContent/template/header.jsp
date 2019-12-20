@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/indexlist.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/input.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/admin.css">
 <title>Semi</title>
@@ -61,6 +60,10 @@
 		padding: 2rem;
 	}
 	
+	section{
+		width: 100%;
+	}
+	
 /* 	header{ */
 /*     background-color: #fff; */
 /*     position: fixed; */
@@ -85,34 +88,9 @@
 }
 
 
-
-
-/* 슬라이더 영역 스타일 */
-
-    
-    nav{
-/*     	margin-top:110px; */
-    	height: 300px;
-    	z-index: 10;
-    }
-
 </style>
 
-<!-- ================================================================ -->
-<!-- 슬라이더 -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-function loadSlider(){
-	 var swiper = new Swiper('.swiper-container', {
-		 slidesPerView: 3,
-		 autoplay:{
-		     delay:3000,
-	     },
-	     loop: true,
-	  });
-}
-</script>
+
 <% 
 String id = (String)session.getAttribute("customer_id"); 
 boolean login = id!=null;
@@ -132,7 +110,7 @@ boolean master = grade != null && grade.equals("관리자");
       			<input type="checkbox" id="custom-menu-admin">
       			<ul class="custom-list">
       				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
-			       	<li><a href="#">상품리스트</a></li>
+			       	<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 			        <li><a href="#">운영현황</a></li>	
       			</ul>
 			</div>
@@ -140,14 +118,14 @@ boolean master = grade != null && grade.equals("관리자");
 <!-- 		헤더 -->
 <!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
 
-=======
+
 		<header>		
->>>>>>> refs/remotes/origin/master
+
 			<div class="row-multi col-4 logo">
 <!-- 				로고 -->
 				<div class="logo">
 					<a href="<%=request.getContextPath()%>">
-						<img src="./image/logo.png">
+						<img src="<%=request.getContextPath()%>/image/logo.png">
 					</a>
 			</div>
 <!-- 				검색창 -->
