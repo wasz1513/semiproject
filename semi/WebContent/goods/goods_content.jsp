@@ -87,7 +87,7 @@
 						
 						 		<%=goodsreplydto.getGoods_reply_writetime() %>
 								
-								답글
+						
 								
 								<% if(session_id.equals(goodsreplydto.getGoods_reply_writer())){%>
 								<!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 -->
@@ -113,7 +113,7 @@
 	<td  align="right">
 	<form action="goods_reply_insert.do"method="post">
 	<input type ="hidden" name ="goods_no" value="<%=goodsdto.getGoods_no()%>">
-	<textarea name ="goods_content" rows="4" cols="100" required></textarea>
+	<textarea name ="goods_reply_content" rows="4" cols="100" required></textarea>
 	<input type="submit" value="등록">
 	
 	</form>
