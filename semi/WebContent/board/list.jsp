@@ -1,6 +1,3 @@
-
-
-
 <%@page import="semi.bean.BoardDto"%>
 <%@page import="semi.bean.BoardDao"%>
 <%@page import="java.util.List"%>
