@@ -9,7 +9,6 @@
 			int cno = cdto.getCustomer_no();%>
 			
 			
-			
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 
