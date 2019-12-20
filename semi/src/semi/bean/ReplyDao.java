@@ -31,8 +31,8 @@ public class ReplyDao {
 	public void write(ReplyDto dto) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "insert into reply(no, content, writer, origin) "
-							+ "values(reply_seq.nextval, ?, ?, ?)";
+		String sql = "insert into board_reply(no, content, writer, origin) "
+							+ "values(board_reply_seq.nextval, ?, ?, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getContent());
 		ps.setString(2, dto.getWriter());

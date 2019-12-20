@@ -58,7 +58,7 @@ public class BoardDao {
 	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "select * from goods order by goods_no";
+		String sql = "select * from board order by board_no";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		List<BoardDto> list = new ArrayList<>();
@@ -173,17 +173,35 @@ public void delete(int no)throws Exception{
 }
 
 //검색
-//public List<BoardDto> search(String type,String keyword) throws Exception{
-//	Connection con = getConnection();
-//	
-//	String sql = "select*from board "
-//			+ "where writer=? order by no desc";
-//	PreparedStatement ps = con.prepareStatement(sql);
-//	ps.setString(1, keyword);
-//	ResultSet rs = ps.executeQuery();
-//	
-//	
-//	con.close();
+public List<BoardDto> search(String type,String keyword) throws Exception{
+	Connection con = getConnection();
+	
+	String sql = "select*from board "
+			+ "where"+type+"like ? order by no desc";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setString(1, keyword);
+	ResultSet rs = ps.executeQuery();
+	
+	//변환
+    List<BoardDto> list = new ArrayList<>();
+    
+    while(rs.next()) {
+    	int no = rs.getInt("no");
+    	String head = rs.getString("head");
+    	String title = rs.getString("title");
+    	int replycount = rs.getInt("replycount");
+    	String wdate = rs.getString("wdate");
+    	int readcount = rs.getInt("readcount");
+	   	String content = rs.getString("content");
+    	int writer = rs.getInt("writer");
+    	
+    	BoardDto dto = new BoardDto(no,head,title,replycount,wdate,readcount,content,writer);
+    	list.add(dto);
+    }
+	
+	con.close();
+	return list;
+}
 
 //조회수 증가
  public void cu(int no) throws Exception{
