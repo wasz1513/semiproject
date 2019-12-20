@@ -28,8 +28,8 @@
 			<tr>
 				<td>
 <%-- 					<%=dto.getGoods_title()%> --%>
-				</td>
-				<td>
+<!-- 				</td> -->
+<!-- 				<td> -->
 <%-- 					<%=dto.getBuy_goods_seller()%> --%>
 				</td>
 			</tr>

@@ -1,27 +1,44 @@
-
-
-
 <%@page import="semi.bean.BoardDto"%>
 <%@page import="semi.bean.BoardDao"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
+//	페이지 크기
+int pagesize = 10;
+//	네비게이터 크기
+int navsize = 10;
+
+//	페이징 추가
+int pno;
+try{
+	pno = Integer.parseInt(request.getParameter("pno"));
+	if(pno <= 0) throw new Exception();
+}
+catch(Exception e){
+	pno = 1;
+}
+
+int finish = pno * pagesize;
+int start = finish - (pagesize - 1);
+
 String type = request.getParameter("type");
 String keyword = request.getParameter("keyword");
 
 boolean isSearch = type != null && keyword != null;
 
-
 BoardDao dao = new BoardDao();
+
 List<BoardDto> list;
 if(isSearch){
-	list=dao.search(type,keyword);
+	list = dao.search(type, keyword, start, finish); 
 }
 else{
-	list=dao.getList();
-	
+	list = dao.getList(start, finish);
 }
+
+int count = dao.getCount(type, keyword);
+
 
 %>
 
@@ -78,10 +95,15 @@ else{
 				</tr>
 			</tfoot>
 	</table>
+
 	<!-- 네비게이터 -->
-<h4>
-	[이전] 1 2 3 4 5 6 7 8 9 10 [다음]
-</h4>
+							 <div align="center">
+   	 <jsp:include page="/template/navigator.jsp">
+   	 	<jsp:param name="pno"  value="<%=pno %>" />
+   	    <jsp:param name="count"  value="<%=count %>" />
+   	    <jsp:param name="navisize"  value="<%=navsize %>" />
+   	    <jsp:param name="pagesize" value="<%=pagesize %>" />
+   	 </jsp:include>
 	
 
 <form action="list.jsp" method="get">
