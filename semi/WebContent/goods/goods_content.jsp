@@ -65,14 +65,12 @@
 
 		<tr>
 			<td>
-		<%--	<%
-// 		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
-// 		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
-// 		System.out.println(list);
-		
-		
+		<%
+ 		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
+ 		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
+ 		System.out.println(list);
 		%>
-				<%--
+				
 				<table border="1" width="100%">
 				<%for(GoodsReplyDto goodsreplydto : list ) {%>
 					<tr>
@@ -102,7 +100,7 @@
 					<%} %>
 				</table>
 				
-				 --%>
+		
 
 			</td>
 		</tr>
@@ -113,7 +111,7 @@
 	<td  align="right">
 	<form action="goods_reply_insert.do"method="post">
 	<input type ="hidden" name ="goods_no" value="<%=goodsdto.getGoods_no()%>">
-	<textarea name ="goods_content" rows="4" cols="100" required></textarea>
+	<textarea name ="goods_reply_content" rows="4" cols="100" required></textarea>
 	<input type="submit" value="등록">
 	
 	</form>
