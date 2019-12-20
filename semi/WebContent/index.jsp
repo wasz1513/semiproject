@@ -1,6 +1,14 @@
-<%@page import="semi.bean.SessionVisitDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+	String context = request.getContextPath();
+
+%>
+
+
+
 
 <jsp:include page="/template/header.jsp"></jsp:include>	
 
@@ -12,7 +20,7 @@
 					
 		<article>
 			<div class="row">
-				<h2>인기게시글</h2>
+				<a href="<%=context%>/goods/goods_list.jsp"><h2>인기게시글</h2></a>
 			</div>
 			<div class="row-multi col-4">
 				<div>
@@ -44,7 +52,7 @@
 					<h3>제목</h3>
 				</div>
 				<div class="more">
-					<a>더보기</a>
+					<a href="<%=context%>/goods/goods_list.jsp">더보기</a>
 				</div>
 			</div>
 			
@@ -81,7 +89,7 @@
 					<h3>제목</h3>
 				</div>
 				<div class="more">
-					<a>더보기</a>
+					<a href="<%=context %>/goods/goods_list.jsp"><h6>더보기</h6></a>
 				</div>
 			</div>
 		</article>

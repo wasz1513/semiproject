@@ -6,9 +6,22 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<% 
+String type = request.getParameter("type");
+String keyword = request.getParameter("keyword");
+
+boolean isSearch = type != null && keyword != null;
+
+
 BoardDao dao = new BoardDao();
-List<BoardDto> list = dao.getList();
+List<BoardDto> list;
+if(isSearch){
+	list=dao.search(type,keyword);
+}
+else{
+	list=dao.getList();
+	
+}
 
 %>
 
@@ -60,7 +73,7 @@ List<BoardDto> list = dao.getList();
 			<tfoot>
 				<tr>
 					<td colspan="9" align="right">
-						<a href="write.jsp">write</a>
+						<a href="write.jsp">WRITE</a>
 					</td>
 				</tr>
 			</tfoot>
@@ -71,7 +84,7 @@ List<BoardDto> list = dao.getList();
 </h4>
 	
 
-
+<form action="list.jsp" method="get">
 <select name="type">
 <option value="title">제목</option>
 <option value="writer">작성자</option>
@@ -79,7 +92,7 @@ List<BoardDto> list = dao.getList();
 
 <input type="search" name="keyword" placeholder="검색어" required>
 <input type="submit" value="검색">
-
+</form>
 
 <br><br>
 		</div> 
