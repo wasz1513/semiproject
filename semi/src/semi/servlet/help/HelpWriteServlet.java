@@ -2,6 +2,7 @@ package semi.servlet.help;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import semi.bean.CustomerDao;
+import semi.bean.CustomerDto;
 import semi.bean.HelpDao;
 import semi.bean.HelpDto;
 
@@ -23,9 +25,12 @@ public class HelpWriteServlet extends HttpServlet {
 			dto.setContent(req.getParameter("content"));
 			dto.setHead(req.getParameter("head"));
 			
-			String id=(String) req.getSession().getAttribute("customer_id");
-			dto.setWrite(id);
-		
+			String customer_id =(String)req.getSession().getAttribute("customer_id");
+			CustomerDao cdao = new CustomerDao();
+			CustomerDto cdto = cdao.get(customer_id);
+			int cno = cdto.getCustomer_no();
+			
+			dto.setWrite(cno);
 			HelpDao dao=new HelpDao();
 			dao.write(dto);
 			
