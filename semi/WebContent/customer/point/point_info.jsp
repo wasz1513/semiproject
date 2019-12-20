@@ -13,8 +13,7 @@
 
 	PointDao dao = new PointDao();
 	int no = cdto.getCustomer_no();
-	List<PointDto> plist = dao.get(no);
-	
+	List<PointDto> plist = dao.get(no);	
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <style>
@@ -34,6 +33,9 @@
 <form action ="point_save.do" method="post">
 	<input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
 	<input type="text" name="point_save" placeholder="적립포인트">
+	<%if(request.getParameter("error")!=null){ %>
+	<h4><font color="red">포인트를 입력해주세요</font></h4>
+	<%} %>
 	<input type="submit" value="적립하기">
 </form>
 
