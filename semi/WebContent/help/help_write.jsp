@@ -3,11 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	<% String customer_id = (String)session.getAttribute("customer_id");
-			CustomerDao cdao = new CustomerDao();
-			CustomerDto cdto = cdao.get(customer_id);
-			int cno = cdto.getCustomer_no();%>
-			
 			
 <jsp:include page="/template/header.jsp"></jsp:include>
 
@@ -52,10 +47,10 @@
 		<title>신고/문의하기</title>
 		<div align="center" >
 		<div class="row row-multi col-2" >
-			<a href="write.jsp">
+			<a href="help_write.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
 				</a> 
-			<a href="list.jsp">
+			<a href="help_list.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
 				</a> 
 			</div>
@@ -90,7 +85,7 @@
 			
 			<div align="right">
 				<input type="submit" value="1:1상담하기">
-				 <a href="list.jsp"> </a> 
+				 <a href="help_list.jsp"> </a> 
 			</div>
 			</div>
 
