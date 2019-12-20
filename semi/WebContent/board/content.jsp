@@ -30,7 +30,7 @@
 			<td valign="top"><%=bdto.getContent()%></td>
 		</tr>
 		<tr>
-			<td>댓글수 <%=bdto.getReplycount()%> 조회수 <%=bdto.getReadcount()%>
+			<td align="right">댓글수 <%=bdto.getReplycount()%> 조회수 <%=bdto.getReadcount()%>
 			</td>
 		</tr>
 		
@@ -52,15 +52,15 @@
 		</tr>
 	<!-- 댓글 작성 -->
 		<tr>
-			<td align="left">
+			<td align="right">
 			
 			<form action="reply_insert.do" method="post">
 			
 			<input type="hidden" name="origin" value="<%=bdto.getNo()%>">
 			
-			<textarea name="content" rows="5" cols="215" required></textarea>
+			<textarea name="content" rows="4" cols="215" required></textarea>
 			
-			<input type="submit" value="등록">
+			<input type="submit" value="댓글등록">
 			
 			
 			</form>
