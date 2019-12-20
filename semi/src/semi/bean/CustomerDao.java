@@ -67,6 +67,7 @@ public class CustomerDao {
 			dto2.setCustomer_grade(rs.getString("customer_grade"));
 			dto2.setCustomer_joindate(rs.getString("customer_joindate"));
 			dto2.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
+			dto2.setCustomer_point(rs.getInt("customer_point"));
 			list.add(dto2);
 		}
 
@@ -114,7 +115,6 @@ public class CustomerDao {
 	// 회원가입시퀀스 번호 뽑기
 	public int getSequence() throws Exception {
 		Connection con = getConnection();
-
 		String sql = "select customer_seq.nextval from dual";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
@@ -124,12 +124,10 @@ public class CustomerDao {
 		return seq;
 	}
 	
-	// 회원가입
+	// 회원가입(추가사항 : 회원가입시 100포인트 추가)
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
-
-		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate)";
-
+		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getCustomer_no());
 		ps.setString(2, dto.getCustomer_name());
@@ -143,12 +141,17 @@ public class CustomerDao {
 		ps.setString(10, dto.getCustomer_basic_address());
 		ps.setString(11, dto.getCustomer_extra_address());
 		ps.execute();
+		
+		String sql2="insert into point values(point_seq.nextval,100,sysdate,'회원가입축하금',0,null,null,?)";
+		PreparedStatement ps2 = con.prepareStatement(sql2);
+		ps2.setInt(1, dto.getCustomer_no());
+		ps2.execute();
+		
 		con.close();
 	}
 	// 단일조회
 	public CustomerDto get(String customer_id) throws Exception {
 		Connection con = getConnection();
-
 		String sql = "select * from customer where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, customer_id);
@@ -173,6 +176,7 @@ public class CustomerDao {
 			dto.setCustomer_grade(rs.getString("customer_grade"));
 			dto.setCustomer_joindate(rs.getString("customer_joindate"));
 			dto.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
+			dto.setCustomer_point(rs.getInt("customer_point"));
 		} else {
 			dto = null;
 		}
@@ -194,8 +198,7 @@ public class CustomerDao {
 	// id찾기 기능
 	public String find(String customer_name, String customer_phone) throws Exception {
 		Connection con = this.getConnection();
-
-		String sql = "select customer_id from customer where customer_name =? " + "and customer_phone=?";
+		String sql = "select customer_id from customer where customer_name =? and customer_phone=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, customer_name);
 		ps.setString(2, customer_phone);
@@ -235,6 +238,7 @@ public class CustomerDao {
 			dto.setCustomer_grade(rs.getString("customer_grade"));
 			dto.setCustomer_joindate(rs.getString("customer_joindate"));
 			dto.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
+			dto.setCustomer_point(rs.getInt("customer_point"));
 			list.add(dto);
 		}
 		con.close();
@@ -244,7 +248,6 @@ public class CustomerDao {
 	public int getCount(String type, String keyword) throws Exception {
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null;
-
 		String sql = "select count(*) from customer";
 		if (isSearch) {
 			sql += " where " + type + " like '%'||?||'%'";

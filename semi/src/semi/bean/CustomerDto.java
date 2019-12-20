@@ -19,6 +19,15 @@ public class CustomerDto {
 	private String customer_grade;
 	private String customer_joindate;
 	private String customer_lastlogin;
+	private int customer_point;
+
+	public int getCustomer_point() {
+		return customer_point;
+	}
+
+	public void setCustomer_point(int customer_point) {
+		this.customer_point = customer_point;
+	}
 
 	public CustomerDto() {
 		super();
