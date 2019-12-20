@@ -28,7 +28,7 @@ public class GoodsReplyDao {
 	}
 	//등록기능
 	//이름 :goods_reply_write
-	//매개변수:goods_reply_content,goods_reply_writer,goods_no ==ReplyDto
+	//매개변수:goods_reply_content,goods_reply_writer,goods_no ==GoodsReplyDto
 	public void goods_reply_write(GoodsReplyDto dto)throws Exception{
 		Connection con = getConnection();
 		String sql = "insert into goods_reply(goods_reply_no, goods_reply_content, goods_reply_writer,goods_no)"
@@ -43,10 +43,10 @@ public class GoodsReplyDao {
 		con.close();
 	}
 	
-	//목록기능
-	//	이름 :Goods_reply_getList
-	//매개변수 : 게시글 번호 (googs_no)
-// 
+//	//목록기능
+//	//	이름 :Goods_reply_getList
+//	//매개변수 : 게시글 번호 (googs_no)
+
 	public List<GoodsReplyDto>goods_reply_getList(int goods_no) throws Exception{
 		Connection con = getConnection();
 		

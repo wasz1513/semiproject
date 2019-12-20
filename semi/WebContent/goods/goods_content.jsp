@@ -65,12 +65,14 @@
 
 		<tr>
 			<td>
-			<%
-		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
-		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
+		<%--	<%
+// 		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
+// 		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
+// 		System.out.println(list);
 		
 		
 		%>
+				<%--
 				<table border="1" width="100%">
 				<%for(GoodsReplyDto goodsreplydto : list ) {%>
 					<tr>
@@ -99,6 +101,8 @@
 					</tr>
 					<%} %>
 				</table>
+				
+				 --%>
 
 			</td>
 		</tr>
