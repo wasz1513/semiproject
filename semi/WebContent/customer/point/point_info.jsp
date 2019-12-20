@@ -1,9 +1,15 @@
+<%@page import="semi.bean.CustomerDao"%>
+<%@page import="semi.bean.CustomerDto"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.bean.PointDto"%>
 <%@page import="semi.bean.PointDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	String id = (String)session.getAttribute("customer_id");
+	CustomerDao cdao = new CustomerDao();
+	CustomerDto cdto = cdao.get(id);
+	
 	PointDto dto = new PointDto();
 	PointDao dao = new PointDao();
 	List<PointDto> list = dao.getList();
@@ -13,16 +19,47 @@
 	.point{
 		margin-top:10px;
 	}
+	ul{
+		list-style-type : none;
+		text-align : left;
+	}
 </style>
 
 <!--  -->
 <article>
-<form action = "point_save.do">
-	<input type="button" value="적립하기">
-</form>
-<form>
-	<input type="button" value="사용하기">
-</form>
+<div class="row-multi col-3">
+	<div>
+	<ul>
+		<li>보유포인트</li>
+		<li><img src="<%=request.getContextPath()%>/image/pointicon.jpg"><%=cdto.getCustomer_point() %>Point</li>
+	</ul>
+	</div>
+	<div>
+	<ul>
+		<li>회원 등급</li>
+		<li>
+		<%if(cdto.getCustomer_grade().equals("오렌지")){ %>
+				<img src="<%=request.getContextPath()%>/image/grade/orange2.jpg" width = "40px" height="40px">
+		<%}else if(cdto.getCustomer_grade().equals("브론즈")){ %>
+				<img src="<%=request.getContextPath()%>/image/grade/bronze.jpg" width = "40px" height="40px">
+		<%}else if(cdto.getCustomer_grade().equals("실버")){ %>
+				<img src="<%=request.getContextPath()%>/image/grade/silver.png" width = "40px" height="40px">
+		<%}else if(cdto.getCustomer_grade().equals("골드")){ %>
+				<img src="<%=request.getContextPath()%>/image/grade/gold.png" width = "40px" height="40px">
+		<%}else{ %>
+				<img src="<%=request.getContextPath()%>/image/grade/administrator.jpg" width = "40px" height="40px">
+		<%} %>
+		<%=cdto.getCustomer_grade() %></li>
+	</ul>
+	</div>
+	<div>
+	<ul>
+		<li>보유포인트</li>
+		<li><img src="<%=request.getContextPath()%>/image/pointicon.jpg"><%=cdto.getCustomer_point() %>Point</li>
+	</ul>
+	</div>
+</div>
+
 	<div class="row-multi col-4">
 		<div class="point">
 			적립
