@@ -22,24 +22,34 @@ public class BuyDao {
 		return source.getConnection();
 	}
 
-	//구매 신규배송 주소
-	public void buyNewAddress(BuyDto dto) throws Exception{
-		
+	public void paymentFinish(BuyDto dto) throws Exception{
+
 		Connection con = getConnection();
 		
-		String sql = "update buytest set buy_post=?, buy_basic_address=?,buy_extra_address=? where customer_no =?";
+		String sql = "update goods set goods_state='판매완료' where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1,dto.getBuy_post());
-		ps.setString(2, dto.getBuy_basic_address());
-		ps.setString(3, dto.getBuy_extra_address());
-		ps.setInt(4, dto.getCustomer_no());
-		
-	
+//		ps.setString(1, dto.c());
 		
 		con.close();
-			
 	}
 
+	//구매 신규배송 주소
+//	public void buyNewAddress(BuyDto dto) throws Exception{
+//		
+//		Connection con = getConnection();
+//		
+//		String sql = "update buytest set buy_post=?, buy_basic_address=?,buy_extra_address=? where customer_no =?";
+//		PreparedStatement ps = con.prepareStatement(sql);
+//		ps.setString(1,dto.getBuy_post());
+//		ps.setString(2, dto.getBuy_basic_address());
+//		ps.setString(3, dto.getBuy_extra_address());
+//		ps.setInt(4, dto.getCustomer_no());
+//		
+//	
+//		
+//		con.close();
+//			
+//	}
 
 	
 	

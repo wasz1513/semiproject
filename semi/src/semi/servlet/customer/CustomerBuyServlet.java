@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.bean.BuyDao;
 import semi.bean.BuyDto;
+import semi.bean.CustomerDao;
 
 
 
@@ -21,13 +22,14 @@ public class CustomerBuyServlet extends HttpServlet{
 			
 			try {
 				
+				String customer_id=(String)req.getSession().getAttribute("customer_id");
+				CustomerDao customerDao = new CustomerDao();
+				
 				BuyDto dto = new BuyDto();
-				dto.setBuy_post(req.getParameter("buy_post"));
-				dto.setBuy_extra_address(req.getParameter("buy_basic_address"));
 				dto.setBuy_extra_address(req.getParameter("buy_extra_address"));
 				
 				BuyDao dao = new BuyDao();
-				dao.buyNewAddress(dto);
+//				dao.addExtraAddress(dto);
 				
 				resp.sendRedirect("buy_success.jsp");
 				
