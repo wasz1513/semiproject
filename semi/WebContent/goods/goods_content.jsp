@@ -105,7 +105,7 @@
 
 		<tr>
 			<td>
-				<%
+		<%
  		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
 //  		System.out.println(list);
@@ -113,7 +113,6 @@
 		
 				<table border="1" width="100%">
 					<%for(GoodsReplyDto goodsreplydto : list ) {%>
-		 <%if(goods_no>0 && goods_reply_no==0){ %>
 					<tr>
 						<th width="100">
 							<img src="http://placehold.it/100X100">
@@ -134,21 +133,23 @@
 						
 						<br>
 						<br> 
-						<%=goodsreplydto.getGoods_reply_content()%>
+							<%if(goodsreplydto.getGoods_reply_no()==goods_reply_no){ %>
+								<form action="goods_reply_edit.do" method="post">
+									<input type="hidden" name="goods_no" value="<%=goodsdto.getGoods_no()%>"> 
+									<input type="hidden" name="goods_reply_no" value="<%=goods_reply_no%>">
+									<textarea name="goods_reply_content" rows="4" cols="100" required><%=goodsreplydto.getGoods_reply_content()%></textarea>
+									<input type="submit" value="댓글수정">
+								</form>
+							<% } else { %>
+								<%=goodsreplydto.getGoods_reply_content()%>
+							<% }  %>
 						</td>
 						<!--댓글 수정 테스트  -->
-		<% } else if(goods_no>0 && goods_reply_no>0){ %>
-						
-							<form action="goods_reply_edit.do" method="post">
-								<input type="hidden" name="goods_no" value="<%=goodsdto.getGoods_no()%>"> 
-								<input type="hidden" name="goods_reply_no" value="<%=goods_reply_no%>">
-								<textarea name="goods_reply_content" rows="4" cols="100" required><%=goodsreplydto.getGoods_reply_content() %></textarea>
-								<input type="submit" value="등록">
-							</form>
-						
-		<%} %>
 					<%} %>
-
+	
+						
+						
+		
 
 
 					</tr>
