@@ -31,9 +31,8 @@ public class GoodsDao {
 	public void goods_write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
-		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id)"
-				+ " values(?,?,?,?,?,?)";
-
+		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id, goods_readcount, goods_replycount)"
+				+ " values(?,?,?,?,?,?, 0, 0)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getGoods_no());
 		ps.setString(2, dto.getGoods_category());
@@ -93,28 +92,22 @@ public class GoodsDao {
 
 //상품 등록 조회수 증가
 	public void readcountupdate(int goods_no) throws Exception {
-
 		Connection con = getConnection();
-
 		String sql = "update goods set goods_readcount = goods_readcount+1 where goods_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
-
 		ps.setInt(1, goods_no);
-
 		ps.execute();
-
 		con.close();
 	}
 	// 상품 등록삭제
 
 	public void goods_delete(int goods_no) throws Exception {
+
 		Connection con = getConnection();
 		String sql = "delete goods where goods_no =?";
-
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, goods_no);
 		ps.execute();
-
 		con.close();
 
 	}
@@ -134,7 +127,6 @@ public class GoodsDao {
 		con.close();
 
 	}
-
 	// 기본목록(인기게시글)
 
 	public List<GoodsDto> getList(int start, int finish) throws Exception {
@@ -217,7 +209,10 @@ public class GoodsDao {
 	// 하나의 키워드로 상품제목, 내용, 회원 주소를 검색하여 상품 리스트를 출력하는 것.
 	public List<GoodsDto> search(int start, int finish, String keyword) throws Exception {
 		Connection con = getConnection();
-		//String sql = "select a.* from (select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc";
+		// String sql = "select a.* from (select * from goods g join customer c on
+		// g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or
+		// goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'
+		// order by goods_no desc";
 		String sql = "select * from (select rownum rn, a.* from (select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc) where rn between ? and ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -313,7 +308,6 @@ public class GoodsDao {
 
 		return list;
 	}
-
 	// 댓글 수를 갱신하는 기능
 	public void goods_reply_calculate(int goods_no) throws Exception {
 		Connection con = getConnection();
@@ -328,5 +322,4 @@ public class GoodsDao {
 		ps.execute();
 		con.close();
 	}
-
 }

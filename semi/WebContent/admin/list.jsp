@@ -33,7 +33,7 @@
 	if(isSearch){
 		list = dao.search(type, keyword, start, finish);
 	}else{
-		list = dao.getList();
+		list = dao.getList(start, finish);
 	}
 %>
 <article>
