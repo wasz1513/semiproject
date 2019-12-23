@@ -11,6 +11,14 @@
 
 <%
 	int goods_no = Integer.parseInt(request.getParameter("goods_no"));
+
+	int goods_reply_no;
+	if(request.getParameter("goods_reply_no")!=null){		
+		goods_reply_no = Integer.parseInt(request.getParameter("goods_reply_no"));	
+	}else{
+		goods_reply_no=0;
+	}
+		
 	GoodsDao goodsdao = new GoodsDao();
 	GoodsDto goodsdto = goodsdao.get(goods_no); //게시글 불러오기
 	//본인 글인지 여부과 관리자인지 여부를 미리 계산(수정/삭제)
@@ -43,6 +51,7 @@
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 	System.out.print(flist);
 	
+
 %>
 
 
@@ -105,7 +114,8 @@
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
 //  		System.out.println(list);
 		%>
-				
+		
+<%-- 		<%if(goods_no!=null && goods_reply_no==0){ %>		 --%>
 				<table border="1" width="100%">
 				<%for(GoodsReplyDto goodsreplydto : list ) {%>
 					<tr>
@@ -124,13 +134,31 @@
 								
 								<% if(session_id.equals(goodsreplydto.getGoods_reply_writer())){%>
 								<!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 -->
-								<a href="#">수정</a>
+								<a href="goods_content.jsp?goods_no=<%=goodsdto.getGoods_no()%>&goods_reply_no?<%=goodsreplydto.getGoods_reply_no()%>">수정</a>
 								<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>								
 						 		<% }%>
 						 		
 						   <br><br> 
 					  <%=goodsreplydto.getGoods_reply_content()%>
+					  
 						</td>
+						
+						
+						<!--댓글 수정 테스트  -->
+<%-- 	 <% } else if(goods_reply_no>0){ %> --%>
+<!-- 					 <td> -->
+<!-- 						  <form action="goods_reply_edit.do" method="post"> -->
+<%-- 						  	<input type ="hidden" name ="goods_no" value="<%=goodsdto.getGoods_no()%>"> --%>
+<%-- 						  	<input type ="hidden" name ="goods_reply_no" value="<%=goods_reply_no%>"> --%>
+<!-- 						  	<textarea name ="goods_reply_content" rows="4" cols="100" required></textarea> -->
+<!-- 						  	<input type="submit" value="등록"> -->
+<!-- 						  </form> -->
+<!-- 					 </td>  -->
+<%-- 	<%} %> --%>
+					 
+					 
+					 
+					 
 					</tr>
 					<%} %>
 				</table>
