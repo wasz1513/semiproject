@@ -3,29 +3,27 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	<%
 
+<%
 	int goods_no = Integer.parseInt(request.getParameter("goods_no"));
+	int goods_no2 = Integer.parseInt(request.getParameter("goods_no"));
 	GoodsDao dao = new GoodsDao();
 	GoodsDto dto = dao.get(goods_no);
-	
-	%>
+%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div class=row align="center">
 
-<h2>상품 등록 수정</h2>
-<form action="goods_edit.do" method="post" enctype="multipart/form-data">
+	<h2>상품 등록 수정</h2>
+	<form action="goods_edit.do" method="post">
 
-<input type="hidden"  name="goods_no" value="<%=dto.getGoods_no()%>">
-	
-	<table border="1" width="70%">
-		<tr>
-			<th>카테고리</th>
-			<td>
-				<select name="goods_category" required>
-							<option value="">-필수선택-카테고리</option>
+		<input type="hidden" name="goods_no" value="<%=dto.getGoods_no()%>">
+
+		<table border="1" width="70%">
+			<tr>
+				<th>카테고리</th>
+				<td><select name="goods_category" required>
+						<option value="<%=dto.getGoods_category()%>"><%=dto.getGoods_category()%></option>
 						<option>패션의류</option>
 						<option>패션잡화</option>
 						<option value="미용">화장품/미용</option>
@@ -36,43 +34,35 @@
 						<option value="스포츠">스포츠/레저</option>
 						<option value="생활">생활/건강</option>
 						<option value="여행">여행/문화</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td>
-				<input type="text" name="goods_title" value="<%=dto.getGoods_title() %>" required>
-			</td>
-		</tr>
-		<tr>
-			<th>가격</th>
-			<td>
-				<input type="text" name="goods_price">
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<textarea name="goods_content" required rows="15"cols="100" 
-				style="resize: vertical;"><%=dto.getGoods_content() %></textarea>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<a href="goods_edit.jsp?goods_no=<%=dto.getGoods_no()%>">
-				<input type="submit" value="수정하기">
-				</a>
-				
-				<a href="goods_list.jsp">
-				<input type="button" value="목록보기">
-				</a>
-			</td>
-		</tr>
-	</table>
+				</select></td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td><input type="text" name="goods_title"
+					value="<%=dto.getGoods_title()%>" required></td>
+			</tr>
+			<tr>
+				<th>가격</th>
+				<td><input type="text" name="goods_price"
+					value="<%=dto.getGoods_price()%>" required></td>
+			</tr>
+			<tr>
+				<td colspan="2"><textarea name="goods_content" required
+						rows="15" cols="100" style="resize: vertical;"><%=dto.getGoods_content()%></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><a
+					href="goods_edit.do?goods_no=<%=dto.getGoods_no()%>"> <input
+						type="submit" value="수정하기">
+				</a> <a href="goods_list.jsp"> <input type="button" value="목록보기">
+				</a></td>
+			</tr>
+		</table>
 
 
 
-</form>
+	</form>
 
 </div>
 
