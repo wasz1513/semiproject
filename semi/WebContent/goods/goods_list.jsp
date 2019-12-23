@@ -1,56 +1,56 @@
 <%@page import="semi.bean.GoodsDto"%>
 <%@page import="semi.bean.GoodsDao"%>
-
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+    
+    
+    <%
+    //페이지 크기
+    	int pagesize = 28;
+    	int navisize = 10;
+    
+    	String goods_category = request.getParameter("goods_category");
+    	
+    	//페이징 추가
+  	int pno;
+    try{
+    	pno = Integer.parseInt(request.getParameter("pno"));
+    	if(pno <=0) throw new Exception();
+    }
+    catch(Exception e){
+    	pno = 1;
+    }
 
-
-<%
-	//페이지 크기
-	int pagesize = 28;
-	int navisize = 10;
-
-	String goods_category = request.getParameter("goods_category");
-
-	//페이징 추가
-	int pno;
-	try {
-		pno = Integer.parseInt(request.getParameter("pno"));
-		if (pno <= 0)
-			throw new Exception();
-	} catch (Exception e) {
-		pno = 1;
-	}
-
-	int finish = pno * pagesize;
-	int start = finish - (pagesize - 1);
-
-	String type = request.getParameter("type");
-	String keyword = request.getParameter("keyword");
-
-	boolean isSearch = type != null && keyword != null;
-
-	GoodsDao dao = new GoodsDao();
-
-	List<GoodsDto> list;
-
-	if (goods_category != null) {
-		list = dao.CategorySearch(goods_category, start, finish);
-	} else if (isSearch) {
-		list = dao.search(start, finish, type, keyword);
-	} else {
-		list = dao.getList(start, finish);
-	}
-
-	int count = dao.getCount(type, keyword);
-%>
-
-
-
-
-
+    	int finish = pno * pagesize;
+    	int start = finish - (pagesize -1);
+    	
+    	String type = request.getParameter("type");
+    	String keyword = request.getParameter("keyword");
+  
+    	
+    	boolean isSearch = type != null && keyword != null;
+    	boolean isSearch2= type == null && keyword != null;
+    	GoodsDao dao = new GoodsDao();
+    	
+   		 List<GoodsDto> list;
+   		 
+    	if(goods_category != null){
+    		list = dao.CategorySearch( goods_category, start, finish);
+    	}
+    	else if(isSearch){
+    		list = dao.search(start , finish ,type , keyword);
+    	}
+    	else if(isSearch2){
+    		list=dao.search(start, finish,keyword);
+    	}
+    	else{
+    		list  = dao.getList(start , finish);
+    	}
+    	int count = dao.getCount(type , keyword);
+    	
+    %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <style>
