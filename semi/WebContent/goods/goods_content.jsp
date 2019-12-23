@@ -158,6 +158,7 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		<!-- 버튼 -->
 		<tr>
 			<td align="right">
+			<a href="orders.jsp"><input type="button" value="구매하기"></a>
 			<a href="goods_write.jsp"><input type="button" value="글쓰기"></a> 
 			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
 			<input type="button" value="답글쓰기"></a> 
