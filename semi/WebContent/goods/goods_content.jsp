@@ -116,7 +116,7 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 						</th>
 						<td><%=goodsreplydto.getGoods_reply_writer() %>
 						
-						<%if(goodsdto.getCustomer_id().equals(goodsreplydto.getGoods_reply_writer())){ %>
+						<%if(isMine){ %>
 						<!-- 판매글 판매자의 댓글에만 판매자 표시 -->
 						<font color="red">(판매자)</font>
 						<%} %>
