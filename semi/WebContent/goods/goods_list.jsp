@@ -1,3 +1,5 @@
+<%@page import="semi.bean.GoodsFilesDao"%>
+<%@page import="semi.bean.GoodsFilesDto"%>
 <%@page import="semi.bean.GoodsDto"%>
 <%@page import="semi.bean.GoodsDao"%>
 <%@page import="java.util.List"%>
@@ -49,6 +51,10 @@
     		list  = dao.getList(start , finish);
     	}
     	int count = dao.getCount(type , keyword);
+    	
+    	String file = request.getParameter("file");
+    	
+    	GoodsFilesDao fdao = new GoodsFilesDao();
     	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -114,8 +120,10 @@
 				for (GoodsDto dto : list) {
 			%>
 				<div class="gallary-item">
-					<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-						<img src="http://placehold.it/200x200">
+
+		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
+						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
+						</a>
 						<h4>
 							카테고리 :
 							<%=dto.getGoods_category()%></h4>
