@@ -152,8 +152,8 @@ boolean master = grade != null && grade.equals("관리자");
 			</div>
 <!-- 				검색창 -->
 				<div class="search">	
-					<form action="#" method="get">
-						<input class="main-bar-input" type="text" name="key" size="80%" height="40">
+					<form action="<%=request.getContextPath() %>/goods/goods_list.jsp" method="get">
+						<input class="main-bar-input" type="text" name="keyword" size="80%" height="40">
 						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
 					</form>
 				</div>

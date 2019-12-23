@@ -23,8 +23,7 @@
     catch(Exception e){
     	pno = 1;
     }
-    
-    
+
     	int finish = pno * pagesize;
     	int start = finish - (pagesize -1);
     	
@@ -33,7 +32,7 @@
   
     	
     	boolean isSearch = type != null && keyword != null;
-    	
+    	boolean isSearch2= type == null && keyword != null;
     	GoodsDao dao = new GoodsDao();
     	
    		 List<GoodsDto> list;
@@ -44,11 +43,12 @@
     	else if(isSearch){
     		list = dao.search(start , finish ,type , keyword);
     	}
+    	else if(isSearch2){
+    		list=dao.search(start, finish,keyword);
+    	}
     	else{
     		list  = dao.getList(start , finish);
     	}
-    	
-    	
     	int count = dao.getCount(type , keyword);
     	
     %>
@@ -120,7 +120,7 @@
             <img src="http://placehold.it/200x200">
             		<h4>카테고리 :  <%=dto.getGoods_category() %></h4>
       				<h3>제목:<%=dto.getGoods_title() %></h3>
-      				<h5>동네 : rn=<%=dto.getRn() %></h5>
+      				<h5>rn=<%=dto.getRn() %></h5>
       				<h3>가격 : <%=dto.getGoods_price() %></h3>
       				<div align="right">조회수 : <%=dto.getGoods_readcount() %> 댓글 : <%=dto.getGoods_replycount() %></div>
       		  </div>
