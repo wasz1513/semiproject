@@ -7,10 +7,11 @@
     
 <jsp:include page="/template/header.jsp"></jsp:include>
  
-  <% 
-    HelpDao dao =new HelpDao();
-    List<HelpDto> list =dao.getList();
-     
+  <%
+  	//dao가져오기
+	String write=(String)request.getSession().getAttribute("customer_id");
+  	HelpDao dao=new HelpDao();
+    List<HelpDto>list=dao.getList(write);
     %>
 <div align="center">
 
@@ -45,10 +46,10 @@
 <title>신고/문의하기</title>
 		<div align="center" >
 		<div class="row row-multi col-2" >
-			<a href="write.jsp">
+			<a href="help_write.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
 				</a> 
-			<a href="list.jsp">
+			<a href="help_list.jsp">
 				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
 				</a> 
 			</div>
@@ -72,6 +73,7 @@
 				<td><%=dto.getHdate()%></td>
 				<td><%=dto.getHead()%></td>
 				<td align="left"><%=dto.getContent()%></td>
+					
 			</tr>
 			<%} %>
 			</tbody>

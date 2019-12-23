@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.bean.BoardDao;
 import semi.bean.CustomerDao;
 import semi.bean.CustomerDto;
 import semi.bean.HelpDao;
@@ -25,19 +26,18 @@ public class HelpWriteServlet extends HttpServlet {
 			dto.setContent(req.getParameter("content"));
 			dto.setHead(req.getParameter("head"));
 			
-			String customer_id =(String)req.getSession().getAttribute("customer_id");
-			CustomerDao cdao = new CustomerDao();
-			CustomerDto cdto = cdao.get(customer_id);
-			int cno = cdto.getCustomer_no();
+//			String customer_id =(String)req.getSession().getAttribute("customer_id");
+//			CustomerDao cdao = new CustomerDao();
+//			CustomerDto cdto = cdao.get(customer_id);
+//			int cno = cdto.getCustomer_no();
 			
-			dto.setWrite(cno);
+			String customer_id=(String)req.getSession().getAttribute("customer_id");
+			dto.setWrite(customer_id);
 			HelpDao dao=new HelpDao();
 			dao.write(dto);
+					
+			resp.sendRedirect("help_list.jsp");
 			
-	
-			resp.sendRedirect("list.jsp");
-			
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
