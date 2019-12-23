@@ -32,10 +32,12 @@
 			</div>
 			<div class="row-multi col-4">
 				<% for (GoodsDto dto : list ){ %>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목 : <%=dto.getGoods_title() %></h3>
-				</div>
+				<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
+					<div>
+						<img src="http://placehold.it/200x200">
+						<h3>제목 : <%=dto.getGoods_title() %></h3>
+					</div>
+				</a>
 				<%} %>
 				<div class="more">
 					<a href="<%=context%>/goods/goods_list.jsp">더보기</a>
