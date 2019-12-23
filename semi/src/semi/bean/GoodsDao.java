@@ -35,8 +35,8 @@ public class GoodsDao {
 	public void goods_write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
-		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id)"
-				+ " values(?,?,?,?,?,?)";
+		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id, goods_readcount, goods_replycount)"
+				+ " values(?,?,?,?,?,?, 0, 0)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getGoods_no());
@@ -107,7 +107,7 @@ public class GoodsDao {
 		String sql = "update goods set goods_readcount = goods_readcount+1 where goods_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 
-	ps.setInt(1,goods_no);
+		ps.setInt(1,goods_no);
 
 		ps.execute();
 
@@ -126,6 +126,7 @@ public class GoodsDao {
 	con.close();
 		
 	}
+	
 //상품등록 수정
 	public void goods_edit(GoodsDto dto) throws Exception {
 	Connection con = getConnection();
@@ -199,7 +200,7 @@ public class GoodsDao {
 		String sql = "select * from("
 				+ "select rownum rn, A.* from("
 				+ "select * from goods "
-				+ "where "+type+" like '%'||?||'%' order by goods_no desc"
+				+ "where "+type+" like '%'||?||'%' order by goods_readcount desc"
 				+ ")A"
 				+ ")where rn between ? and ? "; 
 		
@@ -273,7 +274,7 @@ public class GoodsDao {
 			
 			String sql = "select * from("
 					+ "select rownum rn, A.* from("
-					+ "select * from goods where goods_category=? order by goods_no desc"
+					+ "select * from goods where goods_category=? order by goods_readcount desc"
 					+ ")A"
 					+ ")where rn between ? and ? "; 
 			
