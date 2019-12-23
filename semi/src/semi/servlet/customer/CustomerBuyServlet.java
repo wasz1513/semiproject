@@ -8,8 +8,8 @@
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 //
-//import semi.bean.OrdersDao;
-//import semi.bean.OrdersDto;
+//import semi.bean.BuyDao;
+//import semi.bean.BuyDto;
 //import semi.bean.CustomerDao;
 //
 //
@@ -25,10 +25,10 @@
 //				String customer_id=(String)req.getSession().getAttribute("customer_id");
 //				CustomerDao customerDao = new CustomerDao();
 //				
-//				OrdersDto dto = new OrdersDto();
+//				BuyDto dto = new BuyDto();
 //				dto.setBuy_extra_address(req.getParameter("buy_extra_address"));
 //				
-//				OrdersDao dao = new OrdersDao();
+//				BuyDao dao = new BuyDao();
 ////				dao.addExtraAddress(dto);
 //				
 //				resp.sendRedirect("buy_success.jsp");
@@ -42,3 +42,4 @@
 //	
 //	
 //}
+//>>>>>>> refs/remotes/origin/master

@@ -42,12 +42,14 @@ public class CustomerDao {
 	}
 
 	// getList 기능(모두 불러오기)
-	public List<CustomerDto> getList() throws Exception {
+	public List<CustomerDto> getList(int start, int finish) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from customer order by customer_no";
+		String sql = "select * from(select rownum R, C.* from customer C order by customer_no) where R between ? and ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, finish);
 		ResultSet rs = ps.executeQuery();
 
 		List<CustomerDto> list = new ArrayList<>();
