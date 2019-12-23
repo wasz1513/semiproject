@@ -8,16 +8,13 @@ BoardDao dao = new BoardDao();
 BoardDto dto = dao.get(no);
 %>
 
-
-
-
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
 	<h2>게시글 수정</h2>
 
 	<form action="edit.do" method="post">
-	<input type="hidden" name="no" value="<%=dto.getNo()%>">
+	<input type="hidden" name="no" value="<%=no%>">
 
 		<table border="1" width="30%">
 			<caption>

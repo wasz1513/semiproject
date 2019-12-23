@@ -7,10 +7,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int Origin = Integer.parseInt(request.getParameter("no"));
-
+	int no = Integer.parseInt(request.getParameter("no"));
 	BoardDao bdao = new BoardDao();
-	BoardDto bdto = bdao.get(Origin);
+	BoardDto bdto = bdao.get(no);
+	bdao.cu(no);
 %>
 
 
@@ -40,10 +40,10 @@
 				<a href="write.jsp">
 					<input type="button" value="글쓰기">
 				</a>
-				<a href="edit.jsp?no=<%=bdto.getNo()%>">
+				<a href="edit.jsp?no=<%=no%>">
 					<input	type="button" value="수정">
 				</a> 
-				<a href="delete.do?no=<%=bdto.getNo()%>">
+				<a href="delete.do?no=<%=no%>">
 					<input type="button" value="삭제">
 				</a>
 				<a href="list.jsp">
@@ -57,7 +57,8 @@
 			
 			<form action="reply_insert.do" method="post">
 			
-			<input type="hidden" name="origin" value="<%=bdto.getNo()%>">
+<!-- 			게시글번호 -->
+			<input type="hidden" name="origin" value="<%=no%>">
 			
 			<textarea name="content" rows="4" cols="215" required></textarea>
 			
@@ -72,7 +73,7 @@
 	<!-- 댓글 목록  -->
 	<%
 	ReplyDao rdao = new ReplyDao();
-	List<ReplyDto>list = rdao.getList(Origin);
+	List<ReplyDto>list = rdao.getList(no);
 	%>
     <tr>
     <td>

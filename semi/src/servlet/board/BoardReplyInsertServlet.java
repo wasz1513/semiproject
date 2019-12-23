@@ -17,7 +17,7 @@ public class BoardReplyInsertServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	try {
     	  String content = req.getParameter("content");
-    	  int Origin = Integer.parseInt(req.getParameter("Origin"));
+    	  int Origin = Integer.parseInt(req.getParameter("origin"));
     	  
     	  String id = (String) req.getSession().getAttribute("id");
     	  

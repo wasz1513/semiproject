@@ -32,8 +32,17 @@ public class BoardDao {
 	public List<BoardDto> getList(int start, int finish) throws Exception{
 		Connection con = getConnection();
 				
-		String sql = "select * from board order by no";
+		String sql = "select * from("
+				+ "select rownum rn, A.* from("
+				+ "select * from board order by no desc"
+				+ ")A"
+				+ ")where rn between ? and ? "; 
+				
+		
+//		String sql = "select * from board order by no";
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, finish);
 		ResultSet rs = ps.executeQuery();
 		List<BoardDto> list = new ArrayList<>();
 		while(rs.next()) {
@@ -53,7 +62,6 @@ public class BoardDao {
 		return list;
 		
 	}
-
 	//검색
 	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
 		Connection con = getConnection();
@@ -95,12 +103,13 @@ public class BoardDao {
 		
 		String sql = "insert into board"
 							+ "(no, head, title,content,writer,readcount,replycount,wdate) "
-							+ "values(?, ?, ?, ?, ?, 0,0,'20191216')";
+							+ "values(?, ?, ?, ?, ?, 0,0, sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getNo());
 		ps.setString(2, dto.getHead());
 		ps.setString(3, dto.getTitle());
 		ps.setString(4, dto.getContent());
+		
 		ps.setInt(5, dto.getWriter());
 		
 		
@@ -271,7 +280,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 					+ "where no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
-			ps.setInt(2, no);
+			
 			
 			ps.execute();
 			con.close();
