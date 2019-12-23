@@ -36,12 +36,12 @@ public class GoodsWriteServlet extends HttpServlet {
 			dto.setGoods_price (Integer.parseInt(mRequest.getParameter("goods_price")));
 			dto.setGoods_content(mRequest.getParameter("goods_content"));
 			
+			String session_id =(String)req.getSession().getAttribute("customer_id");
+			dto.setCustomer_id(session_id);
+
 			GoodsDao goodsdao = new GoodsDao();
 			int seq = goodsdao.getSequence();
 			dto.setGoods_no(seq);
-			
-			String session_id =(String)req.getSession().getAttribute("customer_id");
-			dto.setCustomer_id(session_id);
 			
 			goodsdao.goods_write(dto);
 			

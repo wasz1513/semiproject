@@ -10,6 +10,57 @@
 	
 %>
 
+//주문하기
+
+	public void insertOrder(OrderBean bean){
+
+		try {
+
+			String sql = "insert into webshop_order(product_no, quantity, date, state, id) values(?,?,now(),?,?)";
+
+			conn = ds.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, bean.getProduct_no());
+
+			pstmt.setString(2, bean.getQuantity());
+
+			pstmt.setString(3, "1");
+
+			pstmt.setString(4, bean.getId());
+
+			pstmt.executeUpdate();
+
+			
+
+		} catch (Exception e) {
+
+			System.out.println("insertOrder err : " + e);
+
+		} finally {
+
+			try {
+
+				if(rs!=null)rs.close();
+
+				if(pstmt!=null)pstmt.close();
+
+				if(conn!=null)conn.close();
+
+			} catch (Exception e2) {
+
+				// TODO: handle exception
+
+			}
+
+		}
+
+	}
+
+
+
+출처: https://sourcestudy.tistory.com/351 [study]
 
 <jsp:include page = "/template/header.jsp"></jsp:include>
 

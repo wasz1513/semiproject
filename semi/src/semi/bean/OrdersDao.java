@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class BuyDao {
+public class OrdersDao {
 	
 	private static DataSource source;
 	static {
@@ -22,7 +22,7 @@ public class BuyDao {
 		return source.getConnection();
 	}
 
-	public void paymentFinish(BuyDto dto) throws Exception{
+	public void order(OrdersDto dto) throws Exception{
 
 		Connection con = getConnection();
 		
