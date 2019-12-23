@@ -91,12 +91,11 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		<%} %>
 
 
-			</td>
-		</tr>
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
-			<td>댓글수<%=goodsdto.getGoods_replycount()%> 조회수<%=goodsdto.getGoods_readcount()%>
+			<td>댓글수<%=goodsdto.getGoods_replycount()%>
+			 조회수<%=goodsdto.getGoods_readcount()%>
 
 			</td>
 		</tr>
@@ -106,7 +105,7 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		<%
  		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
- 		System.out.println(list);
+//  		System.out.println(list);
 		%>
 				
 				<table border="1" width="100%">

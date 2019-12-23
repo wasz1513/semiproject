@@ -128,7 +128,7 @@
         
 	</div>
         <div align="center" >
-					<a href="write.jsp">
+					<a href="goods_write.jsp">
 					<input  class="btn" type="button" value="상품 등록하기">
 					</a>
 		</div>
