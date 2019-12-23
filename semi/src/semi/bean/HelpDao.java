@@ -33,11 +33,12 @@ public class HelpDao {
 		Connection con = getConnection();
 
 		String sql = "insert into help(board_NO,head,reply,write,content,hdate) "
-				+ "values(help_seq.nextval,?,null,?,?,sysdate)";
+				+ "values(?,?,null,?,?,sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, dto.getHead());
-		ps.setString(2, dto.getWrite());
-		ps.setString(3, dto.getContent());
+		ps.setInt(1, dto.getBoard_NO());
+		ps.setString(2, dto.getHead());
+		ps.setString(3, dto.getWrite());
+		ps.setString(4, dto.getContent());
 
 		ps.execute();
 
@@ -66,7 +67,7 @@ public class HelpDao {
 	
 	public List<HelpDto> getList(String write) throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from help where write=?";
+		String sql = "select * from help where write=? order by board_no desc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,write);
 		ResultSet rs = ps.executeQuery();

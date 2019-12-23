@@ -180,7 +180,7 @@ nav {
 							<li><a
 								href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 							<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-							<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>
+							<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>
 						</ul>
 					</div>
 					<%
@@ -209,8 +209,8 @@ nav {
 			<div class="row-multi col-2">
 				<div class="a">
 					<div class="menu-wrap">
-						<label for="custom-menu">카테고리</label> <input type="checkbox"
-							id="custom-menu">
+						<label for="custom-menu">카테고리</label> 
+						<input type="checkbox" id="custom-menu">
 
 						<ul class="custom-list">
 							<li><a

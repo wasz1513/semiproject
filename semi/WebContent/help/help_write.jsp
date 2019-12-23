@@ -90,17 +90,16 @@
     <div id="menu">
 
         <div>
-            <input type="file" name="file" accept=".jpg, .png, .gif" en><br>
+            <input type="file" name="file" accept=".jpg, .png, .gif"><br>
         </div>
   	</div>	
 				
 <!-- 			<img src=""> -->
 			</div>
-			</form>
 			
 			<div align="right">
-				<input type="submit" value="상담신청">
-				 <a href="help_list.jsp"></a> 
+				 <a href="help_list.jsp">
+				<input type="submit" value="상담신청"></a> 
 			</div>
 			</div>
 
@@ -108,4 +107,6 @@
 
 				
 		</div>
+</form>
+		
 <jsp:include page="/template/footer.jsp"></jsp:include>

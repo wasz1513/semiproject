@@ -31,11 +31,14 @@ public class HelpWriteServlet extends HttpServlet {
 						
 			HelpDto dto= new HelpDto();
 			dto.setContent(mRequest.getParameter("content"));
-			dto.setHead(mRequest.getParameter("head"));			
+			dto.setHead(mRequest.getParameter("head"));
+			
 			HelpDao helpdao = new HelpDao();			
 			int seq = helpdao.getSequence();			
 			dto.setBoard_NO(seq);
+			
 			String customer_id=(String)req.getSession().getAttribute("customer_id");
+			
 			dto.setWrite(customer_id);
 			helpdao.write(dto);
 

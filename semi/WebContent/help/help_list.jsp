@@ -41,6 +41,8 @@
 .row.row-multi.col-5>* {
 	width: 20%
 }
+
+
 </style>
 
 <title>신고/문의하기</title>
@@ -57,27 +59,53 @@
 		   <h5>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</h5>
 		
 			
-		<table border="1" width="90%">
-			<thead>
-				<tr>
-					<th width="5%">번호</th>
-					<th>날짜</th>
-					<th>유형</th>
-					<th width="70%">내용</th>
-				</tr>
-			</thead>
-			<tbody align="center">
-			<%for(HelpDto dto : list){ %>
-		  	<tr>
-				<td><%=dto.getBoard_NO()%></td>
-				<td><%=dto.getHdate()%></td>
-				<td><%=dto.getHead()%></td>
-				<td align="left"><%=dto.getContent()%></td>
+<!-- 		<table border="1" width="90%"> -->
+<!-- 			<thead> -->
+<!-- 				<tr> -->
+<!-- 					<th width="5%">번호</th> -->
+<!-- 					<th>날짜</th> -->
+<!-- 					<th>유형</th> -->
+<!-- 					<th width="70%">내용</th> -->
+<!-- 				</tr> -->
+<!-- 			</thead> -->
+<!-- 			<tbody align="center"> -->
+<%-- 			<%for(HelpDto dto : list){ %> --%>
+<!-- 		  	<tr> -->
+<%-- 				<td><%=dto.getBoard_NO()%></td> --%>
+<%-- 				<td><%=dto.getHdate()%></td> --%>
+<%-- 				<td><%=dto.getHead()%></td> --%>
+<%-- 				<td align="left"><%=dto.getContent()%></td> --%>
 					
-			</tr>
-			<%} %>
-			</tbody>
-		</table>
+<!-- 			</tr> -->
+<%-- 			<%} %> --%>
+<!-- 			</tbody> -->
+<!-- 		</table> -->
+
+
+			<div clas="row">
+			
+			
+				<div class="menu-wrap">
+						
+							<label for="custom-menu">
+							<%for(HelpDto dto : list){ %>
+							<%=dto.getBoard_NO()%>
+							<%=dto.getHdate()%>
+							<%=dto.getHead()%>
+							<td align="left"><%=dto.getContent()%><td>
+							
+							</label> 
+							<input type="checkbox" id="custom-menu">
+	
+							<ul class="custom-list">
+								<li><a>
+<%-- 								href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류
+ --%>								</a></li>
+							</ul>
+						</div>
+						
+						
+			</div>
 		
 		
 			</div>

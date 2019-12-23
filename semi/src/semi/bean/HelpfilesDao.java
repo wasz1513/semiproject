@@ -29,7 +29,7 @@ public class HelpfilesDao {
 	
 	public void edit(HelpfilesDto dto)throws Exception{
 		Connection con = this.getConnection();
-		String sql = "insert into help_files() values(help_files_seq.nextval,?,?,?,?,?)";
+		String sql = "insert into help_files values(help_files_seq.nextval,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getOrigin());
 		ps.setString(2, dto.getUploadname());
@@ -68,7 +68,7 @@ public class HelpfilesDao {
 	
 	public List<HelpfilesDto> getList(int origin) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "select * from help_files where origin=? order by help_files__board_no";
+		String sql = "select * from help_files where origin=? order by help_files_board_no";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, origin);
 		ResultSet rs = ps.executeQuery();
