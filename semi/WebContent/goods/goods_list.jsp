@@ -90,6 +90,7 @@
 
 <article>
 
+
 		<div align="center">
 			<%
 				if (isSearch) {
@@ -102,6 +103,7 @@
 			<%
 				}
 			%>
+
 		</div>
 
 
