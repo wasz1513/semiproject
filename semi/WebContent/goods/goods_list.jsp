@@ -117,7 +117,8 @@
     <div class="gallary">
         <%for(GoodsDto dto : list){ %>
         <div class="gallary-item">
-            <img src="../image/goods_image/가구17.jpg">
+        
+           <a href="goods_content.jsp"> <img src="../image/goods_image/가구17.jpg"></a>
             		<h4>카테고리 :  <%=dto.getGoods_category() %></h4>
       				<h3>제목:<%=dto.getGoods_title() %></h3>
       				<h5>동네 : rn=<%=dto.getRn() %></h5>
