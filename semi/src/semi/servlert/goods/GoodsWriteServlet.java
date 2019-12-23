@@ -54,7 +54,7 @@ public class GoodsWriteServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.edit(gfdto);
+				gfdao.insert(gfdto);
 			}
 			
 			File file2 = mRequest.getFile("file2");
@@ -67,7 +67,7 @@ public class GoodsWriteServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.edit(gfdto);
+				gfdao.insert(gfdto);
 			}
 			
 			File file3 = mRequest.getFile("file3");
@@ -80,7 +80,7 @@ public class GoodsWriteServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.edit(gfdto);
+				gfdao.insert(gfdto);
 			}
 			File file4 = mRequest.getFile("file4");
 			if(file4!=null) {
@@ -92,7 +92,7 @@ public class GoodsWriteServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.edit(gfdto);
+				gfdao.insert(gfdto);
 			}
 			File file5 = mRequest.getFile("file5");
 			if(file5!=null) {
@@ -104,7 +104,7 @@ public class GoodsWriteServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.edit(gfdto);
+				gfdao.insert(gfdto);
 			}
 
 		

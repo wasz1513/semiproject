@@ -83,10 +83,12 @@ List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 		</tr>
 		<%} %>
 
+
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
-			<td>댓글수<%=goodsdto.getGoods_replycount()%> 조회수<%=goodsdto.getGoods_readcount()%>
+			<td>댓글수<%=goodsdto.getGoods_replycount()%>
+			 조회수<%=goodsdto.getGoods_readcount()%>
 
 			</td>
 		</tr>
@@ -96,7 +98,7 @@ List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 		<%
  		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
-
+//  		System.out.println(list);
 		%>
 				
 				<table border="1" width="100%">
@@ -149,6 +151,7 @@ List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 		<!-- 버튼 -->
 		<tr>
 			<td align="right">
+			<a href="orders.jsp"><input type="button" value="구매하기"></a>
 			<a href="goods_write.jsp"><input type="button" value="글쓰기"></a> 
 			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
 			<input type="button" value="답글쓰기"></a> 
