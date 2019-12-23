@@ -28,15 +28,15 @@ public Connection getConnection() throws Exception{
 	
 }
 //등록
-public void edit(GoodsFilesDto dto )throws Exception{
+public void insert(GoodsFilesDto gfdto )throws Exception{
 	Connection con = this.getConnection();
 	String sql = "insert into goods_files values(goods_files_seq.nextval,?,?,?,?,?)";
 	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setInt(1, dto.getOrigin());
-	ps.setString(2, dto.getUploadname());
-	ps.setString(3, dto.getSavename());
-	ps.setString(4, dto.getFiletype());
-	ps.setLong(5, dto.getFilesize());
+	ps.setInt(1, gfdto.getOrigin());
+	ps.setString(2, gfdto.getUploadname());
+	ps.setString(3, gfdto.getSavename());
+	ps.setString(4, gfdto.getFiletype());
+	ps.setLong(5, gfdto.getFilesize());
 	ps.execute();
 	con.close();
 }
@@ -48,15 +48,14 @@ public List<GoodsFilesDto> getList(int origin) throws Exception{
 	ResultSet rs = ps.executeQuery();
 	List<GoodsFilesDto> list = new ArrayList<>();
 	while(rs.next()) {
-		GoodsFilesDto dto = new GoodsFilesDto();
-		
-		dto.setGoods_files_no(rs.getInt("goods_files_no"));
-		dto.setOrigin(rs.getInt("origin"));
-		dto.setUploadname(rs.getString("uploadname"));
-		dto.setSavename(rs.getString("savename"));
-		dto.setFiletype(rs.getString("filetype"));
-		dto.setFilesize(rs.getLong("filesize"));
-		list.add(dto);
+		GoodsFilesDto gfdto = new GoodsFilesDto();
+		gfdto.setGoods_files_no(rs.getInt("goods_files_no"));
+		gfdto.setOrigin(rs.getInt("origin"));
+		gfdto.setUploadname(rs.getString("uploadname"));
+		gfdto.setSavename(rs.getString("savename"));
+		gfdto.setFiletype(rs.getString("filetype"));
+		gfdto.setFilesize(rs.getLong("filesize"));
+		list.add(gfdto);
 	}
 	con.close();
 	return list;
@@ -67,29 +66,31 @@ public GoodsFilesDto filesInfo(int no) throws Exception{
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setInt(1, no);
 	ResultSet rs = ps.executeQuery();
-	GoodsFilesDto dto = null;
+	
+	GoodsFilesDto gfdto = null;
 	if(rs.next()) {
-		dto = new GoodsFilesDto();
-		dto.setGoods_files_no(rs.getInt("goods_files_no"));
-		dto.setOrigin(rs.getInt("origin"));
-		dto.setUploadname(rs.getString("uploadname"));
-		dto.setSavename(rs.getString("savename"));
-		dto.setFiletype(rs.getString("filetype"));
-		dto.setFilesize(rs.getLong("filesize"));
+		gfdto = new GoodsFilesDto();
+		gfdto = new GoodsFilesDto();
+		gfdto.setGoods_files_no(rs.getInt("goods_files_no"));
+		gfdto.setOrigin(rs.getInt("origin"));
+		gfdto.setUploadname(rs.getString("uploadname"));
+		gfdto.setSavename(rs.getString("savename"));
+		gfdto.setFiletype(rs.getString("filetype"));
+		gfdto.setFilesize(rs.getLong("filesize"));
 	}
 con.close();
-return dto;
+return gfdto;
 	
 }
-public void update(GoodsFilesDto dto) throws Exception{
+public void update(GoodsFilesDto gfdto) throws Exception{
 	Connection con = this.getConnection();
 	String sql = "update Goods_files set uploadname=?, savename=?, filetype=?, filesize=? where origin=?";
 	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setString(1, dto.getUploadname());
-	ps.setString(2, dto.getSavename());
-	ps.setString(3, dto.getFiletype());
-	ps.setLong(4, dto.getFilesize());
-	ps.setInt(5, dto.getOrigin());
+	ps.setString(1, gfdto.getUploadname());
+	ps.setString(2, gfdto.getSavename());
+	ps.setString(3, gfdto.getFiletype());
+	ps.setLong(4, gfdto.getFilesize());
+	ps.setInt(5, gfdto.getOrigin());
 	ps.execute();
 	con.close();
 }

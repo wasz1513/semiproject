@@ -136,16 +136,13 @@ nav {
 					<a href="<%=request.getContextPath()%>"> 
 						<img src="<%=request.getContextPath()%>/image/logo.png">
 					</a>
-				</div>
-				<!-- 				검색창 -->
-				<div class="b">
-					<form action="#" method="get">
-						<input class="main-bar-input" type="text" name="key" size="80%"
-							height="40">
-						<button>
-							<img src="<%=request.getContextPath()%>/image/find.webp"
-								class="main-button" width="20" height="15">
-						</button>
+
+			</div>
+<!-- 				검색창 -->
+				<div class="search">	
+					<form action="<%=request.getContextPath() %>/goods/goods_list.jsp" method="get">
+						<input class="main-bar-input" type="text" name="keyword" size="80%" height="40">
+						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
 					</form>
 				</div>
 				<!-- 				로그인 / 마이페이지 -->
@@ -154,17 +151,14 @@ nav {
 						if (id == null) {
 					%>
 					<div class="menu-wrap1">
-						<label for="custom-menu1">로그인</label> <input type="checkbox"
-							id="custom-menu1">
-						<ul class="custom-list">
-							<li><a
-								href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
-							<li><a
-								href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
-							<li><a
-								href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
-							<li><a href="#">비밀번호찾기</a></li>
-						</ul>
+						<label for="custom-menu1">로그인</label>
+      				  	<input type="checkbox" id="custom-menu1">
+      				  	<ul class="custom-list">
+      				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
+			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
+			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
+			                <li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
+      				  	</ul>
 					</div>
 
 					<%
