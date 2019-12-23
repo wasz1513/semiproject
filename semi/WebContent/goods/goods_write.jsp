@@ -13,7 +13,7 @@ article {
 
 	<div class="row">
 <h2>상품 등록</h2>
-<form action="goods_write.do" method="post">
+<form action="goods_write.do" method="post"  enctype="multipart/form-data"">
 	<table border="1" width="70%">
 		<tr>
 			<th>카테고리</th>
@@ -49,8 +49,20 @@ article {
 			<td colspan="2">
 				<textarea name="goods_content" required rows="15"cols="100" style="resize: vertical;"></textarea>
 			</td>
-		</tr>
-		<tr>
+			
+						<div>
+						<h5>사진 첨부</h5>
+							<img src="http://placehold.it/100x70?text=이미지">
+						</div>
+			<div>
+							<input type="file" name="file" accept=".jpg, .png, .gif">
+							<input type="file" name="file2" accept=".jpg, .png, .gif">
+							<input type="file" name="file3" accept=".jpg, .png, .gif">
+							<input type="file" name="file4" accept=".jpg, .png, .gif">
+							<input type="file" name="file5" accept=".jpg, .png, .gif">
+							</div>
+	
+
 		<td colspan="2" align="center">
 		<a href="goods_content.jsp">
 		<input type="submit" value="등록하기">

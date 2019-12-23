@@ -3,7 +3,7 @@ package semi.bean;
 	public class BoardDto{
 	
 	
-	private int no;
+	private int no, rn;
 	private String head;
 	private String title;
 	private int replycount;
@@ -12,9 +12,10 @@ package semi.bean;
 	private String content;
 	private int writer;
 	
-	public BoardDto(int no, String head, String title, int replycount, String wdate, int readcount, String content,
+	public BoardDto(int rn, int no, String head, String title, int replycount, String wdate, int readcount, String content,
 			int writer) {
 		super();
+		this.rn=rn;
 		this.no = no;
 		this.head = head;
 		this.title = title;
@@ -24,10 +25,28 @@ package semi.bean;
 		this.content = content;
 		this.writer = writer;
 	}
+	
+
+	
 
 	public BoardDto() {
 		super();
 	}
+
+
+
+
+	public int getRn() {
+		return rn;
+	}
+
+
+
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
+
+
 
 	public int getNo() {
 		return no;

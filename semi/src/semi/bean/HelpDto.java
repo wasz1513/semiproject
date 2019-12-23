@@ -2,17 +2,17 @@ package semi.bean;
 
 public class HelpDto {
 	
-	private int board_NO,write;
-	private String head,reply,content,hdate;
+	private int board_NO;
+	private String head,reply,write,content,hdate;
 	public HelpDto() {
 		super();
 	}
-	public HelpDto(int board_NO, int write, String head, String reply, String content, String hdate) {
+	public HelpDto(int board_NO, String head, String reply, String write, String content, String hdate) {
 		super();
 		this.board_NO = board_NO;
-		this.write = write;
 		this.head = head;
 		this.reply = reply;
+		this.write = write;
 		this.content = content;
 		this.hdate = hdate;
 	}
@@ -21,12 +21,6 @@ public class HelpDto {
 	}
 	public void setBoard_NO(int board_NO) {
 		this.board_NO = board_NO;
-	}
-	public int getWrite() {
-		return write;
-	}
-	public void setWrite(int write) {
-		this.write = write;
 	}
 	public String getHead() {
 		return head;
@@ -40,6 +34,12 @@ public class HelpDto {
 	public void setReply(String reply) {
 		this.reply = reply;
 	}
+	public String getWrite() {
+		return write;
+	}
+	public void setWrite(String write) {
+		this.write = write;
+	}
 	public String getContent() {
 		return content;
 	}
@@ -52,6 +52,6 @@ public class HelpDto {
 	public void setHdate(String hdate) {
 		this.hdate = hdate;
 	}
-
-
+	
+	
 }

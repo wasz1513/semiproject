@@ -15,7 +15,7 @@
 <div class=row align="center">
 
 <h2>상품 등록 수정</h2>
-<form action="goods_edit.do" method="post">
+<form action="goods_edit.do" method="post" enctype="multipart/form-data">
 
 <input type="hidden"  name="goods_no" value="<%=dto.getGoods_no()%>">
 	
@@ -24,17 +24,17 @@
 			<th>카테고리</th>
 			<td>
 				<select name="goods_category" required>
-						<option value="">카테고리</option>
+							<option value="">-필수선택-카테고리</option>
 						<option>패션의류</option>
 						<option>패션잡화</option>
-						<option>화장품/미용</option>
-						<option>디지털/가전</option>
-						<option>가구/인테리어</option>
-						<option>출산/육아</option>
+						<option value="미용">화장품/미용</option>
+						<option value="가전">디지털/가전</option>
+						<option value="가구">가구/인테리어</option>
+						<option value="육아">출산/육아</option>
 						<option>식품</option>
-						<option>스포츠/레저</option>
-						<option>생활/건강</option>
-						<option>여행/문화</option>
+						<option value="스포츠">스포츠/레저</option>
+						<option value="생활">생활/건강</option>
+						<option value="여행">여행/문화</option>
 				</select>
 			</td>
 		</tr>
