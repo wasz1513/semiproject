@@ -67,7 +67,7 @@ public class GoodsDao {
 
 		ResultSet rs = ps.executeQuery();
 
-		GoodsDto dto;
+		GoodsDto dto = new GoodsDto();
 		if (rs.next()) {
 			int goods_no2 = rs.getInt("goods_no");
 			String goods_title = rs.getString("goods_title");
@@ -80,7 +80,7 @@ public class GoodsDao {
 			String goods_writetime = rs.getString("goods_writetime");
 			String customer_id = rs.getString("customer_id");
 
-			dto = new GoodsDto(goods_no, goods_title, goods_category, goods_content, goods_state, goods_price,
+			dto = new GoodsDto(goods_no2, goods_title, goods_category, goods_content, goods_state, goods_price,
 					goods_readcount, goods_replycount, goods_writetime, customer_id);
 
 		} else {

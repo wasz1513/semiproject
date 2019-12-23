@@ -82,4 +82,36 @@ public class GoodsReplyDao {
 	con.close();
 	}
 	
+	//댓글 수정 기능
+	public void edit(int goods_reply_no, String goods_reply_content) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "update goods_reply set goods_reply_content=? where goods_reply_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, goods_reply_content);
+		ps.setInt(2, goods_reply_no);
+		ps.execute();
+		con.close();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

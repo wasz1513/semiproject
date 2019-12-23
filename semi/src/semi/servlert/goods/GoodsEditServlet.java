@@ -16,6 +16,7 @@ public class GoodsEditServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			System.out.println(Integer.parseInt(req.getParameter("goods_no")));
 			GoodsDto dto = new GoodsDto();
 			dto.setGoods_no(Integer.parseInt(req.getParameter("goods_no")));
 			dto.setGoods_category(req.getParameter("goods_category"));
@@ -26,10 +27,7 @@ public class GoodsEditServlet extends HttpServlet {
 			GoodsDao dao = new GoodsDao();
 			dao.goods_edit(dto);
 			
-			resp.sendRedirect("content.jsp?goods_no="+dto.getGoods_no());
-			
-			
-		
+			resp.sendRedirect("goods_content.jsp?goods_no="+dto.getGoods_no());
 			
 		} 
 		catch (Exception e) {
