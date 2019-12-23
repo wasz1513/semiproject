@@ -39,7 +39,7 @@
 	}
 	
 	//첨부파일 불러오기
-GoodsFilesDao gfdao = new GoodsFilesDao();
+	GoodsFilesDao gfdao = new GoodsFilesDao();
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 	
 	
