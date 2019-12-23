@@ -118,8 +118,8 @@ nav {
 				id="custom-menu-admin">
 			<ul class="custom-list">
 				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
-				<li><a href="#">상품리스트</a></li>
-				<li><a href="#">운영현황</a></li>
+				<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
+				<li><a href="<%=request.getContextPath()%>/admin/operation.jsp">운영현황</a></li>
 			</ul>
 		</div>
 		<%
@@ -133,10 +133,8 @@ nav {
 			<div class="row-multi col-4 logo">
 				<!-- 				로고 -->
 				<div class="a">
-					<a href="<%=request.getContextPath()%>"> <img
-						src="<%=request.getContextPath()%>/image/logo.png"> <img
-						src="http://placehold.it/180x50">
-
+					<a href="<%=request.getContextPath()%>"> 
+						<img src="<%=request.getContextPath()%>/image/logo.png">
 					</a>
 				</div>
 				<!-- 				검색창 -->
@@ -176,13 +174,17 @@ nav {
 						<label for="custom-menu2">마이페이지</label> <input type="checkbox"
 							id="custom-menu2">
 						<ul class="custom-list">
-							<li><a href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
-							<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트
+							<li><a
+								href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트
 									내역</a></li>
-							<li><a href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
 							<li>키워드입력</li>
 							<li>위치수정</li>
-							<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 							<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
 							<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>
 						</ul>
