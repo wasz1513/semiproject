@@ -95,4 +95,21 @@ public void update(GoodsFilesDto gfdto) throws Exception{
 	ps.execute();
 	con.close();
 }
+
+public int get(int origin) throws Exception{
+	Connection con = this.getConnection();
+	String sql = "select * from goods_files where origin=? order by goods_files_no"; 
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1, origin);
+	ResultSet rs = ps.executeQuery();
+	int customer_file_no;
+	if(rs.next()) {
+		customer_file_no = rs.getInt(1);
+	}else {
+		customer_file_no = 0;
+	}
+	con.close();
+	return customer_file_no;
+}
+
 }

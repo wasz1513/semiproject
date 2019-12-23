@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.bean.BoardDao;
 import semi.bean.ReplyDao;
 import semi.bean.ReplyDto;
 
@@ -28,8 +29,11 @@ public class BoardReplyInsertServlet extends HttpServlet{
     	  
     	  System.out.println(id);
     	  
-    	  ReplyDao dao = new ReplyDao();
-    	  dao.write(dto);
+    	  ReplyDao rdao = new ReplyDao();
+    	  rdao.write(dto);
+    	  
+    	  BoardDao bdao = new BoardDao();
+    	  bdao.calculate(Origin);
     	  
     	  resp.sendRedirect("content.jsp?no="+Origin);
     	}
