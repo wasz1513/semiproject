@@ -18,7 +18,7 @@ import semi.bean.OrdersDto;
 
 
 
-@WebServlet(urlPatterns = "/customer/order.do")
+@WebServlet(urlPatterns = "/customer/orders.do")
 public class GoodsOrderServlet extends HttpServlet{
 
 		@Override
