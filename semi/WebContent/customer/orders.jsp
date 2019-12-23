@@ -1,3 +1,5 @@
+<%@page import="semi.bean.GoodsDto"%>
+<%@page import="semi.bean.GoodsDao"%>
 <%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,62 +7,19 @@
 
 <%
 	String id = (String)session.getAttribute("customer_id");
-	CustomerDao dao = new CustomerDao();
-	CustomerDto dto = dao.get(id);
+
+	CustomerDao cdao = new CustomerDao();
+	CustomerDto cdto = cdao.get(id);
 	
+	GoodsDao gdao = new GoodsDao();
+	int goods_no = 0;
+	gdao.get(goods_no);
+	GoodsDto gdto = gdao.get(goods_no);
+
 %>
 
-//주문하기
-
-	public void insertOrder(OrderBean bean){
-
-		try {
-
-			String sql = "insert into webshop_order(product_no, quantity, date, state, id) values(?,?,now(),?,?)";
-
-			conn = ds.getConnection();
-
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setString(1, bean.getProduct_no());
-
-			pstmt.setString(2, bean.getQuantity());
-
-			pstmt.setString(3, "1");
-
-			pstmt.setString(4, bean.getId());
-
-			pstmt.executeUpdate();
-
-			
-
-		} catch (Exception e) {
-
-			System.out.println("insertOrder err : " + e);
-
-		} finally {
-
-			try {
-
-				if(rs!=null)rs.close();
-
-				if(pstmt!=null)pstmt.close();
-
-				if(conn!=null)conn.close();
-
-			} catch (Exception e2) {
-
-				// TODO: handle exception
-
-			}
-
-		}
-
-	}
 
 
-
-출처: https://sourcestudy.tistory.com/351 [study]
 
 <jsp:include page = "/template/header.jsp"></jsp:include>
 
@@ -78,10 +37,10 @@
 		<tbody>
 			<tr>
 				<td>
-<%-- 					<%=dto.getGoods_title()%> --%>
-<!-- 				</td> -->
-<!-- 				<td> -->
-<%-- 					<%=dto.getBuy_goods_seller()%> --%>
+					<%=gdto.getGoods_title()%>
+				</td>
+				<td>
+					<%=gdto.getCustomer_id()%>
 				</td>
 			</tr>
 		</tbody>
@@ -91,16 +50,26 @@
 		<h5>배송지 정보</h5>
 		<input type ="radio" >
 		<label>직거래</label>
+		<input type ="radio" >
+		<label>배송</label>
 		<div>
 			<ul>
 				<li>
-					<input type ="radio" >
-					<label><%=dto.getCustomer_address() %></label>
+					<label>우편번호</label>
+					<input type ="text" value="<%=cdto.getCustomer_post()%>" >
 				</li>
 				<li>
-					<input type ="radio" >
-					<label>신규배송지</label>
+					<label>기본주소</label>
+					<input type ="text"  value="<%=cdto.getCustomer_basic_address()%>">
 				</li>
+				<li>
+					<label>상세주소</label>
+					<input type ="text"  value="<%=cdto.getCustomer_extra_address()%>">
+				</li>
+<!-- 				<li> -->
+<!-- 					<input type ="radio" > -->
+<!-- 					<label>신규배송지</label> -->
+<!-- 				</li> -->
 			</ul>
 		</div>	
 	</div>
@@ -118,7 +87,7 @@
 	</div>
 	<div>
 		<h5>최종 결제 금액</h5>
-		<input type="text">원
+		<input type="text" value="<%=gdto.getGoods_price() %>">원
 	</div>
 	
 	
