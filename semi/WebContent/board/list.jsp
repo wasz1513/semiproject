@@ -1,4 +1,3 @@
-
 <%@page import="semi.bean.BoardDto"%>
 <%@page import="semi.bean.BoardDao"%>
 <%@page import="java.util.List"%>
@@ -6,10 +5,9 @@
     pageEncoding="UTF-8"%>
 <% 
 //	페이지 크기
-int pagesize = 10;
+int pagesize = 20;
 //	네비게이터 크기
 int navsize = 10;
-
 //	페이징 추가
 int pno;
 try{
@@ -19,28 +17,21 @@ try{
 catch(Exception e){
 	pno = 1;
 }
-
 int finish = pno * pagesize;
 int start = finish - (pagesize - 1);
-
 String type = request.getParameter("type");
 String keyword = request.getParameter("keyword");
-
 boolean isSearch = type != null && keyword != null;
-
 BoardDao dao = new BoardDao();
-
 List<BoardDto> list;
+
 if(isSearch){
 	list = dao.search(type, keyword, start, finish); 
 }
 else{
 	list = dao.getList(start, finish);
 }
-
 int count = dao.getCount(type, keyword);
-
-
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>

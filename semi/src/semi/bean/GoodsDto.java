@@ -13,12 +13,15 @@ public class GoodsDto {
 	private int goods_replycount;
 	private String goods_writetime;
 	private String customer_id;
+	private String customer_basic_address;
 	
-	
-	
-	
-	
-	
+
+	public String getCustomer_basic_address() {
+		return customer_basic_address;
+	}
+	public void setCustomer_basic_address(String customer_basic_address) {
+		this.customer_basic_address = customer_basic_address;
+	}
 	public GoodsDto(int rn, int goods_no, String goods_title, String goods_category, String goods_content,
 			String goods_state, int goods_price, int goods_readcount, int goods_replycount, String goods_writetime,
 			String customer_id) {

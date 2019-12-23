@@ -34,7 +34,7 @@ public class BoardWriteServlet extends HttpServlet{
 		  CustomerDao dao2 = new CustomerDao();
 		  CustomerDto dto2 = dao2.get(id);
 		  System.out.println(dto2);
-		  dto.setWriter(dto2.getCustomer_no());
+		  dto.setWriter(id);
 		  
 		  BoardDao dao = new BoardDao();
 		  int no = dao.getSequence();

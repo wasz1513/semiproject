@@ -27,10 +27,7 @@ public class GoodsEditServlet extends HttpServlet {
 			GoodsDao dao = new GoodsDao();
 			dao.goods_edit(dto);
 			
-			resp.sendRedirect("content.jsp?goods_no="+dto.getGoods_no());
-			
-			
-		
+			resp.sendRedirect("goods_content.jsp?goods_no="+dto.getGoods_no());
 			
 		} 
 		catch (Exception e) {
