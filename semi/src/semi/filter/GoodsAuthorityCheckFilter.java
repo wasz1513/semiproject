@@ -27,7 +27,7 @@ public class GoodsAuthorityCheckFilter  implements Filter{
 		
 		try {
 		
-		int goods_no=Integer.parseInt(req.getParameter("good_no"));
+		int goods_no=Integer.parseInt(req.getParameter("goods_no"));
 		
 		GoodsDao dao = new GoodsDao();
 		GoodsDto dto = dao.get(goods_no);
@@ -37,8 +37,8 @@ public class GoodsAuthorityCheckFilter  implements Filter{
 		String session_grade = (String) session.getAttribute("customer_grade");
 		
 		
-		boolean isAdmin = session_grade.equals("관리자");
-		boolean isMine = session_id.equals(dto.getCustomer_id());
+		boolean isAdmin = session_grade != null && session_grade.equals("관리자");
+		boolean isMine = session_grade != null && session_id.equals(dto.getCustomer_id());
 		if(isAdmin || isMine) {
 			chain.doFilter(request, response);//통과
 			

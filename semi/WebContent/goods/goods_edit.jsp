@@ -16,7 +16,7 @@
 <div class=row align="center">
 
 <h2>상품 등록 수정</h2>
-<form action="goods_edit.do" method="post" enctype="multipart/form-data">
+<form action="goods_edit.do" method="post" >
 
 <input type="hidden"  name="goods_no" value="<%=dto.getGoods_no()%>">
 	

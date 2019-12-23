@@ -16,6 +16,7 @@ public class GoodsEditServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			System.out.println(Integer.parseInt(req.getParameter("goods_no")));
 			GoodsDto dto = new GoodsDto();
 			dto.setGoods_no(Integer.parseInt(req.getParameter("goods_no")));
 			dto.setGoods_category(req.getParameter("goods_category"));
