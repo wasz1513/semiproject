@@ -42,12 +42,14 @@ public class CustomerDao {
 	}
 
 	// getList 기능(모두 불러오기)
-	public List<CustomerDto> getList() throws Exception {
+	public List<CustomerDto> getList(int start, int finish) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from customer order by customer_no";
+		String sql = "select * from(select rownum R, C.* from customer C order by customer_no) where R between ? and ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, finish);
 		ResultSet rs = ps.executeQuery();
 
 		List<CustomerDto> list = new ArrayList<>();
@@ -127,7 +129,7 @@ public class CustomerDao {
 	// 회원가입(추가사항 : 회원가입시 100포인트 추가)
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
-		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100)";
+		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100, null, null, null, null, null)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getCustomer_no());
 		ps.setString(2, dto.getCustomer_name());
@@ -184,6 +186,8 @@ public class CustomerDao {
 
 		return dto;
 	}
+	
+	
 
 	// 마지막 접속시간 변경
 	public void updateLastLogin(String customer_id) throws Exception {

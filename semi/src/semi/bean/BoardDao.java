@@ -29,11 +29,20 @@ public class BoardDao {
 	}
 	
 	//목록
-	public List<BoardDto> getList() throws Exception{
+	public List<BoardDto> getList(int start, int finish) throws Exception{
 		Connection con = getConnection();
 				
-		String sql = "select * from board order by no";
+		String sql = "select * from("
+				+ "select rownum rn, A.* from("
+				+ "select * from board order by no desc"
+				+ ")A"
+				+ ")where rn between ? and ? "; 
+				
+		
+//		String sql = "select * from board order by no";
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, finish);
 		ResultSet rs = ps.executeQuery();
 		List<BoardDto> list = new ArrayList<>();
 		while(rs.next()) {
@@ -46,30 +55,47 @@ public class BoardDao {
 			dto.setWdate(rs.getString("wdate"));
 			dto.setReadcount(rs.getInt("readcount"));
 			dto.setContent(rs.getString("content"));
-			dto.setWriter(rs.getInt("writer"));
+			dto.setWriter(rs.getString("writer"));
 			list.add(dto);
 		}
 		con.close();
 		return list;
 		
 	}
-
-//	//검색
-//	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
-//		Connection con = getConnection();
-//		
-//		String sql = "select * from board order by board_no";
-//		PreparedStatement ps = con.prepareStatement(sql);
-//		ResultSet rs = ps.executeQuery();
-//		List<BoardDto> list = new ArrayList<>();
-//		while(rs.next()) {
-//			BoardDto dto = new BoardDto();
-//			list.add(dto);
-//		}
-//		con.close();
-//		return list;
+	//검색
+	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
+		Connection con = getConnection();
 		
-//	}
+		String sql =  "select * from("
+				+ "select rownum rn, A.* from("
+				+ "select * from board "
+				+ "where "+type+" like '%'||?||'%' order by no desc"
+				+ ")A"
+				+ ")where rn between ? and ? "; 
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
+		ResultSet rs = ps.executeQuery();
+		
+		List<BoardDto> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			BoardDto dto = new BoardDto();
+			dto.setRn(rs.getInt("rn"));
+			dto.setNo(rs.getInt("no"));
+			dto.setHead(rs.getString("head"));
+			dto.setTitle(rs.getString("title"));
+			dto.setWdate(rs.getString("wdate"));
+			dto.setReadcount(rs.getInt("readcount"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+		
+	}
 
 	//등록
 	public void write(BoardDto dto) throws Exception{
@@ -77,13 +103,14 @@ public class BoardDao {
 		
 		String sql = "insert into board"
 							+ "(no, head, title,content,writer,readcount,replycount,wdate) "
-							+ "values(?, ?, ?, ?, ?, 0,0,'20191216')";
+							+ "values(?, ?, ?, ?, ?, 0,0, sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getNo());
 		ps.setString(2, dto.getHead());
 		ps.setString(3, dto.getTitle());
 		ps.setString(4, dto.getContent());
-		ps.setInt(5, dto.getWriter());
+		
+		ps.setString(5, dto.getWriter());
 		
 		
 		ps.execute();
@@ -102,20 +129,17 @@ public class BoardDao {
 		ps.setInt(1, no);
 		ResultSet rs = ps.executeQuery();
 		
-		BoardDto dto;
+		BoardDto dto = new BoardDto();
 		if(rs.next()) {
-		   int no2 =rs.getInt("no");
-		   String head = rs.getString("head");
-		   String title = rs.getString("title");
-		   int replycount = rs.getInt("replycount");
-		   String wdate = rs.getString("wdate");
-		   int readcount = rs.getInt("readcount");
-		   String content = rs.getString("content");
-		   int writer = rs.getInt("writer");
+		   dto.setNo(rs.getInt("no"));
+		   dto.setHead(rs.getString("head"));
+		   dto.setContent(rs.getString("content"));
+		   dto.setReadcount(rs.getInt("readcount"));
+		   dto.setReplycount(rs.getInt("replycount"));
+		   dto.setTitle(rs.getString("title"));
+		   dto.setWriter(rs.getString("writer"));
+		   dto.setWdate(rs.getString("wdate"));
 		  			
-			dto = new BoardDto(
-					no2, head, title, replycount, wdate, 
-					readcount, content, writer);
 		}
 		else {
 			dto = null;
@@ -187,6 +211,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
     List<BoardDto> list = new ArrayList<>();
     
     while(rs.next()) {
+    	int rn = rs.getInt("rn");
     	int no = rs.getInt("no");
     	String head = rs.getString("head");
     	String title = rs.getString("title");
@@ -194,9 +219,9 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
     	String wdate = rs.getString("wdate");
     	int readcount = rs.getInt("readcount");
 	   	String content = rs.getString("content");
-    	int writer = rs.getInt("writer");
+    	String writer = rs.getString("writer");
     	
-    	BoardDto dto = new BoardDto(no,head,title,replycount,wdate,readcount,content,writer);
+    	BoardDto dto = new BoardDto(rn,no,head,title,replycount,wdate,readcount,content,writer);
     	list.add(dto);
     }
 	
@@ -239,6 +264,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 		
 		return count;
 	}
+
 	
 	//댓글 수를 갱신하는 기능
 		
@@ -251,7 +277,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 					+ "where no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
-			ps.setInt(2, no);
+			
 			
 			ps.execute();
 			con.close();
