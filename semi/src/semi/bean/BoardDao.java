@@ -29,7 +29,7 @@ public class BoardDao {
 	}
 	
 	//목록
-	public List<BoardDto> getList() throws Exception{
+	public List<BoardDto> getList(int start, int finish) throws Exception{
 		Connection con = getConnection();
 				
 		String sql = "select * from board order by no";
@@ -54,22 +54,40 @@ public class BoardDao {
 		
 	}
 
-//	//검색
-//	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
-//		Connection con = getConnection();
-//		
-//		String sql = "select * from board order by board_no";
-//		PreparedStatement ps = con.prepareStatement(sql);
-//		ResultSet rs = ps.executeQuery();
-//		List<BoardDto> list = new ArrayList<>();
-//		while(rs.next()) {
-//			BoardDto dto = new BoardDto();
-//			list.add(dto);
-//		}
-//		con.close();
-//		return list;
+	//검색
+	public List<BoardDto> search(String type, String keyword, int start, int finish) throws Exception{
+		Connection con = getConnection();
 		
-//	}
+		String sql =  "select * from("
+				+ "select rownum rn, A.* from("
+				+ "select * from board "
+				+ "where "+type+" like '%'||?||'%' order by no desc"
+				+ ")A"
+				+ ")where rn between ? and ? "; 
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
+		ResultSet rs = ps.executeQuery();
+		
+		List<BoardDto> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			BoardDto dto = new BoardDto();
+			dto.setRn(rs.getInt("rn"));
+			dto.setNo(rs.getInt("no"));
+			dto.setHead(rs.getString("head"));
+			dto.setTitle(rs.getString("title"));
+			dto.setWdate(rs.getString("wdate"));
+			dto.setReadcount(rs.getInt("readcount"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+		
+	}
 
 	//등록
 	public void write(BoardDto dto) throws Exception{
@@ -114,7 +132,7 @@ public class BoardDao {
 		   int writer = rs.getInt("writer");
 		  			
 			dto = new BoardDto(
-					no2, head, title, replycount, wdate, 
+					no2, writer, head, title, replycount, wdate, 
 					readcount, content, writer);
 		}
 		else {
@@ -177,7 +195,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	Connection con = getConnection();
 	
 	String sql = "select*from board "
-			+ "where"+type+"like ? order by no desc";
+			+ "where " +type+" like '%'||?||'%' order by no desc";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1, keyword);
 	ResultSet rs = ps.executeQuery();
@@ -187,6 +205,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
     List<BoardDto> list = new ArrayList<>();
     
     while(rs.next()) {
+    	int rn = rs.getInt("rn");
     	int no = rs.getInt("no");
     	String head = rs.getString("head");
     	String title = rs.getString("title");
@@ -196,7 +215,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	   	String content = rs.getString("content");
     	int writer = rs.getInt("writer");
     	
-    	BoardDto dto = new BoardDto(no,head,title,replycount,wdate,readcount,content,writer);
+    	BoardDto dto = new BoardDto(rn,no,head,title,replycount,wdate,readcount,content,writer);
     	list.add(dto);
     }
 	
@@ -215,8 +234,48 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 	
 	con.close();
  }
+//글 개수 구하기
+	public int getCount(String type, String keyword) throws Exception{
+		Connection con = getConnection();
+		
+		boolean isSearch = type != null && keyword != null;
+		
+		String sql = "select count(*) from board";
+		if(isSearch) {
+			sql += " where "+type+" like '%'||?||'%'";
+		}
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		if(isSearch) {
+			ps.setString(1, keyword);
+		}
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+
+		int count = rs.getInt(1);
+		
+		con.close();
+		
+		return count;
+	}
 
 	
+	//댓글 수를 갱신하는 기능
+		
+		public void calculate(int no) throws Exception{
+			Connection con = getConnection();
+			
+			String sql = 
+					"update board "
+					+ "set replycount = (select count(*) from reply where origin = ?) "
+					+ "where no = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.setInt(2, no);
+			
+			ps.execute();
+			con.close();
+		}
 }
 
 

@@ -15,7 +15,7 @@ public class HelpDao {
 	private static DataSource source;
 	static {
 		try {
-			InitialContext ctx=new InitialContext();
+			InitialContext ctx = new InitialContext();
 			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -27,13 +27,36 @@ public class HelpDao {
 	}
 
 	
-	
-	//목록
-	public List<HelpDto> getList() throws Exception {
+
+	// 등록
+	public void write(HelpDto dto) throws Exception {
 		Connection con = getConnection();
-//		String sql = "select*from board order by no desc";
-		String sql = "select * from help order by board_NO desc";
+
+		String sql = "insert into help(board_NO,head,reply,write,content,hdate) "
+				+ "values(help_seq.nextval,?,null,?,?,sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, dto.getHead());
+		ps.setString(2, dto.getWrite());
+		ps.setString(3, dto.getContent());
+
+		ps.execute();
+
+		con.close();
+	}
+
+	
+	
+	//id로 내 글만보이기  목록
+	//기능:글 보이기
+	//이름:getList
+	//매개변수:string write
+	//반환형:list
+	
+	public List<HelpDto> getList(String write) throws Exception {
+		Connection con = getConnection();
+		String sql = "select * from help where write=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,write);
 		ResultSet rs = ps.executeQuery();
 
 		// 변환
@@ -48,30 +71,11 @@ public class HelpDao {
 			dto.setHead(rs.getString("head"));
 
 			list.add(dto);
-			
+
 		}
-	
-		
+
 		con.close();
 		return list;
-	}
-
-
-//등록
-	public void write(HelpDto dto) throws Exception {
-		Connection con =getConnection();
-		
-		String sql="insert into help(board_NO,head,reply,write,content,hdate) "
-				+ "values(help_seq.nextval,?,null,?,?,sysdate)";
-		PreparedStatement ps =con.prepareStatement(sql);
-		ps.setString(1, dto.getHead());
-		ps.setInt(2, dto.getWrite());
-		ps.setString(3, dto.getContent());
-
-		
-		ps.execute();
-		
-		con.close();
 	}
 
 }
