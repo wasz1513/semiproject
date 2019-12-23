@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class ReplyDao {
+	
+	//DBCP
 	private static DataSource source;
 	static {
 		try {
@@ -31,8 +33,8 @@ public class ReplyDao {
 	public void write(ReplyDto dto) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "insert into board_reply(no, content, writer, origin) "
-							+ "values(board_reply_seq.nextval, ?, ?, ?)";
+		String sql = "insert into board_reply(no, content, writer, wdate, origin) "
+							+ "values(board_reply_seq.nextval, ?, ?, sysdate, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getContent());
 		ps.setString(2, dto.getWriter());
