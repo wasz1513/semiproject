@@ -76,7 +76,7 @@ public GoodsFilesDto filesInfo(int no) throws Exception{
 		dto.setFilesize(rs.getLong("filesize"));
 	}
 con.close();
-return dto;
+return dto; 
 	
 }
 public void update(GoodsFilesDto dto) throws Exception{
