@@ -41,7 +41,7 @@
 	//첨부파일 불러오기
 	GoodsFilesDao gfdao = new GoodsFilesDao();
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
-	
+	System.out.print(flist);
 	
 %>
 
@@ -76,7 +76,6 @@
 					 	<li>
 					 	<!-- 미리보기 출력 -->
 					 	<img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80" height="50">
-					 	
 					 		<%=gfdto.getUploadname()%>
 					 		(<%=gfdto.getFilesize()%> bytes)
 							<a href="download.do?no=<%=gfdto.getGoods_files_no()%>">

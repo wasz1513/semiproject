@@ -48,6 +48,7 @@ public List<GoodsFilesDto> getList(int origin) throws Exception{
 	List<GoodsFilesDto> list = new ArrayList<>();
 	while(rs.next()) {
 		GoodsFilesDto dto = new GoodsFilesDto();
+		
 		dto.setGoods_files_no(rs.getInt("goods_files_no"));
 		dto.setOrigin(rs.getInt("origin"));
 		dto.setUploadname(rs.getString("uploadname"));
