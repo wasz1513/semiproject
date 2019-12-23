@@ -17,19 +17,19 @@ public class BoardReplyInsertServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	try {
     	  String content = req.getParameter("content");
-    	  int origin = Integer.parseInt(req.getParameter("origin"));
+    	  int Origin = Integer.parseInt(req.getParameter("Origin"));
     	  
     	  String id = (String) req.getSession().getAttribute("id");
     	  
     	  ReplyDto dto = new ReplyDto();
     	  dto.setContent(content);
-    	  dto.setOrigin(origin);
+    	  dto.setOrigin(Origin);
     	  dto.setWriter(id);
     	  
     	  ReplyDao dao = new ReplyDao();
     	  dao.write(dto);
     	  
-    	  resp.sendRedirect("content.jsp?no="+origin);
+    	  resp.sendRedirect("content.jsp?no="+Origin);
     	}
     	catch(Exception e) {
     		e.printStackTrace();

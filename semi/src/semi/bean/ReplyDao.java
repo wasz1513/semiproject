@@ -48,7 +48,7 @@ public class ReplyDao {
 	public List<ReplyDto> getList(int origin) throws Exception{
 		Connection con = getConnection();
 
-		String sql = "select * from reply where origin = ? order by no asc";
+		String sql = "select * from board_reply where origin = ? order by no asc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, origin);
 		ResultSet rs = ps.executeQuery();
@@ -73,7 +73,7 @@ public class ReplyDao {
 	public void delete(int no) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "delete reply where no = ?";
+		String sql = "delete board_reply where no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		
