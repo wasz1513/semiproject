@@ -44,7 +44,19 @@ public class HelpDao {
 		con.close();
 	}
 
-	
+//	시퀀스 생성
+	public int getSequence() throws Exception{
+		Connection con = getConnection();
+		
+		String sqlString= "select help_seq.nextval from dual";
+		PreparedStatement ps =con.prepareStatement(sqlString);
+		ResultSet rs =ps.executeQuery();
+		rs.next();
+		int seq = rs.getInt(1);
+		con.close();
+		return seq;
+	}
+				
 	
 	//id로 내 글만보이기  목록
 	//기능:글 보이기

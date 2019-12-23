@@ -2,8 +2,10 @@ package semi.bean;
 
 public class HelpfilesDto {
 
-	private int help_files_no,origin,filesize;
+	private int help_files_no,origin;
+	private long filesize;
 	private String uploadname,savename,filetype;
+	
 	public HelpfilesDto() {
 		super();
 	}
@@ -29,10 +31,10 @@ public class HelpfilesDto {
 	public void setOrigin(int origin) {
 		this.origin = origin;
 	}
-	public int getFilesize() {
+	public long getFilesize() {
 		return filesize;
 	}
-	public void setFilesize(int filesize) {
+	public void setFilesize(long filesize) {
 		this.filesize = filesize;
 	}
 	public String getUploadname() {
@@ -54,5 +56,5 @@ public class HelpfilesDto {
 		this.filetype = filetype;
 	}
 	
-	
 }
+	
