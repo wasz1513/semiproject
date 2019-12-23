@@ -10,10 +10,10 @@ package semi.bean;
 	private String wdate;
 	private int readcount;
 	private String content;
-	private int writer;
+	private String writer;
 	
 	public BoardDto(int rn, int no, String head, String title, int replycount, String wdate, int readcount, String content,
-			int writer) {
+			String writer) {
 		super();
 		this.rn=rn;
 		this.no = no;
@@ -104,12 +104,13 @@ package semi.bean;
 		this.content = content;
 	}
 
-	public int getWriter() {
+	public String getWriter() {
 		return writer;
 	}
 
-	public void setWriter(int writer) {
+	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	}
+	
+}
 	

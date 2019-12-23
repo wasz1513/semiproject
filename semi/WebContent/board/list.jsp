@@ -24,6 +24,7 @@ String keyword = request.getParameter("keyword");
 boolean isSearch = type != null && keyword != null;
 BoardDao dao = new BoardDao();
 List<BoardDto> list;
+
 if(isSearch){
 	list = dao.search(type, keyword, start, finish); 
 }

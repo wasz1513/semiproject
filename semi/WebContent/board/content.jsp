@@ -11,6 +11,7 @@
 	BoardDao bdao = new BoardDao();
 	BoardDto bdto = bdao.get(no);
 	bdao.cu(no);
+
 %>
 
 

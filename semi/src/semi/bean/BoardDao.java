@@ -55,7 +55,7 @@ public class BoardDao {
 			dto.setWdate(rs.getString("wdate"));
 			dto.setReadcount(rs.getInt("readcount"));
 			dto.setContent(rs.getString("content"));
-			dto.setWriter(rs.getInt("writer"));
+			dto.setWriter(rs.getString("writer"));
 			list.add(dto);
 		}
 		con.close();
@@ -110,7 +110,7 @@ public class BoardDao {
 		ps.setString(3, dto.getTitle());
 		ps.setString(4, dto.getContent());
 		
-		ps.setInt(5, dto.getWriter());
+		ps.setString(5, dto.getWriter());
 		
 		
 		ps.execute();
@@ -129,20 +129,17 @@ public class BoardDao {
 		ps.setInt(1, no);
 		ResultSet rs = ps.executeQuery();
 		
-		BoardDto dto;
+		BoardDto dto = new BoardDto();
 		if(rs.next()) {
-		   int no2 =rs.getInt("no");
-		   String head = rs.getString("head");
-		   String title = rs.getString("title");
-		   int replycount = rs.getInt("replycount");
-		   String wdate = rs.getString("wdate");
-		   int readcount = rs.getInt("readcount");
-		   String content = rs.getString("content");
-		   int writer = rs.getInt("writer");
+		   dto.setNo(rs.getInt("no"));
+		   dto.setHead(rs.getString("head"));
+		   dto.setContent(rs.getString("content"));
+		   dto.setReadcount(rs.getInt("readcount"));
+		   dto.setReplycount(rs.getInt("replycount"));
+		   dto.setTitle(rs.getString("title"));
+		   dto.setWriter(rs.getString("writer"));
+		   dto.setWdate(rs.getString("wdate"));
 		  			
-			dto = new BoardDto(
-					no2, writer, head, title, replycount, wdate, 
-					readcount, content, writer);
 		}
 		else {
 			dto = null;
@@ -222,7 +219,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
     	String wdate = rs.getString("wdate");
     	int readcount = rs.getInt("readcount");
 	   	String content = rs.getString("content");
-    	int writer = rs.getInt("writer");
+    	String writer = rs.getString("writer");
     	
     	BoardDto dto = new BoardDto(rn,no,head,title,replycount,wdate,readcount,content,writer);
     	list.add(dto);

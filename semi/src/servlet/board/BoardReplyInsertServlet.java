@@ -19,12 +19,14 @@ public class BoardReplyInsertServlet extends HttpServlet{
     	  String content = req.getParameter("content");
     	  int Origin = Integer.parseInt(req.getParameter("origin"));
     	  
-    	  String id = (String) req.getSession().getAttribute("id");
+    	  String id = (String) req.getSession().getAttribute("customer_id");
     	  
     	  ReplyDto dto = new ReplyDto();
     	  dto.setContent(content);
     	  dto.setOrigin(Origin);
     	  dto.setWriter(id);
+    	  
+    	  System.out.println(id);
     	  
     	  ReplyDao dao = new ReplyDao();
     	  dao.write(dto);
