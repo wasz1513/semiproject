@@ -33,7 +33,7 @@
 	if(isSearch){
 		list = dao.search(type, keyword, start, finish);
 	}else{
-		list = dao.getList();
+		list = dao.getList(start, finish);
 	}
 %>
 <article>
@@ -77,7 +77,7 @@
 				<td><%=dto.getCustomer_nickname()%></td>
 				<td><%=dto.getCustomer_name() %></td>
 				<td><%=dto.getCustomer_grade() %></td>
-				<td>포인트 미구현</td>
+				<td><%=dto.getCustomer_point() %></td>
 				<td><a href="info.jsp?id=<%=dto.getCustomer_id()%>">회원정보</a></td>
 				<td><a href="out.do?id=<%=dto.getCustomer_id()%>">회원탈퇴</a></td>
 				<td>????</td>
