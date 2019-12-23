@@ -20,8 +20,8 @@
 	GoodsDto gdto = gdao.get(goods_no);
 	
 	//썸네일
+	String file = request.getParameter("file");
 	GoodsFilesDao gfdao = new GoodsFilesDao();
-	GoodsFilesDto gfdto = gfdao.filesInfo(goods_no);
 
 %>
 
@@ -77,23 +77,7 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 
-//상품이미지 미리보기
-// function previewImage(target) {
 
-// 		if (target.files && target.files[0]) {
-
-// 			var reader = new FileReader();
-
-// 			reader.onload = function(data) {
-
-// 				var img = document.querySelector("#preview");
-// 				img.src = data.target.result;
-
-// 			}
-
-// 			reader.readAsDataURL(target.files[0]);
-// 		}
-// 	}
 </script>
 
 
@@ -111,8 +95,8 @@ function sample6_execDaumPostcode() {
 			<tr>					
 			
 				<td>
-					 <a href="<%=request.getContextPath() %>/goods/goods_content.jsp?goods_no=<%=gdto.getGoods_no()%>">
-						 <img src="download.do?no=<%=gfdto.getGoods_files_no()%>"  width="80" height="50">
+					 <a href="goods_content.jsp?goods_no=<%=gdto.getGoods_no()%>">
+						 <img src="download.do?no=<%=gfdao.get(gdto.getGoods_no())%>"  width="100" height="100">
 					 </a>
 					<%=gdto.getGoods_title()%>
 				</td>

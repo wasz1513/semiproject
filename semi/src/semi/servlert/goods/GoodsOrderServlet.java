@@ -18,7 +18,7 @@ import semi.bean.OrdersDto;
 
 
 
-@WebServlet(urlPatterns = "/customer/orders.do")
+@WebServlet(urlPatterns = "/goods/orders.do")
 public class GoodsOrderServlet extends HttpServlet{
 
 		@Override
@@ -47,9 +47,7 @@ public class GoodsOrderServlet extends HttpServlet{
 				cdto.setCustomer_extra_address(req.getParameter("customer_extra_address"));
 				
 			
-				
-//				odao.orderAddress(odto);
-				
+							
 				resp.sendRedirect("orders_success.jsp");
 				
 			} catch (Exception e) {
