@@ -60,7 +60,7 @@
 <div align="center">
 	<h2>상품등록 상세보기</h2>
 
-	<table border="1" width="70%" >
+	<table border="1" width="70%">
 		<tr>
 
 			<td><%=goodsdto.getGoods_title()%></td>
@@ -74,25 +74,22 @@
 		</tr>
 		<tr>
 			<td>
-<!-- 				첨부파일이미지 찍기 -->
-	<%if(flist.size() > 0){ %>
-		<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+				<!-- 				첨부파일이미지 찍기 --> <%if(flist.size() > 0){ %> <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		<tr>
 			<td>
 
-				 <ul>
-				 	<%for(GoodsFilesDto gfdto : flist){ %>
-					 	<li>
-					 	<!-- 미리보기 출력 -->
-					 	<img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80" height="50">
-					 		<%=gfdto.getUploadname()%>
-					 		(<%=gfdto.getFilesize()%> bytes)
-							<a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
-					 		<img src="../image/download.png" width="15" height="15">
-					 		</a>
-					 	</li>
-				 	<%} %>
-				 </ul>
+				<ul>
+					<%for(GoodsFilesDto gfdto : flist){ %>
+					<li>
+						<!-- 미리보기 출력 --> <img
+						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80"
+						height="50"> <%=gfdto.getUploadname()%> (<%=gfdto.getFilesize()%>
+						bytes) <a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
+							<img src="../image/download.png" width="15" height="15">
+					</a>
+					</li>
+					<%} %>
+				</ul>
 
 			</td>
 		</tr>
@@ -101,110 +98,101 @@
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
-			<td>댓글수<%=goodsdto.getGoods_replycount()%>
-			 조회수<%=goodsdto.getGoods_readcount()%>
+			<td>댓글수<%=goodsdto.getGoods_replycount()%> 조회수<%=goodsdto.getGoods_readcount()%>
 
 			</td>
 		</tr>
 
 		<tr>
 			<td>
-		<%
+				<%
  		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
 //  		System.out.println(list);
 		%>
 		
-<%-- 		<%if(goods_no!=null && goods_reply_no==0){ %>		 --%>
 				<table border="1" width="100%">
-				<%for(GoodsReplyDto goodsreplydto : list ) {%>
+					<%for(GoodsReplyDto goodsreplydto : list ) {%>
+		 <%if(goods_no>0 && goods_reply_no==0){ %>
 					<tr>
-						<th width="100"><img src="http://placehold.it/100X100">
+						<th width="100">
+							<img src="http://placehold.it/100X100">
 						</th>
-						<td><%=goodsreplydto.getGoods_reply_writer() %>
-						
-						<%if(isMine){ %>
-						<!-- 판매글 판매자의 댓글에만 판매자 표시 -->
-						<font color="red">(판매자)</font>
+						<td>
+						<%=goodsreplydto.getGoods_reply_writer() %> <%if(isMine){ %>
+							<!-- 판매글 판매자의 댓글에만 판매자 표시 --> 
+							<font color="red">(판매자)</font> 
 						<%} %>
+
+						<%=goodsreplydto.getGoods_reply_writetime() %> 
+							
+						<% if(session_id.equals(goodsreplydto.getGoods_reply_writer())){%>
+							<!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 --> 
+							<a href="goods_content.jsp?goods_no=<%=goodsdto.getGoods_no()%>&goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>">수정</a>
+							<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>
+						<% } %> 
 						
-						 		<%=goodsreplydto.getGoods_reply_writetime() %>
-								
-						
-								
-								<% if(session_id.equals(goodsreplydto.getGoods_reply_writer())){%>
-								<!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 -->
-								<a href="goods_content.jsp?goods_no=<%=goodsdto.getGoods_no()%>&goods_reply_no?<%=goodsreplydto.getGoods_reply_no()%>">수정</a>
-								<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>								
-						 		<% }%>
-						 		
-						   <br><br> 
-					  <%=goodsreplydto.getGoods_reply_content()%>
-					  
+						<br>
+						<br> 
+						<%=goodsreplydto.getGoods_reply_content()%>
 						</td>
-						
-						
 						<!--댓글 수정 테스트  -->
-<%-- 	 <% } else if(goods_reply_no>0){ %> --%>
-<!-- 					 <td> -->
-<!-- 						  <form action="goods_reply_edit.do" method="post"> -->
-<%-- 						  	<input type ="hidden" name ="goods_no" value="<%=goodsdto.getGoods_no()%>"> --%>
-<%-- 						  	<input type ="hidden" name ="goods_reply_no" value="<%=goods_reply_no%>"> --%>
-<!-- 						  	<textarea name ="goods_reply_content" rows="4" cols="100" required></textarea> -->
-<!-- 						  	<input type="submit" value="등록"> -->
-<!-- 						  </form> -->
-<!-- 					 </td>  -->
-<%-- 	<%} %> --%>
-					 
-					 
-					 
-					 
-					</tr>
+		<% } else if(goods_no>0 && goods_reply_no>0){ %>
+						
+							<form action="goods_reply_edit.do" method="post">
+								<input type="hidden" name="goods_no" value="<%=goodsdto.getGoods_no()%>"> 
+								<input type="hidden" name="goods_reply_no" value="<%=goods_reply_no%>">
+								<textarea name="goods_reply_content" rows="4" cols="100" required><%=goodsreplydto.getGoods_reply_content() %></textarea>
+								<input type="submit" value="등록">
+							</form>
+						
+		<%} %>
 					<%} %>
+
+
+
+					</tr>
 				</table>
-				
-		
+
+
 
 			</td>
 		</tr>
 
 		<!-- 댓글 작성칸 -->
-		
-	<tr>
-	<td  align="right">
-	<form action="goods_reply_insert.do"method="post">
-	<input type ="hidden" name ="goods_no" value="<%=goodsdto.getGoods_no()%>">
-	<textarea name ="goods_reply_content" rows="4" cols="100" required></textarea>
-	<input type="submit" value="등록">
-	
-	</form>
-	</td>
-	</tr>
+
+		<tr>
+			<td align="right">
+				<form action="goods_reply_insert.do" method="post">
+					<input type="hidden" name="goods_no"
+						value="<%=goodsdto.getGoods_no()%>">
+					<textarea name="goods_reply_content" rows="4" cols="100" required></textarea>
+					<input type="submit" value="등록">
+
+				</form>
+			</td>
+		</tr>
 
 		<!-- 버튼 -->
 		<tr>
-			<td align="right">
-			<a href="orders.jsp"><input type="button" value="구매하기"></a>
-			<a href="goods_write.jsp"><input type="button" value="글쓰기"></a> 
-			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
-			<input type="button" value="답글쓰기"></a> 
-			
-					<%if (isAdmin || isMine){%>
-					 <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 -->
-				<a href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
-				<input type="button" value="수정"></a>
-				 <a href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>">
-				<input type="button" value="삭제"></a>
-				 <%} %>
-				  <a href="goods_list.jsp"><input
+			<td align="right"><a href="orders.jsp"><input type="button"
+					value="구매하기"></a> <a href="goods_write.jsp"><input
+					type="button" value="글쓰기"></a> <a
+				href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
+					<input type="button" value="답글쓰기">
+			</a> <%if (isAdmin || isMine){%> <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 --> <a
+				href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>"> <input
+					type="button" value="수정"></a> <a
+				href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>"> <input
+					type="button" value="삭제"></a> <%} %> <a href="goods_list.jsp"><input
 					type="button" value="목록"></a></td>
 		</tr>
-		</table>
+	</table>
 
-	</div>
-
-
+</div>
 
 
 
-	<jsp:include page="/template/footer.jsp"></jsp:include>
+
+
+<jsp:include page="/template/footer.jsp"></jsp:include>
