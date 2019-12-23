@@ -186,6 +186,8 @@ public class CustomerDao {
 
 		return dto;
 	}
+	
+	
 
 	// 마지막 접속시간 변경
 	public void updateLastLogin(String customer_id) throws Exception {
