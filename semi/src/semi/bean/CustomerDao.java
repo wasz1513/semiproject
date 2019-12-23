@@ -129,7 +129,7 @@ public class CustomerDao {
 	// 회원가입(추가사항 : 회원가입시 100포인트 추가)
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
-		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100)";
+		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100, null, null, null, null, null)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getCustomer_no());
 		ps.setString(2, dto.getCustomer_name());

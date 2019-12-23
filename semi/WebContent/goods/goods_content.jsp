@@ -39,7 +39,7 @@
 	}
 	
 	//첨부파일 불러오기
-GoodsFilesDao gfdao = new GoodsFilesDao();
+	GoodsFilesDao gfdao = new GoodsFilesDao();
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 	
 	
@@ -90,9 +90,6 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		</tr>
 		<%} %>
 
-
-			</td>
-		</tr>
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
