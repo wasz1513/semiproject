@@ -277,6 +277,7 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 					+ "where no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
+			ps.setInt(2, no);
 			
 			
 			ps.execute();
