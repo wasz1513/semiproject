@@ -16,22 +16,17 @@
 	//본인 글인지 여부과 관리자인지 여부를 미리 계산(수정/삭제)
 	String session_id = (String) session.getAttribute("customer_id");
 	String session_grade = (String) session.getAttribute("customer_grade");
-
 	//  System.out.println(session_id);
 	//  System.out.println(session_grade);
 	boolean isMine = session_id != null && session_id.equals(goodsdto.getCustomer_id());//사용자 id ==작성자 id
 	boolean isAdmin = session_grade != null && session_grade.equals("관리자");//사용자 권한 == 관리자
-
 	//저장소를 이용하여 이미 읽은 글은 조회수 증가 방지
 	Set<Integer> memory = (Set<Integer>) session.getAttribute("memory");
 	if (memory == null) {
 		memory = new HashSet<>();
 	}
-
 	boolean isFirst = memory.add(goods_no);
-
 	session.setAttribute("memory", memory);
-
 	//남의 글이라면 == !isMine
 	if (!isMine && isFirst) {
 		goodsdto.setGoods_readcount(goodsdto.getGoods_readcount() + 1);
@@ -40,7 +35,7 @@
 	
 	//첨부파일 불러오기
 GoodsFilesDao gfdao = new GoodsFilesDao();
-	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
+List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 	
 	
 %>
@@ -63,13 +58,11 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		<tr height="200">
 			<td valign="top"><%=goodsdto.getGoods_content()%></td>
 		</tr>
-		<tr>
-			<td>
 <!-- 				첨부파일이미지 찍기 -->
 	<%if(flist.size() > 0){ %>
-		<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		<tr>
 			<td>
+		<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 
 				 <ul>
 				 	<%for(GoodsFilesDto gfdto : flist){ %>
@@ -90,9 +83,6 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		</tr>
 		<%} %>
 
-
-			</td>
-		</tr>
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
@@ -106,7 +96,7 @@ GoodsFilesDao gfdao = new GoodsFilesDao();
 		<%
  		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
- 		System.out.println(list);
+
 		%>
 				
 				<table border="1" width="100%">
