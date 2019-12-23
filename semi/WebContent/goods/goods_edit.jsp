@@ -58,7 +58,8 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="수정하기">
+				<a href="goods_edit.jsp?goods_no=<%=dto.getGoods_no()%>">
+				<input type="submit" value="수정하기"></a>
 				<a href="goods_list.jsp">
 				<input type="button" value="목록보기">
 				</a>
