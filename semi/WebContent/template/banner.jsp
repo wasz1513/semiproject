@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/swiper2.css">
 
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/swiper.js"></script>
 <script>
 function loadSlider(){
 	 var swiper = new Swiper('.swiper-container', {
