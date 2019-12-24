@@ -5,16 +5,21 @@ ul, li{
 		  list-style: none;
 		}
 
+div{
+	display:block;
+}
+
 a{
 	text-decoration: none;
 }
 
 .header{
-	width:1200px; 
+	width:100%; 
 	position:relative; 
 	background:#fff; 
 	border-bottom:1px solid #ddd;
-	border: 1px dotted #000;
+
+
 }
 
 
@@ -54,6 +59,7 @@ a{
 	border: 1px solid #ff8081; 
 	border-radius: 28px;
 }
+
 .searchbar .input_box { 
 	position: relative; 
 	width: 440px; 
@@ -83,7 +89,21 @@ a{
 	position: relative;
 }
 
+.header .inner_wrap .keyword{
+	position:absolute;
+	top:100px;
+	left:300px;
+}
 
+.header .inner_wrap .keyword a{
+	color : #444;
+}
+
+.header .inner_wrap .keyword a:hover{
+	text-decoration: underline;
+}
+
+/*로그인, 마이페이지 */
 
 .topmenu_wrap{
 	display: block;
@@ -131,12 +151,13 @@ a{
 	text-align: left;
 }
 
-.topmenu > .login:hover > .topmenu_sub{
+.topmenu > .login:hover >.my,
+.topmenu > .mycart:hover > .cart{
 	display: block;
 }
 
 
-.topmenu  li{
+.topmenu > li{
 			overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -163,5 +184,24 @@ a{
 .topmenu .topmenu_sub .sub_drop  li a:hover{
 	text-decoration:underline;
 }
+
+
+
+/*GNB*/
+
+
+.gnb_wrap{
+	width:100%;
+	height:50px;
+	position: relative;
+	overflow:hidden;
+	background:#fff;
+	border-top: 1px solid #eee;
+}
+
+
+
+
+
 
 
