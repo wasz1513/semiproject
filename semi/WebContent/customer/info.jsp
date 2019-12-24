@@ -28,6 +28,7 @@
     				<%if(flist.size()>0) {%>
     					<%for(CustomerFilesDto fdto : flist){ %>
     						<img src="download.do?no=<%=fdto.getCustomer_files_no()%>" width="100" height="100">
+    						<%=fdto.getCustomer_files_no() %>
     					<%} %>
     				<%}else{ %>
     					<img src="http://placehold.it/100x100">

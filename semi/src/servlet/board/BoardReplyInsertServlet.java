@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.bean.BoardDao;
 import semi.bean.ReplyDao;
 import semi.bean.ReplyDto;
 
@@ -17,17 +18,23 @@ public class BoardReplyInsertServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	try {
     	  String content = req.getParameter("content");
-    	  int Origin = Integer.parseInt(req.getParameter("Origin"));
+    	  int Origin = Integer.parseInt(req.getParameter("origin"));
     	  
-    	  String id = (String) req.getSession().getAttribute("id");
+    	  String id = (String) req.getSession().getAttribute("customer_id");
     	  
     	  ReplyDto dto = new ReplyDto();
     	  dto.setContent(content);
     	  dto.setOrigin(Origin);
     	  dto.setWriter(id);
     	  
-    	  ReplyDao dao = new ReplyDao();
-    	  dao.write(dto);
+    	  System.out.println(id);
+    	  
+    	  ReplyDao rdao = new ReplyDao();
+    	  rdao.write(dto);
+    	  
+    	  
+    	  BoardDao bdao = new BoardDao();
+    	  bdao.calculate(Origin);
     	  
     	  resp.sendRedirect("content.jsp?no="+Origin);
     	}

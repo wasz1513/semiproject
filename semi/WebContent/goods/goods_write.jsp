@@ -49,6 +49,7 @@ article {
 
 						<img src="http://placehold.it/100x70?text=이미지">
 					</div>
+					
 					<div>
 						<input type="file" name="file" accept=".jpg, .png, .gif">
 						<input type="file" name="file2" accept=".jpg, .png, .gif">
