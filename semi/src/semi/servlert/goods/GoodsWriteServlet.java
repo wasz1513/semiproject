@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import semi.bean.CustomerDao;
 import semi.bean.GoodsDao;
 import semi.bean.GoodsDto;
 import semi.bean.GoodsFilesDao;
@@ -29,19 +30,16 @@ public class GoodsWriteServlet extends HttpServlet {
 			
 			MultipartRequest mRequest = new MultipartRequest(req, path, size, encoding,new DefaultFileRenamePolicy());
 			
-			
 			GoodsDto dto = new GoodsDto();
 			dto.setGoods_category(mRequest.getParameter("goods_category"));
 			dto.setGoods_title(mRequest.getParameter("goods_title"));
 			dto.setGoods_price (Integer.parseInt(mRequest.getParameter("goods_price")));
 			dto.setGoods_content(mRequest.getParameter("goods_content"));
-			
+	
+
 			GoodsDao goodsdao = new GoodsDao();
 			int seq = goodsdao.getSequence();
 			dto.setGoods_no(seq);
-			
-			String session_id =(String)req.getSession().getAttribute("customer_id");
-			dto.setCustomer_id(session_id);
 			
 			goodsdao.goods_write(dto);
 			
