@@ -148,16 +148,20 @@
 
 
 
-
+<body>
 		<div class="gallary">
+		
 			<%
 				for (GoodsDto dto : list) {
 			%>
 				<div class="gallary-item">
-
+ 			<div class="gallary-image">
 		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
 						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
 						</a>
+						 </div>
+						 
+						 <div class="gallary-text">
 						<h4>
 							카테고리 :
 							<%=dto.getGoods_category()%></h4>
@@ -174,7 +178,8 @@
 							댓글 :
 							<%=dto.getGoods_replycount()%>
 						</div>
-					
+					</div>
+					</div>
 				</div>
 			<%
 				}
