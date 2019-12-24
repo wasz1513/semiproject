@@ -47,7 +47,7 @@ public class HelpfilesDao {
 	//반환자 : 
 	public HelpfilesDto filesInfo(int board_no) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "select * from help_files where help_files_board_no=?";
+		String sql = "select * from help_files where help_files_no=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, board_no);
 		
@@ -85,6 +85,23 @@ public class HelpfilesDao {
 		}
 		con.close();
 		return list;
+	}
+	
+	public int getfilesNo(int board_no) throws Exception{
+		Connection con = this.getConnection();
+		String sql = "select help_files_no from help_files where origin=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, board_no);
+		ResultSet rs = ps.executeQuery();
+		
+		int help_files_no;
+		if(rs.next()) {
+			help_files_no = rs.getInt(1);
+		}else {
+			help_files_no=0;
+		}		
+		con.close();
+		return help_files_no;
 	}
 }
 

@@ -61,6 +61,7 @@ public class HelpWriteServlet extends HttpServlet {
 //				System.out.println(hfdto.getOrigin()+"/"+hfdto.getUploadname()+"/"+hfdto.getSavename()+"/"+hfdto.getFiletype()+"/"+hfdto.getFilesize());
 				hfdao.edit(hfdto);
 			}
+						
 //			
 //			File file2 =mRequest.getFile("file");
 //			if(file2 != null) {
