@@ -34,31 +34,7 @@ href="<%=request.getContextPath()%>/css/header.css">
 
 
 <style>
-/* 	header 부분 범위설정 */
-.row-multi.col-4>.a {
-	width: 20%;
-}
-.row-multi.col-4>.b {
-	width: 60%;
-	margin-top: 13px;
-}
-.row-multi.col-4>.c {
-	width: 10%;
-	margin-top: 14px;
-}
-.row-multi.col-4>.d {
-	width: 10%;
-	margin-top: 14px;
-}
-.row-multi.col-2>.a {
-	width: 20%;
-}
-.row-multi.col-4>* {
-	text-align: center;
-}
-.row-multi.col-2>* {
-	text-align: center;
-}
+
 main {
 	width: 100%;
 	margin: auto;
@@ -67,25 +43,7 @@ header, footer, article {
 	width: 1200px;
 	margin: auto;
 
-}
-/* 	header{ */
-/*     background-color: #fff; */
-/*     position: fixed; */
-/*     top: 0; */
-/*     left: 0; */
-/*     right: 0; */
-/*     z-index: 100; */
-/*     padding:0; */
-/* 	} */
-/* .row-multi.col-4>.more { */
-/* 	margin-top: 120px; */
-/* } */
-/* /* 슬라이더 영역 스타일 */ */
-/* nav { */
-/* 	/*     	margin-top:110px; */ */
-/* 	height: 300px; */
-/* 	z-index: 10; */
-/* } */
+
 </style>
 
 
@@ -133,8 +91,12 @@ header, footer, article {
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
 			</a>
 	</div>
+<<<<<<< HEAD
+<!-- 				검색창 -->
+=======
 <!-- 				검색창 -->
 
+>>>>>>> refs/remotes/origin/master
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
@@ -164,19 +126,22 @@ header, footer, article {
 				<img src="<%=request.getContextPath()%>/image/user_icon.png">
 			</a>
 		<%if (id == null) {%>
+	  	<div class="null">ddd</div>
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
+
 				</ul>
+
 
 			</div>
 		<%} else {%>
+		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
-					<li><a href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/info.jsp">마이페이지</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		
 					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>
@@ -193,10 +158,11 @@ header, footer, article {
 			<a>
 				<img src="<%=request.getContextPath()%>/image/cart_icon.png">
 			</a>
+			<div class="null">ddd</div>
 			<div class="topmenu_sub cart">
 				<ul class="sub_drop">
-						<li>키워드</li>
-						<li>찜상품</li>
+						<li><a href="#">키워드</a></li>
+						<li><a href="#">찜상품</a></li>
 				</ul>
 			</div>
 		</li>
@@ -205,32 +171,33 @@ header, footer, article {
 </div>
 <!-- 			카테고리 / 인기검색어 -->
 <div class="gnb_wrap">
-		<div class="category">
-					<a href="#">카테고리</a>
-						<ul class="gnb">
-							<li>
-							<a href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=패션잡화">패션잡화</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=미용">화장품/미용</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=가전">디지털/가전</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=가구">가구/인테리어</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=육아">출산/육아</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=식품">식품</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=스포츠">스포츠/레저</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=생활">생활/건강</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=여행">여행/문화</a></li>
+		<ul class="category">
+					<li class="depth1">
+						<a href="#"><img src="<%=request.getContextPath()%>/image/menu.png">
+								카테고리</a>
+					<div class="gnb_dropmenu">
+						<ul>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=패션잡화">패션잡화</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=미용">화장품/미용</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=가전">디지털/가전</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=가구">가구/인테리어</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=육아">출산/육아</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=식품">식품</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=스포츠">스포츠/레저</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=생활">생활/건강</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=여행">여행/문화</a></li>
 						</ul>
+					</div>
+					</li>
+					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
+					<img src ="">새로운 상품 보기</a>
+					</li>
+					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
+					<img src ="">신고하기</a>
+					</li>
 
-		</div>
+		</ul>
 </div>
 
 
