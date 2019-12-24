@@ -20,8 +20,8 @@ public class BoardReplyDeleteServlet extends HttpServlet{
 			int no = Integer.parseInt(req.getParameter("no"));
 			int origin = Integer.parseInt(req.getParameter("origin"));
 			
-			ReplyDao dao = new ReplyDao();
-			dao.delete(no);//댓글 삭제
+			ReplyDao rdao = new ReplyDao();
+			rdao.delete(no);//댓글 삭제
 			
 			BoardDao bdao = new BoardDao();
 			bdao.calculate(origin);//댓글 수 갱신

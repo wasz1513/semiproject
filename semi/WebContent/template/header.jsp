@@ -26,54 +26,46 @@
 	href="<%=request.getContextPath()%>/css/input.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/admin.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/header.css">
 
 <title>Semi</title>
 
 <style>
-
 /* 	header 부분 범위설정 */
 .row-multi.col-4>.a {
 	width: 20%;
 }
-
 .row-multi.col-4>.b {
 	width: 60%;
 	margin-top: 13px;
 }
-
 .row-multi.col-4>.c {
 	width: 10%;
 	margin-top: 14px;
 }
-
 .row-multi.col-4>.d {
 	width: 10%;
 	margin-top: 14px;
 }
-
 .row-multi.col-2>.a {
 	width: 20%;
 }
-
 .row-multi.col-4>* {
 	text-align: center;
 }
-
 .row-multi.col-2>* {
 	text-align: center;
 }
-
 main {
 	width: 100%;
 	margin: auto;
 }
-
 header, footer, article {
 	width: 1200px;
 	margin: auto;
 	padding: 2rem;
 }
-
 /* 	header{ */
 /*     background-color: #fff; */
 /*     position: fixed; */
@@ -86,7 +78,6 @@ header, footer, article {
 .row-multi.col-4>.more {
 	margin-top: 120px;
 }
-
 /* 슬라이더 영역 스타일 */
 nav {
 	/*     	margin-top:110px; */
@@ -103,9 +94,11 @@ nav {
 	boolean master = grade != null && grade.equals("관리자");
 %>
 
+
+
 </head>
 
-<body onload="loadSlider();" test>
+<body test onload="loadSlider();">
 
 	<!-- 	메인페이지 -->
 	<main>

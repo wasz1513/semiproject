@@ -68,6 +68,7 @@ int count = dao.getCount(type, keyword);
 	                   	 	<a href="content.jsp?no=<%=dto.getNo()%>">
 	                    		<%=dto.getTitle()%>
 	                    	</a>
+	                    	[<%=dto.getReplycount()%>]
 	                    </td>
 	                    
 	                    <td><%=dto.getWdate()%></td>
