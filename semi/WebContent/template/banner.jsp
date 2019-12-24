@@ -17,6 +17,7 @@ function loadSlider(){
 </script>
 <style>
 
+
 .swiper-slide > img {
 	opacity:0.2;
 }
@@ -38,6 +39,5 @@ function loadSlider(){
 				    </div>
 				</div>
 	</div>
-	
-	
+
 	

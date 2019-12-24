@@ -273,10 +273,11 @@ public List<BoardDto> search(String type,String keyword) throws Exception{
 			
 			String sql = 
 					"update board "
-					+ "set replycount = (select count(*) from reply where origin = ?) "
+					+ "set replycount = (select count(*) from board_reply where origin = ?) "
 					+ "where no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
+			ps.setInt(2, no);
 			
 			
 			ps.execute();
