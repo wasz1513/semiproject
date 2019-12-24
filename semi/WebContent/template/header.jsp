@@ -171,7 +171,7 @@ nav {
 							<li><a
 								href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 							<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-							<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>
+							<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>
 						</ul>
 					</div>
 					<%
