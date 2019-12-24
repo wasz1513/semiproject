@@ -91,12 +91,9 @@ header, footer, article {
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
 			</a>
 	</div>
-<<<<<<< HEAD
-<!-- 				검색창 -->
-=======
+
 <!-- 				검색창 -->
 
->>>>>>> refs/remotes/origin/master
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
