@@ -141,6 +141,7 @@ a{
 	position: absolute;
 	left: 0px;
 	top: 0;
+	margin-left: 100px;
 	margin-top: 40px;
 	display: block;	
 	border: 1px solid #999999;
@@ -156,7 +157,7 @@ a{
 	text-align: left;
 }
 
-.topmenu > .login:hover >.my,
+.topmenu > .login:hover > .my,
 .topmenu > .mycart:hover > .cart{
 	display: block;
 }
