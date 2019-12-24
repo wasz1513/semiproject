@@ -32,6 +32,7 @@ public class BoardReplyInsertServlet extends HttpServlet{
     	  ReplyDao rdao = new ReplyDao();
     	  rdao.write(dto);
     	  
+    	  
     	  BoardDao bdao = new BoardDao();
     	  bdao.calculate(Origin);
     	  
