@@ -22,7 +22,6 @@ public class GoodsFileDownloadServlet  extends HttpServlet{
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	try {
 		int no = Integer.parseInt(req.getParameter("no"));
-		
 		GoodsFilesDao dao = new GoodsFilesDao();
 		GoodsFilesDto dto = dao.filesInfo(no);
 		
@@ -33,7 +32,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		resp.setHeader("Content-Type", "application/octet=stream; charset=UTF-8");
 		resp.setHeader("Content-Disposition", "attachment; filename=\""+URLEncoder.encode(dto.getUploadname(), "UTF-8")+"\"");
 		resp.setHeader("Content-Length", String.valueOf(dto.getFilesize()));
-		
 
 		resp.getOutputStream().write(data);
 		

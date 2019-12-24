@@ -46,6 +46,7 @@ article {
 
 					<div>
 						<h5>사진 첨부</h5>
+
 						<img src="http://placehold.it/100x70?text=이미지">
 					</div>
 					
@@ -56,6 +57,7 @@ article {
 						<input type="file" name="file4" accept=".jpg, .png, .gif">
 						<input type="file" name="file5" accept=".jpg, .png, .gif">
 					</div>
+
 
 
 					<td colspan="2" align="center"><a href="goods_content.jsp">
