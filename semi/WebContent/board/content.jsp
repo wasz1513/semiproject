@@ -15,7 +15,8 @@
 	BoardDao bdao = new BoardDao();
 	BoardDto bdto = bdao.get(no);
 	
-	//bdao.calculate(Origin);
+
+	
 	String userId = (String)session.getAttribute("customer_id");
 	String grade = (String)session.getAttribute("customer_grade");
 	
@@ -124,7 +125,7 @@
     	<%=rdto.getWdate()%>
     	답글    	
     	<%if(userId.equals(rdto.getWriter())){%>
-    	<a href="#">수정</a>
+    	<a href="reply_edit.do?no<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">수정</a>
     	<a href="reply_delete.do?no<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
     	<br><br>
     	<%} %>
