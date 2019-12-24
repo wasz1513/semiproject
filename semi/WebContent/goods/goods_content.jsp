@@ -94,12 +94,6 @@
 			</td>
 		</tr>
 		<%} %>
-<<<<<<< HEAD
-
-
-=======
-
->>>>>>> refs/remotes/origin/master
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
@@ -181,22 +175,6 @@
 
 		<!-- 버튼 -->
 		<tr>
-<<<<<<< HEAD
-			<td align="right">
-			<a href="<%=request.getContextPath() %>/goods/orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>"><input type="button" value="구매하기"></a>
-			<a href="goods_write.jsp"><input type="button" value="글쓰기"></a> 
-			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
-			<input type="button" value="답글쓰기"></a> 
-			
-					<%if (isAdmin || isMine){%>
-					 <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 -->
-				<a href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
-				<input type="button" value="수정"></a>
-				 <a href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>">
-				<input type="button" value="삭제"></a>
-				 <%} %>
-				  <a href="goods_list.jsp"><input
-=======
 			<td align="right"><a href="orders.jsp"><input type="button"
 					value="구매하기"></a> <a href="goods_write.jsp"><input
 					type="button" value="글쓰기"></a> <a
@@ -207,7 +185,6 @@
 					type="button" value="수정"></a> <a
 				href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>"> <input
 					type="button" value="삭제"></a> <%} %> <a href="goods_list.jsp"><input
->>>>>>> refs/remotes/origin/master
 					type="button" value="목록"></a></td>
 		</tr>
 	</table>
