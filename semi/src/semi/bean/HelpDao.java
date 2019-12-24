@@ -90,5 +90,35 @@ public class HelpDao {
 		con.close();
 		return list;
 	}
+	
+	//기능:전체 회원글 보이기(관리자 페이지)
+	//이름:getList
+	//매개변수:string write
+	//반환형:list
+	public List<HelpDto> getAdminList(String write) throws Exception {
+		Connection con = getConnection();
+		String sql = "select * from help where write=? order by board_no desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,write);
+		ResultSet rs = ps.executeQuery();
 
+		// 변환
+		List<HelpDto> list = new ArrayList<>();
+
+		while (rs.next()) {
+			HelpDto dto = new HelpDto();
+
+			dto.setBoard_NO(rs.getInt("board_NO"));
+			dto.setHdate(rs.getString("hdate"));
+			dto.setContent(rs.getString("content"));
+			dto.setHead(rs.getString("head"));
+
+			list.add(dto);
+
+		}
+
+		con.close();
+		return list;
+	}
+	
 }

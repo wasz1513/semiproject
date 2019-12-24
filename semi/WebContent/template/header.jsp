@@ -113,6 +113,7 @@ nav {
 				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/admin/operation.jsp">운영현황</a></li>
+				<li><a href="<%=request.getContextPath()%>/admin/help.jsp">신고게시판</a><li>	
 			</ul>
 		</div>
 		<%
