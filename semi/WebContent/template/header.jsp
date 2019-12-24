@@ -66,7 +66,7 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
-	padding: 2rem;
+
 }
 /* 	header{ */
 /*     background-color: #fff; */
@@ -77,15 +77,15 @@ header, footer, article {
 /*     z-index: 100; */
 /*     padding:0; */
 /* 	} */
-.row-multi.col-4>.more {
-	margin-top: 120px;
-}
-/* 슬라이더 영역 스타일 */
-nav {
-	/*     	margin-top:110px; */
-	height: 300px;
-	z-index: 10;
-}
+/* .row-multi.col-4>.more { */
+/* 	margin-top: 120px; */
+/* } */
+/* /* 슬라이더 영역 스타일 */ */
+/* nav { */
+/* 	/*     	margin-top:110px; */ */
+/* 	height: 300px; */
+/* 	z-index: 10; */
+/* } */
 </style>
 
 
@@ -150,10 +150,14 @@ nav {
 			<a href="#">검색어4</a>
 			<a href="#">검색어5</a>
 	</div>
-</div>
 <!-- 				로그인 / 마이페이지 -->
 <div class="topmenu_wrap">
 	<ul class="topmenu">
+		<li class ="productadd">
+			<a href="<%=request.getContextPath()%>/goods/goods_write.jsp">
+			<img src="<%=request.getContextPath()%>/image/add.png">
+			상품등록</a>
+		</li>
 		<li class="login">
 			<a>
 				<img src="<%=request.getContextPath()%>/image/user_icon.png">
@@ -195,6 +199,7 @@ nav {
 			</div>
 		</li>
 	</ul>	
+</div>
 </div>
 <!-- 			카테고리 / 인기검색어 -->
 <div class="gnb_wrap">

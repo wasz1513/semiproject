@@ -33,6 +33,7 @@ a{
 	position:relative; 
 	height:160px;
 }
+
 .header > .inner_wrap #logoimg{
 	position:absolute; 
 	left:0; 
@@ -108,9 +109,13 @@ a{
 .topmenu_wrap{
 	display: block;
 	position: absolute;
-	right: 10px;
+	right: 100px;
 	top: 26px;
 	width: 300px;
+}
+
+.topmenu_wrap a{
+	color:#222;
 }
 
 .topmenu_wrap  .topmenu{
@@ -134,7 +139,7 @@ a{
 
 .topmenu .topmenu_sub{
 	position: absolute;
-	left: -27px;
+	left: 0px;
 	top: 0;
 	margin-top: 40px;
 	display: block;	
@@ -197,6 +202,11 @@ a{
 	overflow:hidden;
 	background:#fff;
 	border-top: 1px solid #eee;
+}
+
+.gnb_wrap .category{
+	width:1200px;
+	margin:auto;
 }
 
 
