@@ -94,9 +94,11 @@ nav {
 	boolean master = grade != null && grade.equals("관리자");
 %>
 
+
+
 </head>
 
-<body onload="loadSlider();" test>
+<body test onload="loadSlider();">
 
 	<!-- 	메인페이지 -->
 	<main>
