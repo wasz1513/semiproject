@@ -20,6 +20,83 @@ public class CustomerDto {
 	private String customer_joindate;
 	private String customer_lastlogin;
 	private int customer_point;
+	private String keyword_first;
+	private String keyword_second;
+	private String keyword_third;
+	private String keyword_fourth;
+	private String keyword_fifth;
+	
+	
+	
+	
+
+	public CustomerDto(int customer_no, String customer_name, String customer_birth, String customer_nickname,
+			String customer_id, String customer_pw, String customer_phone, String customer_email, String customer_post,
+			String customer_basic_address, String customer_extra_address, String customer_grade,
+			String customer_joindate, String customer_lastlogin, int customer_point, String keyword_first,
+			String keyword_second, String keyword_third, String keyword_fourth, String keyword_fifth) {
+		super();
+		this.customer_no = customer_no;
+		this.customer_name = customer_name;
+		this.customer_birth = customer_birth;
+		this.customer_nickname = customer_nickname;
+		this.customer_id = customer_id;
+		this.customer_pw = customer_pw;
+		this.customer_phone = customer_phone;
+		this.customer_email = customer_email;
+		this.customer_post = customer_post;
+		this.customer_basic_address = customer_basic_address;
+		this.customer_extra_address = customer_extra_address;
+		this.customer_grade = customer_grade;
+		this.customer_joindate = customer_joindate;
+		this.customer_lastlogin = customer_lastlogin;
+		this.customer_point = customer_point;
+		this.keyword_first = keyword_first;
+		this.keyword_second = keyword_second;
+		this.keyword_third = keyword_third;
+		this.keyword_fourth = keyword_fourth;
+		this.keyword_fifth = keyword_fifth;
+	}
+
+	public String getKeyword_first() {
+		return keyword_first;
+	}
+
+	public void setKeyword_first(String keyword_first) {
+		this.keyword_first = keyword_first;
+	}
+
+	public String getKeyword_second() {
+		return keyword_second;
+	}
+
+	public void setKeyword_second(String keyword_second) {
+		this.keyword_second = keyword_second;
+	}
+
+	public String getKeyword_third() {
+		return keyword_third;
+	}
+
+	public void setKeyword_third(String keyword_third) {
+		this.keyword_third = keyword_third;
+	}
+
+	public String getKeyword_fourth() {
+		return keyword_fourth;
+	}
+
+	public void setKeyword_fourth(String keyword_fourth) {
+		this.keyword_fourth = keyword_fourth;
+	}
+
+	public String getKeyword_fifth() {
+		return keyword_fifth;
+	}
+
+	public void setKeyword_fifth(String keyword_fifth) {
+		this.keyword_fifth = keyword_fifth;
+	}
 
 	public int getCustomer_point() {
 		return customer_point;
