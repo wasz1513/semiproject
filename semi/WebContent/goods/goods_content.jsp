@@ -53,7 +53,7 @@ List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 		</tr>
 		<tr>
 
-			<td>작성자<%=goodsdto.getCustomer_id()%></td>
+			<td>작성자<%=goodsdto.getCustomer_id()%> 작성일자 : <%=goodsdto.getGoods_writetime() %> </td>
 		</tr>
 		<tr height="200">
 			<td valign="top"><%=goodsdto.getGoods_content()%></td>
