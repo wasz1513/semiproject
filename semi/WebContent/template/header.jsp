@@ -134,6 +134,7 @@ header, footer, article {
 			</a>
 	</div>
 <!-- 				검색창 -->
+
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
@@ -170,7 +171,9 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
+
 		</div>
+
 		<%} else {%>
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
