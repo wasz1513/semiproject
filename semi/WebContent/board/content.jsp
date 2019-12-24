@@ -125,8 +125,8 @@
     	<%=rdto.getWdate()%>
     	답글    	
     	<%if(userId.equals(rdto.getWriter())){%>
-    	<a href="reply_edit.do?no<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">수정</a>
-    	<a href="reply_delete.do?no<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
+    	<a href="#">수정</a>
+    	<a href="reply_delete.do?no=<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
     	<br><br>
     	<%} %>
     	<%=rdto.getContent()%>
