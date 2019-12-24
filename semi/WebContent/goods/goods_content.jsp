@@ -11,7 +11,6 @@
 
 <%
 	int goods_no = Integer.parseInt(request.getParameter("goods_no"));
-
 	int goods_reply_no;
 	if(request.getParameter("goods_reply_no")!=null){		
 		goods_reply_no = Integer.parseInt(request.getParameter("goods_reply_no"));	
@@ -44,7 +43,8 @@
 	//첨부파일 불러오기
 	GoodsFilesDao gfdao = new GoodsFilesDao();
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
-
+	System.out.print(flist);
+	
 %>
 
 
@@ -60,13 +60,16 @@
 		</tr>
 		<tr>
 
-			<td>작성자<%=goodsdto.getCustomer_id()%> 작성일자 : <%=goodsdto.getGoods_writetime() %> </td>
+			<td>작성자<%=goodsdto.getCustomer_id()%></td>
 		</tr>
 		<tr height="200">
 			<td valign="top"><%=goodsdto.getGoods_content()%></td>
 		</tr>
-<!-- 				첨부파일이미지 찍기 -->
-	 <%if(flist.size() > 0){ %> <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+
+		<tr>
+			<td>
+				<!-- 				첨부파일이미지 찍기 --> <%if(flist.size() > 0){ %> <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+
 		<tr>
 			<td>
 		<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
@@ -87,7 +90,6 @@
 			</td>
 		</tr>
 		<%} %>
-
 		<!-- 댓글 수 조회수 출력줄 -->
 		<tr>
 
@@ -101,6 +103,7 @@
 		<%
  		GoodsReplyDao goodsreplydao = new GoodsReplyDao();
  		List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
+//  		System.out.println(list);
 		%>
 		
 				<table border="1" width="100%">
@@ -138,8 +141,17 @@
 						</td>
 						<!--댓글 수정 테스트  -->
 					<%} %>
+	
+						
+						
+		
+
+
 					</tr>
 				</table>
+
+
+
 			</td>
 		</tr>
 
@@ -174,6 +186,9 @@
 	</table>
 
 </div>
+
+
+
 
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
