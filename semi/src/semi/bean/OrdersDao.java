@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class BuyDao {
+public class OrdersDao {
 	
 	private static DataSource source;
 	static {
@@ -22,16 +22,20 @@ public class BuyDao {
 		return source.getConnection();
 	}
 
-	public void paymentFinish(BuyDto dto) throws Exception{
 
-		Connection con = getConnection();
-		
-		String sql = "update goods set goods_state='판매완료' where customer_id=?";
-		PreparedStatement ps = con.prepareStatement(sql);
-//		ps.setString(1, dto.c());
-		
-		con.close();
-	}
+	//배송지 저장
+//	public void orderAddress(OrdersDto odto) throws Exception{
+//
+//		Connection con = getConnection();
+//		
+//		String sql = "update orders set orders_post=?, orders_basic_address=?, orders_extra_address=? where customer_id=?";
+//		PreparedStatement ps = con.prepareStatement(sql);
+//		ps.setString(1, odto.getOrders_post());
+//		ps.setString(2, odto.getOrders_goods_title());
+//		ps.setString(3, dto.get);
+//		
+//		con.close();
+//	}
 
 	//구매 신규배송 주소
 //	public void buyNewAddress(BuyDto dto) throws Exception{
