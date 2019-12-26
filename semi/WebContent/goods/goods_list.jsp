@@ -158,6 +158,7 @@
 
 
 		<div align="center">
+	
 			<%if (isSearch) {%>
 			<h2>검색 결과 상품</h2>
 			<<h6> 관심상품 : 
@@ -177,8 +178,10 @@
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 			</h6>
-			
 			<%}%>
+
+
+
 
 		</div>
 
