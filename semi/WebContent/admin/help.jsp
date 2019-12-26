@@ -21,8 +21,8 @@
 	List<HelpDto> list = dao.getList(write);
 	HelpfilesDao fdao = new HelpfilesDao();
 	
-	HelpreplyDao rdao = new HelpreplyDao();
-	List<HelpreplyDto> rlist = rdao.getList(origin);
+// 	HelpreplyDao rdao = new HelpreplyDao();
+// 	List<HelpreplyDto> rlist = rdao.getList(origin);
 %>
 
 <title>신고/문의하기</title>
