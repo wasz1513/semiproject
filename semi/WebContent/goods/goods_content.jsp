@@ -61,7 +61,7 @@
 	
 			
 	//작성자 주소
-
+	String Customer_basic_address = goodsdao.getCustomer_addr(goods_no);
 	
 	
 %>
@@ -146,21 +146,26 @@
 	<div class="mannerline" >
 		<div>
 			<a class="profile-image">
-			<%if (customer_files_no>0) {%>
-			<img src="<%=request.getContextPath()%>/customer/download.do?no=<%=customer_files_no%>" width="30" height="30">
-			<%}else{ %>
-			<img src="http://placehoid.it/100x100">
-			<%} %>
-			</a>
+				<%if (customer_files_no>0) {%>
+				<img src="<%=request.getContextPath()%>/customer/download.do?no=<%=customer_files_no%>" width="30" height="30">
+				<%}else{ %>
+				<img src="http://placehoid.it/100x100">
+				<%} %>
 			<div class="big-profile-cutomer">
-			<div class="profile-cutomer  align="left"><%=goodsdto.getCustomer_id()%></div>
-			<div class="addr-customer">
-						
-					
-   
+					<div class="profile-cutomer  align="left">
+						<%=goodsdto.getCustomer_id()%>
+					</div>
+					<div class="addr-customer">
+						<%= Customer_basic_address%>  
+					</div>
+			</div>
 		</div>
-		</div>
+			</a>
+			
 			<div align="right"> <img src="../image/매너온도.png" width="40" height="40">매너온도 36.5˚C</div>
+			
+			
+			
 		<hr width="900">
 		
 	

@@ -463,4 +463,23 @@ public class GoodsDao {
 		return count;
 	}
 	
+	
+	
+	public String getCustomer_addr(int goods_no) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select * from customer_goods where goods_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, goods_no);
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		String Customer_basic_address = rs.getString("Customer_basic_address");
+		con.close();
+		return Customer_basic_address;
+		
+	}
+	
+	
+	
 }
