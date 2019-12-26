@@ -1,0 +1,51 @@
+@charset "UTF-8
+
+
+
+
+@font-face{
+    font-family:binggrae;
+    src:url("../font/Binggrae.ttf");
+}
+@font-face{
+    font-family:binggrae2;
+    src:url("../font/BinggraeⅡ.ttf");
+}
+@font-face{
+    font-family:melona;
+    src:url("../font/BinggraeMelona.ttf");
+}
+@font-face{
+    font-family:maple;
+    src:url("../font/Maplestory Light.ttf");
+}
+@font-face{
+	font-family:typo;
+	src:url("../font/Typo_HelloPOP_OutlineB.ttf");
+}
+
+
+@font-face {
+    font-family: NotoSans-Bold;
+    src: url("../font/NotoSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: NotoSans-Light;
+    src: url("../font/NotoSans-Light.ttf");
+}
+
+@font-face {
+    font-family: NotoSans-Regular;
+    src: url("../font/NotoSans-Regular.ttf");
+}
+
+
+
+/*
+    전체 스타일
+*/
+
+* {
+    font-family: NotoSans-Regular;
+}

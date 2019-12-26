@@ -43,16 +43,20 @@
     	
     	GoodsDao dao = new GoodsDao();
     	CustomerDao kdao = new CustomerDao();
-    	CustomerDto  kdto = new CustomerDto();
+    	CustomerDto kdto = new CustomerDto();
+    	CustomerDto forgetdto = new CustomerDto();
     	String customer_id = (String)request.getSession().getAttribute("customer_id");
-    	kdto = kdao.get(customer_id);
+    	
+    	if(customer_id !=null){
+    		kdto = kdao.get(customer_id);    		
+    	}
     	
    		 List<GoodsDto> list;
    		 
-    	if(goods_category != null){
+    	if(goods_category != null && !isSearch && !isSearch2 && keyword_search==null){
     		list = dao.CategorySearch( goods_category, start, finish);
     	}
-    	else if(isSearch){
+    	else if(isSearch && !isSearch2){
     		list = dao.search(start , finish ,type , keyword);
     	}
     	else if(isSearch2){
@@ -78,15 +82,20 @@
     
     	GoodsFilesDao fdao = new GoodsFilesDao();
     	
-    	
-    	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<style>
+
+<link rel="stylesheet"  type="text/css"
+    			href="<%=request.getContextPath()%>/css/font.css">
+    			
+<style >
+
+
 * {
 	box-sizing: border-box;
-}
+	}
+
 
 .gallary::after {
 	content: "";
@@ -100,9 +109,36 @@
 	padding: 10px;
 }
 
-.gallary>.gallary-item img {
+.gallary>.gallary-item > a  img {
 	width: 100%;
+	border-radius: 10%;
+    opacity: 0.5;
+    cursor: pointer;
 }
+
+ .gallary > .gallary-item >.gallary-text  h2{
+            word-break: break-all;
+        }
+        
+        #p2{
+            color: #ff8041;
+            font-size: medium;
+        }
+        
+           #p1{
+            color: gray;
+            font-size: large;
+    
+          
+        }
+        
+          #p0 {
+            color: black;
+            font-size: x-large;
+        }
+        
+        
+        
 
 /*        폭이 720px 이하면 2단으로 표시*/
 @media screen and (max-width:720px) {
@@ -122,6 +158,7 @@
 
 
 		<div align="center">
+	<%if(kdto.getKeyword_first() != null ){ %>
 			<%if (isSearch) {%>
 			<h2>검색 결과 상품</h2>
 			<<h6> 관심상품 : 
@@ -141,14 +178,12 @@
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 			</h6>
-			
 			<%}%>
+<%} %>
+
+
 
 		</div>
-
-
-
-
 		<div class="gallary">
 			<%
 				for (GoodsDto dto : list) {
@@ -156,22 +191,30 @@
 				<div class="gallary-item">
 
 		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
+		 			<img src="https://placeimg.com/640/480/arch">
+<%-- 						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200"> --%>
 						</a>
-						<h4>
-							카테고리 :
-							<%=dto.getGoods_category()%></h4>
-						<h3>
-							제목:<%=dto.getGoods_title()%></h3>
-						<h5>
-							동네 : <%=kdto.getCustomer_address()%></h5>
-						<h3>
-							가격 :
-							<%=dto.getGoods_price()%></h3>
+						<div class="gallary-text">
+						<p id="p0">
+							<%=dto.getGoods_title()%>
+						</p>
+						
+						<p id="p1">
+						<%forgetdto = kdao.get(dto.getCustomer_id());
+						
+						%>
+							<%=forgetdto.getCustomer_address()%>
+<%-- 							<%= forgetdto %>  --%>
+						</p>
+						
+						<p id="p2">
+							<%=dto.getGoods_price()%>원
+						</p>
+						</div>
 						<div align="right">
-							조회수 :
+							조회수
 							<%=dto.getGoods_readcount()%>
-							댓글 :
+							댓글 
 							<%=dto.getGoods_replycount()%>
 						</div>
 					
@@ -181,6 +224,8 @@
 			%>
 
 		</div>
+		
+		
 		<div align="center">
 			<a href="goods_write.jsp"> <input class="btn" type="button"
 				value="상품 등록하기">
