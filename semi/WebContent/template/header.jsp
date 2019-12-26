@@ -18,6 +18,7 @@
 <!-- <link rel="stylesheet" type="text/css" -->
 <%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
 
+>>>>>>> refs/remotes/origin/master
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css"

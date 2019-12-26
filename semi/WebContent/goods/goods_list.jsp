@@ -184,10 +184,6 @@
 
 
 		</div>
-
-
-
-
 		<div class="gallary">
 			<%
 				for (GoodsDto dto : list) {

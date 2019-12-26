@@ -12,14 +12,12 @@
 
 <%
 	int goods_no = Integer.parseInt(request.getParameter("goods_no"));
-
 	int goods_reply_no;
 	if (request.getParameter("goods_reply_no") != null) {
 		goods_reply_no = Integer.parseInt(request.getParameter("goods_reply_no"));
 	} else {
 		goods_reply_no = 0;
 	}
-
 	GoodsDao goodsdao = new GoodsDao();
 	GoodsDto goodsdto = goodsdao.get(goods_no); //게시글 불러오기
 	//본인 글인지 여부과 관리자인지 여부를 미리 계산(수정/삭제)
@@ -41,9 +39,7 @@
 		goodsdto.setGoods_readcount(goodsdto.getGoods_readcount() + 1);
 		goodsdao.readcountupdate(goods_no); //조회수 증가
 	}
-
 	//첨부파일 불러오기
-
 	GoodsFilesDao gfdao = new GoodsFilesDao();
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
 	System.out.print(flist);
