@@ -30,8 +30,11 @@
 href="<%=request.getContextPath()%>/css/gallary.css">
 
 <style>
-	.more > .more-text{
-	margin:auto;
+	#a{
+	text-align:center;
+	margin-top:113px;
+	font-size: large;
+	
 	}
 </style>
 <!-- 		내용 -->
@@ -63,11 +66,9 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 						</div>
 					</div>
 				<%} %>
-				<div class="more">
-				<a href="<%=context%>/goods/goods_list.jsp" class="more-text">
-					<p>당근나라 </p>
-					<p>인기 매물</p>
-					<p>더 보기</p>
+				<div class="gallary-item more">
+				<a href="<%=context%>/goods/goods_list.jsp" class="more-text">		
+					<h3 id="a">+<br>당근나라<br>인기 매물<br>더 보기 </h3>
 				</a>
 				</div>
 			</div>

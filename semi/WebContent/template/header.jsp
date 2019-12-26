@@ -35,7 +35,7 @@ href="<%=request.getContextPath()%>/css/footer.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/boardlist.css">
 
-<title>당근나라</title>
+<title>당근나라</title>	
 
 
 <style>
