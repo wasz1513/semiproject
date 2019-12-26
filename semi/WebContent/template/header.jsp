@@ -67,6 +67,7 @@ header, footer, article {
 				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/admin/operation.jsp">운영현황</a></li>
+				<li><a href="<%=request.getContextPath()%>/admin/help.jsp">신고게시판</a><li>	
 			</ul>
 		</div>
 		<%
@@ -82,8 +83,12 @@ header, footer, article {
 			<a href="<%=request.getContextPath()%>">
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
 			</a>
+<<<<<<< HEAD
 	</div>
 <!-- 				검색창 -->
+=======
+	</div>
+>>>>>>> refs/remotes/origin/master
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
@@ -121,7 +126,26 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
+<<<<<<< HEAD
 		</div>
+=======
+
+			</div>
+
+
+
+			<!-- 			카테고리 / 인기검색어 -->
+			<div class="row-multi col-2">
+				<div class="a">
+					<div class="menu-wrap">
+						<label for="custom-menu">카테고리</label> 
+						<input type="checkbox" id="custom-menu">
+
+						<ul class="custom-list">
+							<li><a
+								href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
+
+>>>>>>> refs/remotes/origin/master
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
@@ -146,7 +170,11 @@ header, footer, article {
 			<div class="topmenu_sub cart">
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
+<<<<<<< HEAD
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+=======
+						<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+>>>>>>> refs/remotes/origin/master
 				</ul>
 			</div>
 		</li>
