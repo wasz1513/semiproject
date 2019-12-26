@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.gallary::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.gallary>.gallary-item {
+	float: left;
+	width: 25%;
+	padding: 10px;
+	height: 400px;
+}
+
+.gallary>.gallary-item>a  img {
+	width: 100%;
+	border-radius: 10%;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.gallary>.gallary-item>.gallary-text p {
+	word-break: break-all;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#p2 {
+	color: #ff8041;
+	font-size: medium;
+}
+
+#p1 {
+	color: gray;
+	font-size: large;
+}
+
+#p0 {
+	color: black;
+	font-size: x-large;
+}

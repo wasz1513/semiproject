@@ -24,7 +24,6 @@ String keyword = request.getParameter("keyword");
 boolean isSearch = type != null && keyword != null;
 BoardDao dao = new BoardDao();
 List<BoardDto> list;
-
 if(isSearch){
 	list = dao.search(type, keyword, start, finish); 
 }
@@ -40,10 +39,11 @@ int count = dao.getCount(type, keyword);
 			
 			  <title>게시판 목록</title>
 
-    <br><br><br>
+
     <div class="title">
         <br><br><br>
-    <h2 align=center style="color:#444040">공지사항</h2>
+    <p class="maintitle">공지사항</p>
+    <p class="subtitle">당근나라의 다양한 소식을 전해드립니다.</p>
   </div>
 		 
  <div class="board_list_wrap">
@@ -53,8 +53,8 @@ int count = dao.getCount(type, keyword);
 				<tr>
                     <th>번호</th>
                     <th>제목</th>
-                    <th>글쓴이</th>
-                    <th>작성일</th>    
+                    <th>작성일</th>
+                    <th>글쓴이</th>    
                     <th>조회</th>
                 </tr>
 			</thead>
@@ -88,12 +88,21 @@ int count = dao.getCount(type, keyword);
 	</table>
 	<div class="write" align=right>
                 <a href="write.jsp" class="bt">글작성</a>
-            </div>
+     </div>
 
 	<!-- 네비게이터 -->
-							
-         <div class="paging" align="center">
-   	  
+<form action="list.jsp" method="get">
+
+<select class="search-drop" name="type">
+	<option value="title">제목</option>
+	<option value="writer">작성자</option>
+</select>
+
+<input class="search-txt" type="search" name="keyword" placeholder="검색어" required>
+<input class="search-bt" type="submit" value="검색">
+</form>
+	<div class="paging">
+           
    	 <jsp:include page="/template/navigator.jsp">
    	 	<jsp:param name="pno"  value="<%=pno %>" />
    	    <jsp:param name="count"  value="<%=count %>" />
@@ -104,16 +113,6 @@ int count = dao.getCount(type, keyword);
    	 
 	
 
-<form action="list.jsp" method="get">
-
-<select name="type">
-<option value="title">제목</option>
-<option value="writer">작성자</option>
-</select>
-
-<input type="search" name="keyword" placeholder="검색어" required>
-<input type="submit" value="검색">
-</form>
 
 
 

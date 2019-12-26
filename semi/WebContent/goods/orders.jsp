@@ -15,6 +15,7 @@
 	}else{
 		goods_no=Integer.parseInt(request.getParameter("goods_no"));
 	}
+	System.out.println(goods_no);
 	CustomerDao cdao = new CustomerDao();
 	CustomerDto cdto = cdao.get(id);
 	int customer_no=cdto.getCustomer_no();
@@ -95,7 +96,11 @@ function point_use(){
 	
 	<!-- 구매할 상품 정보 -->	
 	<div class="order_table">
+	<%if(gdto.getGoods_title()!=null){ %>
 		구매번호 : <%=gdto.getGoods_title() %>
+	<%}else{ %>	
+		구매번호 : -
+	<%} %>
 	</div>
 	<div class="order_table">
 		상품번호 : <%=gdto.getGoods_title() %>_<%=gdto.getGoods_no() %>
