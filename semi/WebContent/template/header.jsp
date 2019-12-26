@@ -121,19 +121,15 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
-
-
 			<!-- 			카테고리 / 인기검색어 -->
 			<div class="row-multi col-2">
 				<div class="a">
 					<div class="menu-wrap">
 						<label for="custom-menu">카테고리</label> 
 						<input type="checkbox" id="custom-menu">
-
 						<ul class="custom-list">
 							<li><a
 								href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
-
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">

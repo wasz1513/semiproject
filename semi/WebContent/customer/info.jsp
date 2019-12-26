@@ -79,8 +79,9 @@
 				최종로그인
 				<%=dto.getCustomer_lastloginWithFormat()%>
 			</div>
-
+			
     		<div>
+    		        <a href="#"><input type="submit" value="판매중인 물품보기"></a>
     				<a href="check_pw.jsp?go=/customer/change_pw.jsp"><input type="submit" value="비밀번호 변경"></a>
 					<a href="check_pw.jsp?go=/customer/change_info.jsp"><input type="submit" value="회원정보 수정">	</a>
 					<a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input type="submit" value="회원탈퇴"></a>
