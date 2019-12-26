@@ -12,11 +12,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="<%=request.getContextPath()%>/image/carrot3232.png">
 
 <meta charset="UTF-8">
+<!-- <link rel="stylesheet" type="text/css" -->
+<%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
 
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/test.css">
+>>>>>>> refs/remotes/origin/master
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css"
@@ -29,35 +31,14 @@
 	href="<%=request.getContextPath()%>/css/admin.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/header.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/footer.css">
 
-<title>Semi</title>
+<title>당근나라</title>
+
 
 <style>
-/* 	header 부분 범위설정 */
-.row-multi.col-4>.a {
-	width: 20%;
-}
-.row-multi.col-4>.b {
-	width: 60%;
-	margin-top: 13px;
-}
-.row-multi.col-4>.c {
-	width: 10%;
-	margin-top: 14px;
-}
-.row-multi.col-4>.d {
-	width: 10%;
-	margin-top: 14px;
-}
-.row-multi.col-2>.a {
-	width: 20%;
-}
-.row-multi.col-4>* {
-	text-align: center;
-}
-.row-multi.col-2>* {
-	text-align: center;
-}
+
 main {
 	width: 100%;
 	margin: auto;
@@ -65,27 +46,10 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
-	padding: 2rem;
-}
-/* 	header{ */
-/*     background-color: #fff; */
-/*     position: fixed; */
-/*     top: 0; */
-/*     left: 0; */
-/*     right: 0; */
-/*     z-index: 100; */
-/*     padding:0; */
-/* 	} */
-.row-multi.col-4>.more {
-	margin-top: 120px;
-}
-/* 슬라이더 영역 스타일 */
-nav {
-	/*     	margin-top:110px; */
-	height: 300px;
-	z-index: 10;
-}
+
+
 </style>
+
 
 
 <%
@@ -95,9 +59,12 @@ nav {
 	boolean master = grade != null && grade.equals("관리자");
 %>
 
+
+
 </head>
 
-<body onload="loadSlider();" test>
+<body test onload="loadSlider();">
+
 
 	<!-- 	메인페이지 -->
 	<main>
@@ -119,119 +86,125 @@ nav {
 		%>
 		<!-- 		헤더 -->
 		<!-- 			로고 / 검색창 / 로그인 / 관심목록 -->
-		<header>
+<header class="header">
+			
+<div class="inner_wrap">
+	<!-- 				로고 -->
+	<div class="logo">
+			<a href="<%=request.getContextPath()%>">
+				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
+			</a>
+	</div>
 
-
-			<div class="row-multi col-4 logo">
-				<!-- 				로고 -->
-				<div class="a">
-					<a href="<%=request.getContextPath()%>"> 
-						<img src="<%=request.getContextPath()%>/image/logo.png">
-					</a>
-
-			</div>
 <!-- 				검색창 -->
-				<div class="search">	
-					<form action="<%=request.getContextPath() %>/goods/goods_list.jsp" method="get">
-						<input class="main-bar-input" type="text" name="keyword" size="80%" height="40">
-						<button><img src="<%=request.getContextPath()%>/image/find.webp" class="main-button" width="20" height="15"></button>
-					</form>
-				</div>
-				<!-- 				로그인 / 마이페이지 -->
-				<div class="c">
-					<%
-						if (id == null) {
-					%>
-					<div class="menu-wrap1">
-						<label for="custom-menu1">로그인</label>
-      				  	<input type="checkbox" id="custom-menu1">
-      				  	<ul class="custom-list">
-      				  		<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
-			             	<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
-			                <li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
-			                <li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
-      				  	</ul>
-					</div>
 
-					<%
-						} else {
-					%>
-					<div class="menu-wrap2">
-						<label for="custom-menu2">마이페이지</label> <input type="checkbox"
-							id="custom-menu2">
-						<ul class="custom-list">
-							<li><a
-								href="<%=request.getContextPath()%>/customer/info.jsp">프로필보기</a></li>
-							<li><a
-								href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트
-									내역</a></li>
-							<li><a
-								href="<%=request.getContextPath()%>/goods/goods_write.jsp">상품등록</a></li>
-							<li>키워드입력</li>
-							<li>위치수정</li>
-							<li><a
-								href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
-							<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-							<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>
-						</ul>
-					</div>
-					<%
-						}
-					%>
+		<div class="searchbar">
+			<div class="input_box">
+				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
+					<input type="text" name="key" size="80%" height="40">
+					<button class="search_btn"><img src="<%=request.getContextPath()%>/image/search_icon.png"></button>
+				</form>
+			</div>	
+		</div>
+	<div class="keyword">
+		<strong>인기검색어</strong> 
+			<a href="#">검색어1</a>
+			<a href="#">검색어2</a>
+			<a href="#">검색어3</a>
+			<a href="#">검색어4</a>
+			<a href="#">검색어5</a>
+	</div>
+<!-- 				로그인 / 마이페이지 -->
+<div class="topmenu_wrap">
+	<ul class="topmenu">
+		<li class ="productadd">
+			<a href="<%=request.getContextPath()%>/goods/goods_write.jsp">
+			<img src="<%=request.getContextPath()%>/image/add.png">
+			상품등록</a>
+		</li>
+		<li class="login">
+			<a>
+				<img src="<%=request.getContextPath()%>/image/user_icon.png">
+			</a>
+		<%if (id == null) {%>
+	  	<div class="null">ddd</div>
+		<div class="topmenu_sub my">
+				<ul class="sub_drop">
+					<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
+					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
+					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
+					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 
-				</div>
+				</ul>
 
 
-				<!-- 				관심목록 -->
-				<div class="d">
-					<div class="menu-wrap3">
-						<label for="custom-menu3">관심목록</label> <input type="checkbox"
-							id="custom-menu3">
-						<ul class="custom-list">
-							<li>키워드</li>
-							<li>찜상품</li>
-							<li>????</li>
-						</ul>
-					</div>
-				</div>
+		</div>
+
+
+		<%} else {%>
+		<div class="null">ddd</div>
+		<div class="topmenu_sub my">
+				<ul class="sub_drop">
+					<li><a href="<%=request.getContextPath()%>/customer/info.jsp">마이페이지</a></li>
+					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		
+					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>
+					<li><a href="#">키워드입력</a></li>
+					<li><a href="#">위치수정</a></li>
+					<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
+					<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>                			
+					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
+				</ul>
 			</div>
-
-
-			<!-- 			카테고리 / 인기검색어 -->
-			<div class="row-multi col-2">
-				<div class="a">
-					<div class="menu-wrap">
-						<label for="custom-menu">카테고리</label> <input type="checkbox"
-							id="custom-menu">
-
-						<ul class="custom-list">
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=패션잡화">패션잡화</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=미용">화장품/미용</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=가전">디지털/가전</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=가구">가구/인테리어</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=육아">출산/육아</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=식품">식품</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=스포츠">스포츠/레저</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=생활">생활/건강</a></li>
-							<li><a
-								href="<%=context%>/goods/goods_list.jsp?goods_category=여행">여행/문화</a></li>
-						</ul>
-
-					</div>
-				</div>
-				<div class="b">인기검색어 검색어1 검색어 2 검색어3</div>
+		<%}%>
+		</li>	
+		<li class="mycart">
+			<a>
+				<img src="<%=request.getContextPath()%>/image/cart_icon.png">
+			</a>
+			<div class="null">ddd</div>
+			<div class="topmenu_sub cart">
+				<ul class="sub_drop">
+						<li><a href="#">키워드</a></li>
+						<li><a href="#">찜상품</a></li>
+				</ul>
 			</div>
-		</header>
+		</li>
+	</ul>	
+</div>
+</div>
+<!-- 			카테고리 / 인기검색어 -->
+<div class="gnb_wrap">
+		<ul class="category">
+					<li class="depth1">
+						<a href="#"><img src="<%=request.getContextPath()%>/image/menu.png">
+								카테고리</a>
+					<div class="gnb_dropmenu">
+						<ul>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=패션잡화">패션잡화</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=미용">화장품/미용</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=가전">디지털/가전</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=가구">가구/인테리어</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=육아">출산/육아</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=식품">식품</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=스포츠">스포츠/레저</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=생활">생활/건강</a></li>
+							<li><a href="<%=context%>/goods/goods_list.jsp?goods_category=여행">여행/문화</a></li>
+						</ul>
+					</div>
+					</li>
+					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
+					새로운 상품 보기</a>
+					</li>
+					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
+					<img src ="">신고하기</a>
+					</li>
+
+		</ul>
+</div>
 
 
-		<section>
+</header>
+
+
+<section>

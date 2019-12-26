@@ -179,6 +179,11 @@ public class CustomerDao {
 			dto.setCustomer_joindate(rs.getString("customer_joindate"));
 			dto.setCustomer_lastlogin(rs.getString("customer_lastlogin"));
 			dto.setCustomer_point(rs.getInt("customer_point"));
+			dto.setKeyword_first(rs.getString("keyword_first"));
+			dto.setKeyword_second(rs.getString("keyword_second"));
+			dto.setKeyword_third(rs.getString("keyword_third"));
+			dto.setKeyword_fourth(rs.getString("keyword_fourth"));
+			dto.setKeyword_fifth(rs.getString("keyword_fifth"));
 		} else {
 			dto = null;
 		}

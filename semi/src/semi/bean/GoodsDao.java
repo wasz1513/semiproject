@@ -161,8 +161,11 @@ public class GoodsDao {
 	public List<GoodsDto> search(int start, int finish, String type, String keyword) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from(" + "select rownum rn, A.* from(" + "select * from goods " + "where " + type
-				+ " like '%'||?||'%' order by goods_no desc" + ")A" + ")where rn between ? and ? ";
+		String sql = "select * from(" + "select rownum rn, A.* from(" 
+							+ "select * from goods " + "where " + type
+							+ " like '%'||?||'%' order by goods_no desc"
+							+ ")A"
+							+ ")where rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -299,4 +302,76 @@ public class GoodsDao {
 		ps.execute();
 		con.close();
 	}
+	
+	//키워드 검색! (관심 상품)
+	public List<GoodsDto> keywordsearch(String keyword_search , int start , int finish)throws Exception{
+		Connection con = getConnection();
+		
+		
+		String	sql = "select * from(" 
+				+ "select rownum rn, A.* from("
+				+ "select * from goods where goods_title like '%'||?||'%' order by goods_no desc" 
+				+ ")A"
+				+ ")where rn between ? and ? ";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword_search);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		List<GoodsDto> list = new ArrayList<>();
+
+		while (rs.next()) {
+			GoodsDto dto = new GoodsDto();
+			dto.setRn(rs.getInt("rn"));
+			dto.setCustomer_id(rs.getString("customer_id"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setGoods_price(rs.getInt("goods_price"));
+			dto.setGoods_readcount(rs.getInt("goods_readcount"));
+			dto.setGoods_replycount(rs.getInt("goods_replycount"));
+			dto.setGoods_writetime(rs.getString("goods_writetime"));
+			dto.setGoods_title(rs.getString("goods_title"));
+			dto.setGoods_category(rs.getString("goods_category"));
+			dto.setGoods_content(rs.getString("goods_content"));
+			dto.setGoods_state(rs.getString("goods_state"));
+
+			list.add(dto);
+		}
+		con.close();
+		return list;
+		
+	}
+	
+	
+	//키워드 검색(관심상품) 글개수 구하기
+	
+	public int getCount(String keyword_search) throws Exception {
+		Connection con = getConnection();
+
+//		String sql = "select count(*) from goods";
+//		String sql = "select count(*) from goods where "+type+"like '%'||?||'%'" ;
+		boolean isSearch = keyword_search !=null;
+
+		String sql = "select count(*) from goods";
+
+		if (isSearch) {
+			sql += " where goods_title like '%'||?||'%'order by goods_no desc";
+		}
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+	
+		if (isSearch) {
+			ps.setString(1, keyword_search);
+		}
+
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+
+		con.close();
+
+		return count;
+	}
+	
 }
