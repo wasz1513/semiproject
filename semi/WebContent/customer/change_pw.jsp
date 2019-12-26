@@ -5,18 +5,24 @@
 <jsp:include page = "/template/header.jsp"></jsp:include>
 
 
-<article class="w-40">
 
-	<form action ="change_pw.do" method="post">
-		
-		<h2>신규 비밀번호 입력</h2>
+
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/check_pw.css">
+
+<div class="check_pw_wrap">
+
+	<h2 class="checkpw_title">신규 비밀번호 입력</h2>	
+	<form action="change_pw.do" method ="post">	
 		<input type="password" name="customer_pw" required>
-		<input type="submit" value="확인">
-		
+		<input type="submit" value="확인">	
 	</form>
 
-</article>
+
+</div>
+        
+    
 
 
 
-<jsp:include page = "/template/header.jsp"></jsp:include>
+<jsp:include page = "/template/footer.jsp"></jsp:include>
