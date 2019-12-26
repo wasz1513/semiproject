@@ -12,6 +12,10 @@ function loadSlider(){
 		     delay:3000,
 	     },
 	     loop: true,
+	     pagination: {
+	         el: '.swiper-pagination',
+	         type: 'fraction',
+	     },
 	  });
 }
 </script>
@@ -23,6 +27,10 @@ function loadSlider(){
 }
 .swiper-slide-next > img {
 	opacity:1;
+}
+
+.swiper-pagination{
+	opacity:0.4;
 }
 
 </style>
@@ -37,6 +45,7 @@ function loadSlider(){
 				      <div class="swiper-slide"><img src="./image/banner03.png" ></div>		 
 				      <div class="swiper-slide"><img src="./image/banner04.png" ></div>	
 				    </div>
+				    <div class="swiper-pagination"></div>
 				</div>
 	</div>
 

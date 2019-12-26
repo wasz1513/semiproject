@@ -1,3 +1,5 @@
+<%@page import="semi.bean.InterestDto"%>
+<%@page import="semi.bean.InterestDao"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.GoodsFilesDao"%>
@@ -37,50 +39,58 @@
     	String keyword = request.getParameter("keyword");
   		
     	String keyword_search = request.getParameter("keyword_search");
-    	
+    	String key = request.getParameter("key");
     	boolean isSearch = type != null && keyword != null;
-    	boolean isSearch2= type == null && keyword != null;
+    	boolean isSearch2= type == null && keyword == null && key!=null;
     	
     	GoodsDao dao = new GoodsDao();
     	CustomerDao kdao = new CustomerDao();
-    	CustomerDto  kdto = new CustomerDto();
+    	CustomerDto kdto = new CustomerDto();
+    	CustomerDto forgetdto = new CustomerDto();
     	String customer_id = (String)request.getSession().getAttribute("customer_id");
-    	kdto = kdao.get(customer_id);
-    	
-   		 List<GoodsDto> list;
-   		 
-    	if(goods_category != null){
-    		list = dao.CategorySearch( goods_category, start, finish);
+    	if(customer_id !=null){
+    		kdto = kdao.get(customer_id);    		
     	}
-    	else if(isSearch){
+		
+    	//찜목록
+    	String my_id = request.getParameter("customer_id");
+		InterestDao intdao = new InterestDao();
+    	
+   		List<GoodsDto> list;
+	   	int count = 0;
+   		 
+    	if(goods_category != null && !isSearch && !isSearch2 && keyword_search==null){
+    		list = dao.CategorySearch( goods_category, start, finish);
+    		count = dao.categoryCount(goods_category);
+    	}
+    	else if(isSearch && !isSearch2){
     		list = dao.search(start , finish ,type , keyword);
+    		count = dao.getCount(type, keyword);
     	}
     	else if(isSearch2){
-    		list=dao.search(start, finish, keyword);
+    		list=dao.search(start, finish, key);
+    		count = dao.mainSearch(key);
     	}
     	else if(keyword_search != null){
     		list = dao.keywordsearch(keyword_search, start, finish);
-    	}
-    		
-    	else{
-    		list  = dao.getList(start , finish);
-    	}
-    	
-    	int count = 0;
-    	
-    	if(isSearch){
-    		count = dao.getCount(type , keyword);
-    	}else if(keyword_search != null){
     		count = dao.getCount(keyword_search);
     	}
+    	else if(my_id!=null){
+    		list = intdao.getList(my_id, start, finish);
+    		count = dao.interestCount(my_id);
+    	}
+    	else{
+    		list  = dao.getList(start , finish);
+    		count = dao.getCount();
+    	}
+    	
+    	
+    	
+
     	
     	
     
     	GoodsFilesDao fdao = new GoodsFilesDao();
-    	
-    	
-    	
-    	
     	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -88,6 +98,11 @@
 
 <link rel="stylesheet"  type="text/css"
     			href="<%=request.getContextPath()%>/css/font.css">
+    			
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     			
 <style >
 
@@ -107,6 +122,7 @@
 	float: left;
 	width: 25%;
 	padding: 10px;
+	height:400px;
 }
 
 .gallary>.gallary-item > a  img {
@@ -116,14 +132,23 @@
     cursor: pointer;
 }
 
- .gallary > .gallary-item >.gallary-text  h2{
+
+ .gallary > .gallary-item >.gallary-text p{
+>>>>>>> refs/remotes/origin/master
             word-break: break-all;
-        }
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+
+
+}
+
         
-        #p2{
-            color: #ff8041;
+#p2{
+   color: #ff8041;
             font-size: medium;
-        }
+}
         
            #p1{
             color: gray;
@@ -137,6 +162,18 @@
             font-size: x-large;
         }
         
+        
+        .btn-outline-primary {
+            border-color: #ff8041;
+            color: #ff8041;
+          
+        }
+
+        .btn-outline-primary:hover{
+            background-color: #ff8041;
+            border-color: #ff8041;
+            
+        }
         
         
 
@@ -158,6 +195,7 @@
 
 
 		<div align="center">
+	<%if(customer_id != null){ %>
 			<%if (isSearch) {%>
 			<h2>검색 결과 상품</h2>
 			<<h6> 관심상품 : 
@@ -177,14 +215,25 @@
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 			</h6>
-			
 			<%}%>
+<%} %>
+
+
+<%if(customer_id ==null){ %>
+<%if (isSearch) {%>
+			<h2 align="center">검색 결과 상품</h2>
+
+
+<%}else{ %>
+<h2 align="center">현재 인기 상품</h2>
+
+
+<%} %>
+<%} %>
+
+
 
 		</div>
-
-
-
-
 		<div class="gallary">
 			<%
 				for (GoodsDto dto : list) {
@@ -201,7 +250,13 @@
 						</p>
 						
 						<p id="p1">
-							 <%=kdto.getCustomer_address()%>
+						<%forgetdto = kdao.get(dto.getCustomer_id());
+						
+						%>
+
+							<%=forgetdto.getCustomer_basic_addressStr()%>
+
+<%-- 							<%= forgetdto %>  --%>
 						</p>
 						
 						<p id="p2">
@@ -223,27 +278,13 @@
 		</div>
 		
 		
-		<div align="center">
-			<a href="goods_write.jsp"> <input class="btn" type="button"
-				value="상품 등록하기">
+		<div align="right">
+			 <button type="button" class="btn btn-outline-primary" >상품등록</button>
 			</a>
 		</div>
 
 
 		<br>
-
-		<div align="right">
-
-			<form action="goods_list.jsp" method="get">
-
-				<select name="type" class="input-item">
-					<option value="goods_title">제목</option>
-					<option value="goods_category">카테고리</option>
-				</select> <input class="input-item" type="search" name="keyword"
-					placeholder="검색어" required> <input class="btn"
-					type="submit" value="검색">
-
-			</form>
 
 
 			<!-- 네비게이터 -->
@@ -255,6 +296,20 @@
 					<jsp:param name="pagesize" value="<%=pagesize%>" />
 				</jsp:include>
 			</div>
+			<br>
+		<div align="center">
+			<form action="goods_list.jsp" method="get">
+
+				<select name="type" class="input-item">
+					<option value="goods_title">제목</option>
+					<option value="goods_category">카테고리</option>
+				</select> <input class="input-item" type="search" name="keyword"
+					placeholder="검색어" required> <button>검색</button>
+					
+
+			</form>
+
+
 
 		</div>
 		<br>

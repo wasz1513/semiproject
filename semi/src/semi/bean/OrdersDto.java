@@ -1,20 +1,71 @@
 package semi.bean;
 
 public class OrdersDto {
-		private int orders_no; 
-		private String 	customer_id,
-									    orders_date,
-									    orders_goods_title,
-									    orders_goods_seller,
-									    orders_type	,
-									    orders_post,
-										orders_basic_address,
-										orders_extra_address,
-										orders_payment;
+		private int orders_no; //주문번호(주문일자_주문자번호_상품번호)
+		private int goods_no;
+		private int customer_no;
+		private int customer_point;
+		private String customer_id;//구매자
+		private String orders_date;//구매일
+		private String orders_goods_title;//구매 상품명
+		private String orders_goods_seller;//판매자
+		private String orders_type;//구매 방법(배송/직거래)
+		private String orders_post;//구매자 우편번호
+		private String orders_basic_address;//구매자 기본주소
+		private String orders_extra_address;//구매자 상세주소
+		private String orders_payment;//구매 방법('신용카드','실시간 계좌이체','무통장 입금','만나서 결제')
+		private int orders_amount;//구매금액
+		private String orders_goods_buyer;
 		
 		
-		public OrdersDto() {
-			super();
+		
+		public String getOrders_goods_buyer() {
+			return orders_goods_buyer;
+		}
+
+
+		public void setOrders_goods_buyer(String orders_goods_buyer) {
+			this.orders_goods_buyer = orders_goods_buyer;
+		}
+
+
+		public int getGoods_no() {
+			return goods_no;
+		}
+
+
+		public void setGoods_no(int goods_no) {
+			this.goods_no = goods_no;
+		}
+
+
+		public int getCustomer_point() {
+			return customer_point;
+		}
+
+
+		public void setCustomer_point(int customer_point) {
+			this.customer_point = customer_point;
+		}
+
+
+		public int getCustomer_no() {
+			return customer_no;
+		}
+
+
+		public void setCustomer_no(int customer_no) {
+			this.customer_no = customer_no;
+		}
+
+
+		public int getOrders_amount() {
+			return orders_amount;
+		}
+
+
+		public void setOrders_amount(int orders_amount) {
+			this.orders_amount = orders_amount;
 		}
 
 

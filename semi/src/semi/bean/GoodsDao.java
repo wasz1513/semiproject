@@ -57,17 +57,15 @@ public class GoodsDao {
 		return seq;
 	}
 
-//단일 조회
+	//단일 조회
 	public GoodsDto get(int goods_no) throws Exception {
 		Connection con = getConnection();
-
 		String sql = "select * from goods where goods_no=? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, goods_no);
-
 		ResultSet rs = ps.executeQuery();
+		GoodsDto dto;
 
-		GoodsDto dto = new GoodsDto();
 		if (rs.next()) {
 			int goods_no2 = rs.getInt("goods_no");
 			String goods_title = rs.getString("goods_title");
@@ -90,7 +88,7 @@ public class GoodsDao {
 		return dto;
 	}
 
-//상품 등록 조회수 증가
+	//상품 등록 조회수 증가
 	public void readcountupdate(int goods_no) throws Exception {
 		Connection con = getConnection();
 		String sql = "update goods set goods_readcount = goods_readcount+1 where goods_no = ?";
@@ -100,7 +98,6 @@ public class GoodsDao {
 		con.close();
 	}
 	// 상품 등록삭제
-
 	public void goods_delete(int goods_no) throws Exception {
 
 		Connection con = getConnection();
@@ -112,7 +109,7 @@ public class GoodsDao {
 
 	}
 
-//상품등록 수정
+	//상품등록 수정
 	public void goods_edit(GoodsDto dto) throws Exception {
 		Connection con = getConnection();
 		String sql = "update goods set goods_category=?, goods_title=?, goods_price=?, goods_content=? where goods_no=?";
@@ -128,23 +125,17 @@ public class GoodsDao {
 
 	}
 	// 기본목록(인기게시글)
-
 	public List<GoodsDto> getList(int start, int finish) throws Exception {
 		Connection con = getConnection();
-
 		String sql = "select * from(" + "select rownum rn, J.* from("
-				+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC" + ")J"
+				+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC)J"
 				+ ")where rn between ? and ? ";
-
 		PreparedStatement ps = con.prepareStatement(sql);
-
 		ps.setInt(1, start);
 		ps.setInt(2, finish);
 		ResultSet rs = ps.executeQuery();
-
 		// 변환
 		List<GoodsDto> list = new ArrayList<>();
-
 		while (rs.next()) {
 			GoodsDto dto = new GoodsDto();
 			dto.setRn(rs.getInt("rn"));
@@ -158,7 +149,6 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
-
 			list.add(dto);
 		}
 
@@ -212,10 +202,6 @@ public class GoodsDao {
 	// 하나의 키워드로 상품제목, 내용, 회원 주소를 검색하여 상품 리스트를 출력하는 것.
 	public List<GoodsDto> search(int start, int finish, String keyword) throws Exception {
 		Connection con = getConnection();
-		// String sql = "select a.* from (select * from goods g join customer c on
-		// g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or
-		// goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'
-		// order by goods_no desc";
 		String sql = "select * from (select rownum rn, a.* from (select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc) where rn between ? and ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -246,31 +232,22 @@ public class GoodsDao {
 		return list;
 	}
 
-	// 글 개수 구하기
+	// 게시글 검색 글 개수 구하기
 	public int getCount(String type, String keyword) throws Exception {
 		Connection con = getConnection();
-
-//		String sql = "select count(*) from goods";
-//		String sql = "select count(*) from goods where "+type+"like '%'||?||'%'" ;
 		boolean isSearch = type != null && keyword != null;
-
 		String sql = "select count(*) from goods";
-
 		if (isSearch) {
 			sql += " where " + type + " like '%'||?||'%'order by goods_no desc";
 		}
-
 		PreparedStatement ps = con.prepareStatement(sql);
 		if (isSearch) {
 			ps.setString(1, keyword);
 		}
-
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 		int count = rs.getInt(1);
-
 		con.close();
-
 		return count;
 	}
 
@@ -367,6 +344,8 @@ public class GoodsDao {
 	}
 	
 	
+	
+	
 	//키워드 검색(관심상품) 글개수 구하기
 	
 	public int getCount(String keyword_search) throws Exception {
@@ -394,6 +373,59 @@ public class GoodsDao {
 
 		con.close();
 
+		return count;
+	}
+	
+	//전체글개수
+	public int getCount() throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from goods";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//카테고리검색 글개수
+	public int categoryCount(String goods_category) throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from goods where goods_category=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, goods_category);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//메인검색창검색 글개수
+	public int mainSearch(String key) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from goods g join customer c on g.customer_id=c.customer_id where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, key);
+		ps.setString(2, key);
+		ps.setString(3, key);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//찜 글개수
+	public int interestCount(String customer_id) throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from interest where customer_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
 		return count;
 	}
 	
