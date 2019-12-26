@@ -106,10 +106,10 @@ href="<%=request.getContextPath()%>/css/goods.css">
 </script>
         
         
-<article class="goods_contents_wrap">
+<article>
 
 
-        <div class="row">
+        <div class="row goods_contents_wrap">
             <h2>상품 등록</h2>
             <form action="goods_write.do" method="post"
                 enctype="multipart/form-data">

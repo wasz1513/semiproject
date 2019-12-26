@@ -142,7 +142,7 @@ margin-right:90px;
             border: 1px solid #ccc;
         }
 
-        .button input[type="submit"]{
+        .goods_button input[type="submit"]{
             width:160px;
             height: 36px;
             background-color: #fff;
@@ -151,7 +151,7 @@ margin-right:90px;
      
         }
         
-        .button input[type="button"]{
+        .goods_button input[type="button"]{
             width:160px;
             height: 36px;
             background-color: #fff;
@@ -160,13 +160,13 @@ margin-right:90px;
          margin-left: 500;
         }
         
-        .button input[type="submit"]:hover{
+        .goods_button input[type="submit"]:hover{
             color: #fff;
             background-color: #FF8041;
             cursor: pointer;
         }
         
-        .button input[type="button"]:hover{
+        .goods_button input[type="button"]:hover{
             color: #fff;
             background-color: #666;
             cursor: pointer;
