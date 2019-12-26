@@ -124,7 +124,7 @@
 			<label for="show-<%=dto.getBoard_NO()%>" class="help-list">
 
 				<div>
-				유형 : <%= dto.getHead() %>
+				유형 : [<%= dto.getHead() %>]
 				</div>
 				<div>
 				날짜  : <%= dto.getHdate() %>

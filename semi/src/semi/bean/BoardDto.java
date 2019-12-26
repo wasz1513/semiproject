@@ -2,7 +2,6 @@ package semi.bean;
 
 	public class BoardDto{
 	
-	
 	private int no, rn;
 	private String head;
 	private String title;

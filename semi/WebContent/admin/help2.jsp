@@ -7,9 +7,29 @@
 	pageEncoding="UTF-8"%>
 
 
-<jsp:include page="/template/header.jsp"></jsp:include>
 
-<%
+
+<%  
+		 //페이징추가
+		int pno;
+		try{
+			pno=Integer.parseInt(request.getParameter("pno"));
+			if(pno<=0) throw new Exception();			
+		}
+		catch(Exception e){
+			pno=1;
+		}
+
+		//페이지 크기
+		int pagesize=10;
+		
+		int finish =pno*pagesize;
+		int start =finish-(pagesize-1);
+		
+		String type=request.getParameter("type");
+		String keyword =request.getParameter("keyword");
+		
+		boolean isSearch = type != null && keyword != null;
 	
 	
 	
@@ -17,9 +37,38 @@
 
 	//dao가져오기  관리자 목록
 	HelpDao dao = new HelpDao();
-	List<HelpDto> list = dao.getAdminList();
+	//List<HelpDto>list= 목록 or 검색
+	List<HelpDto> list;
+	if(isSearch){
+		list=dao.search(type, keyword, start, finish);
+	}
+	else{
+		list= dao.getAdminList(start,finish);
+	}//나중에 뒤에 매개변수 start,finish 추가
+	
 	HelpfilesDao fdao = new HelpfilesDao();
+	
+	
+	
+	///하단 네비게이터 계산하기
+	//시작블록 = (현페=1/1)  10*10+1
+	int count=dao.getCount(type,keyword);
+	int navsize=10;
+	int pagecount=(count+pagesize)/pagesize;
+	
+	int startBlock =(pno-1)/navsize*navsize+1;
+	int finishBlock =startBlock+(navsize-1);
+	
+	//
+	if(finishBlock>pagecount){
+		finishBlock=pagecount;
+	}
+	
 %>
+
+<jsp:include page="/template/header.jsp"></jsp:include>
+
+
 
 <title>신고/문의하기</title>
 
@@ -162,10 +211,40 @@
 		
 		
 	</div>
-
-		<h4>[이전] 1 2 3 4 5 6 7 8 9 10 [다음]</h4>
+	
+	
+			<!-- 네비게이터 ***************************-->
+		<h4>
+		<%if(startBlock > 1){ %>
+			<%if(isSearch){ %>
+				<a href="help2.jsp?type=<%=type%>&keyword=<%=keyword%>&pno=<%=startBlock - 1%>">[이전]</a>  
+			<%}else{ %>
+				<a href="help2.jsp?pno=<%=startBlock - 1%>">[이전]</a>
+			<%} %>
+		<%} %>
 		
-		<form action ="help.jsp" method="get">
+		<%for(int i=startBlock; i <= finishBlock; i++){ %>
+			<%if(i == pno){ %>
+				<%=i%>
+			<%}else{ %>
+				<%if(isSearch){ %>
+					<a href="help2.jsp?type=<%=type%>&keyword=<%=keyword%>&pno=<%=i%>"><%=i%></a>
+				<%}else{ %>
+					<a href="help2.jsp?pno=<%=i%>"><%=i%></a>
+				<%} %>
+			<%} %>
+		<%} %>
+		
+		<%if(finishBlock < pagecount){ %>
+			<%if(isSearch){ %>
+				<a href="help2.jsp?type=<%=type%>&keyword=<%=keyword%>&pno=<%=finishBlock + 1%>">[다음]</a>
+			<%}else{ %>
+				<a href="help2.jsp?pno=<%=finishBlock + 1%>">[다음]</a>
+			<%} %>
+		<%} %>
+		</h4>
+		
+		<form action ="help2.jsp" method="get">
 		
 		<select name="type">
 		<option vlaue="write">작성자</option>
@@ -178,6 +257,10 @@
 		
 		</form>
 		<br><br>
+	<h5>pno = <%=pno%>, type = <%=type%>, keyword = <%=keyword%></h5>
+	<h5>pagecount = <%=pagecount%>, pagesize = <%=pagesize%></h5>
+	<h5>start = <%=start%>, finish = <%=finish%></h5>
+	<h5>startBlock = <%=startBlock%>, finishBlock = <%=finishBlock%></h5>
 		
 		
 		
