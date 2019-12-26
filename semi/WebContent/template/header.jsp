@@ -30,7 +30,9 @@
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
-href="<%=request.getContextPath()%>/css/board_list.css">
+href="<%=request.getContextPath()%>/css/footer.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/gallary.css">
 
 
 <title>당근나라</title>
@@ -102,9 +104,15 @@ header, footer, article {
 
 
 </head>
+<<<<<<< HEAD
+
+<body onload="loadSlider();">
+
+=======
 
 <body test onload="loadSlider();">
 
+>>>>>>> refs/remotes/origin/master
 
 	<!-- 	메인페이지 -->
 	<main>
@@ -249,7 +257,7 @@ header, footer, article {
 					<li><a href="#">키워드입력</a></li>
 					<li><a href="#">위치수정</a></li>
 					<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-					<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>                			
+					<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>                			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 				</ul>
 			</div>
@@ -261,8 +269,13 @@ header, footer, article {
 			</a>
 			<div class="topmenu_sub cart">
 				<ul class="sub_drop">
+<<<<<<< HEAD
+						<li><a href="#">키워드</a></li>
+						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+=======
 						<li>키워드</li>
 						<li>찜상품</li>
+>>>>>>> refs/remotes/origin/master
 				</ul>
 			</div>
 		</li>
