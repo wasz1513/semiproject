@@ -97,7 +97,7 @@ header, footer, article {
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
 			</a>
 	</div>
-<<<<<<< HEAD
+
 <!-- 				검색창 -->
 				<div class="search">	
 					<form action="<%=request.getContextPath() %>/goods/goods_list.jsp" method="get">
@@ -120,12 +120,9 @@ header, footer, article {
 			                <li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
       				  	</ul>
 					</div>
-=======
 
 <!-- 				검색창 -->
->>>>>>> refs/remotes/origin/master
 
-<<<<<<< HEAD
 					<%
 						} else {
 					%>
@@ -167,8 +164,7 @@ header, footer, article {
 						</ul>
 					</div>
 				</div>
-=======
->>>>>>> refs/remotes/origin/master
+
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
@@ -207,12 +203,7 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 
 				</ul>
-<<<<<<< HEAD
 
-=======
-
-
->>>>>>> refs/remotes/origin/master
 			</div>
 
 
@@ -261,7 +252,6 @@ header, footer, article {
 </div>
 <!-- 			카테고리 / 인기검색어 -->
 <div class="gnb_wrap">
-<<<<<<< HEAD
 		<div class="category">
 					<a href="#">카테고리</a>
 						<ul class="gnb">
@@ -285,7 +275,6 @@ header, footer, article {
 								href="<%=context%>/goods/goods_list.jsp?goods_category=생활">생활/건강</a></li>
 							<li><a
 								href="<%=context%>/goods/goods_list.jsp?goods_category=여행">여행/문화</a></li>
-=======
 		<ul class="category">
 					<li class="depth1">
 						<a href="#"><img src="<%=request.getContextPath()%>/image/menu.png">
