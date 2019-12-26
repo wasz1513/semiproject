@@ -19,7 +19,6 @@
 	HelpDao dao = new HelpDao();
 	List<HelpDto> list = dao.getList(write);
 	HelpfilesDao fdao = new HelpfilesDao();
-	
 
 %>
 
