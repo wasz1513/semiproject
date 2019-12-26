@@ -1,5 +1,5 @@
-<%@page import="semi.bean.HelpReplyDao"%>
-<%@page import="semi.bean.HelpReplyDto"%>
+<%@page import="semi.bean.HelpreplyDto"%>
+<%@page import="semi.bean.HelpreplyDao"%>
 <%@page import="semi.bean.HelpfilesDto"%>
 <%@page import="semi.bean.HelpfilesDao"%>
 <%@page import="semi.bean.HelpDto"%>
@@ -21,8 +21,8 @@
 	List<HelpDto> list = dao.getList(write);
 	HelpfilesDao fdao = new HelpfilesDao();
 	
-	HelpReplyDao rdao = new HelpReplyDao();
-	List<HelpReplyDto> rlist = rdao.getList(origin);
+	HelpreplyDao rdao = new HelpreplyDao();
+	List<HelpreplyDto> rlist = rdao.getList(origin);
 %>
 
 <title>신고/문의하기</title>
