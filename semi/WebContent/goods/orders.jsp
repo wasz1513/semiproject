@@ -9,7 +9,12 @@
     
 <%
 	String id = (String)session.getAttribute("customer_id");
-	int goods_no=Integer.parseInt(request.getParameter("goods_no"));
+	int goods_no;
+	if(request.getParameter("goods_no")==null){
+		goods_no=0;
+	}else{
+		goods_no=Integer.parseInt(request.getParameter("goods_no"));
+	}
 	CustomerDao cdao = new CustomerDao();
 	CustomerDto cdto = cdao.get(id);
 	int customer_no=cdto.getCustomer_no();
@@ -114,25 +119,31 @@ function point_use(){
 	</div>
 	
 	<!-- 구매할 상품 정보 -->
-<form action="" method="get">
+<form action="orders.do" method="get">
+<input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
+<input type="hidden" name="customer_point" value="<%=cdto.getCustomer_point() %>">
+<input type="hidden" name="final_amount" value="<%=gdto.getGoods_price()-cdto.getCustomer_point() %>">
+<input type="hidden" name="orders_goods_title" value="<%=gdto.getGoods_title()%>">
+<input type="hidden" name="orders_goods_seller" value="<%=gdto.getCustomer_id() %>">
+<input type="hidden" name="goods_no" value="<%=gdto.getGoods_no() %>">
 	<div>
 		<div>배송지 정보<br>
-			직거래<input type="radio" name="order_method" value="direct" required>
-			Escrow 결제(중계)<input type="radio" name="order_method" value="escrow" required>
+			직거래<input type="radio" name="orders_type" value="직거래" required>
+			Escrow 결제(중계)<input type="radio" name="orders_type" value="배송" required>
 			<div>
 				<ul>
 				<li>
 					<label>우편번호</label>
-					<input type="text" name="customer_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly" required>
+					<input type="text" name="orders_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly" required>
 					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" required>
 				</li>
 				<li>
 					<label>기본주소</label>
-					<input type="text" name="customer_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly" required>
+					<input type="text" name="orders_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly" required>
 				</li>
 				<li>
 					<label>상세주소</label>
-					<input type="text" name="customer_extra_address" id="sample6_detailAddress" placeholder="상세주소" required>
+					<input type="text" name="orders_extra_address" id="sample6_detailAddress" placeholder="상세주소" required>
 					<input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly" required>
 				</li>		
 				</ul>		
@@ -140,13 +151,13 @@ function point_use(){
 		</div>
 		<div>결제 방법<br>
 			<label>신용카드</label>
-				<input type="radio" name="buy_method" value="신용카드" required>
+				<input type="radio" name="orders_payment" value="신용카드" required>
 			<label>실시간 계좌이체</label>
-				<input type="radio" name="buy_method" value="계좌이체" required>
+				<input type="radio" name="orders_payment" value="실시간 계좌이체" required>
 			<label>무통장 입금</label>
-				<input type="radio" name="buy_method" value="무통장" required>
+				<input type="radio" name="orders_payment" value="무통장 입금" required>
 			<label>만나서 결제</label>
-				<input type="radio" name="buy_method" value="직거래" required>
+				<input type="radio" name="orders_payment" value="만나서 결제" required>
 		</div>
 		
 		<div>사용할 포인트 정보<br>

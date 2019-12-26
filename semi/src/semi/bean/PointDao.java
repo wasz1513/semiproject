@@ -83,13 +83,34 @@ public class PointDao {
 		return list;
 	}
 	//특정 회원의 전체 포인드 히스토리
-	public PointDto get(int customer_no) throws Exception{
+	public List<PointDto> get(int customer_no) throws Exception{
 		Connection con = getConnection();
 		String sql="select * from point where customer=? order by point_no desc";//point table의 customer
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, customer_no);
 		ResultSet rs = ps.executeQuery();
-		PointDto dto = null; 
+		List<PointDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PointDto dto = new PointDto();
+			dto.setPoint_no(rs.getInt("point_no"));
+			dto.setPoint_save(rs.getInt("point_save"));
+			dto.setPoint_save_date(rs.getString("point_save_date"));
+			dto.setPoint_save_details(rs.getString("point_save_details"));
+			dto.setPoint_use(rs.getInt("point_use"));
+			dto.setPoint_use_date(rs.getString("point_use_date"));
+			dto.setPoint_use_details(rs.getString("point_use_details"));
+			list.add(dto);
+		}	
+		con.close();
+		return list;
+	}
+	public PointDto getPoint(int customer_no) throws Exception{
+		Connection con = getConnection();
+		String sql="select * from point where customer=? order by point_no desc";//point table의 customer
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, customer_no);
+		ResultSet rs = ps.executeQuery();
+		PointDto dto = null;
 		if(rs.next()) {
 			dto = new PointDto();
 			dto.setPoint_no(rs.getInt("point_no"));
