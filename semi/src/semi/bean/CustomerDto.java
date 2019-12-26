@@ -212,7 +212,7 @@ public class CustomerDto {
 	public String getCustomer_extra_addressStr() {
 
 		if (customer_extra_address == null)
-			return "";
+			return " ";
 		else
 			return customer_extra_address;
 	}
