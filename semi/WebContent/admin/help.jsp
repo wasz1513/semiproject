@@ -1,5 +1,4 @@
-<%@page import="semi.bean.HelpreplyDto"%>
-<%@page import="semi.bean.HelpreplyDao"%>
+
 <%@page import="semi.bean.HelpfilesDto"%>
 <%@page import="semi.bean.HelpfilesDao"%>
 <%@page import="semi.bean.HelpDto"%>
