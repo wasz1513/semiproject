@@ -1,7 +1,3 @@
-<%@page import="semi.bean.CustomerDto"%>
-<%@page import="semi.bean.CustomerDao"%>
-<%@page import="semi.bean.CustomerFilesDto"%>
-<%@page import="semi.bean.CustomerFilesDao"%>
 <%@page import="semi.bean.InterestDao"%>
 <%@page import="semi.bean.GoodsReplyDao"%>
 <%@page import="semi.bean.GoodsReplyDto"%>
@@ -55,135 +51,34 @@
 	//좋아요 확인
 	InterestDao interestdao = new InterestDao();
 	boolean interest = interestdao.check(session_id, goods_no);
-	
-	//작성자 프로필사진
-	int customer_files_no = goodsdao.getCustomer_files_no(goods_no);
-	
-			
-	//작성자 주소
-
-	
-	
 %>
 
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-	<style>
-	.big{
-	 width: 900px;
-	 height: 1000px;
-	}
-		
-		.Detail {
-			font-size:x-large;
-		}
-	.cate {
-	color: gray;
-	}
-	
-	.title{
-		padding: 50px
-	}
-	.imagetr{
-	height: 200px;
-	}
-	
-	.mannerline{
-	padding: 10px;
-	}
-	
-	.profile-image{
-	display: inline-block;
-	}
-	.big-profile-cutomer{
-	display: inline-block;
-	}
-	
-	
-	.profile-cutomer{
-		font-size: 15px;
-		font-weight: 600;
-		line-height: 1.5;
-    	letter-spacing: -0.6px;
-    	color: #212529;
-		
-	}
-	
-	
-	.addr-customer{
-	font-size: 13px;
-    line-height: 1.46;
-    letter-spacing: -0.6px;
-    color: #212529;
-	}
-	
-	</style>
-
-
-
-
-
-<article class="big">
 <div align="center">
-	<h2 class="title">상품등록 상세보기</h2>
+	<h2>상품등록 상세보기</h2>
 
 
-	<div border="1" width="70%">
-		
-		<table>
-		<tr class="imagetr">
-		
-			<td class="#" valign="top" align="center" >
-				<%for (GoodsFilesDto gfdto : flist) {%>
-			<img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="440" height="440">
-				<%} %>
-			</td>
-			
-		</tr>
-</table>
 
-	<div class="mannerline" >
-		<div>
-			<a class="profile-image">
-			<%if (customer_files_no>0) {%>
-			<img src="<%=request.getContextPath()%>/customer/download.do?no=<%=customer_files_no%>" width="30" height="30">
-			<%}else{ %>
-			<img src="http://placehoid.it/100x100">
-			<%} %>
-			</a>
-			<div class="big-profile-cutomer">
-			<div class="profile-cutomer  align="left"><%=goodsdto.getCustomer_id()%></div>
-			<div class="addr-customer">
-						
-					
-   
-		</div>
-		</div>
-			<div align="right"> <img src="../image/매너온도.png" width="40" height="40">매너온도 36.5˚C</div>
-		<hr width="900">
-		
-	
-			
-			<div class="Detail" align="center">
+	<table border="1" width="70%">
 		<tr>
-			<td><h1 align="left"><%=goodsdto.getGoods_title()%></h1></td>
-			<td><h6 class="cate" align="left"><%=goodsdto.getGoods_category() %></h6></td>
-		</tr>
-	
-		
-		
-		<p align="left">
-			<%=goodsdto.getGoods_content()%>
-			</p>
-			</div>
 
-				<!-- 				첨부파일이미지 찍기 --> 
-	
-		
-		<table border="1" wid>	
-	<%if (flist.size() > 0) {%> 
- <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+			<td><%=goodsdto.getGoods_title()%></td>
+		</tr>
+		<tr>
+
+			<td>작성자<%=goodsdto.getCustomer_id()%></td>
+		</tr>
+		<tr height="200">
+			<td valign="top"><%=goodsdto.getGoods_content()%></td>
+		</tr>
+
+		<tr>
+			<td>
+				<!-- 				첨부파일이미지 찍기 --> <%
+ 	if (flist.size() > 0) {
+ %> <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		<tr>
 			<td>
 				<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
@@ -194,9 +89,9 @@
 					%>
 					<li>
 						<!-- 미리보기 출력 --> <img
-						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80" height="50"> 
-						<%=gfdto.getUploadname()%> (<%=gfdto.getFilesize()%>bytes)
-						 <a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
+						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80"
+						height="50"> <%=gfdto.getUploadname()%> (<%=gfdto.getFilesize()%>
+						bytes) <a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
 							<img src="../image/download.png" width="15" height="15">
 					</a>
 					</li>
@@ -211,10 +106,6 @@
 			}
 		%>
 		<!-- 댓글 수 조회수 출력줄 -->
-		</table>
-		
-		
-		
 		<tr>
 
 			<td>댓글수<%=goodsdto.getGoods_replycount()%> 조회수<%=goodsdto.getGoods_readcount()%>
@@ -249,7 +140,7 @@
 								<a href="goods_content.jsp?goods_no=<%=goodsdto.getGoods_no()%>&goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>">수정</a>
 								<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>
 							<% } %> 
-						
+							<br> <br> 
 							<% if (goodsreplydto.getGoods_reply_no() == goods_reply_no) { %>
 								<form action="goods_reply_edit.do" method="post">
 									<input type="hidden" name="goods_no" value="<%=goodsdto.getGoods_no()%>"> 
@@ -263,7 +154,7 @@
 							</td>
 					<% } %>
 					</tr>
-				</div>
+				</table>
 
 
 
@@ -319,7 +210,7 @@
 </div>
 
 
-</article>
+
 
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

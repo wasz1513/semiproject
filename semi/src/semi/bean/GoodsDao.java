@@ -374,4 +374,27 @@ public class GoodsDao {
 		return count;
 	}
 	
+	public int getCustomer_files_no(int goods_no) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from customer_goods where goods_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, goods_no);
+		ResultSet rs = ps.executeQuery();
+		int customer_files_no = 0;		
+		if(rs.next()) {
+			int customer_no = rs.getInt("customer_no");			
+			String sql2 = "select * from customer_files where origin=?";
+			PreparedStatement ps2 = con.prepareStatement(sql2);
+			ps2.setInt(1, customer_no);
+			ResultSet rs2 = ps2.executeQuery();
+			if(rs2.next()) {
+				customer_files_no = rs2.getInt("customer_files_no");			
+			}else {
+				customer_files_no = 0;
+			}
+		}
+		
+		con.close();
+		return customer_files_no;
+	}
 }

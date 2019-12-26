@@ -6,6 +6,12 @@ article {
 }
 </style>
 
+<%
+	String customer_id = (String)request.getSession().getAttribute("customer_id");
+
+
+%>
+
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <article>
@@ -15,6 +21,7 @@ article {
 		<h2>상품 등록</h2>
 		<form action="goods_write.do" method="post"
 			enctype="multipart/form-data">
+			<input type=hidden name="customer_id" value=<%=customer_id %>>
 			<table border="1" width="70%">
 				<tr>
 					<th>카테고리</th>
