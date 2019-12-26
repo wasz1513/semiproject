@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+
+.info_wrap{
+    position:relative; 
+	width:800px; 
+	margin:0 auto;
+}
+
+#header{
+	width:800px;
+    margin-top: 80px;
+    border-bottom: 2px solid #666;
+}
+
+.info_title{
+	margin-top:50px;
+	width:100%;
+	color:#03B855;
+	font-size:34px;
+    font-weight: bold;
+    padding-bottom: 40px;
+}
+.info_title > .subname{
+	margin-top:50px;
+	width:100%;
+	color:#333;
+    font-weight: bold;
+    padding-bottom: 40px;
+	}
+
+.info_table{
+    width: 800px;
+}
+
+.info_wrap .info_table tr th{
+    text-align: left;
+    width: 200px;
+    padding-left:20px;
+    
+}
+
+.info_table tr:first-child th,
+.info_table tr:first-child td{
+    border: none;
+}
+
+.info_table tr th,
+.info_table tr td{
+    padding:15px 0;
+    height: auto;
+    border-top: 1px solid #eee;
+    border-bottom: none;
+}
+
+.info_bottom{
+    border-top: 1px solid #eee;
+    padding-top: 40px;
+}
+
+.info_bottom li{
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.info_btn{
+    display: block;
+    text-align: right;
+    margin-top: 60px;
+    margin-bottom: 120px;
+
+}
+
+
+  
+.info_btn input[type="submit"]{
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor:pointer;
+ 
+}
+.info_btn .change_password,
+.info_btn .sellproduct{
+    background-color: #fff;
+    border: 1px solid #666;
+}
+
+.info_btn .change_info{
+    background-color: #ff8041;
+    border: 1px solid #ff8041;
+    color: #fff
+}
+
+.info_btn .withdraw{
+    background-color: #444;
+    border: none;
+    color: #fff;
+    
+}

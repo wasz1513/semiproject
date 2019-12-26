@@ -95,6 +95,8 @@
 
 /*로그인, 마이페이지 */
 
+
+
 .topmenu_wrap{
 	display: block;
 	position: absolute;
@@ -114,6 +116,9 @@
 	position: absolute;
 }
 
+.topmenu{
+	height:22px;
+}
 
 .topmenu >  li{
 			display: inline-block;
@@ -124,6 +129,7 @@
 
 .topmenu img{
 	height: 20px;
+	vertical-align: middle;
 }
 
 .topmenu .topmenu_sub{
@@ -159,6 +165,10 @@
 			overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+}
+
+.topmenu  .productadd img{
+			
 }
 
 .topmenu .topmenu_sub .sub_drop li{
