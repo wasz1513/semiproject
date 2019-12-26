@@ -18,14 +18,11 @@
 <!-- <link rel="stylesheet" type="text/css" -->
 <%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
 
+
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/rayout.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/indexlist.css">
+	href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/swiper.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/input.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/admin.css">
 <link rel="stylesheet" type="text/css"
@@ -34,6 +31,10 @@ href="<%=request.getContextPath()%>/css/header.css">
 href="<%=request.getContextPath()%>/css/footer.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/boardlist.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/info.css">
+
+
 
 
 <title>당근나라</title>	
@@ -128,17 +129,15 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
 		</div>
+
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/info.jsp">마이페이지</a></li>
-					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		
 					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>
 					<li><a href="#">키워드입력</a></li>
-					<li><a href="#">위치수정</a></li>
-					<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-					<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>                			
+					<li><a href="#">위치수정</a></li>              			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 				</ul>
 			</div>
