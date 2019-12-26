@@ -176,7 +176,7 @@
 
 
 		<div align="center">
-	
+	<%if(kdto.getKeyword_first() != null ){ %>
 			<%if (isSearch) {%>
 			<h2>검색 결과 상품</h2>
 			<<h6> 관심상품 : 
@@ -197,15 +197,11 @@
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 			</h6>
 			<%}%>
-
+<%} %>
 
 
 
 		</div>
-
-
-
-
 		<div class="gallary">
 			<%
 				for (GoodsDto dto : list) {

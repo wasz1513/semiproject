@@ -5,9 +5,9 @@
     pageEncoding="UTF-8"%>
 <% 
 //	페이지 크기
-int pagesize = 20;
+int pagesize = 12;
 //	네비게이터 크기
-int navsize = 10;
+int navsize = 3;
 //	페이징 추가
 int pno;
 try{
@@ -37,15 +37,25 @@ int count = dao.getCount(type, keyword);
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 	<div align="center">
-		
-		<h1>  N O T I C E  </h1>
-		<br><br>
+			
+			  <title>게시판 목록</title>
+    <link rel="stylesheet" href="board_list.css">
+    <br><br><br>
+    <div class="title">
+        <br><br><br>
+    <h2 align=center style="color:#444040">공지사항</h2>
+    <br>
+    <div class="search-box">
+        <input type="text" class="search-txt" name="" placeholder="제목 입력">
+        <button class="search-bt">검색</button>
+      </div>
+		 
+
 		 
 		<table border="1" width="45%">
 			<thead>		
 				<tr>
 					<th>NO</th>
-					<th>HEAD</th>
 					<th width="50%">TITLE</th>
 					<th>DATE</th>
 					<th>WRITER</th>
@@ -58,11 +68,7 @@ int count = dao.getCount(type, keyword);
 	                <tr>
 	                    <td><%=dto.getNo()%></td>
 	                    
-	                    <td>
-	                    <font color="Orange">
-	                    <%=dto.getHead()%>
-	                    </font>
-	                    </td>
+	                   
 	                    
 	                    <td>
 	                   	 	<a href="content.jsp?no=<%=dto.getNo()%>">
@@ -97,6 +103,8 @@ int count = dao.getCount(type, keyword);
    	    <jsp:param name="navisize"  value="<%=navsize %>" />
    	    <jsp:param name="pagesize" value="<%=pagesize %>" />
    	 </jsp:include>
+   	
+   	 
 	
 
 <form action="list.jsp" method="get">
@@ -109,7 +117,11 @@ int count = dao.getCount(type, keyword);
 <input type="submit" value="검색">
 </form>
 
-<br><br>
-		</div> 
+
+
+
+----------------------
+
+    
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
