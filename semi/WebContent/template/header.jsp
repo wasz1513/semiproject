@@ -69,7 +69,6 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
-
 }
 /* 	header{ */
 /*     background-color: #fff; */
