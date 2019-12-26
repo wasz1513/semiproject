@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 
+div,ul,  li, h1, h2, h3, h4, h5, h6, form, p, th, td{
+    margin:0;
+    padding: 0;
+}
+
 ul, li{
 		  list-style: none;
 		}
@@ -11,13 +16,14 @@ div{
 
 a{
 	text-decoration: none;
+	color:#222;
 }
 
 .header{
 	width:100%; 
 	position:relative; 
 	background:#fff; 
-	border-bottom:1px solid #ddd;
+	border-bottom:1px solid #eee;
 
 
 }
@@ -110,7 +116,7 @@ a{
 	display: block;
 	position: absolute;
 	right: 100px;
-	top: 26px;
+	top: 36px;
 	width: 300px;
 }
 
@@ -141,32 +147,37 @@ a{
 	position: absolute;
 	left: 0px;
 	top: 0;
+	margin-left:100px;
 	margin-top: 40px;
 	display: block;	
-	border: 1px solid #999999;
 	width: 160px;
 	height: auto;
 	background-color: #fff;
 	display: none;
-	z-index: 50;
+	z-index: 200;
 }
 
 .topmenu .topmenu_sub .sub_drop{
 	padding: 20px 16px 20px 16px;
 	text-align: left;
+	border: 1px solid #eee;
 }
 
-.topmenu > .login:hover >.my,
+.topmenu > .login:hover > .my,
 .topmenu > .mycart:hover > .cart{
 	display: block;
 }
 
+.null{
+	color:#fff;
+}
 
 .topmenu > li{
 			overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
 }
+
 .topmenu .topmenu_sub .sub_drop li{
 	display: block;
 	padding: 0;
@@ -199,17 +210,92 @@ a{
 	width:100%;
 	height:50px;
 	position: relative;
-	overflow:hidden;
+
 	background:#fff;
 	border-top: 1px solid #eee;
+	z-index:100;
 }
 
 .gnb_wrap .category{
 	width:1200px;
-	margin:auto;
+	margin:0 auto;
+	positon: relative;
+	padding:0;
 }
 
 
+
+.gnb_wrap > .category > .depth1{
+	
+    padding-left:34px; 
+    padding-right:34px; 
+    border-left:1px solid #eee; 
+    border-right:1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.gnb_wrap > .category > .depth1 img{
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+
+.gnb_wrap > .category li a {
+    position: relative;
+    display: block;
+}
+
+
+
+.gnb_wrap > .category > li > a {
+    padding: 12px 10px 12px 10px;
+    color: #222;
+}
+
+
+.gnb_wrap .category .depth1 .gnb_dropmenu{
+	margin:0;
+    display: inline-block;
+	padding: 0;
+	color: #222;
+	background: #fff;
+	padding-left:38px; 
+    padding-right:38px; 
+    border-left:1px solid #eee; 
+    border-right:1px solid #eee;
+    border-bottom: 1px solid #eee;
+	font-size: 16px;
+    line-height: 32px;
+    display: none;
+    z-index:500;
+    position:absolute;
+    margin-left:-35px;
+}
+
+.gnb_wrap .category .depth1 .gnb_dropmenu ul{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.gnb_wrap .category .depth1:hover > .gnb_dropmenu {
+    display: block;
+
+}
+
+.gnb_wrap .category .depth1 .gnb_dropmenu a{
+    color: #222;
+    line-height: 34px;
+}
+
+.gnb_wrap .category .depth1 .gnb_dropmenu a:hover{
+    color: #ff8041;
+    text-decoration: underline;
+}
+
+.gnb_wrap .category > li {
+    float:left;
+    padding-left:20px;
+}
 
 
 

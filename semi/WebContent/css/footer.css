@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+.footer_wrap{
+	height:200px;
+	background-color: #f5f5f5;
+}
+
+
+.footer_wrap .footer_con{
+	padding-top:40px;
+
+}
+
+.footer_wrap .footmenu a{
+	margin-right:16px;
+}
+
+.footer_con .logo_black img{
+	width: 160px;
+}
+
+
+
+
+
+
+
