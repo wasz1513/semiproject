@@ -33,14 +33,12 @@ href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
 <link rel="stylesheet" type="text/css"
-href="<%=request.getContextPath()%>/css/gallary.css">
-
+href="<%=request.getContextPath()%>/css/boardlist.css">
 
 <title>당근나라</title>
 
 
 <style>
-
 main {
 	width: 100%;
 	margin: auto;
@@ -48,29 +46,17 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
-
-
 </style>
-
-
-
 <%
 	String id = (String) session.getAttribute("customer_id");
 	boolean login = id != null;
 	String grade = (String) session.getAttribute("customer_grade");
 	boolean master = grade != null && grade.equals("관리자");
 %>
-
-
-
 </head>
-
 <body test onload="loadSlider();">
-
-
 	<!-- 	메인페이지 -->
 	<main>
-
 		<%
 			if (master) {
 		%>
@@ -134,10 +120,19 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
-
 				</ul>
 
-			</div>
+
+			<!-- 			카테고리 / 인기검색어 -->
+			<div class="row-multi col-2">
+				<div class="a">
+					<div class="menu-wrap">
+						<label for="custom-menu">카테고리</label> 
+						<input type="checkbox" id="custom-menu">
+
+						<ul class="custom-list">
+							<li><a
+								href="<%=context%>/goods/goods_list.jsp?goods_category=패션의류">패션의류</a></li>
 
 		<%} else {%>
 		<div class="null">ddd</div>
@@ -149,7 +144,7 @@ header, footer, article {
 					<li><a href="#">키워드입력</a></li>
 					<li><a href="#">위치수정</a></li>
 					<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-					<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>                			
+					<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>                			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 				</ul>
 			</div>
@@ -201,12 +196,7 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
 					</li>
-
 		</ul>
 </div>
-
-
 </header>
-
-
 <section>
