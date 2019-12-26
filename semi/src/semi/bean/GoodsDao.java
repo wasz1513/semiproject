@@ -232,7 +232,7 @@ public class GoodsDao {
 		return list;
 	}
 
-	// 글 개수 구하기
+	// 게시글 검색 글 개수 구하기
 	public int getCount(String type, String keyword) throws Exception {
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null;
@@ -344,6 +344,8 @@ public class GoodsDao {
 	}
 	
 	
+	
+	
 	//키워드 검색(관심상품) 글개수 구하기
 	
 	public int getCount(String keyword_search) throws Exception {
@@ -371,6 +373,59 @@ public class GoodsDao {
 
 		con.close();
 
+		return count;
+	}
+	
+	//전체글개수
+	public int getCount() throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from goods";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//카테고리검색 글개수
+	public int categoryCount(String goods_category) throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from goods where goods_category=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, goods_category);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//메인검색창검색 글개수
+	public int mainSearch(String key) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, key);
+		ps.setString(2, key);
+		ps.setString(3, key);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//찜 글개수
+	public int interestCount(String customer_id) throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from interest where customer_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
 		return count;
 	}
 	
