@@ -1,5 +1,6 @@
 @charset "UTF-8";
  <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+ 
  <style>
 
         .sun-editor{
@@ -43,15 +44,26 @@
         </script
 
 
+ div,ul,  li, h1, h2, h3, h4, h5, h6, form, p, th, td{
+    margin:0;
+    padding: 0;
+}
 
+ul, li{
+		  list-style: none;
+		}
 
-.goods_contents a{
+div{
+	display:block;
+	
+}
+
+a{
 	
 	text-decoration: none;
 	color:#222;
 }
-
-.goods_contents p{
+p{
 		text-align:left;
 		margin-left:190px;
     font-size: 15px;
@@ -60,7 +72,7 @@
 
 }
 
-    .goods_contents_wrap{
+    .contents_wrap{
  
         margin-top: 8px;
         margin-bottom: 20px ;
@@ -70,7 +82,7 @@
             padding: 10px;
     }
 
-    .goods_contents h2{
+    h2{
     margin-left:490px;
     text-align:center;
         font-size: 25px;
@@ -105,7 +117,7 @@ margin-right:90px;
         	width:60% !important;
         }
         
-   .goods_contents input[type="text"]{
+    input[type="text"]{
             width:60%;
              height: 40px;
       margin-right:90px;
@@ -114,7 +126,7 @@ margin-right:90px;
             line-height: inherit;
             border: 1px solid #ccc;
         }
-        .goods_contents input[type="file"]{
+        input[type="file"]{
             margin-bottom: 1px ;
             margin-right:90px;
             width:60%;
@@ -130,7 +142,7 @@ margin-right:90px;
             border: 1px solid #ccc;
         }
 
-        .goods_button input[type="submit"]{
+        .button input[type="submit"]{
             width:160px;
             height: 36px;
             background-color: #fff;
@@ -139,7 +151,7 @@ margin-right:90px;
      
         }
         
-        .goods_button input[type="button"]{
+        .button input[type="button"]{
             width:160px;
             height: 36px;
             background-color: #fff;
@@ -148,18 +160,16 @@ margin-right:90px;
          margin-left: 500;
         }
         
-        .goods_button input[type="submit"]:hover{
+        .button input[type="submit"]:hover{
             color: #fff;
             background-color: #FF8041;
             cursor: pointer;
         }
         
-        ..goods_button input[type="button"]:hover{
+        .button input[type="button"]:hover{
             color: #fff;
             background-color: #666;
             cursor: pointer;
         }
      
-
-
 
