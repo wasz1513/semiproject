@@ -78,10 +78,6 @@
     
     	GoodsFilesDao fdao = new GoodsFilesDao();
     	
-    	
-    	
-    	
-    	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
