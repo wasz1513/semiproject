@@ -17,6 +17,7 @@
 <meta charset="UTF-8">
 <!-- <link rel="stylesheet" type="text/css" -->
 <%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css"
@@ -29,6 +30,8 @@
 	href="<%=request.getContextPath()%>/css/admin.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/header.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/footer.css">
 
 <title>당근나라</title>
 
@@ -188,7 +191,7 @@ header, footer, article {
 					</div>
 					</li>
 					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
-					<img src ="">새로운 상품 보기</a>
+					새로운 상품 보기</a>
 					</li>
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
