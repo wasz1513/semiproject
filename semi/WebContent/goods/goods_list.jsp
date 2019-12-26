@@ -89,6 +89,11 @@
 <link rel="stylesheet"  type="text/css"
     			href="<%=request.getContextPath()%>/css/font.css">
     			
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    			
 <style >
 
 
@@ -107,6 +112,7 @@
 	float: left;
 	width: 25%;
 	padding: 10px;
+	height:400px;
 }
 
 .gallary>.gallary-item > a  img {
@@ -116,8 +122,11 @@
     cursor: pointer;
 }
 
- .gallary > .gallary-item >.gallary-text  h2{
+ .gallary > .gallary-item >.gallary-text  p{
             word-break: break-all;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         
         #p2{
@@ -137,6 +146,18 @@
             font-size: x-large;
         }
         
+        
+        .btn-outline-primary {
+            border-color: #ff8041;
+            color: #ff8041;
+          
+        }
+
+        .btn-outline-primary:hover{
+            background-color: #ff8041;
+            border-color: #ff8041;
+            
+        }
         
         
 
@@ -158,7 +179,7 @@
 
 
 		<div align="center">
-	<%if(kdto.getKeyword_first() != null ){ %>
+	<%if(customer_id != null){ %>
 			<%if (isSearch) {%>
 			<h2>검색 결과 상품</h2>
 			<<h6> 관심상품 : 
@@ -179,6 +200,19 @@
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 			</h6>
 			<%}%>
+<%} %>
+
+
+<%if(customer_id ==null){ %>
+<%if (isSearch) {%>
+			<h2 align="center">검색 결과 상품</h2>
+
+
+<%}else{ %>
+<h2 align="center">현재 인기 상품</h2>
+
+
+<%} %>
 <%} %>
 
 
@@ -207,7 +241,7 @@
 						<%forgetdto = kdao.get(dto.getCustomer_id());
 						
 						%>
-							<%=forgetdto.getCustomer_address()%>
+							<%=forgetdto.getCustomer_basic_addressStr()%>
 <%-- 							<%= forgetdto %>  --%>
 						</p>
 						
@@ -230,27 +264,13 @@
 		</div>
 		
 		
-		<div align="center">
-			<a href="goods_write.jsp"> <input class="btn" type="button"
-				value="상품 등록하기">
+		<div align="right">
+			 <button type="button" class="btn btn-outline-primary" >상품등록</button>
 			</a>
 		</div>
 
 
 		<br>
-
-		<div align="right">
-
-			<form action="goods_list.jsp" method="get">
-
-				<select name="type" class="input-item">
-					<option value="goods_title">제목</option>
-					<option value="goods_category">카테고리</option>
-				</select> <input class="input-item" type="search" name="keyword"
-					placeholder="검색어" required> <input class="btn"
-					type="submit" value="검색">
-
-			</form>
 
 
 			<!-- 네비게이터 -->
@@ -262,6 +282,20 @@
 					<jsp:param name="pagesize" value="<%=pagesize%>" />
 				</jsp:include>
 			</div>
+			<br>
+		<div align="center">
+			<form action="goods_list.jsp" method="get">
+
+				<select name="type" class="input-item">
+					<option value="goods_title">제목</option>
+					<option value="goods_category">카테고리</option>
+				</select> <input class="input-item" type="search" name="keyword"
+					placeholder="검색어" required> <button>검색</button>
+					
+
+			</form>
+
+
 
 		</div>
 		<br>
