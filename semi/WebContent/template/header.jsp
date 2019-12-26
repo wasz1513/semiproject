@@ -243,7 +243,7 @@ header, footer, article {
 			<div class="topmenu_sub cart">
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
-						<li><a href="#">찜상품</a></li>
+						<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
 				</ul>
 			</div>
 		</li>
