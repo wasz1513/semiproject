@@ -44,6 +44,7 @@ public class GoodsAuthorityCheckFilter implements Filter {
 				resp.sendError(403); // 권한 없음
 			}
 		} catch (Exception e) {
+
 			e.printStackTrace();
 			resp.sendError(500); // 오류
 		}

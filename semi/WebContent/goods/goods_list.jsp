@@ -39,9 +39,9 @@
     	String keyword = request.getParameter("keyword");
   		
     	String keyword_search = request.getParameter("keyword_search");
-    	
+    	String key = request.getParameter("key");
     	boolean isSearch = type != null && keyword != null;
-    	boolean isSearch2= type == null && keyword != null;
+    	boolean isSearch2= type == null && keyword == null && key!=null;
     	
     	GoodsDao dao = new GoodsDao();
     	CustomerDao kdao = new CustomerDao();
@@ -56,44 +56,34 @@
     	String my_id = request.getParameter("customer_id");
 		InterestDao intdao = new InterestDao();
     	
-   		 List<GoodsDto> list;
+   		List<GoodsDto> list;
+	   	int count = 0;
    		 
     	if(goods_category != null && !isSearch && !isSearch2 && keyword_search==null){
     		list = dao.CategorySearch( goods_category, start, finish);
+    		count = dao.categoryCount(goods_category);
     	}
     	else if(isSearch && !isSearch2){
     		list = dao.search(start , finish ,type , keyword);
+    		count = dao.getCount(type, keyword);
     	}
     	else if(isSearch2){
-    		list=dao.search(start, finish, keyword);
+    		list=dao.search(start, finish, key);
+    		count = dao.mainSearch(key);
     	}
     	else if(keyword_search != null){
     		list = dao.keywordsearch(keyword_search, start, finish);
+    		count = dao.getCount(keyword_search);
     	}
     	else if(my_id!=null){
     		list = intdao.getList(my_id, start, finish);
+    		count = dao.interestCount(my_id);
     	}
     	else{
     		list  = dao.getList(start , finish);
+    		count = dao.getCount();
     	}
-    	
-    	int count = 0;
-    	
-    	if(isSearch){
-    		count = dao.getCount(type , keyword);
-    	}else if(keyword_search != null){
-    		count = dao.getCount(keyword_search);
-    	}
-//     	else if(isSearch2){
-//     		count = dao.getCount();
-//     	}else if(my_id!=null){
-    		
-//     	}else{
-//     		count = dao.getCount
-//     	}
-    	
-    	
-    
+ 
     	GoodsFilesDao fdao = new GoodsFilesDao();
     	
     %> 
@@ -138,14 +128,10 @@
 
 
  .gallary > .gallary-item >.gallary-text p{
->>>>>>> refs/remotes/origin/master
             word-break: break-all;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-
-
-
 }
 
         
@@ -245,8 +231,8 @@
 				<div class="gallary-item">
 
 		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-		 			<img src="https://placeimg.com/640/480/arch">
-<%-- 						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200"> --%>
+<!-- 		 			<img src="https://placeimg.com/640/480/arch"> -->
+						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
 						</a>
 						<div class="gallary-text">
 						<p id="p0">
@@ -254,13 +240,9 @@
 						</p>
 						
 						<p id="p1">
-						<%forgetdto = kdao.get(dto.getCustomer_id());
-						
-						%>
 
-							<%=forgetdto.getCustomer_basic_addressStr()%>
+							<%=dto.getCustomer_basic_address()%>
 
-<%-- 							<%= forgetdto %>  --%>
 						</p>
 						
 						<p id="p2">

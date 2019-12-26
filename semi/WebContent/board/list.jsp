@@ -5,9 +5,9 @@
     pageEncoding="UTF-8"%>
 <% 
 //	페이지 크기
-int pagesize = 12;
+int pagesize = 10;
 //	네비게이터 크기
-int navsize = 3;
+int navsize = 5;
 //	페이징 추가
 int pno;
 try{
@@ -24,7 +24,6 @@ String keyword = request.getParameter("keyword");
 boolean isSearch = type != null && keyword != null;
 BoardDao dao = new BoardDao();
 List<BoardDto> list;
-
 if(isSearch){
 	list = dao.search(type, keyword, start, finish); 
 }
@@ -39,28 +38,25 @@ int count = dao.getCount(type, keyword);
 	<div align="center">
 			
 			  <title>게시판 목록</title>
-    <link rel="stylesheet" href="board_list.css">
-    <br><br><br>
+
+
     <div class="title">
         <br><br><br>
-    <h2 align=center style="color:#444040">공지사항</h2>
-    <br>
-    <div class="search-box">
-        <input type="text" class="search-txt" name="" placeholder="제목 입력">
-        <button class="search-bt">검색</button>
-      </div>
+    <p class="maintitle">공지사항</p>
+    <p class="subtitle">당근나라의 다양한 소식을 전해드립니다.</p>
+  </div>
 		 
-
-		 
-		<table border="1" width="45%">
-			<thead>		
+ <div class="board_list_wrap">
+            <table class="board_list">
+                <caption>게시판 목록</caption>
+                <thead>	
 				<tr>
-					<th>NO</th>
-					<th width="50%">TITLE</th>
-					<th>DATE</th>
-					<th>WRITER</th>
-					<th>READS</th>
-				</tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성일</th>
+                    <th>글쓴이</th>    
+                    <th>조회</th>
+                </tr>
 			</thead>
 			<tbody align="center">
 				<%for(BoardDto dto : list){ %>
@@ -74,9 +70,12 @@ int count = dao.getCount(type, keyword);
 	                   	 	<a href="content.jsp?no=<%=dto.getNo()%>">
 	                    		<%=dto.getTitle()%>
 	                    	</a>
+	                    	<%if(dto.getReplycount() > 0){ %>
+	                    	<font color="red">
 	                    	[<%=dto.getReplycount()%>]
+	                    	</font>
 	                    </td>
-	                    
+	                    <%} %>
 	                    <td><%=dto.getWdate()%></td>
 	                    <td><%=dto.getWriter()%></td>
 	                    <td><%=dto.getReadcount()%></td>
@@ -87,40 +86,39 @@ int count = dao.getCount(type, keyword);
 	                    %>
 			</tbody>
 			<tfoot>
-				<tr>
-					<td colspan="9" align="right">
-						<a href="write.jsp">WRITE</a>
-					</td>
-				</tr>
+				
 			</tfoot>
 	</table>
+	<div class="write" align=right>
+                <a href="write.jsp" class="bt">글작성</a>
+     </div>
 
 	<!-- 네비게이터 -->
-							 <div align="center">
+<form action="list.jsp" method="get">
+
+<select class="search-drop" name="type">
+	<option value="title">제목</option>
+	<option value="writer">작성자</option>
+</select>
+
+<input class="search-txt" type="search" name="keyword" placeholder="검색어" required>
+<input class="search-bt" type="submit" value="검색">
+</form>
+	<div class="paging">
+           
    	 <jsp:include page="/template/navigator.jsp">
    	 	<jsp:param name="pno"  value="<%=pno %>" />
    	    <jsp:param name="count"  value="<%=count %>" />
    	    <jsp:param name="navisize"  value="<%=navsize %>" />
    	    <jsp:param name="pagesize" value="<%=pagesize %>" />
    	 </jsp:include>
-   	
+   	</div>
    	 
 	
 
-<form action="list.jsp" method="get">
-<select name="type">
-<option value="title">제목</option>
-<option value="writer">작성자</option>
-</select>
-
-<input type="search" name="keyword" placeholder="검색어" required>
-<input type="submit" value="검색">
-</form>
 
 
 
-
-----------------------
 
     
 

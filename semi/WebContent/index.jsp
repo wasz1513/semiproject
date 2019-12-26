@@ -26,6 +26,20 @@
 
 <jsp:include page="/template/banner.jsp"></jsp:include>
 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/gallary.css">
+
+<style>
+	#a{
+	text-align:center;
+	margin-top:113px;
+	font-size: large;
+	}
+	.row > a > h2{
+	margin-top:50px;
+	margin-bottom:50px;
+	}
+</style>
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 					
@@ -37,13 +51,12 @@
 				<% for (GoodsDto dto : list ){ %>
 					<div class="gallary-item">
 						<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-							<img src="https://placeimg.com/640/480/arch">
+							<img src="/goods/download.do?goods_no=<%=dto.getGoods_no()%>">
 						</a>
 						<div class="gallary-text">
 							<p id="p0">제목 : <%=dto.getGoods_title() %></p>
 							<p id="p1">
-							<%cdto = cdao.get(dto.getCustomer_id()); %>
-							<%= cdto.getCustomer_basic_addressStr() %>
+							<%= dto.getCustomer_basic_address() %>
 							</p>
 							<p id="p2"><%=dto.getGoods_price()%>원</p>
 						</div>
@@ -55,47 +68,13 @@
 						</div>
 					</div>
 				<%} %>
-				<div class="more">
-					<a href="<%=context%>/goods/goods_list.jsp">더보기</a>
+				<div class="gallary-item more">
+				<a href="<%=context%>/goods/goods_list.jsp" class="more-text">		
+					<h3 id="a">+<br>당근나라<br>인기 매물<br>더 보기 </h3>
+				</a>
 				</div>
 			</div>
 			
-			<div class="row">
-				<h2>키워드 게시글</h2>
-			</div>
-			<div class="row-multi col-4">
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div class="more">
-					<a href="<%=context %>/goods/goods_list.jsp"><h6>더보기</h6></a>
-				</div>
-			</div>
 		</article>
 		
 			

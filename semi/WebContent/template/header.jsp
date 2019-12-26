@@ -32,12 +32,15 @@
 href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/boardlist.css">
 
-<title>당근나라</title>
+
+<title>당근나라</title>	
+
 
 
 <style>
-
 main {
 	width: 100%;
 	margin: auto;
@@ -45,29 +48,17 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
-
-
 </style>
-
-
-
 <%
 	String id = (String) session.getAttribute("customer_id");
 	boolean login = id != null;
 	String grade = (String) session.getAttribute("customer_grade");
 	boolean master = grade != null && grade.equals("관리자");
 %>
-
-
-
 </head>
-
 <body test onload="loadSlider();">
-
-
 	<!-- 	메인페이지 -->
 	<main>
-
 		<%
 			if (master) {
 		%>
@@ -92,11 +83,12 @@ header, footer, article {
 	<div class="logo">
 			<a href="<%=request.getContextPath()%>">
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
+
 			</a>
+
 	</div>
-
+	
 <!-- 				검색창 -->
-
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
@@ -131,13 +123,11 @@ header, footer, article {
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
+
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
-
 				</ul>
-
-
-			</div>
+		</div>
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
@@ -148,7 +138,7 @@ header, footer, article {
 					<li><a href="#">키워드입력</a></li>
 					<li><a href="#">위치수정</a></li>
 					<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-					<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>                			
+					<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>                			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 				</ul>
 			</div>
@@ -160,9 +150,11 @@ header, footer, article {
 			</a>
 			<div class="null">ddd</div>
 			<div class="topmenu_sub cart">
+
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
-						<li><a href="#">찜상품</a></li>
+						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+
 				</ul>
 			</div>
 		</li>
@@ -193,15 +185,16 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
 					새로운 상품 보기</a>
 					</li>
+
+					<li>
+					<a href="<%=request.getContextPath()%>/board/list.jsp">
+					공지사항</a>
+					</li>
+
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
 					</li>
-
 		</ul>
 </div>
-
-
 </header>
-
-
 <section>
