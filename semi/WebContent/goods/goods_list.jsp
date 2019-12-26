@@ -43,16 +43,20 @@
     	
     	GoodsDao dao = new GoodsDao();
     	CustomerDao kdao = new CustomerDao();
-    	CustomerDto  kdto = new CustomerDto();
+    	CustomerDto kdto = new CustomerDto();
+    	CustomerDto forgetdto = new CustomerDto();
     	String customer_id = (String)request.getSession().getAttribute("customer_id");
-    	kdto = kdao.get(customer_id);
+    	
+    	if(customer_id !=null){
+    		kdto = kdao.get(customer_id);    		
+    	}
     	
    		 List<GoodsDto> list;
    		 
-    	if(goods_category != null){
+    	if(goods_category != null && !isSearch && !isSearch2 && keyword_search==null){
     		list = dao.CategorySearch( goods_category, start, finish);
     	}
-    	else if(isSearch){
+    	else if(isSearch && !isSearch2){
     		list = dao.search(start , finish ,type , keyword);
     	}
     	else if(isSearch2){
@@ -77,10 +81,6 @@
     	
     
     	GoodsFilesDao fdao = new GoodsFilesDao();
-    	
-    	
-    	
-    	
     	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -204,7 +204,11 @@
 						</p>
 						
 						<p id="p1">
-							 <%=kdto.getCustomer_address()%>
+						<%forgetdto = kdao.get(dto.getCustomer_id());
+						
+						%>
+							<%=forgetdto.getCustomer_address()%>
+<%-- 							<%= forgetdto %>  --%>
 						</p>
 						
 						<p id="p2">

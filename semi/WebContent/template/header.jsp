@@ -137,7 +137,9 @@ header, footer, article {
 				</ul>
 
 
-			</div>
+		</div>
+
+
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
