@@ -2,14 +2,15 @@ package semi.servlet.help;
 
 import java.io.IOException;
 
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import semi.bean.HelpReplyDao;
-import semi.bean.HelpReplyDto;
+
 
 @WebServlet(urlPatterns = "/help/reply_insert.do")
 public class HelpReplyInsertServlet extends HttpServlet {
@@ -24,14 +25,14 @@ public class HelpReplyInsertServlet extends HttpServlet {
 		
 		String id = (String)req.getSession().getAttribute("id");
 		
-		HelpReplyDto dto =new HelpReplyDto();
-		dto.setContent(content);
-		dto.setOrigin(origin);
-		dto.setWriter(id);
-		
-		HelpReplyDao dao =new HelpReplyDao();
-		dao.write(dto);		
-		
+//		HelpreplyDto dto =new HelpreplyDto();
+//		dto.setContent(content);
+////		dto.setOrigin(origin);
+////		dto.setWriter(id);
+//		
+//		HelpreplyDao dao =new HelpreplyDao();
+//		dao.write(dto);		
+//		
 		resp.sendRedirect("help.jsp?no="+origin);
 		}
 		catch(Exception e) {
