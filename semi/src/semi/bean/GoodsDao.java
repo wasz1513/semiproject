@@ -404,7 +404,7 @@ public class GoodsDao {
 	//메인검색창검색 글개수
 	public int mainSearch(String key) throws Exception{
 		Connection con = getConnection();
-		String sql = "select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'";
+		String sql = "select * from goods g join customer c on g.customer_id=c.customer_id where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, key);
 		ps.setString(2, key);
