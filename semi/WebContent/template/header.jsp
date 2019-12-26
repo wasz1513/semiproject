@@ -32,6 +32,8 @@
 href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/gallary.css">
 
 <title>당근나라</title>
 
@@ -62,7 +64,7 @@ header, footer, article {
 
 </head>
 
-<body test onload="loadSlider();">
+<body onload="loadSlider();">
 
 
 	<!-- 	메인페이지 -->

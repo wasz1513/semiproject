@@ -84,6 +84,13 @@
     	}else if(keyword_search != null){
     		count = dao.getCount(keyword_search);
     	}
+//     	else if(isSearch2){
+//     		count = dao.getCount();
+//     	}else if(my_id!=null){
+    		
+//     	}else{
+//     		count = dao.getCount
+//     	}
     	
     	
     
@@ -114,6 +121,7 @@
 	float: left;
 	width: 25%;
 	padding: 10px;
+	height:400px;
 }
 
 .gallary>.gallary-item > a  img {
@@ -123,14 +131,17 @@
     cursor: pointer;
 }
 
- .gallary > .gallary-item >.gallary-text  h2{
+ .gallary > .gallary-item >.gallary-text p{
             word-break: break-all;
-        }
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+}
         
-        #p2{
-            color: #ff8041;
+#p2{
+   color: #ff8041;
             font-size: medium;
-        }
+}
         
            #p1{
             color: gray;
