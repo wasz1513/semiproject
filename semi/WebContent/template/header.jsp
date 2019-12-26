@@ -82,11 +82,13 @@ header, footer, article {
 	<div class="logo">
 			<a href="<%=request.getContextPath()%>">
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
+
 			</a>
 
 	</div>
 	
 <!-- 				검색창 -->
+
 
 		<div class="searchbar">
 			<div class="input_box">
@@ -127,7 +129,7 @@ header, footer, article {
 
 				</ul>
 		</div>
-			
+
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
@@ -151,8 +153,10 @@ header, footer, article {
 			<div class="null">ddd</div>
 			<div class="topmenu_sub cart">
 				<ul class="sub_drop">
+
 						<li><a href="#">키워드</a></li>
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+
 				</ul>
 			</div>
 		</li>
