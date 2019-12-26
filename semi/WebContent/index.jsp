@@ -26,6 +26,8 @@
 
 <jsp:include page="/template/banner.jsp"></jsp:include>
 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/gallary.css">
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 					
@@ -60,42 +62,6 @@
 				</div>
 			</div>
 			
-			<div class="row">
-				<h2>키워드 게시글</h2>
-			</div>
-			<div class="row-multi col-4">
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div>
-					<img src="http://placehold.it/200x200">
-					<h3>제목</h3>
-				</div>
-				<div class="more">
-					<a href="<%=context %>/goods/goods_list.jsp"><h6>더보기</h6></a>
-				</div>
-			</div>
 		</article>
 		
 			
