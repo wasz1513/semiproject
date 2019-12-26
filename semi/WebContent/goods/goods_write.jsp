@@ -105,7 +105,7 @@
 </script>
         
         
-<article class="contents_wrap">
+<article class="goods_contents_wrap">
 
 
         <div class="row">

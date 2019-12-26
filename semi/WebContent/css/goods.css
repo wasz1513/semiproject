@@ -45,13 +45,13 @@
 
 
 
-a{
+.goods_contents a{
 	
 	text-decoration: none;
 	color:#222;
 }
 
-p{
+.goods_contents p{
 		text-align:left;
 		margin-left:190px;
     font-size: 15px;
@@ -60,7 +60,7 @@ p{
 
 }
 
-    .contents_wrap{
+    .goods_contents_wrap{
  
         margin-top: 8px;
         margin-bottom: 20px ;
@@ -70,7 +70,7 @@ p{
             padding: 10px;
     }
 
-    h2{
+    .goods_contents h2{
     margin-left:490px;
     text-align:center;
         font-size: 25px;
@@ -105,7 +105,7 @@ margin-right:90px;
         	width:60% !important;
         }
         
-    input[type="text"]{
+   .goods_contents input[type="text"]{
             width:60%;
              height: 40px;
       margin-right:90px;
@@ -114,7 +114,7 @@ margin-right:90px;
             line-height: inherit;
             border: 1px solid #ccc;
         }
-        input[type="file"]{
+        .goods_contents input[type="file"]{
             margin-bottom: 1px ;
             margin-right:90px;
             width:60%;

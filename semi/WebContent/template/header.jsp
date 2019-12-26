@@ -35,7 +35,8 @@ href="<%=request.getContextPath()%>/css/boardlist.css">
 href="<%=request.getContextPath()%>/css/info.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/goods.css">
-
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/header.css">
 
 
 <title>당근나라</title>	
