@@ -82,53 +82,49 @@ function sample6_execDaumPostcode() {
             }
         }
 </script>
-
- 
-	<form action = "regist.do" method="post" enctype="multipart/form-data">
-		
-		<article class = "w-40">
-			
-			<div>
-			
-				<h2>회원 가입</h2>
-				<div class="row-multi col-2">
-					<div class="col-2-first">
-						<div>
-							<img id="preview" src="http://placehold.it/100x100" width="100" height="100">
-						</div>
-						<div>
-							<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
-						</div>
-					</div>
-					<div class="col-2-second">
-						<div>
-							<label for="id">아이디</label>
-							<input id="id" type="text" name ="customer_id" required>
-						</div>
-						<div>
-							<label for="pw">비밀번호</label>
-							<input type="password" name ="customer_pw" required>
-						</div>
-						<div>
-							<label>이름</label>
-							<input type="text" name ="customer_name" required>
-						</div>
-						<div>
-							<label>닉네임</label>
-							<input type="text" name ="customer_nickname" required>
-						</div>
-					</div>
+ <style>
+.regist_title{
+	margin-top:50px;
+	width:100%;
+	color:#03B855;
+	font-size:34px;
+	font-weight: bold;
+	}
+</style>
+<form action = "regist.do" method="post" enctype="multipart/form-data">		
+	<article class = "w-40">			
+			<div class="regist_total row-mult col-2">			
+				<div class="regist_title">
+					회원 가입
+				</div>
+				<hr>								
+				<div>
+					<img id="preview" src="http://placehold.it/100x100" width="100" height="100">
+				</div>
+				<div>
+					<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
+				</div>								
+				<div>
+					<label for="id">아이디</label>
+					<input id="id" type="text" name ="customer_id" required>
+				</div>
+				<div>
+					<label for="pw">비밀번호</label>
+					<input type="password" name ="customer_pw" required>
+				</div>
+				<div>
+					<label>이름</label>
+					<input type="text" name ="customer_name" required>
 				</div>
 				<div>
 					<label>생년월일</label>
 					<input type="text" name ="customer_birth" placeholder="생년월일" required>
 				</div>
-<!-- 				<div> -->
-<!-- 					<input type="text" placeholder="월" required> -->
-<!-- 				</div> -->
-<!-- 				<div> -->
-<!-- 					<input type="text" placeholder="일" required> -->
-<!-- 				</div> -->
+
+				<div>
+					<label>닉네임</label>
+					<input type="text" name ="customer_nickname" required>
+				</div>
 				<div>
 					<label>이메일</label>
 					<input type="text" name ="customer_email" required>
@@ -154,10 +150,8 @@ function sample6_execDaumPostcode() {
 				
 				<div>
 					<input type="submit" value="가입하기">	
-				</div>
-			
-			</div>
-		
+				</div>			
+			</div>		
 		</article>
 	
 	</form>
