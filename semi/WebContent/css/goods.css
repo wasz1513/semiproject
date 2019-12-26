@@ -117,7 +117,7 @@ margin-right:90px;
         	width:60% !important;
         }
         
-    input[type="text"]{
+    .row input[type="text"]{
             width:60%;
              height: 40px;
       margin-right:90px;
@@ -126,7 +126,7 @@ margin-right:90px;
             line-height: inherit;
             border: 1px solid #ccc;
         }
-        input[type="file"]{
+        .row input[type="file"]{
             margin-bottom: 1px ;
             margin-right:90px;
             width:60%;
