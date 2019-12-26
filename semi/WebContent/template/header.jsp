@@ -194,6 +194,10 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
 					새로운 상품 보기</a>
 					</li>
+					<li>
+					<a href="<%=request.getContextPath()%>/board/list.jsp">
+					공지사항</a>
+					</li>
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
 					</li>
