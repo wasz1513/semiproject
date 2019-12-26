@@ -55,21 +55,13 @@ public class HelpReplyDao {
 //	매개변수:origin
 //	반환형:댓글목록List<HelpReplyDto>
 
-	public List<HelpReplyDto> getList(int origin ,int start, int finish) throws Exception{
+	public List<HelpReplyDto> getList(int origin) throws Exception{
 		Connection con=getConnection();
-							//여기밑에 help_reply
-		String sql="select * from ("
-				+ "select rownum rn, A.* from ("
-				+ "select * from help_reply "
-				+ "where ? order by no asc "  ///수정할것
-				+ "start with superno is null "
-				+ "order siblings by groupno desc, no asc"
-			+ ")A"
-		+ ") where rn between ? and ?";
+							
+		String sql="select * from help_reply where origin = ? order by no asc";
 		PreparedStatement ps =con.prepareStatement(sql);
 		ps.setInt(1, origin);
-		ps.setInt(2, start);
-		ps.setInt(3, finish);
+
 		
 		ResultSet rs = ps.executeQuery();
 		

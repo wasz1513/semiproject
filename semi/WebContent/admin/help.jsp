@@ -122,25 +122,19 @@
 				내용 : <%= dto.getContent() %><br>
 				첨부파일 :<img src="download.do?board_no=<%=fdao.getfilesNo(dto.getBoard_NO())%>" width="100" height="100">
 			</div>
+			<%}%>
 			
-			<%
-				for(HelpReplyDto rdto : rlist){
-			%>
-			<label for="show-<%=rdto.getNo()%>" class="help-list">
-			<div>관리자 </div>
-				<div>
-				날짜 <%=rdto.getHdate() %>
-				</div>
-					<div>
-					내용:<%=rdto.getContent() %>
-					</div>
-						<% }%>
-			</label>
-				
+			
+			<!-- 댓글창 -->
+		
+				<form action = "reply_insert.do"method="post">
+				<input type="hidden" name="origin" value="origin" value="">
+				<testarea name="content"rows="4" cols="100"required></testarea>
+				<input type ="submit" value="등록"> 
+				</form>
+					
 		</div>
-		<%
-			}
-		%>
+		
 	</div>
 
 
