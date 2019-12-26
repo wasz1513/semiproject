@@ -4,7 +4,8 @@
 	   
    
 <jsp:include page="/template/header.jsp"></jsp:include>
-
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/goods.css">
 <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
  <style>
 
