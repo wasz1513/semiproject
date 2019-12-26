@@ -1,4 +1,6 @@
 
+<%@page import="semi.bean.CustomerDto"%>
+<%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.GoodsDto"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.bean.GoodsDao"%>
@@ -13,6 +15,8 @@
 	GoodsDao dao = new GoodsDao();
 	List<GoodsDto> list = dao.getList(start, finish);
 
+	CustomerDao cdao = new CustomerDao();
+	CustomerDto cdto = new CustomerDto();
 %>
 
 
@@ -22,7 +26,6 @@
 
 <jsp:include page="/template/banner.jsp"></jsp:include>
 
-
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 					
@@ -30,14 +33,27 @@
 			<div class="row">
 				<a href="<%=context%>/goods/goods_list.jsp"><h2>인기게시글</h2></a>
 			</div>
-			<div class="row-multi col-4">
+			<div class="gallary">
 				<% for (GoodsDto dto : list ){ %>
-				<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-					<div>
-						<img src="http://placehold.it/200x200">
-						<h3>제목 : <%=dto.getGoods_title() %></h3>
+					<div class="gallary-item">
+						<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
+							<img src="https://placeimg.com/640/480/arch">
+						</a>
+						<div class="gallary-text">
+							<p id="p0">제목 : <%=dto.getGoods_title() %></p>
+							<p id="p1">
+							<%cdto = cdao.get(dto.getCustomer_id()); %>
+							<%= cdto.getCustomer_basic_addressStr() %>
+							</p>
+							<p id="p2"><%=dto.getGoods_price()%>원</p>
+						</div>
+						<div align="right">
+								조회수
+								<%=dto.getGoods_readcount()%>
+								댓글 
+								<%=dto.getGoods_replycount()%>
+						</div>
 					</div>
-				</a>
 				<%} %>
 				<div class="more">
 					<a href="<%=context%>/goods/goods_list.jsp">더보기</a>

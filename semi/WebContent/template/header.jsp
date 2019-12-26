@@ -5,6 +5,10 @@
 <%
 	String context = request.getContextPath();
 %>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +32,8 @@
 href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/boardlist.css">
 
 <title>당근나라</title>
 
@@ -61,6 +67,7 @@ header, footer, article {
 				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/admin/operation.jsp">운영현황</a></li>
+				<li><a href="<%=request.getContextPath()%>/admin/help.jsp">신고게시판</a><li>	
 			</ul>
 		</div>
 		<%
@@ -77,6 +84,7 @@ header, footer, article {
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
 			</a>
 	</div>
+	
 <!-- 				검색창 -->
 		<div class="searchbar">
 			<div class="input_box">

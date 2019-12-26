@@ -47,18 +47,30 @@ public class InterestDao {
 		con.close();
 	}
 	
-	public List<InterestDto> getList(String customer_id) throws Exception{
+	public List<GoodsDto> getList(String customer_id, int start, int finish) throws Exception{
 		Connection con = getConnection();
-		String sql = "select * from interest where customer_id=?";
+		String sql = "select * from("
+				+ "select rownum R, G.* from interest I "
+				+ "inner join goods G on I.goods_no = G.goods_no where I.customer_id=? order by I.interest_no desc)"
+				+ " where R between ? and ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, customer_id);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
 		ResultSet rs = ps.executeQuery();
-		List<InterestDto> list = new ArrayList<>();
+		List<GoodsDto> list = new ArrayList<>();
 		while(rs.next()) {
-			InterestDto dto = new InterestDto();
+			GoodsDto dto = new GoodsDto();
 			dto.setCustomer_id(rs.getString("customer_id"));
-			dto.setGoods_no(rs.getInt("goods_no"));	
-			dto.setInterest(rs.getInt("interest_no"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setGoods_price(rs.getInt("goods_price"));
+			dto.setGoods_readcount(rs.getInt("goods_readcount"));
+			dto.setGoods_replycount(rs.getInt("goods_replycount"));
+			dto.setGoods_writetime(rs.getString("goods_writetime"));
+			dto.setGoods_title(rs.getString("goods_title"));
+			dto.setGoods_category(rs.getString("goods_category"));
+			dto.setGoods_content(rs.getString("goods_content"));
+			dto.setGoods_state(rs.getString("goods_state"));
 			list.add(dto);
 		}
 		con.close();
