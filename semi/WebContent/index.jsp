@@ -28,6 +28,12 @@
 
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/gallary.css">
+
+<style>
+	.more > .more-text{
+	margin:auto;
+	}
+</style>
 <!-- 		내용 -->
 <!-- 			인기게시글 / 키워드 게시글 / 근접위치 -->
 					
@@ -58,7 +64,11 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 					</div>
 				<%} %>
 				<div class="more">
-					<a href="<%=context%>/goods/goods_list.jsp">더보기</a>
+				<a href="<%=context%>/goods/goods_list.jsp" class="more-text">
+					<p>당근나라 </p>
+					<p>인기 매물</p>
+					<p>더 보기</p>
+				</a>
 				</div>
 			</div>
 			
