@@ -70,9 +70,12 @@ int count = dao.getCount(type, keyword);
 	                   	 	<a href="content.jsp?no=<%=dto.getNo()%>">
 	                    		<%=dto.getTitle()%>
 	                    	</a>
+	                    	<%if(dto.getReplycount() > 0){ %>
+	                    	<font color="red">
 	                    	[<%=dto.getReplycount()%>]
+	                    	</font>
 	                    </td>
-	                    
+	                    <%} %>
 	                    <td><%=dto.getWdate()%></td>
 	                    <td><%=dto.getWriter()%></td>
 	                    <td><%=dto.getReadcount()%></td>
