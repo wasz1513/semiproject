@@ -289,15 +289,11 @@ a{
 
 .gnb_wrap .category .depth1 .gnb_dropmenu a:hover{
     color: #ff8041;
-    text-decoration: underline;
+
 }
 
 .gnb_wrap .category > li {
     float:left;
     padding-left:20px;
 }
-
-
-
-
 
