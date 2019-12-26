@@ -136,20 +136,18 @@
     cursor: pointer;
 }
 
-<<<<<<< HEAD
- .gallary > .gallary-item >.gallary-text  p{
-=======
+
  .gallary > .gallary-item >.gallary-text p{
 >>>>>>> refs/remotes/origin/master
             word-break: break-all;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-<<<<<<< HEAD
-        }
-=======
+
+
+
 }
->>>>>>> refs/remotes/origin/master
+
         
 #p2{
    color: #ff8041;
