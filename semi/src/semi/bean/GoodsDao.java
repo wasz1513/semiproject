@@ -128,8 +128,9 @@ public class GoodsDao {
 	public List<GoodsDto> getList(int start, int finish) throws Exception {
 		Connection con = getConnection();
 		String sql = "select * from(" + "select rownum rn, J.* from("
-				+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC)J"
-				+ ")where rn between ? and ? ";
+				+ " select (goods_readcount + goods_replycount) g, customer_goods.* from customer_goods"
+				+ " ORDER BY G DESC)J"
+				+ " )where rn between ? and ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);
 		ps.setInt(2, finish);
@@ -149,6 +150,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 			list.add(dto);
 		}
 
@@ -161,11 +163,12 @@ public class GoodsDao {
 	public List<GoodsDto> search(int start, int finish, String type, String keyword) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from(" + "select rownum rn, A.* from(" 
-							+ "select * from goods " + "where " + type
-							+ " like '%'||?||'%' order by goods_no desc"
-							+ ")A"
-							+ ")where rn between ? and ? ";
+		String sql = "select * from(" 
+					+ "select rownum rn, A.* from(" 
+					+ "select * from customer_goods where " + type
+					+ " like '%'||?||'%' order by goods_no desc"
+					+ ")A"
+					+ ")where rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -189,6 +192,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 
 			list.add(dto);
 		}
@@ -202,7 +206,9 @@ public class GoodsDao {
 	// 하나의 키워드로 상품제목, 내용, 회원 주소를 검색하여 상품 리스트를 출력하는 것.
 	public List<GoodsDto> search(int start, int finish, String keyword) throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from (select rownum rn, a.* from (select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc) where rn between ? and ?";
+		String sql = "select * from ("
+				+ "select rownum rn, a.* from ("
+				+ "select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc) where rn between ? and ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
 		ps.setString(2, keyword);
@@ -232,7 +238,7 @@ public class GoodsDao {
 		return list;
 	}
 
-	// 글 개수 구하기
+	// 게시글 검색 글 개수 구하기
 	public int getCount(String type, String keyword) throws Exception {
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null;
@@ -254,8 +260,9 @@ public class GoodsDao {
 	public List<GoodsDto> CategorySearch(String goods_category, int start, int finish) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from(" + "select rownum rn, A.* from("
-				+ "select * from goods where goods_category=? order by goods_no desc" + ")A"
+		String sql = "select * from(" 
+				+ "select rownum rn, A.* from("
+				+ "select * from customer_goods where goods_category=? order by goods_no desc" + ")A"
 				+ ")where rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -280,6 +287,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("Customer_basic_address"));
 
 			list.add(dto);
 		}
@@ -310,7 +318,7 @@ public class GoodsDao {
 		
 		String	sql = "select * from(" 
 				+ "select rownum rn, A.* from("
-				+ "select * from goods where goods_title like '%'||?||'%' order by goods_no desc" 
+				+ "select * from customer_goods where goods_title like '%'||?||'%' order by goods_no desc" 
 				+ ")A"
 				+ ")where rn between ? and ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -335,6 +343,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 
 			list.add(dto);
 		}
@@ -342,6 +351,8 @@ public class GoodsDao {
 		return list;
 		
 	}
+	
+	
 	
 	
 	//키워드 검색(관심상품) 글개수 구하기
@@ -371,6 +382,59 @@ public class GoodsDao {
 
 		con.close();
 
+		return count;
+	}
+	
+	//전체글개수
+	public int getCount() throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from goods";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//카테고리검색 글개수
+	public int categoryCount(String goods_category) throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from goods where goods_category=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, goods_category);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//메인검색창검색 글개수
+	public int mainSearch(String key) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from goods g join customer c on g.customer_id=c.customer_id where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%'";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, key);
+		ps.setString(2, key);
+		ps.setString(3, key);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+	}
+	
+	//찜 글개수
+	public int interestCount(String customer_id) throws Exception{
+		Connection con = getConnection();
+		String sql = "select count(*) from interest where customer_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
 		return count;
 	}
 	
