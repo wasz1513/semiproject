@@ -35,6 +35,25 @@
 		<filter-name>sessionIsNewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+<!--  로그인 필터 -->
+	<filter>
+	<filter-name>loginFilter</filter-name>
+	<filter-class>semi.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	<filter-name>loginFilter</filter-name>
+	<url-pattern>/admin/*</url-pattern>
+	<url-pattern>/member/info.jsp</url-pattern>
+	<url-pattern>/member/change_info.do</url-pattern>
+	<url-pattern>/member/change_info.jsp</url-pattern>
+	<url-pattern>/member/check.do</url-pattern>
+	<url-pattern>/member/check.jsp</url-pattern>
+	<url-pattern>/member/exit.do</url-pattern>
+	<url-pattern>/member/change_pw.jsp</url-pattern>
+	<url-pattern>/member/change_pw.do</url-pattern>
+	<url-pattern>/member/change_pw_result.jsp</url-pattern>
+	</filter-mapping>
+	
 <!-- 	AdminFilter -->
 	<filter>
 		<filter-name>adminFilter</filter-name>
