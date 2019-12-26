@@ -18,7 +18,6 @@
 	}
    
    %>
-     
 
     
     		<!-- 네비게이터 -->
@@ -26,9 +25,9 @@
    	 
    	 <%if(startblock >1){ %>
    	 	<%if(isSearch){ %>
-   	 <a href="<%=request.getRequestURI() %>?type=<%=type %>&keyword=<%=keyword%>&pno=<%=startblock -1%>">[이전]</a>
+   	 <a href="<%=request.getRequestURI() %>?type=<%=type %>&keyword=<%=keyword%>&pno=<%=startblock -1%>" class="bt"> < </a>
    	 		<%}else{ %>
-   	 <a href="<%=request.getRequestURI() %>?pno=<%=startblock -1%>">[이전]</a>
+   	 <a href="<%=request.getRequestURI() %>?pno=<%=startblock -1%>" class="bt"> < </a>
    	 	<%} %>
    	  <%} %>
    	  
@@ -48,9 +47,9 @@
    	 	  
    	 <%if(finishblock < pagecount){ %>
    	 <%if(isSearch){ %>
-   	<a href="<%=request.getRequestURI() %>?type=<%=type %>&keyword=<%=keyword%>&pno=<%=finishblock +1%>">[다음] </a>
+   	<a href="<%=request.getRequestURI() %>?type=<%=type %>&keyword=<%=keyword%>&pno=<%=finishblock +1%>" class="bt">></a>
    	 <%}else{ %>
-   	 	<a href="<%=request.getRequestURI() %>?pno=<%=finishblock +1%>">[다음] </a>
+   	 	<a href="<%=request.getRequestURI() %>?pno=<%=finishblock +1%>"  class="bt">></a>
    		 <%} %>
    	 <%} %>
    	
