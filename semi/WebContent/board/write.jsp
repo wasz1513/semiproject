@@ -13,17 +13,7 @@
 <%-- 		<%} %> --%>
 	
 		<table border="1" width="30%">
-			<tr>
-				<th>말머리</th>
-				<td>
-					<select name="head">
-						<option value="">선택하세요</option>
-						<option>공지</option>
-						<option>정보</option>
-						
-					</select>		
-				</td>
-			</tr>
+			
 			<tr>
 				<th>제목</th>
 				<td>
