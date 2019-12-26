@@ -22,11 +22,11 @@
     <div id="info">
 
         <header id="header">
-            <h2 class="info_title"><%=dto.getCustomer_name()%><span class="subname">님의 회원 정보</span></h2>    			
+            <h2 class="info_title"><%=dto.getCustomer_name()%>님의 회원 정보</h2>    			
         </header>
         
         <div class="info_wrap">
-        <table  class="info_table" width="800">
+        <table  class="info_table" >
             <tr>
                 <th>프로필</th>
                 <td>

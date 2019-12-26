@@ -16,18 +16,11 @@
 .info_title{
 	margin-top:50px;
 	width:100%;
-	color:#03B855;
+	color:#333;
 	font-size:34px;
     font-weight: bold;
     padding-bottom: 40px;
 }
-.info_title > .subname{
-	margin-top:50px;
-	width:100%;
-	color:#333;
-    font-weight: bold;
-    padding-bottom: 40px;
-	}
 
 .info_table{
     width: 800px;
