@@ -150,7 +150,7 @@ header, footer, article {
 					<li><a href="#">키워드입력</a></li>
 					<li><a href="#">위치수정</a></li>
 					<li><a href="<%=request.getContextPath()%>/board/list.jsp">공지게시판</a></li>
-					<li><a href="<%=request.getContextPath()%>/help/list.jsp">신고게시판</a></li>                			
+					<li><a href="<%=request.getContextPath()%>/help/help_list.jsp">신고게시판</a></li>                			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 				</ul>
 			</div>
@@ -164,7 +164,7 @@ header, footer, article {
 			<div class="topmenu_sub cart">
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
-						<li><a href="#">찜상품</a></li>
+						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
 				</ul>
 			</div>
 		</li>

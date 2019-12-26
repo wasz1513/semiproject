@@ -1,3 +1,5 @@
+<%@page import="semi.bean.InterestDto"%>
+<%@page import="semi.bean.InterestDao"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.GoodsFilesDao"%>
@@ -46,10 +48,13 @@
     	CustomerDto kdto = new CustomerDto();
     	CustomerDto forgetdto = new CustomerDto();
     	String customer_id = (String)request.getSession().getAttribute("customer_id");
-    	
     	if(customer_id !=null){
     		kdto = kdao.get(customer_id);    		
     	}
+		
+    	//찜목록
+    	String my_id = request.getParameter("customer_id");
+		InterestDao intdao = new InterestDao();
     	
    		 List<GoodsDto> list;
    		 
@@ -65,7 +70,9 @@
     	else if(keyword_search != null){
     		list = dao.keywordsearch(keyword_search, start, finish);
     	}
-    		
+    	else if(my_id!=null){
+    		list = intdao.getList(my_id, start, finish);
+    	}
     	else{
     		list  = dao.getList(start , finish);
     	}
@@ -207,7 +214,7 @@
 						<%forgetdto = kdao.get(dto.getCustomer_id());
 						
 						%>
-							<%=forgetdto.getCustomer_address()%>
+							<%=forgetdto.getCustomer_basic_address()%>
 <%-- 							<%= forgetdto %>  --%>
 						</p>
 						
