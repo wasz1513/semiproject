@@ -80,6 +80,7 @@ public GoodsFilesDto filesInfo(int no) throws Exception{
 	}
 con.close();
 return gfdto;
+
 	
 }
 public void update(GoodsFilesDto gfdto) throws Exception{

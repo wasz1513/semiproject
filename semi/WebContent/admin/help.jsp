@@ -1,3 +1,5 @@
+<%@page import="semi.bean.HelpReplyDao"%>
+<%@page import="semi.bean.HelpReplyDto"%>
 <%@page import="semi.bean.HelpfilesDto"%>
 <%@page import="semi.bean.HelpfilesDao"%>
 <%@page import="semi.bean.HelpDto"%>
@@ -10,11 +12,17 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <%
+
+	int origin =  Integer.parseInt(request.getParameter("origin"));
+
 	//dao가져오기
 	String write = (String) request.getSession().getAttribute("customer_id");
 	HelpDao dao = new HelpDao();
 	List<HelpDto> list = dao.getList(write);
 	HelpfilesDao fdao = new HelpfilesDao();
+	
+	HelpReplyDao rdao = new HelpReplyDao();
+	List<HelpReplyDto> rlist = rdao.getList(origin);
 %>
 
 <title>신고/문의하기</title>
@@ -81,39 +89,15 @@
 <article>
 
 	<div align="center">
-		<div class="row row-multi col-2">
-			<a href="help_write.jsp"> <input type="button"
-				style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
-			</a> <a href="help_list.jsp"> <input type="button"
-				style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
-			</a>
+			 
+			<h2> 관리자 문의/신고 페이지</h2>
+		
 		</div>
 		<h2>문의/신고 내역</h2>
-		<h5>※ 신고/문의내용에 욕설, 성희롱 등의 내용이 포함된 경우 상담이 제한될 수 있습니다.</h5>
+		<h5>※아 댓글창 만들기 싫다</h5>
 	</div>
 
 
-	<!-- 		<table border="1" width="90%"> -->
-	<!-- 			<thead> -->
-	<!-- 				<tr> -->
-	<!-- 					<th width="5%">번호</th> -->
-	<!-- 					<th>날짜</th> -->
-	<!-- 					<th>유형</th> -->
-	<!-- 					<th width="70%">내용</th> -->
-	<!-- 				</tr> -->
-	<!-- 			</thead> -->
-	<!-- 			<tbody align="center"> -->
-	<%-- 			<%for(HelpDto dto : list){ %> --%>
-	<!-- 		  	<tr> -->
-	<%-- 				<td><%=dto.getBoard_NO()%></td> --%>
-	<%-- 				<td><%=dto.getHdate()%></td> --%>
-	<%-- 				<td><%=dto.getHead()%></td> --%>
-	<%-- 				<td align="left"><%=dto.getContent()%></td> --%>
-
-	<!-- 			</tr> -->
-	<%-- 			<%} %> --%>
-	<!-- 			</tbody> -->
-	<!-- 		</table> -->
 
 	<div>
 		<%
@@ -124,8 +108,9 @@
 			<label for="show-<%=dto.getBoard_NO()%>" class="help-list">
 
 				<div>
-				유형 : <%= dto.getHead() %>
+				유형 : <%= dto.getHead() %></div>
 				</div>
+				
 				<div>
 				날짜  : <%= dto.getHdate() %>
 				</div>
@@ -137,12 +122,19 @@
 				내용 : <%= dto.getContent() %><br>
 				첨부파일 :<img src="download.do?board_no=<%=fdao.getfilesNo(dto.getBoard_NO())%>" width="100" height="100">
 			</div>
+			<%}%>
 			
 			
+			<!-- 댓글창 -->
+		
+				<form action = "reply_insert.do"method="post">
+				<input type="hidden" name="origin" value="origin" value="">
+				<testarea name="content"rows="4" cols="100"required></testarea>
+				<input type ="submit" value="등록"> 
+				</form>
+					
 		</div>
-		<%
-			}
-		%>
+		
 	</div>
 
 
