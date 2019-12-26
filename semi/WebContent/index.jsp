@@ -30,8 +30,14 @@
 href="<%=request.getContextPath()%>/css/gallary.css">
 
 <style>
-	.more > .more-text{
-	margin:auto;
+	#a{
+	text-align:center;
+	margin-top:113px;
+	font-size: large;
+	}
+	.row > a > h2{
+	margin-top:50px;
+	margin-bottom:50px;
 	}
 </style>
 <!-- 		내용 -->
@@ -45,13 +51,12 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 				<% for (GoodsDto dto : list ){ %>
 					<div class="gallary-item">
 						<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-							<img src="https://placeimg.com/640/480/arch">
+							<img src="/goods/download.do?goods_no=<%=dto.getGoods_no()%>">
 						</a>
 						<div class="gallary-text">
 							<p id="p0">제목 : <%=dto.getGoods_title() %></p>
 							<p id="p1">
-							<%cdto = cdao.get(dto.getCustomer_id()); %>
-							<%= cdto.getCustomer_basic_addressStr() %>
+							<%= dto.getCustomer_basic_address() %>
 							</p>
 							<p id="p2"><%=dto.getGoods_price()%>원</p>
 						</div>
@@ -63,11 +68,9 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 						</div>
 					</div>
 				<%} %>
-				<div class="more">
-				<a href="<%=context%>/goods/goods_list.jsp" class="more-text">
-					<p>당근나라 </p>
-					<p>인기 매물</p>
-					<p>더 보기</p>
+				<div class="gallary-item more">
+				<a href="<%=context%>/goods/goods_list.jsp" class="more-text">		
+					<h3 id="a">+<br>당근나라<br>인기 매물<br>더 보기 </h3>
 				</a>
 				</div>
 			</div>
