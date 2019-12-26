@@ -17,8 +17,6 @@
 <meta charset="UTF-8">
 <!-- <link rel="stylesheet" type="text/css" -->
 <%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
-
->>>>>>> refs/remotes/origin/master
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/rayout.css">
 <link rel="stylesheet" type="text/css"
@@ -38,7 +36,6 @@ href="<%=request.getContextPath()%>/css/footer.css">
 
 
 <style>
-
 main {
 	width: 100%;
 	margin: auto;
@@ -46,29 +43,17 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
-
-
 </style>
-
-
-
 <%
 	String id = (String) session.getAttribute("customer_id");
 	boolean login = id != null;
 	String grade = (String) session.getAttribute("customer_grade");
 	boolean master = grade != null && grade.equals("관리자");
 %>
-
-
-
 </head>
-
 <body test onload="loadSlider();">
-
-
 	<!-- 	메인페이지 -->
 	<main>
-
 		<%
 			if (master) {
 		%>
@@ -95,9 +80,7 @@ header, footer, article {
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
 			</a>
 	</div>
-
 <!-- 				검색창 -->
-
 		<div class="searchbar">
 			<div class="input_box">
 				<form action="<%=request.getContextPath() %>/goods/goods_list.jsp"  method="get">
@@ -134,13 +117,8 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
-
 				</ul>
-
-
 		</div>
-
-
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
@@ -199,12 +177,7 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
 					</li>
-
 		</ul>
 </div>
-
-
 </header>
-
-
 <section>

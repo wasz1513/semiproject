@@ -187,7 +187,7 @@
 
 		<!-- 버튼 -->
 		<tr>
-			<td align="right"><a href="orders.jsp"><input type="button"
+			<td align="right"><a href="<%=request.getContextPath() %>/goods/orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>"><input type="button"
 					value="구매하기"></a> 
 					
 					<%if(interest){ %>
