@@ -1,3 +1,5 @@
+<%@page import="semi.bean.InterestDto"%>
+<%@page import="semi.bean.InterestDao"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.GoodsFilesDao"%>
@@ -46,10 +48,13 @@
     	CustomerDto kdto = new CustomerDto();
     	CustomerDto forgetdto = new CustomerDto();
     	String customer_id = (String)request.getSession().getAttribute("customer_id");
-    	
     	if(customer_id !=null){
     		kdto = kdao.get(customer_id);    		
     	}
+		
+    	//찜목록
+    	String my_id = request.getParameter("customer_id");
+		InterestDao intdao = new InterestDao();
     	
    		 List<GoodsDto> list;
    		 
@@ -65,7 +70,9 @@
     	else if(keyword_search != null){
     		list = dao.keywordsearch(keyword_search, start, finish);
     	}
-    		
+    	else if(my_id!=null){
+    		list = intdao.getList(my_id, start, finish);
+    	}
     	else{
     		list  = dao.getList(start , finish);
     	}
@@ -77,6 +84,13 @@
     	}else if(keyword_search != null){
     		count = dao.getCount(keyword_search);
     	}
+//     	else if(isSearch2){
+//     		count = dao.getCount();
+//     	}else if(my_id!=null){
+    		
+//     	}else{
+//     		count = dao.getCount
+//     	}
     	
     	
     
@@ -107,6 +121,7 @@
 	float: left;
 	width: 25%;
 	padding: 10px;
+	height:400px;
 }
 
 .gallary>.gallary-item > a  img {
@@ -116,14 +131,17 @@
     cursor: pointer;
 }
 
- .gallary > .gallary-item >.gallary-text  h2{
+ .gallary > .gallary-item >.gallary-text p{
             word-break: break-all;
-        }
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+}
         
-        #p2{
-            color: #ff8041;
+#p2{
+   color: #ff8041;
             font-size: medium;
-        }
+}
         
            #p1{
             color: gray;
@@ -203,7 +221,7 @@
 						<%forgetdto = kdao.get(dto.getCustomer_id());
 						
 						%>
-							<%=forgetdto.getCustomer_address()%>
+							<%=forgetdto.getCustomer_basic_address()%>
 <%-- 							<%= forgetdto %>  --%>
 						</p>
 						
