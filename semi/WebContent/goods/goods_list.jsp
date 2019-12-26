@@ -83,13 +83,7 @@
     		list  = dao.getList(start , finish);
     		count = dao.getCount();
     	}
-    	
-    	
-    	
-
-    	
-    	
-    
+ 
     	GoodsFilesDao fdao = new GoodsFilesDao();
     	
     %> 
@@ -134,14 +128,10 @@
 
 
  .gallary > .gallary-item >.gallary-text p{
->>>>>>> refs/remotes/origin/master
             word-break: break-all;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-
-
-
 }
 
         
@@ -241,8 +231,8 @@
 				<div class="gallary-item">
 
 		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-		 			<img src="https://placeimg.com/640/480/arch">
-<%-- 						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200"> --%>
+<!-- 		 			<img src="https://placeimg.com/640/480/arch"> -->
+						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
 						</a>
 						<div class="gallary-text">
 						<p id="p0">
@@ -250,13 +240,9 @@
 						</p>
 						
 						<p id="p1">
-						<%forgetdto = kdao.get(dto.getCustomer_id());
-						
-						%>
 
-							<%=forgetdto.getCustomer_basic_addressStr()%>
+							<%=dto.getCustomer_basic_address()%>
 
-<%-- 							<%= forgetdto %>  --%>
 						</p>
 						
 						<p id="p2">

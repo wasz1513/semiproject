@@ -34,7 +34,10 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 	text-align:center;
 	margin-top:113px;
 	font-size: large;
-	
+	}
+	.row > a > h2{
+	margin-top:50px;
+	margin-bottom:50px;
 	}
 </style>
 <!-- 		내용 -->
@@ -48,13 +51,12 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 				<% for (GoodsDto dto : list ){ %>
 					<div class="gallary-item">
 						<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-							<img src="https://placeimg.com/640/480/arch">
+							<img src="/goods/download.do?goods_no=<%=dto.getGoods_no()%>">
 						</a>
 						<div class="gallary-text">
 							<p id="p0">제목 : <%=dto.getGoods_title() %></p>
 							<p id="p1">
-							<%cdto = cdao.get(dto.getCustomer_id()); %>
-							<%= cdto.getCustomer_basic_addressStr() %>
+							<%= dto.getCustomer_basic_address() %>
 							</p>
 							<p id="p2"><%=dto.getGoods_price()%>원</p>
 						</div>

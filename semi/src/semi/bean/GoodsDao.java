@@ -128,8 +128,9 @@ public class GoodsDao {
 	public List<GoodsDto> getList(int start, int finish) throws Exception {
 		Connection con = getConnection();
 		String sql = "select * from(" + "select rownum rn, J.* from("
-				+ "select (goods_readcount + goods_replycount) g,GOODS.* from goods ORDER BY G DESC)J"
-				+ ")where rn between ? and ? ";
+				+ " select (goods_readcount + goods_replycount) g, customer_goods.* from customer_goods"
+				+ " ORDER BY G DESC)J"
+				+ " )where rn between ? and ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);
 		ps.setInt(2, finish);
@@ -149,6 +150,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 			list.add(dto);
 		}
 
@@ -161,11 +163,12 @@ public class GoodsDao {
 	public List<GoodsDto> search(int start, int finish, String type, String keyword) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from(" + "select rownum rn, A.* from(" 
-							+ "select * from goods " + "where " + type
-							+ " like '%'||?||'%' order by goods_no desc"
-							+ ")A"
-							+ ")where rn between ? and ? ";
+		String sql = "select * from(" 
+					+ "select rownum rn, A.* from(" 
+					+ "select * from customer_goods where " + type
+					+ " like '%'||?||'%' order by goods_no desc"
+					+ ")A"
+					+ ")where rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -189,6 +192,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 
 			list.add(dto);
 		}
@@ -202,7 +206,9 @@ public class GoodsDao {
 	// 하나의 키워드로 상품제목, 내용, 회원 주소를 검색하여 상품 리스트를 출력하는 것.
 	public List<GoodsDto> search(int start, int finish, String keyword) throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from (select rownum rn, a.* from (select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc) where rn between ? and ?";
+		String sql = "select * from ("
+				+ "select rownum rn, a.* from ("
+				+ "select * from goods g join customer c on g.customer_id=c.customer_id)a where goods_title like '%'||?||'%' or goods_content like '%'||?||'%' or customer_basic_address like '%'||?||'%' order by goods_no desc) where rn between ? and ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
 		ps.setString(2, keyword);
@@ -254,8 +260,9 @@ public class GoodsDao {
 	public List<GoodsDto> CategorySearch(String goods_category, int start, int finish) throws Exception {
 		Connection con = getConnection();
 
-		String sql = "select * from(" + "select rownum rn, A.* from("
-				+ "select * from goods where goods_category=? order by goods_no desc" + ")A"
+		String sql = "select * from(" 
+				+ "select rownum rn, A.* from("
+				+ "select * from customer_goods where goods_category=? order by goods_no desc" + ")A"
 				+ ")where rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -280,6 +287,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("Customer_basic_address"));
 
 			list.add(dto);
 		}
@@ -310,7 +318,7 @@ public class GoodsDao {
 		
 		String	sql = "select * from(" 
 				+ "select rownum rn, A.* from("
-				+ "select * from goods where goods_title like '%'||?||'%' order by goods_no desc" 
+				+ "select * from customer_goods where goods_title like '%'||?||'%' order by goods_no desc" 
 				+ ")A"
 				+ ")where rn between ? and ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -335,6 +343,7 @@ public class GoodsDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 
 			list.add(dto);
 		}
