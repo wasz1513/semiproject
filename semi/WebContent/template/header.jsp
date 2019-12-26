@@ -33,6 +33,8 @@ href="<%=request.getContextPath()%>/css/footer.css">
 href="<%=request.getContextPath()%>/css/boardlist.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/info.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/goods.css">
 
 
 

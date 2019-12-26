@@ -46,7 +46,65 @@
     	    }
         }
         window.onload = loadEditor;
-        </script>
+
+        
+ function preview1Image(target){
+            if(target.files && target.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(data){//data는 읽은 파일의 정보
+                    var img = document.querySelector("#preview1");
+                    img.src = data.target.result;
+                }
+                reader.readAsDataURL(target.files[0]);
+            }
+        }
+ 
+ function preview2Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview2");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+ 
+ function preview3Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview3");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+ 
+ function preview4Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview4");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+ 
+ function preview5Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview5");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+</script>
+        
+        
 <article class="contents_wrap">
 
 
@@ -92,25 +150,25 @@
                             <p>상품 이미지</p>
     
                             <div align="left" style="padding-left:190px;">
-                            	<img class="img" src="http://placehold.it/100x70?text=이미지">
-	                        	<img class="img" src="http://placehold.it/100x70?text=이미지">
-	                         	<img class="img" src="http://placehold.it/100x70?text=이미지">
-	                         	<img class="img" src="http://placehold.it/100x70?text=이미지">
-	                         	<img class="img" src="http://placehold.it/100x70?text=이미지">
+                            	<img id="preview1" src="http://placehold.it/100x100" width="100" height="100">
+	                        	<img id="preview2" src="http://placehold.it/100x100" width="100" height="100">
+	                        	<img id="preview3" src="http://placehold.it/100x100" width="100" height="100">
+	                        	<img id="preview4" src="http://placehold.it/100x100" width="100" height="100">
+	                        	<img id="preview5" src="http://placehold.it/100x100" width="100" height="100">
                             </div>
                         </div>
                         
-                        <div>
-                            <input type="file" name="file" accept=".jpg, .png, .gif">
-                            <input type="file" name="file2" accept=".jpg, .png, .gif">
-                            <input type="file" name="file3" accept=".jpg, .png, .gif">
-                            <input type="file" name="file4" accept=".jpg, .png, .gif">
-                            <input type="file" name="file5" accept=".jpg, .png, .gif">
+                        <div class="fileupload">
+							<input type="file" name="file" accept=".jpg, .png, .gif" onchange="preview1Image(this);">
+      						<input type="file" name="file2" accept=".jpg, .png, .gif" onchange="preview2Image(this);">
+      						<input type="file" name="file3" accept=".jpg, .png, .gif" onchange="preview3Image(this);">
+      						<input type="file" name="file4" accept=".jpg, .png, .gif" onchange="preview4Image(this);">
+      			    		<input type="file" name="file5" accept=".jpg, .png, .gif" onchange="preview5Image(this);">
                         </div>
                     
           
           <br><br>  
-    <div class="button"style="padding-right:300px;">
+    <div class="goods_button">
             <a href="goods_content.jsp">
                 <input class=gclick type="submit" value="상품 등록하기"> 
             </a>
