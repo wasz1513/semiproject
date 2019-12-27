@@ -1,3 +1,7 @@
+<%@page import="semi.bean.HelpReplyDto"%>
+<%@page import="java.awt.PageAttributes.OriginType"%>
+<%@page import="semi.bean.ReplyDto"%>
+<%@page import="semi.bean.HelpReplyDao"%>
 <%@page import="semi.bean.HelpfilesDto"%>
 <%@page import="semi.bean.HelpfilesDao"%>
 <%@page import="semi.bean.HelpDto"%>
@@ -8,8 +12,12 @@
 
 
 
-
 <%  
+			//페이지 크기
+		int pagesize=10;
+		int navsize=10;
+		
+		
 		 //페이징추가
 		int pno;
 		try{
@@ -20,8 +28,7 @@
 			pno=1;
 		}
 
-		//페이지 크기
-		int pagesize=10;
+		
 		
 		int finish =pno*pagesize;
 		int start =finish-(pagesize-1);
@@ -30,12 +37,13 @@
 		String keyword =request.getParameter("keyword");
 		
 		boolean isSearch = type != null && keyword != null;
-	
-	
-	
+
 	//검색 1.검ㅁ색어를받고 dao생성 -> dto 얻어내서->출력
 
 	//dao가져오기  관리자 목록
+	HelpReplyDao hrdao =new HelpReplyDao();	
+// 	List<HelpReplyDto> getlist =hrdao.getList(origin,start,finish);
+	
 	HelpDao dao = new HelpDao();
 	//List<HelpDto>list= 목록 or 검색
 	List<HelpDto> list;
@@ -47,22 +55,8 @@
 	}//나중에 뒤에 매개변수 start,finish 추가
 	
 	HelpfilesDao fdao = new HelpfilesDao();
-	
-	
-	
-	///하단 네비게이터 계산하기
-	//시작블록 = (현페=1/1)  10*10+1
 	int count=dao.getCount(type,keyword);
-	int navsize=10;
-	int pagecount=(count+pagesize)/pagesize;
-	
-	int startBlock =(pno-1)/navsize*navsize+1;
-	int finishBlock =startBlock+(navsize-1);
-	
-	//
-	if(finishBlock>pagecount){
-		finishBlock=pagecount;
-	}
+
 	
 %>
 
@@ -140,29 +134,6 @@
 		<h2>관리자 문의/신고 내역</h2>
 		<h5>※ 댓글창 만들기 싫ㅇ다ㅜ</h5>
 	</div>
-
-
-	<!-- 		<table border="1" width="90%"> -->
-	<!-- 			<thead> -->
-	<!-- 				<tr> -->
-	<!-- 					<th width="5%">번호</th> -->
-	<!-- 					<th>날짜</th> -->
-	<!-- 					<th>유형</th> -->
-	<!-- 					<th width="70%">내용</th> -->
-	<!-- 				</tr> -->
-	<!-- 			</thead> -->
-	<!-- 			<tbody align="center"> -->
-	<%-- 			<%for(HelpDto dto : list){ %> --%>
-	<!-- 		  	<tr> -->
-	<%-- 				<td><%=dto.getBoard_NO()%></td> --%>
-	<%-- 				<td><%=dto.getHdate()%></td> --%>
-	<%-- 				<td><%=dto.getHead()%></td> --%>
-	<%-- 				<td align="left"><%=dto.getContent()%></td> --%>
-
-	<!-- 			</tr> -->
-	<%-- 			<%} %> --%>
-	<!-- 			</tbody> -->
-	<!-- 		</table> -->
 		<br><br>
 	<div>
 		<%
@@ -171,9 +142,6 @@
 		<div>
 		
 			<label for="show-<%=adto.getBoard_NO()%>" class="help-list">
-				<div>
-				rn:<%= adto.getRn() %>
-				</div>
 				<div>
 				아이디 : <%= adto.getWrite() %>
 				</div>
@@ -192,19 +160,34 @@
 			<input id="show-<%=adto.getBoard_NO()%>" type="checkbox" class="togglebox">
 			
 			<div class="help-content">
-				내용 : <%= adto.getContent() %><br>
-				첨부파일 :<img src="download.do?board_no=<%=fdao.getfilesNo(adto.getBoard_NO())%>" width="100" height="100">
+				문의/신고 내용 : <%= adto.getContent() %><br>
+				<%if(fdao.getfilesNo(adto.getBoard_NO())>0){ %>
+				첨부파일 :<img src="../help/download.do?board_no=<%=fdao.getfilesNo(adto.getBoard_NO())%>" width="100" height="100">
+				
+				<%} %>
+				<hr>
+				<br>
+				<div>당근나라 운영센터 답변</div>
+				<%=adto.getReply_content() %>
 			</div>
 			
-			<div aligh="right"></div>
-			<form action = "reply_insert.do"method="post">
-				<input type="hidden" name="origin" value="origin" value="">
-				<textarea name="content"rows="4" cols="100"required></textarea>
-				<input type ="submit" value="등록"> 
-				</form>
-				
-			</div>
+			<%if(adto.getReply_content()!=null){ %>
+				<div>
+					
+				</div>
+			<%}else{ %>
+				<div>
+					<form action="../help/reply_insert.do" method="post">
+						<input type="hidden" name="pno" value=<%=pno%>>
+					  	<input type="hidden" name="board_no" value=<%=adto.getBoard_NO()%>>
+						<textarea name="content" rows="4" cols="100"required></textarea>
+						<input type ="submit" value="등록"> 
+					</form>
+				</div>
+			<%} %>
+			
 		</div>
+		<br><br>
 		<%
 			}
 		%>
@@ -213,41 +196,22 @@
 	</div>
 	
 	
-			<!-- 네비게이터 ***************************-->
-		<h4>
-		<%if(startBlock > 1){ %>
-			<%if(isSearch){ %>
-				<a href="help2.jsp?type=<%=type%>&keyword=<%=keyword%>&pno=<%=startBlock - 1%>">[이전]</a>  
-			<%}else{ %>
-				<a href="help2.jsp?pno=<%=startBlock - 1%>">[이전]</a>
-			<%} %>
-		<%} %>
-		
-		<%for(int i=startBlock; i <= finishBlock; i++){ %>
-			<%if(i == pno){ %>
-				<%=i%>
-			<%}else{ %>
-				<%if(isSearch){ %>
-					<a href="help2.jsp?type=<%=type%>&keyword=<%=keyword%>&pno=<%=i%>"><%=i%></a>
-				<%}else{ %>
-					<a href="help2.jsp?pno=<%=i%>"><%=i%></a>
-				<%} %>
-			<%} %>
-		<%} %>
-		
-		<%if(finishBlock < pagecount){ %>
-			<%if(isSearch){ %>
-				<a href="help2.jsp?type=<%=type%>&keyword=<%=keyword%>&pno=<%=finishBlock + 1%>">[다음]</a>
-			<%}else{ %>
-				<a href="help2.jsp?pno=<%=finishBlock + 1%>">[다음]</a>
-			<%} %>
-		<%} %>
-		</h4>
+			<!-- 네비게이터 *************************** -->	
+<div>
+	<jsp:include page="/template/help_navi.jsp">
+			<jsp:param name="pno" value="<%=pno%>"/>
+			<jsp:param name="count" value="<%=count%>"/>
+			<jsp:param name="navsize" value="<%=navsize%>"/>
+			<jsp:param name="pagesize" value="<%=pagesize%>"/>
+	</jsp:include>
+</div>
+		<!-- 검색 -->
+	
 		
 		<form action ="help2.jsp" method="get">
 		
 		<select name="type">
-		<option vlaue="write">작성자</option>
+		<option value="write">작성자</option>
 		<option value="content">내용 키워드</option>
 		</select>
 		
@@ -257,10 +221,7 @@
 		
 		</form>
 		<br><br>
-	<h5>pno = <%=pno%>, type = <%=type%>, keyword = <%=keyword%></h5>
-	<h5>pagecount = <%=pagecount%>, pagesize = <%=pagesize%></h5>
-	<h5>start = <%=start%>, finish = <%=finish%></h5>
-	<h5>startBlock = <%=startBlock%>, finishBlock = <%=finishBlock%></h5>
+	
 		
 		
 		
@@ -268,5 +229,6 @@
 
 
 
-<jsp:include page="/template/footer.jsp"></jsp:include>
 
+
+<jsp:include page="/template/footer.jsp"></jsp:include>
