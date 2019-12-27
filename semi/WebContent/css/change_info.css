@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+#changeinfo{
+    width: 800px;
+    margin:0 auto;
+}
+
+.changeinfo_wrap{
+    position:relative; 
+	width:800px; 
+	margin:0 auto;
+}
+
+#changeinfo_header{
+	width:800px; 
+    margin-top: 50px;
+    border-bottom: 2px solid #666;
+}
+
+.changeinfo_title{
+	margin-top:50px;
+	width:100%;
+	color:#333;
+	font-size:34px;
+    font-weight: bold;
+    padding-bottom: 40px;
+}
+
+
+.changeinfo_table{
+    width: 800px;
+}
+
+.changeinfo_table tr th{
+    text-align: left;
+    width: 200px;
+    
+}
+
+.changeinfo_table tr:first-child th,
+.changeinfo_table tr:first-child td{
+    border: none;
+}
+
+.changeinfo_table tr th,
+.changeinfo_table tr td{
+    padding:15px 0;
+    height: auto;
+    border-top: 1px solid #eee;
+    border-bottom: none;
+}
+
+.changeinfo_bottom{
+    border-top: 1px solid #eee;
+    padding-top: 40px;
+}
+
+.changeinfo_bottom li{
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.changeinfo_btn{
+    display: block;
+    text-align: right;
+    margin-top: 60px;
+    margin-bottom: 120px;
+
+}
+
+.changeinfo_wrap input[type="text"]{
+    width:250px;
+    height: 40px;
+    border: 1px solid #ccc;
+}
+
+
+  
+.changeinfo_btn input[type="submit"]{
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #ff8041;
+    color: #fff;
+
+}
+
+.changeinfo_btn input[type="reset"]{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+.changeinfo_wrap input[name="customer_post"]{
+    width: 144px;
+}
+
+.changeinfo_wrap .regist_button2{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #ddd;
+}
+
+.changeinfo_wrap .post1,
+.changeinfo_wrap .post2{
+    margin-bottom: 8px;
+}
