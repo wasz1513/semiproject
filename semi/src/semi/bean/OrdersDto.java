@@ -1,5 +1,9 @@
 package semi.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class OrdersDto {
 		private int orders_no; //주문번호(주문일자_주문자번호_상품번호)
 		private int goods_no;
@@ -88,17 +92,6 @@ public class OrdersDto {
 			this.customer_id = customer_id;
 		}
 
-
-		public String getOrders_date() {
-			return orders_date;
-		}
-
-
-		public void setOrders_date(String orders_date) {
-			this.orders_date = orders_date;
-		}
-
-
 		public String getOrders_goods_title() {
 			return orders_goods_title;
 		}
@@ -167,7 +160,30 @@ public class OrdersDto {
 		public void setOrders_payment(String orders_payment) {
 			this.orders_payment = orders_payment;
 		}
-	
+		
+		public String getOrders_date() {
+			return orders_date;
+		}
+
+
+		public void setOrders_date(String orders_date) {
+			this.orders_date = orders_date;
+		}
+		
+		
+		public String getOrders_dateWithFormat() throws ParseException {
+			if (orders_date == null) {
+				return "";
+			} else {
+				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+				Date date = read.parse(orders_date);
+
+				SimpleDateFormat write = new SimpleDateFormat("y/M/d H:m");
+				String time = write.format(date);
+
+				return time;
+			}
+		}
 		
 		
 		

@@ -82,6 +82,7 @@ function sample6_execDaumPostcode() {
                 reader.readAsDataURL(target.files[0]);
             }
         }
+//경고창은 입력창 밑에 출력
 </script>
 
 <form action = "regist.do" method="post" enctype="multipart/form-data">		
@@ -95,8 +96,9 @@ function sample6_execDaumPostcode() {
 				<div class="regist_info a">	
 					<div >
 						<label for="id">아이디<br></label>
-						<input id="id" type="text" name ="customer_id" required>
+						<input id="id" type="text" name ="customer_id" oninput="idCheck();" required>
 						<button class="regist_button2">중복확인</button>
+						<div class="result"></div>
 						<h5>*영문 또는 숫자 조합, 6자 이상 15자 이하</h5>
 					</div>
 					<div>
@@ -107,6 +109,7 @@ function sample6_execDaumPostcode() {
 					<div>
 						<label>이름<br></label>
 						<input type="text" name ="customer_name" required>
+						<h5>*7자리 이하만 가능</h5>
 					</div>
 					<div>
 						<label>생년월일<br></label>

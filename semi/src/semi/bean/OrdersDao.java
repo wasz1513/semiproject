@@ -111,7 +111,74 @@ public class OrdersDao {
 			dto.setOrders_payment(rs.getString("orders_payment"));
 			dto.setOrders_amount(rs.getInt("orders_amount"));
 			dto.setGoods_no(rs.getInt("goods_no"));
-			dto.setCustomer_id(rs.getString("customer_id"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+	}
+	//4. id별 구매목록 출력용 메소드(전체)
+	public List<OrdersDto> history_order_all(String customer_id) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from orders where orders_goods_buyer=? order by orders_date desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setNString(1, customer_id);
+		ResultSet rs = ps.executeQuery();
+		List<OrdersDto> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			OrdersDto dto = new OrdersDto();
+			dto.setOrders_no(rs.getInt("orders_no"));
+			dto.setOrders_goods_title(rs.getString("orders_goods_title"));
+			dto.setOrders_goods_seller(rs.getString("orders_goods_seller"));
+			dto.setOrders_date(rs.getString("orders_date"));
+			dto.setOrders_type(rs.getString("orders_type"));
+			dto.setOrders_post(rs.getString("orders_post"));
+			dto.setOrders_basic_address(rs.getString("orders_basic_address"));
+			dto.setOrders_extra_address(rs.getString("orders_extra_address"));
+			dto.setOrders_payment(rs.getString("orders_payment"));
+			dto.setOrders_amount(rs.getInt("orders_amount"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+	}
+	//4. id별 구매목록 출력용 메소드(전체)
+	public List<OrdersDto> history_order_all(String start, String finish, String customer_id, String date) throws Exception{
+		Connection con = getConnection();
+		PreparedStatement ps = null; 		
+		if(date==null) {
+		String sql = "select * from(select rownum rn, a.* from(select * from orders where orders_goods_buyer=? order by orders_no desc)a) where orders_date between ? and ?";
+		ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ps.setString(2, start);
+		ps.setString(3, finish);
+		}else {
+		String sql = "select * from(select rownum rn, a.* from(select * from orders where orders_goods_buyer=? order by orders_no desc)a) where orders_date between sysdate-? and sysdate";
+		ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ps.setString(2, date);	
+		}
+		ResultSet rs = ps.executeQuery();
+		List<OrdersDto> list = new ArrayList<>();
+		while(rs.next()) {
+			OrdersDto dto = new OrdersDto();
+			dto.setOrders_no(rs.getInt("orders_no"));
+			dto.setOrders_goods_title(rs.getString("orders_goods_title"));
+			dto.setOrders_goods_seller(rs.getString("orders_goods_seller"));
+			dto.setOrders_date(rs.getString("orders_date"));
+			dto.setOrders_type(rs.getString("orders_type"));
+			dto.setOrders_post(rs.getString("orders_post"));
+			dto.setOrders_basic_address(rs.getString("orders_basic_address"));
+			dto.setOrders_extra_address(rs.getString("orders_extra_address"));
+			dto.setOrders_payment(rs.getString("orders_payment"));
+			dto.setOrders_amount(rs.getInt("orders_amount"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
 			list.add(dto);
 		}
 		
@@ -120,8 +187,33 @@ public class OrdersDao {
 	}
 	
 	
+//90일 이전sql / 특정 시점부터일 경우는  to_date('2018-10-04')-30 and sysdate;	
+//	select * from(
+//			select rownum rn, a.* from(
+//			select * from orders where orders_goods_buyer='dlgudwn' order by orders_no desc
+//			)a
+//			) where orders_date between sysdate-90 and sysdate;
 	
+	//30일 이전sql
+//	select * from(
+//			select rownum rn, a.* from(
+//			select * from orders where orders_goods_buyer='dlgudwn' order by orders_no desc
+//			)a
+//			) where orders_date between  to_date('2018-10-04')-30 and sysdate;	
 	
+	//7일 이전
+//	select * from(
+//	select rownum rn, a.* from(
+//	select * from orders where orders_goods_buyer='dlgudwn' order by orders_no desc
+//	)a
+//	) where orders_date between  to_date('2018-10-04')-7 and sysdate;	
+	
+	//날짜 지정용
+	
+//	
+//	
+//	
+//	
 	
 	
 	
