@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page ="/template/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/regist.css"> 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 function sample6_execDaumPostcode() {
@@ -83,51 +82,97 @@ function sample6_execDaumPostcode() {
             }
         }
 </script>
+ <style>
 
+.regist_title{
+	margin-top:50px;
+	width:100%;
+	color:#03B855;
+	font-size:34px;
+	font-weight: bold;
+	}
+.regist_info>div{
+	margin:15px 0px;
+}
+.regist_info>div>input{
+/* 	margin:15px 0px; */
+/* 	padding:0px 15px; */
+	width:280px;
+	height:40px;
+/* 	border-top:0px; */
+/* 	border-left: 0px; */
+/* 	border-right: 0px; */
+/* 	border-bottom:10px; */
+	
+}
+.regist_button{
+	padding :15px 20px;
+	margin:0px 30px;
+	margin-bottom : 40px;
+	
+}
+.regist_bottom{
+	text-align:center;
+	
+}
+
+</style>
 <form action = "regist.do" method="post" enctype="multipart/form-data">		
 	<article class = "w-60">			
 				<div class="regist_title">
 					회원 가입
 				</div>
 				<hr>
-				
-			<div class="row-multi col-2 a">			
-				<div class="regist_info a">	
-					<div >
-						<label for="id">아이디<br></label>
-						<input id="id" type="text" name ="customer_id" required>
-						<button class="regist_button2">중복확인</button>
-						<h5>*영문 또는 숫자 조합, 6자 이상 15자 이하</h5>
+			<div class="row-multi col-2">			
+				<div class="regist_info row-multi col-3">
+					<div id="a">
+					<ul>
+						<li><label for="id">아이디 </label></li>
+						<li><label for="pw">비밀번호</label></li>
+						<li><label>이름</label></li>
+					</ul>
 					</div>
-					<div>
-						<label for="pw">비밀번호<br></label>
+					<div id="b">
+						<input id="id" type="text" name ="customer_id" placeholder="영문 또는 숫자 조합, 6자 이상 15자 이하" required>
 						<input type="password" name ="customer_pw" required>
-						<h5>*영문, 숫자, 특수문자 조합, 8자 이상 12자 이하</h5>
-					</div>
-					<div>
-						<label>이름<br></label>
 						<input type="text" name ="customer_name" required>
+					
+					</div>
+					<div id="c"> </div>
+					<div>
+						<button>아이디 중복확인</button>
 					</div>
 					<div>
-						<label>생년월일<br></label>
-						<input type="text" name ="customer_birth" required>
-						<h5>*8자리 ex) 900101</h5>
+					</div>
+					<div>
+					</div>
+					<div>
+						<label>생년월일</label>
+						<input type="text" name ="customer_birth" placeholder="생년월일" required>
 					</div>
 	
 					<div>
-						<label>닉네임<br></label>
+						<label>닉네임</label>
 						<input type="text" name ="customer_nickname" required>
 					</div>
 					<div>
-						<label>이메일<br></label>
+						<label>이메일</label>
 						<input type="text" name ="customer_email" required>
 					</div>
 					<div>
-						<label>휴대폰번호<br></label>
-						<input type="tel"  name ="customer_phone" value="010" required>
-						<h5>* ' - '표시 없이 11자리</h5>
+						<label>휴대폰번호</label>
+						<input type="text"  name ="customer_phone" required>
 					</div>
-
+					<div>
+						<label>주소</label>
+						<div>
+							<input type="text" name="customer_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
+							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+							<input type="text" name="customer_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly">
+							<input type="text" name="customer_extra_address" id="sample6_detailAddress" placeholder="상세주소"><br>
+							<input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
+						</div>
+					</div>
 					<div>
 							
 					</div>
@@ -135,27 +180,14 @@ function sample6_execDaumPostcode() {
 	
 					</div>
 				</div>
-				<div class="regist_info">
+				<div>
 					<div>
 						프로필 사진(선택)<br>
-						<img id="preview" src="http://placehold.it/200x200" width="200" height="200">
+						<img id="preview" src="http://placehold.it/100x100" width="100" height="100">
 					</div>
 					<div>
 						<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
-					</div>	
-					<br>
-				
-	
-					<div>
-						<label>주소<br></label>
-						<div>
-							<input type="text" class="a" name="customer_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
-							<input type="button" class="regist_button2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" class="b" name="customer_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly">
-							<input type="text" class="b" name="customer_extra_address" id="sample6_detailAddress" placeholder="상세주소"><br>
-							<input type="text" class="a" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
-						</div>
-					</div>												
+					</div>														
 				</div>											
 			</div>	
 			<div class="regist_bottom">

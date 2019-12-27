@@ -1,0 +1,175 @@
+@charset "UTF-8";
+ <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+ 
+ <style>
+
+        .sun-editor{
+        	margin-left:190px;
+        	width:60% !important;
+        }
+        img.img{
+        	margin-right:1px;
+        }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
+     <script>
+        function loadEditor(){
+            var editor = SUNEDITOR.create((document.querySelector('#gcontent')),{
+                //언어 설정
+                lang: SUNEDITOR_LANG['ko'],
+                
+                //버튼 목록
+                buttonList:[
+                    ['font', 'fontSize', 'fontColor'], 
+                    ['underline', 'italic', 'paragraphStyle', 'formatBlock'],
+                    ['align', 'table', 'image']
+                ],
+                //글꼴 설정
+                font:[
+                    '굴림', '궁서', 'Verdana', 'Arial'
+                ],
+                //크기 설정
+                fontSize:[
+                    10, 16, 32
+                ],
+            });
+            
+            editor.onKeyUp = function(e){
+    	    	var content = document.querySelector("textarea[name=goods_content]");
+    	    	content.value = editor.getContents();
+    	    }
+        }
+        window.onload = loadEditor;
+        </script
+
+
+ div,ul,  li, h1, h2, h3, h4, h5, h6, form, p, th, td{
+    margin:0;
+    padding: 0;
+}
+
+ul, li{
+		  list-style: none;
+		}
+
+div{
+	display:block;
+	
+}
+
+a{
+	
+	text-decoration: none;
+	color:#222;
+}
+p{
+		text-align:left;
+		margin-left:190px;
+    font-size: 15px;
+        margin-bottom: 8px ;
+     
+
+}
+
+    .contents_wrap{
+ 
+        margin-top: 8px;
+        margin-bottom: 20px ;
+       
+           width: 1200px;
+            
+            padding: 10px;
+    }
+
+    h2{
+    margin-left:490px;
+    text-align:center;
+        font-size: 25px;
+        margin-bottom: 40px ;
+        text-align: left;
+    
+        background-color:white;
+    }
+
+  .gcategory{
+margin-right:90px;
+  font-size: 15px;
+    padding: 10px;
+    width: 60%;
+    height: 40px;
+    border: 1px solid #ccc;
+  }
+  
+    .gcontent{
+        margin-bottom: 40px ;
+    }
+    
+    #gcontent{
+
+            width:680px;
+            height:300px;
+            line-height: inherit;
+            border: 1px solid #ccc;
+        }
+   .sun-editor{
+        	margin-left:190px;
+        	width:60% !important;
+        }
+        
+    .row input[type="text"]{
+            width:60%;
+             height: 40px;
+      margin-right:90px;
+    
+            padding: 10px;
+            line-height: inherit;
+            border: 1px solid #ccc;
+        }
+        .row input[type="file"]{
+            margin-bottom: 1px ;
+            margin-right:90px;
+            width:60%;
+         
+            line-height: normal;
+            border: 1px solid #ccc;
+        }
+        
+        .option{
+        width: 60%;
+            height: 32px;
+            line-height: normal;
+            border: 1px solid #ccc;
+        }
+
+        .goods_button input[type="submit"]{
+            width:160px;
+            height: 36px;
+            background-color: #fff;
+            border: 1px solid #FF8041;
+            color: #FF8041;
+     
+        }
+        
+        .goods_button input[type="button"]{
+            width:160px;
+            height: 36px;
+            background-color: #fff;
+            border: 1px solid #666;
+            color: #666;
+         margin-left: 500;
+        }
+        
+        .goods_button input[type="submit"]:hover{
+            color: #fff;
+            background-color: #FF8041;
+            cursor: pointer;
+        }
+        
+        .goods_button input[type="button"]:hover{
+            color: #fff;
+            background-color: #666;
+            cursor: pointer;
+        }
+     
+

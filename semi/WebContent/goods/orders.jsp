@@ -93,7 +93,7 @@ function point_use(){
 </style>
 <jsp:include page = "/template/header.jsp"></jsp:include>
 <article class="w-50">
-	
+	 <h2>상품 구매하기</h2>
 	<!-- 구매할 상품 정보 -->	
 	<div class="order_table">
 	<%if(gdto.getGoods_title()!=null){ %>

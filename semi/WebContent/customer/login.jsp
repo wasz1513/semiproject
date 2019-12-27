@@ -30,7 +30,6 @@
 	<div>
 		<input class="login_button" type="submit" value="Login">
 	</div>
-	<hr>
 	<div class="login_bottom">
 		<a id="a" href="find.jsp">아이디 찾기</a>|<a id="b" href="find_pw.jsp">비밀번호 찾기</a>|
 		<a id="c" href="regist.jsp">회원가입</a>

@@ -14,8 +14,15 @@ public class GoodsDto {
 	private String goods_writetime;
 	private String customer_id;
 	private String customer_basic_address;
+	private int customer_no;
 	
 
+	public int getCustomer_no() {
+		return customer_no;
+	}
+	public void setCustomer_no(int customer_no) {
+		this.customer_no = customer_no;
+	}
 	public String getCustomer_basic_address() {
 		return customer_basic_address;
 	}

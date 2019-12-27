@@ -49,20 +49,17 @@ input::placeholder{color:#FC7D35;}
     font-size : 25px;
     color : white;
 }
+.login_button:hover{
+	cursor:pointer;
+}
 .login_error{
 	color : red;
 	text-align:center;
 	font-size : 20px;
 	margin-bottom:20px;
 }
-#a,#c{
-	color:#03B855;
+#a,#b,#c{
 	font-weight: bold;
-	margin:0px 20px;
-}
-#b{
-	font-weight: bold;
-	color:#FC7D35;
 	margin:0px 20px;
 }
 .login_banner{

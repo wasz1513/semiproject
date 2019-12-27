@@ -1,23 +1,6 @@
 @charset "UTF-8";
 
 
-div,ul,  li, h1, h2, h3, h4, h5, h6, form, p, th, td{
-    margin:0;
-    padding: 0;
-}
-
-ul, li{
-		  list-style: none;
-		}
-
-div{
-	display:block;
-}
-
-a{
-	text-decoration: none;
-	color:#222;
-}
 
 .header{
 	width:100%; 
@@ -112,6 +95,8 @@ a{
 
 /*로그인, 마이페이지 */
 
+
+
 .topmenu_wrap{
 	display: block;
 	position: absolute;
@@ -131,6 +116,9 @@ a{
 	position: absolute;
 }
 
+.topmenu{
+	height:22px;
+}
 
 .topmenu >  li{
 			display: inline-block;
@@ -141,6 +129,7 @@ a{
 
 .topmenu img{
 	height: 20px;
+	vertical-align: middle;
 }
 
 .topmenu .topmenu_sub{
@@ -176,6 +165,10 @@ a{
 			overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+}
+
+.topmenu  .productadd img{
+			
 }
 
 .topmenu .topmenu_sub .sub_drop li{
@@ -296,8 +289,4 @@ a{
     float:left;
     padding-left:20px;
 }
-
-
-
-
 
