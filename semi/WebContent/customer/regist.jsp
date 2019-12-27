@@ -108,7 +108,7 @@ function sample6_execDaumPostcode() {
                     <label>프로필(선택)</label>
                     </div>
                     <img id="preview" src="http://placehold.it/200x200" width="120" height="120"><br>
-                    <input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">>
+                    <input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
                 </td>
                 </tr>
             <tr>
