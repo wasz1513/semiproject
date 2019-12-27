@@ -70,6 +70,7 @@ header, footer, article {
 				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/admin/operation.jsp">운영현황</a></li>
+				<li><a href="<%=request.getContextPath()%>/admin/help2.jsp">신고게시판</a></li>
 			</ul>
 		</div>
 		<%
@@ -124,7 +125,6 @@ header, footer, article {
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
-
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
