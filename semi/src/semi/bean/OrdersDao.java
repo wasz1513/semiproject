@@ -196,7 +196,7 @@ public class OrdersDao {
 	}
 	
 	//4.판매목록조회
-	public List<OrdersDto> history_sale(String id) throws Exception{
+	public List<OrdersDto> history_sale_all(String id) throws Exception{
 		Connection con = getConnection();
 		String sql = "select * from goods_orders where orders_goods_seller=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -293,4 +293,18 @@ public class OrdersDao {
 		con.close();
 		return dto;
 	}	
+	
+	// 8. 판매완료
+	public void sale(int goods_no) throws Exception{
+		Connection con = getConnection();
+		String sql = "update goods set goods_sale=1 where goods_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, goods_no);
+		ps.execute();
+		
+		String sql2 = "update goods set goods_state='판매완료' where goods_buy=1 and goods_sale=1";
+		PreparedStatement ps2 = con.prepareStatement(sql2);
+		ps2.execute();
+		con.close();
+	}
 }
