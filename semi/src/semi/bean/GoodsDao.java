@@ -472,9 +472,12 @@ public class GoodsDao {
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, goods_no);
 		ResultSet rs = ps.executeQuery();
-		
-		rs.next();
-		String Customer_basic_address = rs.getString("Customer_basic_address");
+		String Customer_basic_address;
+		if(rs.next()) {
+			Customer_basic_address = rs.getString("Customer_basic_address");			
+		}else {
+			Customer_basic_address = "";
+		}
 		con.close();
 		return Customer_basic_address;
 		

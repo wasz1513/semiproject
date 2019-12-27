@@ -183,7 +183,9 @@
 .keyword-title{
 	margin-top:50px;
 	margin-bottom:50px;
+	text-align: center;
 }
+
 </style>
 
 <article>
