@@ -86,92 +86,105 @@ function sample6_execDaumPostcode() {
 </script>
 
 <form action = "regist.do" method="post" enctype="multipart/form-data">		
-	<article class = "w-60">			
-				<div class="regist_title">
-					회원 가입
-				</div>
-				<hr>
-				
-			<div class="row-multi col-2 a">			
-				<div class="regist_info a">	
-					<div >
-						<label for="id">아이디<br></label>
-						<input id="id" type="text" name ="customer_id" oninput="idCheck();" required>
-						<button class="regist_button2">중복확인</button>
-						<div class="result"></div>
-						<h5>*영문 또는 숫자 조합, 6자 이상 15자 이하</h5>
-					</div>
-					<div>
-						<label for="pw">비밀번호<br></label>
-						<input type="password" name ="customer_pw" required>
-						<h5>*영문, 숫자, 특수문자 조합, 8자 이상 12자 이하</h5>
-					</div>
-					<div>
-						<label>이름<br></label>
-						<input type="text" name ="customer_name" required>
-						<h5>*7자리 이하만 가능</h5>
-					</div>
-					<div>
-						<label>생년월일<br></label>
-						<input type="text" name ="customer_birth" required>
-						<h5>*8자리 ex) 900101</h5>
-					</div>
-	
-					<div>
-						<label>닉네임<br></label>
-						<input type="text" name ="customer_nickname" required>
-					</div>
-					<div>
-						<label>이메일<br></label>
-						<input type="text" name ="customer_email" required>
-					</div>
-					<div>
-						<label>휴대폰번호<br></label>
-						<input type="tel"  name ="customer_phone" value="010" required>
-						<h5>* ' - '표시 없이 11자리</h5>
-					</div>
 
-					<div>
-							
-					</div>
-					<div>
-	
-					</div>
-				</div>
-				<div class="regist_info">
-					<div>
-						프로필 사진(선택)<br>
-						<img id="preview" src="http://placehold.it/200x200" width="200" height="200">
-					</div>
-					<div>
-						<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
-					</div>	
-					<br>
-				
-	
-					<div>
-						<label>주소<br></label>
-						<div>
-							<input type="text" class="a" name="customer_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
-							<input type="button" class="regist_button2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" class="b" name="customer_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly">
-							<input type="text" class="b" name="customer_extra_address" id="sample6_detailAddress" placeholder="상세주소"><br>
-							<input type="text" class="a" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
-						</div>
-					</div>												
-				</div>											
-			</div>	
-			<div class="regist_bottom">
-				<input class="regist_button" type="submit" value="회원가입">	
-				<input class="regist_button" type="reset" value="초기화">	
-			</div>		
-		</article>
-	
+	<div id="regist">
+        <header id="regist_header">
+            <h2 class="regist_title">회원가입</h2>    			
+        </header>
+        
+        <div class="regist_wrap">
+        <table  class="regist_table" width="800">
+            <tr>
+                <td>
+                    <div class="inputlabel">
+                        <label for="id">아이디</label>
+                    </div>
+                    <input id="id" type="text" name ="customer_id" required>
+                    <button class="regist_button2">중복확인</button>
+                    <h5 class="inputtext"><font color="#666">*영문, 숫자, 특수문자 조합, 6자 이상 15자 이하</font></h5>
+                    
+                </td>  
+                <td rowspan="2">
+                    <div class="inputlabel">
+                    <label>프로필(선택)</label>
+                    </div>
+                    <img id="preview" src="http://placehold.it/200x200" width="120" height="120"><br>
+                    <input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
+                </td>
+                </tr>
+            <tr>
+                <td class="pwline">
+                    <div class="inputlabel">
+                    <label for="pw">비밀번호</label>
+                    </div>
+                    <input id="pw" type="password" name ="customer_pw" required>
+                    <h5 class="inputtext"><font color="#666">*영문, 숫자, 특수문자 조합, 8자 이상 12자 이하</font></h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="inputlabel">
+                    <label>이름</label>
+                    </div>
+                    <input type="text" name ="customer_name" required>
+                </td>
+                <td>
+                    <div class="inputlabel">
+                    <label>닉네임</label>
+                    </div>
+                    <input type="text" name ="customer_nickname" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="inputlabel">
+                    <label>생년월일</label>
+                    </div>
+                    <input type="text" name ="customer_birth" required>
+                    <h5 class="inputtext"><font color="#666">*8자리 ex) 900101</font></h5>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="inputlabel">
+                    <label>주소</label>
+                    </div>
+                    <div class="postbtn">
+						<input type="text" class="a" name="customer_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
+						<input type="button" class="regist_button2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                    </div>
+						<input type="text" class="b" name="customer_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly">
+						<input type="text" class="b" name="customer_extra_address" id="sample6_detailAddress" placeholder="상세주소">
+						<input type="text" class="a" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
+                </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="inputlabel">
+                    <label>이메일<br></label>
+                    </div>
+                    <input type="text" name ="customer_email" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="inputlabel">
+                    <label>휴대폰번호<br></label>
+                    </div>
+                    <input type="tel"  name ="customer_phone" required>
+                    <h5 class="inputtext"><font color="#666">* ' - '표시 없이 11자리</font></h5>
+
+                </td>
+            </tr>
+        </table>
+        <div class="regist_bottom">
+            <input class="regist_button" type="submit" value="회원가입">	
+            <input class="regist_button" type="reset" value="초기화">	
+        </div>		
+      </div>  
+    </div>
 	</form>
-      
-    
-    
-    
-    
 <jsp:include page ="/template/footer.jsp"></jsp:include>
     

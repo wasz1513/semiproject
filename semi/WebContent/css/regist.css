@@ -1,81 +1,139 @@
 @charset "UTF-8";
- <style>
-.row-multi.col-2.a{
-	padding-left:100px;
+
+
+ #regist{
+    width: 800px;
+    margin:0 auto;
+}
+
+
+.regist_wrap{
+    position:relative; 
+	width:800px; 
+	margin:0 auto;
+}
+
+.regist_wrap input[type="tel"],
+.regist_wrap input[type="text"],
+.regist_wrap input[type="password"]{
+    width:250px;
+    height: 40px;
+    border: 1px solid #ccc;
+}
+
+
+
+#regist_header{
+    margin-top: 50px;
+    border-bottom: 2px solid #333;
+    width:800px;
 }
 
 .regist_title{
 	margin-top:50px;
 	width:100%;
-	color:#03B855;
+	color:#333;
 	font-size:34px;
-	font-weight: bold;
-	padding-left:100px;
-	}
-.regist_info{
-	font-weight:bold;
-	padding-left:50px;
-	
-}	
-.regist_info.a{
-	width:40%;
-	padding-left:90px;
+    font-weight: bold;
+    padding-bottom: 40px;
 }
 
-.regist_info>div{
-	margin:15px 0px;
-	width: 70%;
+
+.regist_table{
+    width: 800px;
 }
-.regist_info>div>input{
-	width:280px;
-	height:40px;
-	padding :10px 10px;
+
+.regist_table tr th{
+    text-align: left;
+    width: 200px;
+    
 }
-/* .regist_info>div>div>input[type="text"]{ */
-/* 	width:280px; */
-/* 	height:40px; */
-/* } */
-.regist_info>div>div>.a{
-	width:140px;
-	height:40px;
-	padding :10px 10px;
-	margin-bottom:10px;
+
+.regist_wrap .pwline,
+.regist_table tr:first-child td{
+    border: none;
 }
-.regist_info>div>div>.b{
-	width:280px;
-	height:40px;
-	padding :10px 10px;
-	margin-bottom:10px;
+
+
+.regist_table tr td{
+    padding:18px 0;
+    padding-left: 12px;
+    height: auto;
+    border-bottom: none;
+    border-top: 1px solid #eee;
+
 }
-.regist_info>div>label{
-	padding-right:60px;
-}
-.regist_button{
-	padding :15px 20px;
-	margin:0px 30px;
-	margin-bottom : 40px;
-	background-color: #FC7D35;
-	border-style: solid;
-	font-size : 15px;
-	color : white;
-	
-}
-.regist_button2{
-	padding :5px 10px;
-	margin-bottom:5px;
-	
-}
+
+
+
 .regist_bottom{
-	text-align:center;
-	
+    border-top: 1px solid #eee;
+    padding-top: 40px;
+    margin-bottom: 120px;
+    text-align: center;
 }
-.regist_success{
-	font-size:20px;
-	font-weight: bold;
-	text-align:center;
-	margin : 100px;
+
+.regist_bottom input[type="submit"]{
+    width: 200px;
+    height: 40px;
+    border: none;
+    background-color: #ff8041;
+    color: #fff;
 }
-.regist_button,.regist_button2:hover{
-	cursor:pointer;
+
+.regist_bottom input[type="reset"]{
+    width: 140px;
+    height: 40px;
+    border: none;
+    background-color: #333;
+    color: #fff;
 }
-</style>
+  
+.regist_wrap input[name="customer_post"]{
+    width: 120px;
+}
+.regist_wrap input[class="regist_button2"]{
+    width: 114px;
+    height: 40px;
+    border: none;
+    background-color: #ddd;
+}
+
+
+#regist button.regist_button2{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #ddd;
+}
+
+.regist_wrap .inputlabel{
+    padding-bottom: 10px;
+}
+#regist .postbtn{
+    margin-bottom: 8px;
+
+}
+
+.regist_wrap .inputtext{
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+
+
+.regist_success_wrap{
+    text-align: center;
+    margin-bottom: 300px;
+}
+
+.regist_success_title{
+    margin-top: 80px;
+    margin-bottom: 20px;
+    font-size: 34px;
+    color: #333;
+}
+
+.regist_success_wrap h5{
+	font-size:20px;	
+}
