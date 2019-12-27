@@ -127,6 +127,73 @@ public class OrdersDao {
 		con.close();
 		return list;
 	}
+	//4. id별 구매목록 출력용 메소드(전체)
+	public List<OrdersDto> history_order_all(String customer_id) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from orders where orders_goods_buyer=? order by orders_date desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ResultSet rs = ps.executeQuery();
+		List<OrdersDto> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			OrdersDto dto = new OrdersDto();
+			dto.setOrders_no(rs.getInt("orders_no"));
+			dto.setOrders_goods_title(rs.getString("orders_goods_title"));
+			dto.setOrders_goods_seller(rs.getString("orders_goods_seller"));
+			dto.setOrders_date(rs.getString("orders_date"));
+			dto.setOrders_type(rs.getString("orders_type"));
+			dto.setOrders_post(rs.getString("orders_post"));
+			dto.setOrders_basic_address(rs.getString("orders_basic_address"));
+			dto.setOrders_extra_address(rs.getString("orders_extra_address"));
+			dto.setOrders_payment(rs.getString("orders_payment"));
+			dto.setOrders_amount(rs.getInt("orders_amount"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+	}
+	//4. id별 구매목록 출력용 메소드(전체)
+	public List<OrdersDto> history_order_all(String start, String finish, String customer_id, String date) throws Exception{
+		Connection con = getConnection();
+		PreparedStatement ps = null; 		
+		if(date==null) {
+		String sql = "select * from(select rownum rn, a.* from(select * from orders where orders_goods_buyer=? order by orders_no desc)a) where orders_date between ? and ?";
+		ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ps.setString(2, start);
+		ps.setString(3, finish);
+		}else {
+		String sql = "select * from(select rownum rn, a.* from(select * from orders where orders_goods_buyer=? order by orders_no desc)a) where orders_date between sysdate-? and sysdate";
+		ps = con.prepareStatement(sql);
+		ps.setString(1, customer_id);
+		ps.setString(2, date);	
+		}
+		ResultSet rs = ps.executeQuery();
+		List<OrdersDto> list = new ArrayList<>();
+		while(rs.next()) {
+			OrdersDto dto = new OrdersDto();
+			dto.setOrders_no(rs.getInt("orders_no"));
+			dto.setOrders_goods_title(rs.getString("orders_goods_title"));
+			dto.setOrders_goods_seller(rs.getString("orders_goods_seller"));
+			dto.setOrders_date(rs.getString("orders_date"));
+			dto.setOrders_type(rs.getString("orders_type"));
+			dto.setOrders_post(rs.getString("orders_post"));
+			dto.setOrders_basic_address(rs.getString("orders_basic_address"));
+			dto.setOrders_extra_address(rs.getString("orders_extra_address"));
+			dto.setOrders_payment(rs.getString("orders_payment"));
+			dto.setOrders_amount(rs.getInt("orders_amount"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+	}
 	
 	//4.판매목록조회
 	public List<OrdersDto> history_sale(String id) throws Exception{
@@ -188,7 +255,6 @@ public class OrdersDao {
 		con.close();
 		return list;
 	}
-	
 	//6. 시퀀스 생성명령
 	public int seq() throws Exception{
 		Connection con = getConnection();
@@ -200,7 +266,6 @@ public class OrdersDao {
 		con.close();
 		return seq_no;
 	}
-	
 	//7. 구매목록 단일조회
 	public OrdersDto getOrder(int no) throws Exception{
 		Connection con = getConnection();
@@ -227,42 +292,5 @@ public class OrdersDao {
 		}
 		con.close();
 		return dto;
-	}
-	
-	//배송지 저장
-//	public void orderAddress(OrdersDto odto) throws Exception{
-//
-//		Connection con = getConnection();
-//		
-//		String sql = "update orders set orders_post=?, orders_basic_address=?, orders_extra_address=? where customer_id=?";
-//		PreparedStatement ps = con.prepareStatement(sql);
-//		ps.setString(1, odto.getOrders_post());
-//		ps.setString(2, odto.getOrders_goods_title());
-//		ps.setString(3, dto.get);
-//		
-//		con.close();
-//	}
-
-	//구매 신규배송 주소
-//	public void buyNewAddress(BuyDto dto) throws Exception{
-//		
-//		Connection con = getConnection();
-//		
-//		String sql = "update buytest set buy_post=?, buy_basic_address=?,buy_extra_address=? where customer_no =?";
-//		PreparedStatement ps = con.prepareStatement(sql);
-//		ps.setString(1,dto.getBuy_post());
-//		ps.setString(2, dto.getBuy_basic_address());
-//		ps.setString(3, dto.getBuy_extra_address());
-//		ps.setInt(4, dto.getCustomer_no());
-//		
-//	
-//		
-//		con.close();
-//			
-//	}
-
-	
-	
-	
-
+	}	
 }

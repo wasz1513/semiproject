@@ -1,30 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="semi.bean.OrdersDto"%>
+<%@page import="semi.bean.OrdersDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<style>
-.radio{
-	float:left;
-}
-
-.date{
-	float:left;
-}
-
-.date #date1{
-	margin-right: 10px;
-}
-
-.date > #date1::after{
-	 content : "-";
-	 width:6px;
-	 display:block;
-	 position:absolute; 
-	background-color : #666;
-}
-
-
-</style>
-
 <!-- 날짜선택기 -->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/date.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
@@ -46,8 +25,8 @@
                 seperator:'-',
                 //문서 내에 표시되도록 설정
                 // inline:true,
-                //선택 시작일 설정(현재일로 설정하거나 'YYYY-MM-DD' 형태로 설정)
-                minDate:moment(new Date()).add(1, 'days'),//내일부터 선택 가능
+                //선택 시작일 설정(현재일로 설정하거나 'YYYY-MM-DD' 형태로 설정)      
+                minDate:moment(new Date()).add(-90, 'days'),//오늘로 부터 90일전부터 선택 가능.     
                 // minDate:new Date(),//오늘부터 선택가능
                 //날짜 형식 설정
                 format:'YYYY-MM-DD',
@@ -55,62 +34,119 @@
             var picker = new Lightpick(options);
         }
     </script>
-
-<jsp:include page="/template/header.jsp"></jsp:include>
-
-
-
-
-<article class="w-40">
-
-	<div>
+<%
+	/****************************************************/
 	
-		<h2>주문내역 조회</h2>
-		
+	String id = (String)request.getSession().getAttribute("customer_id");
+	String bstart = request.getParameter("start");
+	String bfinish = request.getParameter("finish");
+	String search_date=request.getParameter("search_date");
+	List<OrdersDto> list = new ArrayList<>(); 
+	OrdersDao dao = new OrdersDao();
+	if(request.getParameter("search_date") == null){
+		list = dao.history_order_all(bstart, bfinish, id, null);
+	}
+	else if(request.getParameter("search_date").equals("0")){
+		list=dao.history_order_all(id);
+	}else{
+		search_date = request.getParameter("search_date");
+		list = dao.history_order_all(bstart, bfinish, id, search_date);
+	}
+%>
+<jsp:include page="/template/header.jsp"></jsp:include>
+<style>
+.buy_total{
+	text-align:center;
+}
+
+</style>
+<article class="w-40">
+	<h2>주문내역 조회</h2>
+	<div>
+	<form action="<%=request.getContextPath() %>/goods/orders_list.jsp">	
 		<div class="radio">
-			<input type ="radio" >
-			<label>1주일</label>
-			<input type ="radio" >
-			<label>1개월</label>
-			<input type ="radio">
-			<label>3개월</label>
+			<input id="date_week" type ="radio" name="search_date" value="7">
+			<label for="date_week">1주일</label>
+			<input id="date_month" type ="radio" name="search_date" value="30">
+			<label for="date_month">1개월</label>
+			<input id="date_3month" type ="radio" name="search_date" value="90">
+			<label for="date_3month">3개월</label>
+			<input id="date_whole" type ="radio" name="search_date" value="0">
+			<label for="date_whole">전체 보기</label>
 		</div>
-		
-		<div class="date">
-			<input type="text" id="date1" class="start-date" onclick="loadPicker()">
-		</div>
-		<div>
-			<input type="text" class="end-date"> 
-		</div>
-		
 		<div>
 			<select>
-				<option value selected="selected">전체 상태</option>
+				<option selected="selected">전체 상태</option>
 				<option>구매 완료</option>
 				<option>입금 예정</option>
 				<option>결제 완료</option>
 				<option>배송중</option>
 				<option>배송 완료</option>
 			</select>
+			<input type="text" name="start" placeholder="시작일" id="date1" class="start-date" onclick="loadPicker()">
+			<input type="text" name="finish" placeholder="종료일" class="end-date">
+			<input type="submit" value="검색"> 
 		</div>
-		
-	</div>
-	
-		
-
-
+	</form>
+	</div>	
+	<hr>
+		<div class="row-multi col-5 buy_total">
+	<%if(search_date!=null){ %>
+			<div>
+				주문일자			
+			</div>
+			<div>
+				주문번호			
+			</div>
+			<div>
+				구매품명			
+			</div>
+			<div>
+				구매금액			
+			</div>
+			<div>
+				판매자명			
+			</div>
+		</div>	
+		<hr>
+		<%for(OrdersDto dto : list){ %>
+		<div class="row-multi col-5 buy_total">
+			<div>
+				<%=dto.getOrders_dateWithFormat() %>	
+			</div>
+			<div>
+				<%=dto.getOrders_no() %>		
+			</div>
+			<div>
+				<%=dto.getOrders_goods_title() %>			
+			</div>
+			<div>
+				<%=dto.getOrders_amount() %>			
+			</div>
+			<div>
+				<%=dto.getOrders_goods_seller() %>			
+			</div>
+		</div>
+		<%} %>
+		<!-- 네비게이터 장착해얗함. -->	
+	<%}else{ %>
+			<div>
+				주문일자			
+			</div>
+			<div>
+				주문번호			
+			</div>
+			<div>
+				구매품명			
+			</div>
+			<div>
+				구매금액			
+			</div>
+			<div>
+				판매자명			
+			</div>
+		</div>	
+		<hr>
+	<%} %>
 </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <jsp:include page="/template/footer.jsp"></jsp:include>
