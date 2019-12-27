@@ -8,7 +8,7 @@
 int pagesize = 10;
 //	네비게이터 크기
 int navsize = 5;
-//	페이징 추가
+//	페이징 추가1
 int pno;
 try{
 	pno = Integer.parseInt(request.getParameter("pno"));
