@@ -4,11 +4,18 @@
     
     <jsp:include page ="/template/header.jsp"></jsp:include>
     
-    <article class="w-40">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/check_pw.css">
+
+<div class="check_pw_wrap">
+
+	<h2 class="checkpw_title">비밀번호 변경이 완료되었습니다.</h2>	
+	
+
+
+</div>
         
-    		<h2>비밀번호 변경이 완료되었습니다.</h2>
-        
-    </article>
+    
     
     <jsp:include page ="/template/footer.jsp"></jsp:include>
     
