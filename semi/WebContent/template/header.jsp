@@ -60,6 +60,11 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
+}
+	
+.menu-master{
+	z-index:150;
+}
 </style>
 <%
 	String id = (String) session.getAttribute("customer_id");
