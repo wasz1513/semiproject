@@ -161,7 +161,7 @@ public class OrdersDao {
 	//5. 판매요청받은 리스트
 	public List<OrdersDto> history_salerequest(String id) throws Exception{
 		Connection con = getConnection();
-		String sql = "select * from goods_orders where orders_goods_seller=? and goods_sale=0";
+		String sql = "select * from goods_orders where orders_goods_seller=? and goods_sale=0 order by orders_no desc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,id);
 		ResultSet rs = ps.executeQuery();

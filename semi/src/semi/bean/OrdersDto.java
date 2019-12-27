@@ -1,5 +1,9 @@
 package semi.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class OrdersDto {
 		private int orders_no; //주문번호(주문일자_주문자번호_상품번호)
 		private int goods_no;
@@ -211,7 +215,20 @@ public class OrdersDto {
 		}
 
 	
-		
+		// 시간 변환 - 최종로그인
+		public String getOrders_dateWithFormat() throws ParseException {
+			if (orders_date == null) {
+				return "";
+			} else {
+				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+				Date date = read.parse(orders_date);
+
+				SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+				String time = write.format(date);
+
+				return time;
+			}
+		}
 		
 		
 		

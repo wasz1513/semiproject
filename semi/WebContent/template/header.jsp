@@ -148,7 +148,7 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 					<li>
 						<a href="<%=request.getContextPath()%>/goods/salerequest.jsp">
-							판매요청
+							상품거래
 							<%if(list.size()>0){ %>
 								<font color="red"><%=list.size() %></font>
 							<%} %>
