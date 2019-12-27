@@ -8,7 +8,7 @@
 int pagesize = 10;
 //	네비게이터 크기
 int navsize = 5;
-//	페이징 추가
+//	페이징 추가1
 int pno;
 try{
 	pno = Integer.parseInt(request.getParameter("pno"));
@@ -109,6 +109,8 @@ boolean master = admin != null && admin.equals("관리자");
 <input class="search-txt" type="search" name="keyword" placeholder="검색어" required>
 <input class="search-bt" type="submit" value="검색">
 </form>
+
+
 	<div class="paging">
            
    	 <jsp:include page="/template/navigator.jsp">
