@@ -59,7 +59,7 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 
-<script>
+
 function previewImage(target) {
 	if (target.files && target.files[0]) {
 		var reader = new FileReader();
