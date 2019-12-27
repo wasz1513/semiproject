@@ -45,9 +45,7 @@
 	                </tr>
 				</thead>
 				
-				<tbody align="center">
-					
-					
+				<tbody align="center">					
 					<% for(OrdersDto odto : list){ %>
 					
 						<tr>
@@ -76,15 +74,6 @@
 				</tbody>
 		</table>
 	</div>
-
-
-
-
-
-
-
-
-
 </article>
 
 <jsp:include page = "/template/footer.jsp"></jsp:include>
