@@ -70,7 +70,6 @@ header, footer, article {
 				<li><a href="<%=request.getContextPath()%>/admin/list.jsp">회원리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">상품리스트</a></li>
 				<li><a href="<%=request.getContextPath()%>/admin/operation.jsp">운영현황</a></li>
-				<li><a href="<%=request.getContextPath()%>/admin/help2.jsp">신고게시판</a></li>
 			</ul>
 		</div>
 		<%
@@ -85,7 +84,9 @@ header, footer, article {
 	<div class="logo">
 			<a href="<%=request.getContextPath()%>">
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
+
 			</a>
+
 	</div>
 	
 <!-- 				검색창 -->
@@ -123,10 +124,12 @@ header, footer, article {
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
+
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
 		</div>
+
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
@@ -146,9 +149,11 @@ header, footer, article {
 			</a>
 			<div class="null">ddd</div>
 			<div class="topmenu_sub cart">
+
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+
 				</ul>
 			</div>
 		</li>
@@ -179,10 +184,12 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
 					새로운 상품 보기</a>
 					</li>
+
 					<li>
 					<a href="<%=request.getContextPath()%>/board/list.jsp">
 					공지사항</a>
 					</li>
+
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
 					</li>

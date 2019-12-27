@@ -31,6 +31,9 @@ else{
 	list = dao.getList(start, finish);
 }
 int count = dao.getCount(type, keyword);
+
+String admin = (String)request.getSession().getAttribute("customer_grade");
+boolean master = admin != null && admin.equals("관리자");
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -89,10 +92,12 @@ int count = dao.getCount(type, keyword);
 				
 			</tfoot>
 	</table>
+	<%if(master){ %>
 	<div class="write" align=right>
+	
                 <a href="write.jsp" class="bt">글작성</a>
      </div>
-
+	<%} %>
 	<!-- 네비게이터 -->
 <form action="list.jsp" method="get">
 

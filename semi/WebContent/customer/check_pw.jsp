@@ -6,6 +6,9 @@
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/check_pw.css">
+
 <div class="check_pw_wrap">
 
 	<h2 class="checkpw_title">비밀번호 확인</h2>	
