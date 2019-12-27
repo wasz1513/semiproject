@@ -176,7 +176,7 @@ header, footer, article {
 						<li><a href="#">키워드</a></li>
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
 						<li><a href="<%=request.getContextPath()%>/goods/orders_list.jsp?customer_id=<%=id%>">구매내역</a></li>
-						<li><a href="#">판매내역</a></li>
+						<li><a href="<%=request.getContextPath()%>/goods/sale_list.jsp?customer_id=<%=id%>">판매내역</a></li>
 
 				</ul>
 			</div>
