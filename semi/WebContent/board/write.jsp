@@ -13,7 +13,8 @@
 <%-- 		<%} %> --%>
 	
 		<table border="1" width="30%">
-			
+			<div class="board_write_wrap">
+            <table class="board_write">	
 			<tr>
 				<th>제목</th>
 				<td>
@@ -33,10 +34,11 @@
 					<a href="list.jsp">
 						<input type="button" value="목록보기">
 					</a>
+					
 				</td>
 			</tr>
 		</table>
-		
+		</div>
 	</form>
 
 </div>
