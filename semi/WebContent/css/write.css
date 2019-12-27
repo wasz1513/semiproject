@@ -14,18 +14,16 @@
     }
     
     .board_write{
-        border-top: 1px solid #ff8041;
+        border-top: px solid #ff8041;
         
     }
     
-    .board_write tr{
-        border-bottom: 1px solid #ff8041;
-    }
+    
     
     .board_write th,
     .board_write td{
          padding: 10px;
-         
+         border: 1px solid#ff8041;
     
     }
     
@@ -38,10 +36,4 @@
         
     }
     
-    .board_write_bt{
-        
-          
-    }
-    .title{
-        
-    }
+    

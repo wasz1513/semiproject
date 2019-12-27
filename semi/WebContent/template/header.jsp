@@ -1,9 +1,13 @@
+<%@page import="semi.bean.OrdersDto"%>
+<%@page import="java.util.List"%>
+<%@page import="semi.bean.OrdersDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 
 <%
 	String context = request.getContextPath();
+	
 %>
 
 
@@ -33,7 +37,14 @@ href="<%=request.getContextPath()%>/css/footer.css">
 href="<%=request.getContextPath()%>/css/boardlist.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/info.css">
-
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/regist.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/change_info.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/find.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/find_pw.css"> 
 
 
 
@@ -55,6 +66,9 @@ header, footer, article {
 	boolean login = id != null;
 	String grade = (String) session.getAttribute("customer_grade");
 	boolean master = grade != null && grade.equals("관리자");
+	
+	OrdersDao dao = new OrdersDao();
+	List<OrdersDto> list = dao.history_salerequest(id);
 %>
 </head>
 <body test onload="loadSlider();">
@@ -139,6 +153,14 @@ header, footer, article {
 					<li><a href="#">키워드입력</a></li>
 					<li><a href="#">위치수정</a></li>              			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
+					<li>
+						<a href="<%=request.getContextPath()%>/goods/salerequest.jsp">
+							상품거래
+							<%if(list.size()>0){ %>
+								<font color="red"><%=list.size() %></font>
+							<%} %>
+						</a>
+					</li>
 				</ul>
 			</div>
 		<%}%>
@@ -153,6 +175,8 @@ header, footer, article {
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
+						<li><a href="<%=request.getContextPath()%>/goods/orders_list.jsp?customer_id=<%=id%>">구매내역</a></li>
+						<li><a href="#">판매내역</a></li>
 
 				</ul>
 			</div>

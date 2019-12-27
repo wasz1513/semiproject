@@ -56,7 +56,9 @@
 <div align="center">
 
 	<h2>게시글 보기</h2>
-
+	 <div class="board_list_content" align="center">
+                <table class="board_content">
+	 
 	<table border="1" width="70%">
 		<tr>
 			<td><%=bdto.getTitle()%></td>
@@ -136,5 +138,6 @@
     	</table>
 
 </div>
+
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

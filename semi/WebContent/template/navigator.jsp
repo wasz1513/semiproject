@@ -5,9 +5,15 @@
    String type =request.getParameter("type");
    String keyword = request.getParameter("keyword");
    boolean isSearch = type != null && keyword != null;
-   int pno = Integer.parseInt(request.getParameter("pno"));
-   int count = Integer.parseInt(request.getParameter("count"));
-   int navisize= Integer.parseInt(request.getParameter("navisize"));
+   
+    int pno = Integer.parseInt(request.getParameter("pno"));
+    int count=0;
+    if(request.getParameter("count")==null){
+    	count=0;
+    }else{
+    	count = Integer.parseInt(request.getParameter("count"));    	
+    }
+    int navisize= Integer.parseInt(request.getParameter("navisize"));
 	int pagesize = Integer.parseInt(request.getParameter("pagesize"));
 	int pagecount = (count + pagesize) / pagesize;
 	int startblock = (pno - 1) / navisize * navisize + 1;
