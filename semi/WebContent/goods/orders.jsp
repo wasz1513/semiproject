@@ -15,7 +15,6 @@
 	}else{
 		goods_no=Integer.parseInt(request.getParameter("goods_no"));
 	}
-	System.out.println(goods_no);
 	CustomerDao cdao = new CustomerDao();
 	CustomerDto cdto = cdao.get(id);
 	int customer_no=cdto.getCustomer_no();
@@ -131,6 +130,7 @@ function point_use(){
 <input type="hidden" name="orders_goods_title" value="<%=gdto.getGoods_title()%>">
 <input type="hidden" name="orders_goods_seller" value="<%=gdto.getCustomer_id() %>">
 <input type="hidden" name="goods_no" value="<%=gdto.getGoods_no() %>">
+<input type="hidden" name="goods_price" value="<%=gdto.getGoods_price()%>">
 	<div>
 		<div>배송지 정보<br>
 			직거래<input type="radio" name="orders_type" value="직거래" required>

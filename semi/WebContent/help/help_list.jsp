@@ -124,7 +124,7 @@
 			<label for="show-<%=dto.getBoard_NO()%>" class="help-list">
 
 				<div>
-				유형 : <%= dto.getHead() %>
+				유형 : [<%= dto.getHead() %>]
 				</div>
 				<div>
 				날짜  : <%= dto.getHdate() %>
@@ -136,8 +136,14 @@
 			<div class="help-content">
 				내용 : <%= dto.getContent() %><br>
 				첨부파일 :<img src="download.do?board_no=<%=fdao.getfilesNo(dto.getBoard_NO())%>" width="100" height="100">
+				<br>
+				<div>당근나라 운영센터 답변</div>
+				<%=dto.getReply_content() %>
 			</div>
-			
+			<hr>
+				
+				
+				<br><br><br><br>
 			
 		</div>
 		<%

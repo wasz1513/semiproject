@@ -8,7 +8,7 @@
 int pagesize = 10;
 //	네비게이터 크기
 int navsize = 5;
-//	페이징 추가
+//	페이징 추가1
 int pno;
 try{
 	pno = Integer.parseInt(request.getParameter("pno"));
@@ -31,6 +31,9 @@ else{
 	list = dao.getList(start, finish);
 }
 int count = dao.getCount(type, keyword);
+
+String admin = (String)request.getSession().getAttribute("customer_grade");
+boolean master = admin != null && admin.equals("관리자");
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -89,10 +92,12 @@ int count = dao.getCount(type, keyword);
 				
 			</tfoot>
 	</table>
+	<%if(master){ %>
 	<div class="write" align=right>
+	
                 <a href="write.jsp" class="bt">글작성</a>
      </div>
-
+	<%} %>
 	<!-- 네비게이터 -->
 <form action="list.jsp" method="get">
 
@@ -104,6 +109,8 @@ int count = dao.getCount(type, keyword);
 <input class="search-txt" type="search" name="keyword" placeholder="검색어" required>
 <input class="search-bt" type="submit" value="검색">
 </form>
+
+
 	<div class="paging">
            
    	 <jsp:include page="/template/navigator.jsp">

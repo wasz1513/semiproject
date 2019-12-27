@@ -3,17 +3,18 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
-
+	<br>
 	<h2>게시글 작성</h2>
-	
+	<br><br>
 	
 	<form action="write.do" method="post">
 <%-- 		<%if(request.getParameter("superno") != null){ %> --%>
 <%-- 		<input type="hidden" name="superno" value="<%=request.getParameter("superno")%>"> --%>
 <%-- 		<%} %> --%>
 	
-		<table border="1" width="30%">
-			
+		<table border="1" width="40%">
+			<div class="board_write_wrap">
+            <table class="board_write">	
 			<tr>
 				<th>제목</th>
 				<td>
@@ -22,7 +23,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<textarea name="content" required rows="15" cols="100" 
+					<textarea name="content" required rows="20" cols="100" 
 						style="resize:vertical;"></textarea>
 				</td>
 			</tr>
@@ -33,10 +34,11 @@
 					<a href="list.jsp">
 						<input type="button" value="목록보기">
 					</a>
+					
 				</td>
 			</tr>
 		</table>
-		
+		</div>
 	</form>
 
 </div>

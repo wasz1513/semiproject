@@ -83,6 +83,17 @@ public class HelpDao {
 			dto.setContent(rs.getString("content"));
 			dto.setHead(rs.getString("head"));
 
+			String sql2 = "select * from help_total where origin=?";
+			PreparedStatement ps2 = con.prepareStatement(sql2);
+			ps2.setInt(1, rs.getInt("board_no"));
+			ResultSet rs2 = ps2.executeQuery();
+			if(rs2.next()) {
+				dto.setNo(rs2.getInt("no"));
+				dto.setOrigin(rs2.getInt("origin"));
+				dto.setReply_content(rs2.getString("reply_content"));
+				dto.setReply_hdate(rs2.getString("reply_hdate"));
+				dto.setWriter(rs2.getString("writer"));
+			}
 			list.add(dto);
 
 		}
@@ -91,34 +102,116 @@ public class HelpDao {
 		return list;
 	}
 	
+	
 	//기능:전체 회원글 보이기(관리자 페이지)
-	//이름:getList
-	//매개변수:string write
+	//이름:getAdminList
+	//매개변수:
 	//반환형:list
-	public List<HelpDto> getAdminList(String write) throws Exception {
+	public List<HelpDto> getAdminList(int start,int finish) throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from help where write=? order by board_no desc";
+	
+		String sql = "select * from("
+						+ "select rownum rn, A.*from("
+							+ "select * from help order by board_no desc"
+						+ ")A"
+					+ ")where rn between ? and ?";
+				
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1,write);
+		ps.setInt(1, start);
+		ps.setInt(2, finish);
+		
 		ResultSet rs = ps.executeQuery();
 
 		// 변환
 		List<HelpDto> list = new ArrayList<>();
 
 		while (rs.next()) {
-			HelpDto dto = new HelpDto();
-
-			dto.setBoard_NO(rs.getInt("board_NO"));
-			dto.setHdate(rs.getString("hdate"));
-			dto.setContent(rs.getString("content"));
-			dto.setHead(rs.getString("head"));
-
-			list.add(dto);
-
+			//rownum을 추가로 추출
+			HelpDto adto = new HelpDto();
+			adto.setBoard_NO(rs.getInt("board_no"));
+			adto.setContent(rs.getString("content"));
+			adto.setHdate(rs.getString("hdate"));
+			adto.setHead(rs.getString("head"));
+			adto.setWrite(rs.getString("write"));
+			
+			String sql2 = "select * from help_total where origin=?";
+			PreparedStatement ps2 = con.prepareStatement(sql2);
+			ps2.setInt(1, rs.getInt("board_no"));
+			ResultSet rs2 = ps2.executeQuery();
+			if(rs2.next()) {
+				adto.setNo(rs2.getInt("no"));
+				adto.setOrigin(rs2.getInt("origin"));
+				adto.setReply_content(rs2.getString("reply_content"));
+				adto.setReply_hdate(rs2.getString("reply_hdate"));
+				adto.setWriter(rs2.getString("writer"));
+			}
+			
+			list.add(adto);
 		}
+		
 
 		con.close();
 		return list;
 	}
 	
+	//검색
+		public List<HelpDto> search(String type, String keyword, int start, int finish) throws Exception{
+			Connection con = getConnection();
+			
+			String sql =  "select * from("
+					+ "select rownum rn, A.* from("
+					+ "select * from help "
+					+ "where "+type+" like '%'||?||'%' order by board_no desc"
+					+ ")A"
+					+ ")where rn between ? and ? "; 
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, keyword);
+			ps.setInt(2, start);
+			ps.setInt(3, finish);
+			ResultSet rs = ps.executeQuery();
+			
+			List<HelpDto> list = new ArrayList<>();
+			
+			while(rs.next()) {
+				HelpDto dto = new HelpDto();
+				dto.setRn(rs.getInt("rn"));
+				dto.setBoard_NO(rs.getInt("board_no"));
+				dto.setHead(rs.getString("head"));
+				dto.setReply(rs.getString("reply"));
+				dto.setWrite(rs.getString("write"));
+				dto.setContent(rs.getString("content"));
+				dto.setHdate(rs.getString("hdate"));
+				list.add(dto);
+			}
+			
+			con.close();
+			return list;
+			
+		}
+		//글개수
+		public int getCount(String type,String keyword)throws Exception{
+			Connection con =getConnection();
+			
+			boolean isSearch = type != null && keyword != null;
+			
+			String sql = "select count(*) from help";
+			if(isSearch) {
+				sql += " where "+type+" like '%'||?||'%'";
+			}
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			if(isSearch) {
+				ps.setString(1, keyword);
+			}
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+
+			int count = rs.getInt(1);
+					
+			con.close();
+			return count;
+		
+		}
+
 }

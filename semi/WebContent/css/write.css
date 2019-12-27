@@ -1,0 +1,39 @@
+*{
+    margin: 1;
+    padding: 1;
+    }
+    table {
+        border-collapse:collapse;
+       
+       
+    }
+    
+    
+    .board_write_wrap {
+        
+    }
+    
+    .board_write{
+        border-top: px solid #ff8041;
+        
+    }
+    
+    
+    
+    .board_write th,
+    .board_write td{
+         padding: 10px;
+         border: 1px solid#ff8041;
+    
+    }
+    
+    .board_write td {
+        text-align: center;
+    }
+    
+    .board_write tbody tr td:nth-child(2) {
+        text-align: left;
+        
+    }
+    
+    

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.check_pw_wrap{
+    text-align: center;
+    margin-bottom: 300px;
+}
+
+.checkpw_title{
+    margin-top: 80px;
+    margin-bottom: 40px;
+    font-size: 34px;
+    color: #333;
+}
+
+.changepw_title{
+    margin-top: 80px;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color: #333;
+}
+.changepw_title  > span{
+		color:#03B855;
+	}
+	
+.check_pw_wrap input[type="password"]{
+    width: 300px;
+    height: 40px;
+}
+
+.check_pw_wrap input[type="submit"]{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+.check_pw_wrap .pwerror{
+    margin-top: 12px;
+    font-size: 13px;
+
+}

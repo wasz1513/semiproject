@@ -183,7 +183,9 @@
 .keyword-title{
 	margin-top:50px;
 	margin-bottom:50px;
+	text-align: center;
 }
+
 </style>
 
 <article>
@@ -205,13 +207,25 @@
 		   		<h2 class="keyword-list">인기 게시글</h2>
 		   	<% }%>
 		
+			<% if(customer_id!=null){%>
 			<h6> 관심상품 : 
+				<%if(kdto.getKeyword_first()!=null){ %>
 			 		<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_first() %>"><%=kdto.getKeyword_first() %></a>         
+				<%} %>
+				<%if(kdto.getKeyword_second()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_second()%>"> <%=kdto.getKeyword_second() %></a>          
+				<%} %>
+				<%if(kdto.getKeyword_third()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_third() %>"> <%=kdto.getKeyword_third() %></a>         
+				<%} %>
+				<%if(kdto.getKeyword_fourth()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
+				<%} %>
+				<%if(kdto.getKeyword_fifth()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
+				<%} %>
 			</h6>
+			<%} %>
 
 		</div>
 		
@@ -221,9 +235,10 @@
 			%>
 				<div class="gallary-item">
 
-		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
+		 				<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
 <!-- 		 			<img src="https://placeimg.com/640/480/arch"> -->
-						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
+						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200"
+						>
 						</a>
 						<div class="gallary-text">
 						<p id="p0">
