@@ -183,7 +183,9 @@
 .keyword-title{
 	margin-top:50px;
 	margin-bottom:50px;
+	text-align: center;
 }
+
 </style>
 
 <article>
@@ -206,11 +208,21 @@
 		   	<% }%>
 		
 			<h6> 관심상품 : 
+				<%if(kdto.getKeyword_first()!=null){ %>
 			 		<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_first() %>"><%=kdto.getKeyword_first() %></a>         
+				<%} %>
+				<%if(kdto.getKeyword_first()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_second()%>"> <%=kdto.getKeyword_second() %></a>          
+				<%} %>
+				<%if(kdto.getKeyword_first()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_third() %>"> <%=kdto.getKeyword_third() %></a>         
+				<%} %>
+				<%if(kdto.getKeyword_first()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
+				<%} %>
+				<%if(kdto.getKeyword_first()!=null){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
+				<%} %>
 			</h6>
 
 		</div>

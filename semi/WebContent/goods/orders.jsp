@@ -15,7 +15,6 @@
 	}else{
 		goods_no=Integer.parseInt(request.getParameter("goods_no"));
 	}
-	System.out.println(goods_no);
 	CustomerDao cdao = new CustomerDao();
 	CustomerDto cdto = cdao.get(id);
 	int customer_no=cdto.getCustomer_no();

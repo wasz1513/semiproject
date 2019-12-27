@@ -2,10 +2,27 @@ package semi.bean;
 
 public class HelpDto {
 	
-	private int board_NO;
+	private int board_NO,rn;
 	private String head,reply,write,content,hdate;
+	
+	public HelpDto(int board_NO, int rn, String head, String reply, String write, String content, String hdate) {
+		super();
+		this.board_NO = board_NO;
+		this.rn = rn;
+		this.head = head;
+		this.reply = reply;
+		this.write = write;
+		this.content = content;
+		this.hdate = hdate;
+	}
 	public HelpDto() {
 		super();
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
 	}
 	public HelpDto(int board_NO, String head, String reply, String write, String content, String hdate) {
 		super();
