@@ -35,26 +35,31 @@
         }
     </script>
 <%
+	/****************************************************/
+	
 	String id = (String)request.getSession().getAttribute("customer_id");
-	String start = request.getParameter("start");
-	String finish = request.getParameter("finish");
+	String bstart = request.getParameter("start");
+	String bfinish = request.getParameter("finish");
 	String search_date=request.getParameter("search_date");
 	List<OrdersDto> list = new ArrayList<>(); 
 	OrdersDao dao = new OrdersDao();
-	
-	
 	if(request.getParameter("search_date") == null){
-		list = dao.history_order_all(start, finish, id, null);
+		list = dao.history_order_all(bstart, bfinish, id, null);
 	}
 	else if(request.getParameter("search_date").equals("0")){
 		list=dao.history_order_all(id);
 	}else{
 		search_date = request.getParameter("search_date");
-		list = dao.history_order_all(start, finish, id, search_date);
+		list = dao.history_order_all(bstart, bfinish, id, search_date);
 	}
-	System.out.println(search_date+"/"+id);
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
+<style>
+.buy_total{
+	text-align:center;
+}
+
+</style>
 <article class="w-40">
 	<h2>주문내역 조회</h2>
 	<div>
@@ -85,7 +90,7 @@
 	</form>
 	</div>	
 	<hr>
-		<div class="row-multi col-5">
+		<div class="row-multi col-5 buy_total">
 	<%if(search_date!=null){ %>
 			<div>
 				주문일자			
@@ -105,7 +110,7 @@
 		</div>	
 		<hr>
 		<%for(OrdersDto dto : list){ %>
-		<div class="row-multi col-5">
+		<div class="row-multi col-5 buy_total">
 			<div>
 				<%=dto.getOrders_dateWithFormat() %>	
 			</div>
@@ -122,7 +127,8 @@
 				<%=dto.getOrders_goods_seller() %>			
 			</div>
 		</div>
-		<%} %>	
+		<%} %>
+		<!-- 네비게이터 장착해얗함. -->	
 	<%}else{ %>
 			<div>
 				주문일자			
@@ -143,17 +149,4 @@
 		<hr>
 	<%} %>
 </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <jsp:include page="/template/footer.jsp"></jsp:include>

@@ -132,7 +132,7 @@ public class OrdersDao {
 		Connection con = getConnection();
 		String sql = "select * from orders where orders_goods_buyer=? order by orders_date desc";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setNString(1, customer_id);
+		ps.setString(1, customer_id);
 		ResultSet rs = ps.executeQuery();
 		List<OrdersDto> list = new ArrayList<>();
 		
@@ -292,5 +292,5 @@ public class OrdersDao {
 		}
 		con.close();
 		return dto;
-	}
+	}	
 }
