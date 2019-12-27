@@ -64,6 +64,7 @@ function sample6_execDaumPostcode() {
 }
 
 
+
 //첨부파일 이미지 미리보기
         //target은 이벤트가 발생한 태그의 정보가 들어가는 변수
         function previewImage(target){
@@ -92,6 +93,7 @@ function sample6_execDaumPostcode() {
                 reader.readAsDataURL(target.files[0]);
             }
         }
+
 </script>
 <jsp:include page="/template/header.jsp"></jsp:include>
 

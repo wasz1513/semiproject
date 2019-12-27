@@ -41,6 +41,10 @@ href="<%=request.getContextPath()%>/css/info.css">
 href="<%=request.getContextPath()%>/css/regist.css"> 
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/change_info.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/find.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/find_pw.css"> 
 
 
 

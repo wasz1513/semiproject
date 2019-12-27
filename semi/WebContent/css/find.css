@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+#idfind{
+    width: 400px;
+    margin: 0 auto;
+}
+
+#idfind_header{
+    width: 400px;
+    margin-top: 50px;
+    border-bottom: 2px solid #333;
+}
+
+.idfind_wrap{
+	margin-bottom:200px;
+}
+
+#idfind_header .idfind_title{
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.idfind_btn input[type="submit"]{
+    width: 400px;
+    height: 60px;
+    background-color: #ff8041;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor:pointer;
+}
+
+#idfind .idfind_wrap>div{
+    margin-top: 20px;
+}
+
+
+#idfind .idfind_wrap>div>input[type="text"]{
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+
+.idfind_result_wrap{
+	text-align:center;
+	   margin-top: 50px;
+}
+
+
+.idfind_result_title{
+	font-size: 30px;
+
+	
+}
+
+.idfind_result_wrap h3{
+	margin-top:20px;
+	margin-bottom:400px;
+}
+
+
+.idfind_result_title span{
+			color:#03B855;
+	}
