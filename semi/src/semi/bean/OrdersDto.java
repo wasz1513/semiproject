@@ -134,17 +134,6 @@ public class OrdersDto {
 			this.customer_id = customer_id;
 		}
 
-
-		public String getOrders_date() {
-			return orders_date;
-		}
-
-
-		public void setOrders_date(String orders_date) {
-			this.orders_date = orders_date;
-		}
-
-
 		public String getOrders_goods_title() {
 			return orders_goods_title;
 		}
@@ -213,9 +202,17 @@ public class OrdersDto {
 		public void setOrders_payment(String orders_payment) {
 			this.orders_payment = orders_payment;
 		}
+		
+		public String getOrders_date() {
+			return orders_date;
+		}
 
-	
-		// 시간 변환 - 최종로그인
+
+		public void setOrders_date(String orders_date) {
+			this.orders_date = orders_date;
+		}
+		
+		
 		public String getOrders_dateWithFormat() throws ParseException {
 			if (orders_date == null) {
 				return "";
@@ -223,17 +220,11 @@ public class OrdersDto {
 				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 				Date date = read.parse(orders_date);
 
-				SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+				SimpleDateFormat write = new SimpleDateFormat("y/M/d H:m");
 				String time = write.format(date);
 
 				return time;
 			}
 		}
-		
-		
-		
-		
-		
-		
 		
 }

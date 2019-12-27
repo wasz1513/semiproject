@@ -82,11 +82,12 @@ function sample6_execDaumPostcode() {
                 reader.readAsDataURL(target.files[0]);
             }
         }
+//경고창은 입력창 밑에 출력
 </script>
 
 <form action = "regist.do" method="post" enctype="multipart/form-data">		
-	<div id="regist">
 
+	<div id="regist">
         <header id="regist_header">
             <h2 class="regist_title">회원가입</h2>    			
         </header>
@@ -184,12 +185,6 @@ function sample6_execDaumPostcode() {
         </div>		
       </div>  
     </div>
-
 	</form>
-      
-    
-    
-    
-    
 <jsp:include page ="/template/footer.jsp"></jsp:include>
     

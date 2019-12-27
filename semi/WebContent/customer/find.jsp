@@ -3,8 +3,11 @@
 
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/regist.css"> 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/regist.css">
+<style>
+</style> 
 <form action="find.do" method="post">
+
 	 <div id="idfind">
             <header id="idfind_header">
                 <h2 class="idfind_title">아이디 찾기</h2>    			
@@ -31,6 +34,7 @@
 
             </div>
     </div>
+
 </form>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

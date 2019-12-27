@@ -55,20 +55,14 @@
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <style>
-.board_list tbody tr td:nth-child(2){
+.buy_total{
 	text-align:center;
 }
 
-.salerequest-title{
-	margin-top:50px;
-}
-
 </style>
-<article>
-<div class="row salerequest-title">
-	<h2>구매내역 조회</h2>
-</div>	
-	<div class="row salerequest-title">
+<article class="w-40">
+	<h2>판매내역 조회</h2>
+	<div>
 	<form action="<%=request.getContextPath() %>/goods/orders_list.jsp">	
 		<div class="radio">
 			<input id="date_week" type ="radio" name="search_date" value="7">
@@ -81,72 +75,75 @@
 			<label for="date_whole">전체 보기</label>
 		</div>
 		<div>
-<!-- 			<select> -->
-<!-- 				<option selected="selected">전체 상태</option> -->
-<!-- 				<option>구매 완료</option> -->
-<!-- 				<option>입금 예정</option> -->
-<!-- 				<option>결제 완료</option> -->
-<!-- 				<option>배송중</option> -->
-<!-- 				<option>배송 완료</option> -->
-<!-- 			</select> -->
+			<select>
+				<option selected="selected">전체 상태</option>
+				<option>판매완료</option>
+				<option>판매중</option>
+			</select>
 			<input type="text" name="start" placeholder="시작일" id="date1" class="start-date" onclick="loadPicker()">
 			<input type="text" name="finish" placeholder="종료일" class="end-date">
 			<input type="submit" value="검색"> 
 		</div>
 	</form>
-	</div>
-	<!------------------------------------------------------------------->	
-		<div class="board_list_wrap">
-		 <table class="board_list">
-		<%if(search_date!=null){ %>
-	                <caption>판매 목록</caption>
-	            <thead>	
-					<tr>      
-	                    <th>주문일자</th>
-	                    <th>주문번호</th>
-	                    <th>구매제품</th>    
-	                    <th>구매가격</th>
-	                    <th>판매자명</th>
-	                </tr>
-				</thead>
-				
-				<tbody align="center">					
-					<% for(OrdersDto dto : list){ %>
-
-						<tr>
-							<td>
-								<%=dto.getOrders_dateWithFormat() %>
-							</td>
-							<td>
-								<%=dto.getOrders_no() %>	
-							</td>
-							<td>
-								<%=dto.getOrders_goods_title() %>
-								
-							</td>
-							<td>
-								<%=dto.getOrders_amount() %>
-							</td>
-							<td>
-								<%=dto.getOrders_goods_seller() %>	
-							</td>
-						</tr>
-					
-					<%} %>
-				</tbody>
-				<%}else{ %>
-	                <caption>판매 목록</caption>
-	            <thead>	
-					<tr>      
-	                    <th>주문일자</th>
-	                    <th>주문번호</th>
-	                    <th>구매제품</th>    
-	                    <th>구매가격</th>
-	                    <th>판매자명</th>
-	                </tr>
-				</thead>
-				<%} %>
-		</table>
-	</div>
+	</div>	
+	<hr>
+		<div class="row-multi col-5 buy_total">
+	<%if(search_date!=null){ %>
+			<div>
+				주문일자			
+			</div>
+			<div>
+				주문번호			
+			</div>
+			<div>
+				구매품명			
+			</div>
+			<div>
+				구매금액			
+			</div>
+			<div>
+				판매자명			
+			</div>
+		</div>	
+		<hr>
+		<%for(OrdersDto dto : list){ %>
+		<div class="row-multi col-5 buy_total">
+			<div>
+				<%=dto.getOrders_dateWithFormat() %>	
+			</div>
+			<div>
+				<%=dto.getOrders_no() %>		
+			</div>
+			<div>
+				<%=dto.getOrders_goods_title() %>			
+			</div>
+			<div>
+				<%=dto.getOrders_amount() %>			
+			</div>
+			<div>
+				<%=dto.getOrders_goods_buyer() %>			
+			</div>
+		</div>
+		<%} %>
+		<!-- 네비게이터 장착해얗함. -->	
+	<%}else{ %>
+			<div>
+				주문일자			
+			</div>
+			<div>
+				주문번호			
+			</div>
+			<div>
+				구매품명			
+			</div>
+			<div>
+				구매금액			
+			</div>
+			<div>
+				판매자명			
+			</div>
+		</div>	
+		<hr>
+	<%} %>
 </article>
 <jsp:include page="/template/footer.jsp"></jsp:include>

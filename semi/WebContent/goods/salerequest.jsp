@@ -45,9 +45,7 @@
 	                </tr>
 				</thead>
 				
-				<tbody align="center">
-					
-					
+				<tbody align="center">					
 					<% for(OrdersDto odto : list){ %>
 					
 						<tr>
@@ -66,7 +64,7 @@
 							</td>
 							<td><%=odto.getGoods_price() %></td>
 							<td>
-								<a href="orders_success.jsp?no=<%=odto.getOrders_no()%>">
+								<a href="sale.jsp?no=<%=odto.getOrders_no()%>">
 									판매하기
 								</a>
 							</td>
@@ -76,15 +74,6 @@
 				</tbody>
 		</table>
 	</div>
-
-
-
-
-
-
-
-
-
 </article>
 
 <jsp:include page = "/template/footer.jsp"></jsp:include>
