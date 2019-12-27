@@ -69,124 +69,420 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/swiper2.css">
+
+<script src="<%=request.getContextPath()%>/js/swiper.js"></script>
+<script>
+function loadSlider(){
+	 var swiper = new Swiper('.swiper-container', {
+		 slidesPerView: 3,
+		 autoplay:{
+		     delay:3000,
+	     },
+	     loop: true,
+	     pagination: {
+	         el: '.swiper-pagination',
+	         type: 'fraction',
+	     },
+	  });
+}
+</script>
+
 	<style>
-	.big{
-	 width: 900px;
+	section, article, aside, footer, header, nav, hgroup {
+    display: block;
+	}
+	
+	* {
+    margin: 0;
+    padding: 0;
+    }
+	
+		#content {
+    margin-top: 100px;
+    padding-bottom: 0;
+     width: 900px;
 	 height: 1000px;
-	}
+}
 		
-		.Detail {
-			font-size:x-large;
-		}
-	.cate {
-	color: gray;
-	}
-	
-	.title{
-		padding: 50px
-	}
-	.imagetr{
-	height: 200px;
-	}
-	
-	.mannerline{
-	padding: 10px;
-	}
-	
-	.profile-image{
-	display: inline-block;
-	}
-	.big-profile-cutomer{
-	display: inline-block;
-	}
-	
-	
-	.profile-cutomer{
-		font-size: 15px;
-		font-weight: 600;
-		line-height: 1.5;
-    	letter-spacing: -0.6px;
-    	color: #212529;
-		
-	}
-	
-	
-	.addr-customer{
-	font-size: 13px;
+		#article-images {
+    position: relative;
+    width: 729px;
+    margin: 0 auto;
+}
+
+div {
+    display: block;
+}
+
+#image-slider .slider-wrap {
+    position: relative;
+}
+
+#image-slider .slider-wrap .slider {
+    border: none;
+}
+
+#article-profile {
+    width: 677px;
+    margin: 0 auto;
+}
+
+#article-profile #article-profile-link {
+    text-decoration: none;
+    display: block;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    position: relative;
+    border-bottom: 1px solid #e9ecef;
+    left: 40px;
+}
+
+#article-profile #article-profile-image img {
+    width: 40px;
+    height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+#article-profile #article-profile-image {
+    display: inline-block;
+}
+
+#article-profile #article-profile-left {
+    display: inline-block;
+    margin-left: 8px;
+    float: left;
+}
+
+#article-profile #article-profile-left #nickname {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    color: #212529;
+}
+
+#article-profile #article-profile-left #region-name {
+    font-size: 13px;
     line-height: 1.46;
     letter-spacing: -0.6px;
     color: #212529;
+}
+
+#article-profile #article-profile-right {
+    position: absolute;
+    right: 0;
+  padding-right: 36px;
+     display: block; 
+    margin-right: 8px; 
+    float: right;
+}
+
+#article-profile #article-profile-right dl {
+    display: block;
+    width: 100px;
+}
+
+dl {
+/*     margin-block-start: 1em; */
+/*     margin-block-end: 1em; */
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+#article-profile #article-profile-right dl dt {
+    position: absolute;
+    top: 36px;
+    right: 0px;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+
+#article-profile #article-profile-right .text-color-03 {
+    color: #1561a9;
+    padding: 1px
+        position: absolute;
+    right: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-top: 1px;
+     bottom: 40px;
+}
+
+#article-profile #article-profile-right dl dd {
+    position: absolute;
+    right: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-top: 1px;
+}
+
+dd {
+    display: block;
+    margin-inline-start: 40px;
+    
+}
+
+#article-profile #article-profile-right .meters {
+    clear: both;
+    display: block;
+    width: 100px;
+    background-color: #e9ecef;
+    height: 4px;
+	border-radius: 100px;
+	    position: relative;
+    vertical-align: middle;
+    margin-top: 24px;
+    bottom: 30px;
+/*     font-size: 15px; */
+/*     font-weight: 600; */
+/*     line-height: 1.5; */
+/*     letter-spacing: -0.6px; */
+/*     color: #212529; */
+/*     margin-right: 30px; */
+}
+}
+
+element.style {
+    width: 37%;
+}
+
+#article-profile #article-profile-right .meters .bar-color-03 {
+    background-color: #1561a9;
+}
+
+#article-profile #article-profile-right .meters .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    border-radius: 100px;
+}
+#article-profile #article-profile-right .face {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.face-03 {
+    background-position: -0px -75px;
+    width: 24px;
+    height: 24px;
+     display: inline-block;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-size: 29px 147px;
+}
+
+.face-01, .face-02, .face-03, .face-04, .face-05, .face-06 {
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-size: 29px 147px;
+}
+
+#article-description {
+    padding: 32px 0;
+    width: 677px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e9ecef;
+}
+
+#article-description #article-title {
+ 
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+}
+
+#article-description #article-category {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.46;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em; 
+     margin-block-end: 1em; 
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+element.style {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+#article-description #article-price {
+    margin-top: 4px;
+    line-height: 1.76;
+    letter-spacing: -0.6px;
+}
+
+
+#article-description #article-counts {
+    font-size: 13px;
+    line-height: 1.46;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+	
+	.goods-title{
+		text-align: center;
+		padding: 50px;
 	}
 	
+	.swiper-wrapper{
+	    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 100px;
+    z-index: 1;
+}
+
+/* #article-profile #space-between { */
+    
+/*     display: flex; */
+   
+/*     align-items: center; */
+/*     justify-content: space-between; */
+/*      margin-top: 50px; */
+/*     } */
+
+
+
+
+
+
+.space-between::after{
+            content: "";
+            display: block;
+            clear: both;
+             margin-top: 50px;
+        }
+
+
+
 	</style>
 
 
 
 
+<article id = "content">
+	<h2 class="goods-title" >상품등록 상세보기</h2>
+	
 
-<article class="big">
-<div align="center">
-	<h2 class="title">상품등록 상세보기</h2>
-
-
-	<div border="1" width="70%">
-		
-		<table>
-		<tr class="imagetr">
-		
-			<td class="#" valign="top" align="center" >
-				<%for (GoodsFilesDto gfdto : flist) {%>
-			<img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="440" height="440">
-				<%} %>
-			</td>
-			
-		</tr>
-</table>
-
-	<div class="mannerline" >
-		<div>
-			<a class="profile-image">
-				<%if (customer_files_no>0) {%>
-				<img src="<%=request.getContextPath()%>/customer/download.do?no=<%=customer_files_no%>" width="30" height="30">
+	<!-- 이미지 올라오는 부분 -->
+<section id="article-images">
+<div> 
+			<div class="main-banner">
+				<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				    <%for (GoodsFilesDto gfdto : flist) {%>
+				      <div class="swiper-slide"><img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="200" height="200"></div>
+				      <%} %>
+				    </div>
+				    <div class="swiper-pagination"></div>
+				</div>
+	</div>
+</div>
+ </section>
+ 
+ 
+ <!-- 이미지 올라오는 부분 끝 -->
+ 
+ 
+ 	 
+ 		
+ <section id="article-profile">
+ 			
+ 			<div class="space-between">
+ 				
+ 			
+ 			<div id="article-profile-left">
+ 			
+ 				<a id="article-profile-link" href="유저상세정보창이동">
+ 				<div id = "article-profile-image">
+ 				<%if (customer_files_no>0) {%>
+				<img class="profile-img" src="<%=request.getContextPath()%>/customer/download.do?no=<%=customer_files_no%>" width="30" height="30">
 				<%}else{ %>
-				<img src="http://placehoid.it/100x100">
+				<img class="profile-img" src="http://placehoid.it/100x100">
 				<%} %>
-			<div class="big-profile-cutomer">
-					<div class="profile-cutomer  align="left">
-						<%=goodsdto.getCustomer_id()%>
-					</div>
-					<div class="addr-customer">
-						<%= Customer_basic_address%>  
-					</div>
-			</div>
-		</div>
-			</a>
-			
-			<div align="right"> <img src="../image/매너온도.png" width="40" height="40">매너온도 36.5˚C</div>
-			
-			
-			
-		<hr width="900">
-		
-	
-			
-			<div class="Detail" align="center">
-		<tr>
-			<td><h1 align="left"><%=goodsdto.getGoods_title()%></h1></td>
-			<td><h6 class="cate" align="left"><%=goodsdto.getGoods_category() %></h6></td>
-		</tr>
-	
-		
-		
-		<p align="left">
-			<%=goodsdto.getGoods_content()%>
+				</div>
+ 				<p id="nickname"><%=goodsdto.getCustomer_id()%></p>
+ 			    <p id="region-name"><%= Customer_basic_address%>  </p>
+ 			    </a>
+ 		</div>
+ 			
+ 		
+ 		
+ 		<div id="article-profile-right">
+ 			<div id="temperature-wrap">
+               <div>매너온도</div>
+               <div class="text-color-03"> 36.5° </div>
+ 			</div>
+ 		
+ 		 <div class="meters">
+ 			<div class="bar bar-color-03" style="width: 37%;"></div>
+ 		</div>
+ 		
+ 			<div class="mannerimg"><img  src="../image/매너온도.png" width="40" height="40"></div>
+ 		</div>
+ 		
+ 		
+ 			</div>
+ 	</section>
+ 	
+ 	<section id="article-description">
+ 		 <h1 property="schema:name" id="article-title"  style="margin-top:0px;">
+ 		 <%=goodsdto.getGoods_title()%>
+ 		 </h1>
+ 		 
+ 		<p id="article-category">
+ 		<%=goodsdto.getGoods_category() %>
+ 		</p>
+ 		
+ 		<p id="article-price" content="50000.0" style="font-size:18px; font-weight:bold;">
+           가격 뜨는 구간  원
+        </p>
+ 		
+ 		 <div id="article-detail">
+ 			<p>
+ 			<%=goodsdto.getGoods_content()%>
 			</p>
-			</div>
-
-				<!-- 				첨부파일이미지 찍기 --> 
-	
-		
-		<table border="1" wid>	
+ 		</div>
+ 		
+ 		<p id="article-counts">
+          댓글 <%=goodsdto.getGoods_replycount()%> ∙ 관심 13 ∙ 조회 <%=goodsdto.getGoods_readcount()%>
+        </p>
+ 		
+ 		
+ 	
+ 	</section>
+ 	</article>
+ 	
+ 	
+ 	<article>
+ 		<div class="filesview" align="center">
+ 			<table border="1" wid>	
 	<%if (flist.size() > 0) {%> 
  <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		<tr>
@@ -215,19 +511,12 @@
 		<%
 			}
 		%>
-		<!-- 댓글 수 조회수 출력줄 -->
-		</table>
-		
-		
-		
-		<tr>
-
-			<td>댓글수<%=goodsdto.getGoods_replycount()%> 조회수<%=goodsdto.getGoods_readcount()%>
-
-			</td>
-		</tr>
-
-		<tr>
+ 		</div>
+ 	</article>
+ 	
+ 	<section>
+ 		<div>
+ 		<tr>
 			<td>
 				<%
 					GoodsReplyDao goodsreplydao = new GoodsReplyDao();
@@ -274,9 +563,9 @@
 
 			</td>
 		</tr>
-
-
-		<!-- 댓글 작성칸 -->
+ 		
+ 		
+ 		<!-- 댓글 작성칸 -->
 		<tr>
 			<td align="right">
 				<form action="goods_reply_insert.do" method="post">
@@ -320,11 +609,13 @@
  %> <a href="goods_list.jsp"><input type="button" value="목록"></a></td>
 		</tr>
 	</table>
-
-</div>
-
-
-</article>
+ 		
+ 		</div>
+ 	
+ 	
+ 	
+ 	</section>
+ 	
 
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
