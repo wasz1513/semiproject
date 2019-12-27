@@ -83,6 +83,17 @@ public class HelpDao {
 			dto.setContent(rs.getString("content"));
 			dto.setHead(rs.getString("head"));
 
+			String sql2 = "select * from help_total where origin=?";
+			PreparedStatement ps2 = con.prepareStatement(sql2);
+			ps2.setInt(1, rs.getInt("board_no"));
+			ResultSet rs2 = ps2.executeQuery();
+			if(rs2.next()) {
+				dto.setNo(rs2.getInt("no"));
+				dto.setOrigin(rs2.getInt("origin"));
+				dto.setReply_content(rs2.getString("reply_content"));
+				dto.setReply_hdate(rs2.getString("reply_hdate"));
+				dto.setWriter(rs2.getString("writer"));
+			}
 			list.add(dto);
 
 		}
@@ -116,21 +127,28 @@ public class HelpDao {
 
 		while (rs.next()) {
 			//rownum을 추가로 추출
-			int rn = rs.getInt("rn");
+			HelpDto adto = new HelpDto();
+			adto.setBoard_NO(rs.getInt("board_no"));
+			adto.setContent(rs.getString("content"));
+			adto.setHdate(rs.getString("hdate"));
+			adto.setHead(rs.getString("head"));
+			adto.setWrite(rs.getString("write"));
 			
-			int board_NO=rs.getInt("board_NO");
-			String head =rs.getString("head");
-			String reply =rs.getString("reply");
-			String write =rs.getString("write");
-			String content =rs.getString("content");
-			String hdate =rs.getString("hdate");
+			String sql2 = "select * from help_total where origin=?";
+			PreparedStatement ps2 = con.prepareStatement(sql2);
+			ps2.setInt(1, rs.getInt("board_no"));
+			ResultSet rs2 = ps2.executeQuery();
+			if(rs2.next()) {
+				adto.setNo(rs2.getInt("no"));
+				adto.setOrigin(rs2.getInt("origin"));
+				adto.setReply_content(rs2.getString("reply_content"));
+				adto.setReply_hdate(rs2.getString("reply_hdate"));
+				adto.setWriter(rs2.getString("writer"));
+			}
 			
-			
-			HelpDto adto = new HelpDto(rn,board_NO, head, reply, write, content, hdate);
-								
 			list.add(adto);
-
 		}
+		
 
 		con.close();
 		return list;
@@ -143,7 +161,7 @@ public class HelpDao {
 			String sql =  "select * from("
 					+ "select rownum rn, A.* from("
 					+ "select * from help "
-					+ "where "+type+" like '%'||?||'%' order by no desc"
+					+ "where "+type+" like '%'||?||'%' order by board_no desc"
 					+ ")A"
 					+ ")where rn between ? and ? "; 
 			

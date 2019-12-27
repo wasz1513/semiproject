@@ -37,7 +37,6 @@
                         <%}else{ %>
                             <img src="http://placehold.it/100x100">
                         <%} %>
-
             </tr>
             <tr>
                 <th width="25%">아이디</th>

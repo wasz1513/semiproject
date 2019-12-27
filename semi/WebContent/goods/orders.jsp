@@ -89,6 +89,7 @@ function point_use(){
 
 
 <jsp:include page = "/template/header.jsp"></jsp:include>
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/orders.css">
 
@@ -124,6 +125,52 @@ function point_use(){
                 	<div class="orders_img">	
 	<%if (flist.size() > 0) {%> 
  <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+
+<article class="w-50">
+	 <h2>상품 구매하기</h2>
+	<!-- 구매할 상품 정보 -->	
+	<div class="order_table">
+	<%if(gdto.getGoods_title()!=null){ %>
+		구매번호 : <%=gdto.getGoods_title() %>
+	<%}else{ %>	
+		구매번호 : -
+	<%} %>
+	</div>
+	<div class="order_table">
+		상품번호 : <%=gdto.getGoods_title() %>_<%=gdto.getGoods_no() %>
+	</div>
+	<div class="order_table">
+		판매자 : <%=gdto.getCustomer_id() %>
+	</div>
+	<div class="row-multi col-2">
+		<div class="row-multi col-2">
+			<div>
+				<img id = "product_sell" src = "../image/pointicon.jpg" width="80px" height="80px">
+			</div>
+			<div class="order_table2">
+				<div class="order_table3">판매 물품명 : <%=gdto.getGoods_title() %></div>
+				<div class="order_table3">판매 금액 : <%=gdto.getGoods_price() %></div>
+			</div>
+		</div>
+		<div class="order_table4">
+			결제 금액 : <%=gdto.getGoods_price() %>
+		</div>
+	</div>
+	
+	<!-- 구매할 상품 정보 -->
+<form action="orders.do" method="get">
+<input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
+<input type="hidden" name="customer_point" value="<%=cdto.getCustomer_point() %>">
+<input type="hidden" name="final_amount" value="<%=gdto.getGoods_price()-cdto.getCustomer_point() %>">
+<input type="hidden" name="orders_goods_title" value="<%=gdto.getGoods_title()%>">
+<input type="hidden" name="orders_goods_seller" value="<%=gdto.getCustomer_id() %>">
+<input type="hidden" name="goods_no" value="<%=gdto.getGoods_no() %>">
+<input type="hidden" name="goods_price" value="<%=gdto.getGoods_price()%>">
+	<div>
+		<div>배송지 정보<br>
+			직거래<input type="radio" name="orders_type" value="직거래" required>
+			Escrow 결제(중계)<input type="radio" name="orders_type" value="배송" required>
+			<div>
 				<ul>
 					<%
 						for (GoodsFilesDto gfdto : flist) {

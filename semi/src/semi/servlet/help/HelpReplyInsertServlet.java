@@ -4,11 +4,15 @@ import java.io.IOException;
 
 
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import semi.bean.HelpReplyDao;
+import semi.bean.HelpReplyDto;
 
 
 
@@ -21,20 +25,24 @@ public class HelpReplyInsertServlet extends HttpServlet {
 		//사용자 입력 :content,origin
 		//세션:id
 		String content =req.getParameter("content");
-		int origin = Integer.parseInt(req.getParameter("origin"));
+		int origin = Integer.parseInt(req.getParameter("board_no"));
+		String test = req.getParameter("board_no");
 		
-		String id = (String)req.getSession().getAttribute("id");
+		String customer_id = (String)req.getSession().getAttribute("customer_id");
 		
-//		HelpreplyDto dto =new HelpreplyDto();
-//		dto.setContent(content);
-////		dto.setOrigin(origin);
-////		dto.setWriter(id);
-//		
-//		HelpreplyDao dao =new HelpreplyDao();
-//		dao.write(dto);		
-//		
-		resp.sendRedirect("help.jsp?no="+origin);
+		HelpReplyDto dto =new HelpReplyDto();
+		dto.setContent(content);
+		dto.setOrigin(origin);
+		dto.setWriter(customer_id);
+		
+		HelpReplyDao dao =new HelpReplyDao();
+		dao.write(dto);		
+		
+		int pno = Integer.parseInt(req.getParameter("pno"));
+		
+		resp.sendRedirect("../admin/help2.jsp?pno="+pno);
 		}
+		
 		catch(Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);

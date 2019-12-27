@@ -37,7 +37,7 @@ public class HelpReplyDao {
 	public void write(HelpReplyDto dto)throws Exception{
 		Connection con = getConnection();
 
-		String sql= "insert into reply(no, content, writer, origin) "
+		String sql= "insert into help_reply(no, content, writer, origin) "
 				+ "values(hreply_seq.nextval,?,?,?)";
 		PreparedStatement ps= con.prepareStatement(sql);
 		ps.setString(1, dto.getContent());
@@ -106,4 +106,31 @@ public class HelpReplyDao {
 	con.close();
 
 	}
+	
+	//검색
+	public List<HelpReplyDto> search(String type,String keyword) throws Exception{
+		Connection con = getConnection();
+		//
+		String sql = "select*from help_reply "
+				+ "where " +type+" like '%'||?||'%' order by no desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ResultSet rs = ps.executeQuery();
+		//
+		List<HelpReplyDto> list = new ArrayList<>();
+		while(rs.next()) {
+			HelpReplyDto dto =new HelpReplyDto();
+			dto.setNo(rs.getInt("no"));
+			dto.setContent(rs.getString("content"));
+			dto.setHdate(rs.getString("hdate"));
+			dto.setWriter(rs.getString("writer"));
+			dto.setOrigin(rs.getInt("origin"));
+
+			list.add(dto);
+		}
+
+		con.close();
+		return list;
+
+		}
 }
