@@ -20,9 +20,51 @@ public class OrdersDto {
 		private String orders_payment;//구매 방법('신용카드','실시간 계좌이체','무통장 입금','만나서 결제')
 		private int orders_amount;//구매금액
 		private String orders_goods_buyer;
+		private String goods_state;
+		private int goods_buy;
+		private int goods_sale;
+		private int goods_price;
 		
-		
-		
+		public int getGoods_price() {
+			return goods_price;
+		}
+
+
+		public void setGoods_price(int goods_price) {
+			this.goods_price = goods_price;
+		}
+
+
+		public String getGoods_state() {
+			return goods_state;
+		}
+
+
+		public void setGoods_state(String goods_state) {
+			this.goods_state = goods_state;
+		}
+
+
+		public int getGoods_buy() {
+			return goods_buy;
+		}
+
+
+		public void setGoods_buy(int goods_buy) {
+			this.goods_buy = goods_buy;
+		}
+
+
+		public int getGoods_sale() {
+			return goods_sale;
+		}
+
+
+		public void setGoods_sale(int goods_sale) {
+			this.goods_sale = goods_sale;
+		}
+
+
 		public String getOrders_goods_buyer() {
 			return orders_goods_buyer;
 		}
@@ -184,12 +226,5 @@ public class OrdersDto {
 				return time;
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 }

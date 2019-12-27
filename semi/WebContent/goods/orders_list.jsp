@@ -38,22 +38,19 @@
 	String id = (String)request.getSession().getAttribute("customer_id");
 	String start = request.getParameter("start");
 	String finish = request.getParameter("finish");
-	String search_date=null;
+	String search_date=request.getParameter("search_date");
 	List<OrdersDto> list = new ArrayList<>(); 
 	OrdersDao dao = new OrdersDao();
 	
 	
-	if(request.getParameter("search_date")!=null && Integer.parseInt(request.getParameter("search_date"))>0){
-		search_date = request.getParameter("search_date");
-		list = dao.history_order_all(start, finish, id, search_date);	
-		
-	}else if(request.getParameter("search_date")=="0"){
-		
-	System.out.println(id);
+	if(request.getParameter("search_date") == null){
+		list = dao.history_order_all(start, finish, id, null);
+	}
+	else if(request.getParameter("search_date").equals("0")){
 		list=dao.history_order_all(id);
 	}else{
-
-		list = dao.history_order_all(start, finish, id, null);
+		search_date = request.getParameter("search_date");
+		list = dao.history_order_all(start, finish, id, search_date);
 	}
 	System.out.println(search_date+"/"+id);
 %>
