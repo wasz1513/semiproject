@@ -6,17 +6,16 @@
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<div align="center">
+<div class="check_pw_wrap">
 
-	<h2>비밀번호 확인</h2>	
+	<h2 class="checkpw_title">비밀번호 확인</h2>	
 	<form action="check_pw.do" method ="post">
 		<input type="hidden" name="go" value="<%=go%>">	
 		<input type="password" name="customer_pw" required>
 		<input type="submit" value="확인">	
 	</form>
-	
-	<%if(request.getParameter("error") != null){ %>
-	<h4><font color="red">비밀번호가 맞는지 다시 확인 후 입력하세요</font></h4>
+    <%if(request.getParameter("error") != null){ %>
+	<h4 class="pwerror"><font color="red">비밀번호가 맞는지 다시 확인 후 입력하세요</font></h4>
 	<%} %>
 
 </div>
