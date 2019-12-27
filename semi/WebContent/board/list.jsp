@@ -109,6 +109,8 @@ boolean master = admin != null && admin.equals("관리자");
 <input class="search-txt" type="search" name="keyword" placeholder="검색어" required>
 <input class="search-bt" type="submit" value="검색">
 </form>
+
+
 	<div class="paging">
            
    	 <jsp:include page="/template/navigator.jsp">

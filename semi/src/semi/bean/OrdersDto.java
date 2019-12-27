@@ -1,5 +1,9 @@
 package semi.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class OrdersDto {
 		private int orders_no; //주문번호(주문일자_주문자번호_상품번호)
 		private int goods_no;
@@ -16,9 +20,51 @@ public class OrdersDto {
 		private String orders_payment;//구매 방법('신용카드','실시간 계좌이체','무통장 입금','만나서 결제')
 		private int orders_amount;//구매금액
 		private String orders_goods_buyer;
+		private String goods_state;
+		private int goods_buy;
+		private int goods_sale;
+		private int goods_price;
 		
-		
-		
+		public int getGoods_price() {
+			return goods_price;
+		}
+
+
+		public void setGoods_price(int goods_price) {
+			this.goods_price = goods_price;
+		}
+
+
+		public String getGoods_state() {
+			return goods_state;
+		}
+
+
+		public void setGoods_state(String goods_state) {
+			this.goods_state = goods_state;
+		}
+
+
+		public int getGoods_buy() {
+			return goods_buy;
+		}
+
+
+		public void setGoods_buy(int goods_buy) {
+			this.goods_buy = goods_buy;
+		}
+
+
+		public int getGoods_sale() {
+			return goods_sale;
+		}
+
+
+		public void setGoods_sale(int goods_sale) {
+			this.goods_sale = goods_sale;
+		}
+
+
 		public String getOrders_goods_buyer() {
 			return orders_goods_buyer;
 		}
@@ -167,8 +213,22 @@ public class OrdersDto {
 		public void setOrders_payment(String orders_payment) {
 			this.orders_payment = orders_payment;
 		}
+
 	
-		
+		// 시간 변환 - 최종로그인
+		public String getOrders_dateWithFormat() throws ParseException {
+			if (orders_date == null) {
+				return "";
+			} else {
+				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+				Date date = read.parse(orders_date);
+
+				SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+				String time = write.format(date);
+
+				return time;
+			}
+		}
 		
 		
 		

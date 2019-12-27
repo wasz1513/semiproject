@@ -4,8 +4,9 @@
     pageEncoding="UTF-8"%>
 <%
 	String id = (String)session.getAttribute("customer_id");
+	int no = Integer.parseInt(request.getParameter("no"));
 	OrdersDao dao = new OrdersDao();
-	OrdersDto dto = dao.history_order(id);
+	OrdersDto dto = dao.getOrder(no);
 %>
 <jsp:include page = "/template/header.jsp"></jsp:include>
 
