@@ -1,28 +1,10 @@
 @charset "UTF-8";
 
-/*
-    전체 스타일
-*/
 * {
 	box-sizing: border-box;
 	font-family: NotoSans-Regular;
 }
 
-
-/*        화면 레이아웃*/
-/*
-            - 전체 화면은 1000px로 한다
-            - 홈페이지는 브라우저 가운데 위치한다
-            - 영역별 내부 여백은 글자 2개 높이만큼으로 한다.
-*/
-	
-
-
-/*        내부 영역 스타일*/
-/*
-            - section 내부에 화면을 배치할 때 필요한 구성요소들을 미리 디자인
-            - 영역(article) 폭을 숫자로 지정할 수 있도록 구성
-*/
 .w-100 {
 	width: 100%;
 }
@@ -63,6 +45,9 @@
 	width: 10%;
 }
 
+main{
+	width:1200px;
+}
 article {
 	margin: auto;
 }
@@ -141,3 +126,22 @@ article {
 	width: 20%;
 }
 
+
+div,ul,  li, h1, h2, h3, h4, h5, h6, form, p, th, td{
+    margin:0;
+    padding: 0;
+    border:none;
+}
+
+ul, li{
+		  list-style: none;
+		}
+
+div{
+	display:block;
+}
+
+a{
+	text-decoration: none;
+	color:#222;
+}

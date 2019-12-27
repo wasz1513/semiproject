@@ -1,0 +1,81 @@
+@charset "UTF-8";
+ <style>
+.row-multi.col-2.a{
+	padding-left:100px;
+}
+
+.regist_title{
+	margin-top:50px;
+	width:100%;
+	color:#03B855;
+	font-size:34px;
+	font-weight: bold;
+	padding-left:100px;
+	}
+.regist_info{
+	font-weight:bold;
+	padding-left:50px;
+	
+}	
+.regist_info.a{
+	width:40%;
+	padding-left:90px;
+}
+
+.regist_info>div{
+	margin:15px 0px;
+	width: 70%;
+}
+.regist_info>div>input{
+	width:280px;
+	height:40px;
+	padding :10px 10px;
+}
+/* .regist_info>div>div>input[type="text"]{ */
+/* 	width:280px; */
+/* 	height:40px; */
+/* } */
+.regist_info>div>div>.a{
+	width:140px;
+	height:40px;
+	padding :10px 10px;
+	margin-bottom:10px;
+}
+.regist_info>div>div>.b{
+	width:280px;
+	height:40px;
+	padding :10px 10px;
+	margin-bottom:10px;
+}
+.regist_info>div>label{
+	padding-right:60px;
+}
+.regist_button{
+	padding :15px 20px;
+	margin:0px 30px;
+	margin-bottom : 40px;
+	background-color: #FC7D35;
+	border-style: solid;
+	font-size : 15px;
+	color : white;
+	
+}
+.regist_button2{
+	padding :5px 10px;
+	margin-bottom:5px;
+	
+}
+.regist_bottom{
+	text-align:center;
+	
+}
+.regist_success{
+	font-size:20px;
+	font-weight: bold;
+	text-align:center;
+	margin : 100px;
+}
+.regist_button,.regist_button2:hover{
+	cursor:pointer;
+}
+</style>

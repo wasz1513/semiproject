@@ -20,19 +20,15 @@ function loadSlider(){
 }
 </script>
 <style>
-
-
 .swiper-slide > img {
 	opacity:0.2;
 }
 .swiper-slide-next > img {
 	opacity:1;
 }
-
 .swiper-pagination{
 	opacity:0.4;
 }
-
 </style>
 
 
@@ -48,5 +44,3 @@ function loadSlider(){
 				    <div class="swiper-pagination"></div>
 				</div>
 	</div>
-
-	

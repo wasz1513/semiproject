@@ -35,7 +35,7 @@ public class GoodsWriteServlet extends HttpServlet {
 			dto.setGoods_title(mRequest.getParameter("goods_title"));
 			dto.setGoods_price (Integer.parseInt(mRequest.getParameter("goods_price")));
 			dto.setGoods_content(mRequest.getParameter("goods_content"));
-	
+			dto.setCustomer_id(mRequest.getParameter("customer_id"));
 
 			GoodsDao goodsdao = new GoodsDao();
 			int seq = goodsdao.getSequence();

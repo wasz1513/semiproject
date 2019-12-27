@@ -12,17 +12,63 @@
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<div class=row align="center">
+<link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+ <style>
 
+        .sun-editor{
+        	margin-left:190px;
+        	width:60% !important;
+        }
+        img.img{
+        	margin-right:1px;
+        }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
+     <script>
+        function loadEditor(){
+            var editor = SUNEDITOR.create((document.querySelector('#gcontent')),{
+                //언어 설정
+                lang: SUNEDITOR_LANG['ko'],
+                
+                //버튼 목록
+                buttonList:[
+                    ['font', 'fontSize', 'fontColor'], 
+                    ['underline', 'italic', 'paragraphStyle', 'formatBlock'],
+                    ['align', 'table', 'image']
+                ],
+                //글꼴 설정
+                font:[
+                    '굴림', '궁서', 'Verdana', 'Arial'
+                ],
+                //크기 설정
+                fontSize:[
+                    10, 16, 32
+                ],
+            });
+            
+            editor.onKeyUp = function(e){
+    	    	var content = document.querySelector("textarea[name=goods_content]");
+    	    	content.value = editor.getContents();
+    	    }
+        }
+        window.onload = loadEditor;
+        </script>
+<article class="contents_wrap">
+
+
+
+
+
+        <div class="row">
 	<h2>상품 등록 수정</h2>
 	<form action="goods_edit.do" method="post">
 
 		<input type="hidden" name="goods_no" value="<%=dto.getGoods_no()%>">
 
-		<table border="1" width="70%">
-			<tr>
-				<th>카테고리</th>
-				<td><select name="goods_category" required>
+		  <div>
+                   <p>카테고리</p>
+			   <select class="gcategory" name="goods_category" required>
 						<option value="<%=dto.getGoods_category()%>"><%=dto.getGoods_category()%></option>
 						<option>패션의류</option>
 						<option>패션잡화</option>
@@ -34,31 +80,36 @@
 						<option value="스포츠">스포츠/레저</option>
 						<option value="생활">생활/건강</option>
 						<option value="여행">여행/문화</option>
-				</select></td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td><input type="text" name="goods_title"
-					value="<%=dto.getGoods_title()%>" required></td>
-			</tr>
-			<tr>
-				<th>가격</th>
-				<td><input type="text" name="goods_price"
-					value="<%=dto.getGoods_price()%>" required></td>
-			</tr>
-			<tr>
-				<td colspan="2"><textarea name="goods_content" required
+				</select>
+				</div>
+	  <br></br>
+              <div>
+			 <P>제목</p>
+				<input type="text" name="goods_title"
+					value="<%=dto.getGoods_title()%>" required>
+			  </div>
+                    
+                    <br><br>
+                    <div>
+				<p>가격</p>
+				<input type="text" name="goods_price"
+					value="<%=dto.getGoods_price()%>" required>
+			        </div>
+			<br><br>
+			<div class="gcontent">
+                   <P>상품상세</P>
+				<textarea  id="gcontent"  name="goods_content" required
 						rows="15" cols="100" style="resize: vertical;"><%=dto.getGoods_content()%></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><a
-					href="goods_edit.do?goods_no=<%=dto.getGoods_no()%>"> <input
-						type="submit" value="수정하기">
-				</a> <a href="goods_list.jsp"> <input type="button" value="목록보기">
-				</a></td>
-			</tr>
-		</table>
+			 </div>
+          	<br><br>  
+				<div class="button"style="padding-right:300px;">
+				<a href="goods_edit.do?goods_no=<%=dto.getGoods_no()%>"> 
+				<input  class=gclick type="submit"  value="수정하기">
+				</a> 
+				<a href="goods_list.jsp">
+				 <input class=lclick  type="button"value="목록보기">
+				</a>
+    </div>
 
 
 
@@ -66,11 +117,7 @@
 
 </div>
 
-
-
-
-
-
+</article>
 
 
 

@@ -83,13 +83,7 @@
     		list  = dao.getList(start , finish);
     		count = dao.getCount();
     	}
-    	
-    	
-    	
-
-    	
-    	
-    
+ 
     	GoodsFilesDao fdao = new GoodsFilesDao();
     	
     %> 
@@ -134,14 +128,10 @@
 
 
  .gallary > .gallary-item >.gallary-text p{
->>>>>>> refs/remotes/origin/master
             word-break: break-all;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-
-
-
 }
 
         
@@ -189,51 +179,42 @@
 		width: 100%;
 	}
 }
+
+.keyword-title{
+	margin-top:50px;
+	margin-bottom:50px;
+}
 </style>
 
 <article>
 
 
-		<div align="center">
-	<%if(customer_id != null){ %>
-			<%if (isSearch) {%>
-			<h2>검색 결과 상품</h2>
-			<<h6> 관심상품 : 
+		<div class="keyword-title">
+		
+			<% if(goods_category != null && !isSearch && !isSearch2 && keyword_search==null){%>
+		  		<h2 class="keyword-list"><%=goods_category%>게시글</h2>
+		   	<% }else if(isSearch && !isSearch2){%>
+		   		<h2 class="keyword-list"><%=keyword%>검색결과</h2>
+		    <% }else if(isSearch2){%>
+		    	<h2 class="keyword-list"><%=key%>검색결과</h2>	
+		    <% }else if(keyword_search != null){%>
+		    	<h2 class="keyword-list">키워드 게시글</h2>	
+		    <% }else if(my_id!=null){%>
+		    	<h2 class="keyword-list">찜목록</h2>	
+		    <% }else{%>
+		   		<h2 class="keyword-list">인기 게시글</h2>
+		   	<% }%>
+		
+			<h6> 관심상품 : 
 			 		<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_first() %>"><%=kdto.getKeyword_first() %></a>         
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_second()%>"> <%=kdto.getKeyword_second() %></a>          
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_third() %>"> <%=kdto.getKeyword_third() %></a>         
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 			</h6>
-	
-			<%} else {%>
-			<h2>현재 인기 상품</h2>
-			<h6>관심상품 : 
-				    <a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_first() %>"><%=kdto.getKeyword_first() %></a>         
-					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_second()%>"> <%=kdto.getKeyword_second() %></a>          
-					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_third() %>"> <%=kdto.getKeyword_third() %></a>         
-					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
-					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
-			</h6>
-			<%}%>
-<%} %>
-
-
-<%if(customer_id ==null){ %>
-<%if (isSearch) {%>
-			<h2 align="center">검색 결과 상품</h2>
-
-
-<%}else{ %>
-<h2 align="center">현재 인기 상품</h2>
-
-
-<%} %>
-<%} %>
-
-
 
 		</div>
+		
 		<div class="gallary">
 			<%
 				for (GoodsDto dto : list) {
@@ -241,8 +222,8 @@
 				<div class="gallary-item">
 
 		 			<a href="goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-		 			<img src="https://placeimg.com/640/480/arch">
-<%-- 						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200"> --%>
+<!-- 		 			<img src="https://placeimg.com/640/480/arch"> -->
+						<img src="download.do?no=<%=fdao.get(dto.getGoods_no())%>" width="200" height="200">
 						</a>
 						<div class="gallary-text">
 						<p id="p0">
@@ -250,13 +231,9 @@
 						</p>
 						
 						<p id="p1">
-						<%forgetdto = kdao.get(dto.getCustomer_id());
-						
-						%>
 
-							<%=forgetdto.getCustomer_basic_addressStr()%>
+							<%=dto.getCustomer_basic_address()%>
 
-<%-- 							<%= forgetdto %>  --%>
 						</p>
 						
 						<p id="p2">
