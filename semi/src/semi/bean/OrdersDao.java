@@ -341,6 +341,7 @@ public class OrdersDao {
 		
 		String sql3 = "update orders set sale_date=sysdate where goods_no=?";
 		PreparedStatement ps3 = con.prepareStatement(sql3);
+		ps3.setInt(1, goods_no);
 		ps3.execute();
 		con.close();
 	}
