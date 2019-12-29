@@ -29,7 +29,7 @@ public class OrdersDao {
 //	1. 구매시 구매 히스토리 전량 저장
 	public void insert_buy(OrdersDto dto) throws Exception{
 		Connection con = getConnection();
-		String sql="insert into orders values(?,sysdate,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into orders values(?,sysdate,?,?,?,?,?,?,?,?,?,?, sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setInt(1, dto.getOrders_no());
