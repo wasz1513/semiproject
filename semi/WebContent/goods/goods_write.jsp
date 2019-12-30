@@ -153,18 +153,18 @@ href="<%=request.getContextPath()%>/css/goods.css">
               <br></br>
               <div>
                         <P>제목</p>
-                        <input type="text" name="goods_title" required>
+                        <input class="gcategory"  type="text" name="goods_title" required>
             </div>
                     
                     <br><br>
                     <div>
                         <p>가격</p>
-                        <input type="text" name="goods_price">
+                        <input class="gcategory"  type="text" name="goods_price">
                        </div>
                     <br><br>
                     <div class="gcontent">
                    <P>상품상세</P>
-                   <textarea id="gcontent" name="goods_content"></textarea>
+                   <textarea id="gcontent" name="goods_content" required></textarea>
                 </div>
                         <div>
                             <p>상품 이미지</p>
