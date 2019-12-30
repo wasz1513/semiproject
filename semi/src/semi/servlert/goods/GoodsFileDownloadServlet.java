@@ -27,7 +27,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		}
 		int goods_no = 0;
 		if(req.getParameter("goods_no")!=null) {
-			Integer.parseInt(req.getParameter("goods_no"));			
+			goods_no = Integer.parseInt(req.getParameter("goods_no"));			
 		}
 		GoodsFilesDao dao = new GoodsFilesDao();
 		GoodsFilesDto dto;

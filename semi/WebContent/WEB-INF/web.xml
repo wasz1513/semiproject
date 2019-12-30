@@ -46,7 +46,7 @@
 	<url-pattern>/member/info.jsp</url-pattern>
 	<url-pattern>/member/change_info.do</url-pattern>
 	<url-pattern>/member/change_info.jsp</url-pattern>
-	<url-pattern>/member/check.do</url-pattern>
+	<url-pattern>/member/check.do</url-pattern>	
 	<url-pattern>/member/check.jsp</url-pattern>
 	<url-pattern>/member/exit.do</url-pattern>
 	<url-pattern>/member/change_pw.jsp</url-pattern>

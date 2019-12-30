@@ -51,7 +51,7 @@ href="<%=request.getContextPath()%>/css/gallary.css">
 				<% for (GoodsDto dto : list ){ %>
 					<div class="gallary-item">
 						<a href="<%=context%>/goods/goods_content.jsp?goods_no=<%=dto.getGoods_no()%>">
-							<img src="/goods/download.do?goods_no=<%=dto.getGoods_no()%>" width="200" height="200">
+							<img src="<%=context%>/goods/download.do?goods_no=<%=dto.getGoods_no()%>" width="200" height="200">
 						</a>
 						<div class="gallary-text">
 							<p id="p0">제목 : <%=dto.getGoods_title() %></p>
