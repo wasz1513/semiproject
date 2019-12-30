@@ -35,7 +35,7 @@
 				<td colspan="2" align="center">
 					
 
-				  	<input type="submit" value="등록하기" >
+				  	
 
 				  	<input type="submit" value="등록" style="height:30px; width:50px;">
 
