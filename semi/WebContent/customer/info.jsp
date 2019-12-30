@@ -47,6 +47,10 @@
                 <td><%=dto.getCustomer_name()%></td>
             </tr>
             <tr>
+                <th>닉네임</th>
+                <td><%=dto.getCustomer_nickname()%></td>
+            </tr>
+            <tr>
                 <th>등급</th>
                 <td><%=dto.getCustomer_grade()%></td>
             </tr>
