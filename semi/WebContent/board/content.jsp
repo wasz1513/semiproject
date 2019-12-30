@@ -140,7 +140,7 @@ href="<%=request.getContextPath()%>/css/content.css">
                
     	
              
-	               <textarea name="content" rows="5" cols="160" required></textarea>
+	               <textarea name="content" rows="5" cols="160" required style="width:100%;"></textarea>
 	               <input type="submit" value="등록" style="height:50px; width:70px;">
                </div>
                
