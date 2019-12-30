@@ -101,6 +101,9 @@ function sample6_execDaumPostcode() {
 <form action="change_info.do" method="post"
 	enctype="multipart/form-data">
 	<!-- get 메소드 추가시 input에 placeholder를 dto.get으로 가져와야함. -->
+
+			<input type="hidden"  name="existence"  value=<%if(flist.size()>0) {%>"1"<%}else{ %>"0"<%} %>>
+
 	  <div id="changeinfo">
 
         <header id="changeinfo_header">
@@ -118,7 +121,7 @@ function sample6_execDaumPostcode() {
 				width="100" height="100" id="preview">
 			<%}%>
 			<%} else {%>
-			<img src="http://placehold.it/100x100" id="preiew">
+			<img src="http://placehold.it/100x100" width="100" height="100" id="preview">
 			<%}%>
 			<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
             </tr>
@@ -130,6 +133,12 @@ function sample6_execDaumPostcode() {
                 <th>이름</th>
                 <td><%=dto.getCustomer_name()%></td>
             </tr>
+                <th>닉네임</th>
+                <td>
+                    <input type="text" name="customer_nickname"
+					value="<%=dto.getCustomer_nickname()%>">
+                </td>
+            </tr>
             <tr>
                 <th>등급</th>
                 <td><%=dto.getCustomer_grade()%></td>
@@ -139,12 +148,6 @@ function sample6_execDaumPostcode() {
                 <td><%=dto.getCustomer_point()%> p</td>
             </tr>
             <tr>
-                <th>닉네임</th>
-                <td>
-                    <input type="text" name="customer_nickname"
-					value="<%=dto.getCustomer_nickname()%>">
-                </td>
-            </tr>
             <tr>
                 <th>휴대폰번호</th>
                 <td>

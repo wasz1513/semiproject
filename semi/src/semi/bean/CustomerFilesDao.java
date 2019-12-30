@@ -89,7 +89,8 @@ public class CustomerFilesDao {
 		ps.setString(3, dto.getFiletype());
 		ps.setLong(4, dto.getFilesize());
 		ps.setInt(5, dto.getOrigin());
-		ps.execute();
+		ps.execute();		
+		
 		con.close();
 	}
 	
