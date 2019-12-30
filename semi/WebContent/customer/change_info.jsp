@@ -115,10 +115,10 @@ function sample6_execDaumPostcode() {
                     <%if (flist.size() > 0) {%>
 			<%for (CustomerFilesDto fdto : flist) {%>
 			<img src="download.do?no=<%=fdto.getCustomer_files_no()%>"
-				width="100" height="100" id="preview">
+				width="10%" height="10%" id="preview">
 			<%}%>
 			<%} else {%>
-			<img src="http://placehold.it/100x100" id="preiew">
+			<img src="http://placehold.it/100x100" id="preview">
 			<%}%>
 			<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
             </tr>
@@ -130,6 +130,12 @@ function sample6_execDaumPostcode() {
                 <th>이름</th>
                 <td><%=dto.getCustomer_name()%></td>
             </tr>
+                <th>닉네임</th>
+                <td>
+                    <input type="text" name="customer_nickname"
+					value="<%=dto.getCustomer_nickname()%>">
+                </td>
+            </tr>
             <tr>
                 <th>등급</th>
                 <td><%=dto.getCustomer_grade()%></td>
@@ -139,12 +145,6 @@ function sample6_execDaumPostcode() {
                 <td><%=dto.getCustomer_point()%> p</td>
             </tr>
             <tr>
-                <th>닉네임</th>
-                <td>
-                    <input type="text" name="customer_nickname"
-					value="<%=dto.getCustomer_nickname()%>">
-                </td>
-            </tr>
             <tr>
                 <th>휴대폰번호</th>
                 <td>
