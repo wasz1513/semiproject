@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="semi.bean.CustomerDto" project="semi" file="/semi/src/semi/bean/CustomerDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="75" width="155" x="427" y="67"/>    
+    <position height="75" width="213" x="427" y="67"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="semi.bean.GoodsDao" project="semi" file="/semi/src/semi/bean/GoodsDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="75" width="152" x="428" y="173"/>    
+    <position height="75" width="210" x="428" y="173"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="semi.bean.GoodsDto" project="semi" file="/semi/src/semi/bean/GoodsDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="75" width="152" x="429" y="278"/>    
+    <position height="75" width="210" x="429" y="278"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="semi.servlert.goods.GoodsWriteServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsWriteServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="98" width="138" x="117" y="57"/>    
+    <position height="98" width="196" x="117" y="57"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="semi.servlert.goods.GoodsEditServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsEditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="121" x="117" y="176"/>    
+    <position height="96" width="196" x="117" y="176"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="semi.servlert.goods.GoodsDeleteServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsDeleteServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="136" x="117" y="294"/>    
+    <position height="96" width="194" x="117" y="294"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="semi.servlert.goods.GoodsReplyDeleteServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsReplyDeleteServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="167" x="749" y="293"/>    
+    <position height="96" width="225" x="749" y="293"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="semi.servlert.goods.GoodsReplyeditServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsReplyeditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="165" x="747" y="176"/>    
+    <position height="96" width="223" x="747" y="176"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="semi.servlert.goods.GoodsReplyInsertServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsReplyInsertServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="164" x="745" y="56"/>    
+    <position height="96" width="222" x="745" y="56"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="semi.servlert.goods.GoodsOrderServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsOrderServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="133" x="132" y="578"/>    
+    <position height="96" width="191" x="82" y="576"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="semi.servlert.goods.GoodsSaleServlet" project="semi" 
     file="/semi/src/semi/servlert/goods/GoodsSaleServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="125" x="354" y="579"/>    
+    <position height="96" width="183" x="304" y="577"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="semi.bean.OrdersDao" project="semi" file="/semi/src/semi/bean/OrdersDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="87" x="264" y="461"/>    
+    <position height="96" width="145" x="216" y="438"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="semi.bean.InterestDao" project="semi" file="/semi/src/semi/bean/InterestDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="90" x="696" y="462"/>    
+    <position height="96" width="148" x="733" y="446"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="semi.servlet.customer.CustomerInterestServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerInterestServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="164" x="574" y="583"/>    
+    <position height="96" width="222" x="574" y="583"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="semi.servlet.customer.CustomerInterestRemoverServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerInterestRemoverServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="215" x="792" y="586"/>    
+    <position height="96" width="230" x="831" y="582"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
