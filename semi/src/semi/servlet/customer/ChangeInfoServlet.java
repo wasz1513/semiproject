@@ -40,6 +40,11 @@ public class ChangeInfoServlet extends HttpServlet {
 			dto.setCustomer_post(mRequest.getParameter("customer_post"));
 			dto.setCustomer_basic_address(mRequest.getParameter("customer_basic_address"));
 			dto.setCustomer_extra_address(mRequest.getParameter("customer_extra_address"));
+
+			int asd = Integer.parseInt(mRequest.getParameter("existence"));
+			
+			System.out.println(asd);
+			
 			//session에서 불러 오는 것 추가 후 반드시 변경할 것.
 			dto.setCustomer_id((String)req.getSession().getAttribute("customer_id"));
 			dao.updateCustomerInfo(dto);
@@ -57,7 +62,11 @@ public class ChangeInfoServlet extends HttpServlet {
 				fdto.setFilesize(file.length());		
 				
 				CustomerFilesDao fdao = new CustomerFilesDao();
-				fdao.update(fdto);
+				if(asd > 0) {
+					fdao.update(fdto);
+				}else {
+					fdao.edit(fdto);
+				}
 			}
 			
 			
