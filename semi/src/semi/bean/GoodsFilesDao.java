@@ -30,13 +30,14 @@ public Connection getConnection() throws Exception{
 //등록
 public void insert(GoodsFilesDto gfdto )throws Exception{
 	Connection con = this.getConnection();
-	String sql = "insert into goods_files values(goods_files_seq.nextval,?,?,?,?,?)";
+	String sql = "insert into goods_files values(?,?,?,?,?,?)";
 	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setInt(1, gfdto.getOrigin());
-	ps.setString(2, gfdto.getUploadname());
-	ps.setString(3, gfdto.getSavename());
-	ps.setString(4, gfdto.getFiletype());
-	ps.setLong(5, gfdto.getFilesize());
+	ps.setInt(1, gfdto.getGoods_files_no());
+	ps.setInt(2, gfdto.getOrigin());
+	ps.setString(3, gfdto.getUploadname());
+	ps.setString(4, gfdto.getSavename());
+	ps.setString(5, gfdto.getFiletype());
+	ps.setLong(6, gfdto.getFilesize());
 	ps.execute();
 	con.close();
 }
@@ -109,6 +110,17 @@ public int get(int origin) throws Exception{
 	}
 	con.close();
 	return customer_file_no;
+}
+
+public int get_seq() throws Exception{
+	Connection con = this.getConnection();
+	String sql = "select goods_files_seq.nextval from dual";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ResultSet rs = ps.executeQuery();
+	rs.next();
+	int seq = rs.getInt(1);
+	con.close();
+	return seq;
 }
 
 }
