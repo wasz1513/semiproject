@@ -11,26 +11,19 @@ BoardDto dto = dao.get(no);
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
+ <div class="board_edit">
+             <table class="board_edit">	
 	<h2>게시글 수정</h2>
 
 	<form action="edit.do" method="post">
 	<input type="hidden" name="no" value="<%=no%>">
 
 		<table border="1" width="30%">
-			<caption>
-				<tr>
-					<th>말머리</th>
-					<td>
-					<select name="head">
-							<option value="">선택하세요</option>
-							<option selected>공지</option>
-							<option>정보</option>
-							</select>
-							</td>
-				</tr>
+			
+				
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="title" value="<%=dto.getTitle()%>" required>
+					<td><input type="text" name="title" style="width:350px" value="<%=dto.getTitle()%>" required>
 					</td>
 				</tr>
 				<tr>
@@ -43,12 +36,12 @@ BoardDto dto = dao.get(no);
 					<td colspan="2" align="center">
 					<input type="submit"value="등록하기">
 					 <a href="list.jsp"> </a> 
-			</caption>
+			
 		</table>
 
 	</form>
-
-
+</table>
+</div>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

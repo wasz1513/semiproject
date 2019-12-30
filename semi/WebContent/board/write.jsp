@@ -18,7 +18,7 @@
 			<tr>
 				<th>제목</th>
 				<td>
-					<input type="text" name="title" required>
+					<input type="text" name="title" style="width:350px" required >
 				</td>
 			</tr>
 			<tr>
@@ -30,7 +30,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					
-				  	<input type="submit" value="등록하기">
+				  	<input type="submit" value="등록하기" >
 					<a href="list.jsp">
 						<input type="button" value="목록보기">
 					</a>

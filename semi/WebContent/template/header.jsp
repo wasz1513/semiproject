@@ -33,19 +33,17 @@ href="<%=request.getContextPath()%>/css/footer.css">
 href="<%=request.getContextPath()%>/css/boardlist.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/info.css">
-<<<<<<< HEAD
+
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/write.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/content.css">
-=======
->>>>>>> refs/remotes/origin/master
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/edit.css">
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
 
 <title>당근나라</title>	
 
@@ -94,15 +92,12 @@ header, footer, article {
 	<div class="logo">
 			<a href="<%=request.getContextPath()%>">
 				<img id="logoimg" src="<%=request.getContextPath()%>/image/logo.png">
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
+
 			</a>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
 	</div>
 	
 <!-- 				검색창 -->
@@ -140,18 +135,16 @@ header, footer, article {
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/regist.jsp">회원가입</a></li>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
+
+
 					<li><a href="<%=request.getContextPath()%>/customer/find.jsp">아이디찾기</a></li>
 					<li><a href="<%=request.getContextPath()%>/customer/find_pw.jsp">비밀번호찾기</a></li>		                			
 				</ul>
 		</div>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
 		<%} else {%>
 		<div class="null">ddd</div>
 		<div class="topmenu_sub my">
@@ -171,17 +164,12 @@ header, footer, article {
 			</a>
 			<div class="null">ddd</div>
 			<div class="topmenu_sub cart">
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
 				<ul class="sub_drop">
 						<li><a href="#">키워드</a></li>
-						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
 				</ul>
 			</div>
 		</li>
@@ -212,18 +200,12 @@ header, footer, article {
 					<li><a href="<%=request.getContextPath()%>/goods/goods_list.jsp">
 					새로운 상품 보기</a>
 					</li>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
 					<li>
 					<a href="<%=request.getContextPath()%>/board/list.jsp">
 					공지사항</a>
 					</li>
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
 					<li><a href="<%=request.getContextPath()%>/help/help_write.jsp">
 					<img src ="">신고하기</a>
 					</li>
