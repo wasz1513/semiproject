@@ -85,13 +85,13 @@ return gfdto;
 }
 public void update(GoodsFilesDto gfdto) throws Exception{
 	Connection con = this.getConnection();
-	String sql = "update Goods_files set uploadname=?, savename=?, filetype=?, filesize=? where origin=?";
+	String sql = "update Goods_files set uploadname=?, savename=?, filetype=?, filesize=? where goods_files_no=?";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1, gfdto.getUploadname());
 	ps.setString(2, gfdto.getSavename());
 	ps.setString(3, gfdto.getFiletype());
 	ps.setLong(4, gfdto.getFilesize());
-	ps.setInt(5, gfdto.getOrigin());
+	ps.setInt(5, gfdto.getGoods_files_no());
 	ps.execute();
 	con.close();
 }
@@ -111,6 +111,7 @@ public int get(int origin) throws Exception{
 	con.close();
 	return customer_file_no;
 }
+
 
 public int get_seq() throws Exception{
 	Connection con = this.getConnection();

@@ -47,13 +47,13 @@ public class GoodsEditServlet extends HttpServlet {
 			
 			GoodsDao dao = new GoodsDao();
 			GoodsFilesDao fdao = new GoodsFilesDao();
-			int seq = fdao.get_seq();
+			
 			dao.goods_edit(dto);
 			//파일등록
 			File file = mRequest.getFile("file");
 			if(file!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
-				gfdto.setGoods_files_no(seq);
+				
 				gfdto.setOrigin(goods_no);
 				gfdto.setUploadname(mRequest.getOriginalFileName("file"));
 				gfdto.setSavename(mRequest.getFilesystemName("file"));
@@ -62,8 +62,11 @@ public class GoodsEditServlet extends HttpServlet {
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				if(existence0>0) {
+					gfdto.setGoods_files_no(existence0);
 					gfdao.update(gfdto);
 				}else {
+					int seq = fdao.get_seq();
+					gfdto.setGoods_files_no(seq);
 					gfdao.insert(gfdto);					
 				}
 			}
@@ -71,7 +74,7 @@ public class GoodsEditServlet extends HttpServlet {
 			File file2 = mRequest.getFile("file2");
 			if(file2!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
-				gfdto.setGoods_files_no(seq);
+				
 				gfdto.setOrigin(goods_no);
 				gfdto.setUploadname(mRequest.getOriginalFileName("file2"));
 				gfdto.setSavename(mRequest.getFilesystemName("file2"));
@@ -80,8 +83,11 @@ public class GoodsEditServlet extends HttpServlet {
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				if(existence1>0) {
+					gfdto.setGoods_files_no(existence1);
 					gfdao.update(gfdto);
 				}else {
+					int seq = fdao.get_seq();
+					gfdto.setGoods_files_no(seq);
 					gfdao.insert(gfdto);					
 				}
 			}
@@ -89,7 +95,7 @@ public class GoodsEditServlet extends HttpServlet {
 			File file3 = mRequest.getFile("file3");
 			if(file3!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
-				gfdto.setGoods_files_no(seq);
+				
 				gfdto.setOrigin(goods_no);
 				gfdto.setUploadname(mRequest.getOriginalFileName("file3"));
 				gfdto.setSavename(mRequest.getFilesystemName("file3"));
@@ -98,8 +104,11 @@ public class GoodsEditServlet extends HttpServlet {
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				if(existence2>0) {
+					gfdto.setGoods_files_no(existence2);
 					gfdao.update(gfdto);
 				}else {
+					int seq = fdao.get_seq();
+					gfdto.setGoods_files_no(seq);
 					gfdao.insert(gfdto);					
 				}
 			}
@@ -108,7 +117,7 @@ public class GoodsEditServlet extends HttpServlet {
 			File file4 = mRequest.getFile("file4");
 			if(file4!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
-				gfdto.setGoods_files_no(seq);
+				
 				gfdto.setOrigin(goods_no);
 				gfdto.setUploadname(mRequest.getOriginalFileName("file4"));
 				gfdto.setSavename(mRequest.getFilesystemName("file4"));
@@ -117,8 +126,11 @@ public class GoodsEditServlet extends HttpServlet {
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				if(existence3>0) {
+					gfdto.setGoods_files_no(existence3);
 					gfdao.update(gfdto);
 				}else {
+					int seq = fdao.get_seq();
+					gfdto.setGoods_files_no(seq);
 					gfdao.insert(gfdto);					
 				}
 			}
@@ -127,7 +139,7 @@ public class GoodsEditServlet extends HttpServlet {
 			File file5 = mRequest.getFile("file5");
 			if(file5!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
-				gfdto.setGoods_files_no(seq);
+				
 				gfdto.setOrigin(goods_no);
 				gfdto.setUploadname(mRequest.getOriginalFileName("file5"));
 				gfdto.setSavename(mRequest.getFilesystemName("file5"));
@@ -136,8 +148,11 @@ public class GoodsEditServlet extends HttpServlet {
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
 				if(existence4>0) {
+					gfdto.setGoods_files_no(existence4);
 					gfdao.update(gfdto);
 				}else {
+					int seq = fdao.get_seq();
+					gfdto.setGoods_files_no(seq);
 					gfdao.insert(gfdto);					
 				}
 			}
