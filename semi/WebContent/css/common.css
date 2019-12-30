@@ -125,7 +125,9 @@ article {
 .row-multi.col-5>* {
 	width: 20%;
 }
-
+.row-multi.col-6>* {
+	width: 16.6666%;
+}
 
 div,ul,  li, h1, h2, h3, h4, h5, h6, form, p, th, td{
     margin:0;

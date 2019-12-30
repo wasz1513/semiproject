@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+#pwfind{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.pwfind_wrap .pwfind_inputerror{
+    font-size: 13px;
+    padding-top: 20px;
+}
+
+.pwfind_wrap{
+    width: 800px;
+    margin-top: 30px;
+    margin-bottom:200px;
+}
+
+.pwfind_type{
+    border-bottom: 1px solid #ccc;
+    height: 450px;
+}
+#pwfind_header{
+    width: 800px;
+    margin-top: 50px;
+    border-bottom: 2px solid #333;
+}
+
+#pwfind_header .pwfind_title{
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+#pwfind .pw_subtitle{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.pwfind_wrap input[type="email"],
+.pwfind_wrap input[type="text"]{
+    width: 360px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+
+
+.pwfind_wrap input[type="submit"]{
+    width: 360px;
+    height: 50px;
+    margin-top: 20px;
+    border: none;
+    background-color: #ff8041;
+    color: #fff;
+    cursor: pointer;
+}
+.pwfind_wrap input[type="submit"]:hover{
+
+    border: 1px solid #ff8041;
+    background-color: #fff;
+    color: #ff8041;
+}
+
+.phone_find{
+    /* padding-bottom: 50px; */
+    /* border-bottom: 1px solid #ccc; */
+    float: left;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    width:400px;
+}
+.email_find{
+
+    padding-bottom: 50px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    position: relative;
+    float: left;
+    left: 20px;
+    
+
+}
+
+.login_idfind{
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+    text-align: center;
+}

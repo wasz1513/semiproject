@@ -30,11 +30,14 @@ public class GoodsOrderServlet extends HttpServlet{
 				dto.setOrders_type(req.getParameter("orders_type"));
 				dto.setOrders_payment(req.getParameter("orders_payment"));
 				dto.setGoods_no(Integer.parseInt(req.getParameter("goods_no")));
-			
+				dto.setGoods_price(Integer.parseInt(req.getParameter("goods_price")));
+				
 				OrdersDao dao = new OrdersDao();
+				int seq_no = dao.seq();
+				dto.setOrders_no(seq_no);
 				dao.insert_buy(dto);
 				
-				resp.sendRedirect(req.getContextPath()+"/goods/orders_success.jsp");
+				resp.sendRedirect(req.getContextPath()+"/goods/orders_success.jsp?no="+seq_no);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

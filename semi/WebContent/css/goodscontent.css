@@ -1,0 +1,251 @@
+
+
+
+
+
+
+
+
+section, article, aside, footer, header, nav, hgroup {
+    display: block;
+	}
+	
+	* {
+    margin: 0;
+    padding: 0;
+    }
+	
+		#content {
+    margin-top: 100px;
+    padding-bottom: 0;
+     width: 900px;
+	 height: 1000px;
+}
+		
+		#article-images {
+    position: relative;
+    width: 729px;
+    margin: 0 auto;
+}
+
+div {
+    display: block;
+}
+
+#image-slider .slider-wrap {
+    position: relative;
+}
+
+#image-slider .slider-wrap .slider {
+    border: none;
+}
+
+#article-profile {
+    width: 677px;
+    margin: 0 auto;
+}
+
+#article-profile #article-profile-link {
+    text-decoration: none;
+    display: block;
+    margin-top: 25px;
+    padding-bottom: 23px;
+    position: relative;
+    border-bottom: 1px solid #e9ecef;
+}
+
+#article-profile #article-profile-image img {
+    width: 40px;
+    height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+#article-profile #article-profile-image {
+    display: inline-block;
+}
+
+#article-profile #article-profile-left {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+#article-profile #article-profile-left #nickname {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    color: #212529;
+}
+
+#article-profile #article-profile-left #region-name {
+    font-size: 13px;
+    line-height: 1.46;
+    letter-spacing: -0.6px;
+    color: #212529;
+}
+
+#article-profile #article-profile-right {
+    position: absolute;
+    right: 0;
+    padding-right: 36px;
+}
+
+#article-profile #article-profile-right dl {
+    display: block;
+    width: 100px;
+}
+
+dl {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+#article-profile #article-profile-right dl dt {
+    position: absolute;
+    top: 36px;
+    right: 0px;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+
+#article-profile #article-profile-right .text-color-03 {
+    color: #1561a9;
+}
+
+#article-profile #article-profile-right dl dd {
+    position: absolute;
+    right: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-top: 1px;
+}
+
+dd {
+    display: block;
+    margin-inline-start: 40px;
+}
+
+#article-profile #article-profile-right .meters {
+    clear: both;
+    display: block;
+    width: 100px;
+    background-color: #e9ecef;
+    height: 4px;
+	border-radius: 100px;
+	    position: relative;
+    vertical-align: middle;
+    margin-top: 24px;
+}
+
+element.style {
+    width: 37%;
+}
+
+#article-profile #article-profile-right .meters .bar-color-03 {
+    background-color: #1561a9;
+}
+
+#article-profile #article-profile-right .meters .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    border-radius: 100px;
+}
+#article-profile #article-profile-right .face {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.face-03 {
+    background-position: -0px -75px;
+    width: 24px;
+    height: 24px;
+}
+
+.face-01, .face-02, .face-03, .face-04, .face-05, .face-06 {
+    display: inline-block;
+    background: url(/assets/home/articles/face-icon-set-0cffc52….png) no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-size: 29px 147px;
+}
+
+#article-description {
+    padding: 32px 0;
+    width: 677px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e9ecef;
+}
+
+#article-description #article-title {
+ 
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+}
+
+#article-description #article-category {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.46;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+element.style {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+#article-description #article-price {
+    margin-top: 4px;
+    line-height: 1.76;
+    letter-spacing: -0.6px;
+}
+
+
+#article-description #article-counts {
+    font-size: 13px;
+    line-height: 1.46;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

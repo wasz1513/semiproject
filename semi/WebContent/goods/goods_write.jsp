@@ -131,6 +131,7 @@ href="<%=request.getContextPath()%>/css/goods.css">
             <h2>상품 등록</h2>
             <form action="goods_write.do" method="post"
                 enctype="multipart/form-data">
+                <input type="hidden" name="customer_id" value="<%=(String)request.getSession().getAttribute("customer_id") %>">
                <div>
                    <p>카테고리</p>
                         <select class="gcategory" name="goods_category" required>

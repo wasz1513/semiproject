@@ -53,6 +53,7 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<<<<<<< HEAD
   <div align="center">
         <h2>게시글 보기</h2>
         
@@ -151,4 +152,105 @@
       
    
 </html>
+=======
+<div align="center">
+
+	<body>
+    <br><br>
+    <div class="board_content_wrap" align="center">
+              
+    
+   <table border="1" width="60%">
+       <div class="board_content_body">
+       <tr>
+           <td><%=bdto.getTitle()%></td>
+       </tr>
+       <tr>
+           <td><%=bdto.getWriter()%></td>
+       </tr>
+       <tr height="200">
+           <td valign="top"><%=bdto.getContent()%></td>
+       </tr>
+       <tr>
+           <td align="right">댓글수 <%=bdto.getReplycount()%> 조회수 <%=bdto.getReadcount()%>
+           </td>
+       </tr>
+    
+       
+       <tr>
+           <td align="right">
+               <a href="write.jsp">
+                   <input type="button" value="글쓰기" style="height:30px; width:50px;">
+               </a>
+               <a href="edit.jsp?no=<%=no%>">
+                   <input	type="button" value="수정" style="height:30px; width:50px;">
+               </a> 
+               <a href="delete.do?no=<%=no%>">
+                   <input type="button" value="삭제" style="height:30px; width:50px;">
+               </a>
+               <a href="list.jsp">
+                   <input type="button" value="목록" style="height:30px; width:50px;">
+               </a>
+           </td>
+       </tr>
+    </div>
+</table>   
+</table>
+        
+  
+   <!-- 댓글 목록  -->
+   
+   <tr>
+   <td>
+   <table border="1" width="60%">
+   <%for(ReplyDto rdto : list){ %>
+   <tr>
+   <th width="100">
+   <img src="http://placehold.it/100x100">
+   </th>
+   <td>
+       <%=rdto.getWriter()%>
+       <%if(bdto.getWriter().equals(rdto.getWriter())) %>
+       <font color="red">(작성자)</font>
+       
+       <%=rdto.getWdate()%>
+       답글    	
+       <%if(userId.equals(rdto.getWriter())){%>
+       <a href="#">수정</a>
+       <a href="reply_delete.do?no=<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
+       <br><br>
+       <%} %>
+       <%=rdto.getContent()%>
+       </td>
+       </tr>
+       <%} %>
+       </table>
+     <!-- 댓글 작성 -->
+       <tr>
+           <td align="right" >
+           
+           <form action="reply_insert.do" method="post">
+           
+<!-- 			게시글번호 -->
+			
+           <input type="hidden" name="origin" value="<%=no%>">
+           
+           <textarea name="content" rows="5" cols="188" align="center" required></textarea>
+           <input type="submit" value="등록" style="height:50px; width:70px;">
+           
+           
+           </form>
+           
+           </td>
+       </tr>
+    </div>
+    
+    
+</div>
+</body>
+</html>
+
+
+
+>>>>>>> refs/remotes/origin/master
 <jsp:include page="/template/footer.jsp"></jsp:include>
