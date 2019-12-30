@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="semi.bean.CustomerDao" project="semi" file="/semi/src/semi/bean/CustomerDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="166" x="144" y="170"/>    
+    <position height="119" width="214" x="144" y="170"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="semi.bean.CustomerDto" project="semi" file="/semi/src/semi/bean/CustomerDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="163" x="145" y="321"/>    
+    <position height="119" width="211" x="145" y="321"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="semi.bean.HelpDao" project="semi" file="/semi/src/semi/bean/HelpDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="110" width="132" x="430" y="257"/>    
+    <position height="121" width="213" x="465" y="170"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -30,7 +30,16 @@
   </class>  
   <class id="4" language="java" name="semi.servlet.help.HelpWriteServlet" project="semi" 
     file="/semi/src/semi/servlet/help/HelpWriteServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="110" width="165" x="659" y="255"/>    
+    <position height="110" width="213" x="795" y="264"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="semi.bean.HelpDto" project="semi" file="/semi/src/semi/bean/HelpDto.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="212" x="465" y="325"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      

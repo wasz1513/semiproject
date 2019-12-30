@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="semi.bean.HelpReplyDao" project="semi" 
     file="/semi/src/semi/bean/HelpReplyDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="87" width="194" x="194" y="232"/>    
+    <position height="98" width="242" x="201" y="200"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="semi.bean.HelpReplyDto" project="semi" 
     file="/semi/src/semi/bean/HelpReplyDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="87" width="191" x="194" y="342"/>    
+    <position height="98" width="239" x="199" y="341"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="semi.servlet.help.HelpReplyInsertServlet" project="semi" 
     file="/semi/src/semi/servlet/help/HelpReplyInsertServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="101" width="236" x="584" y="280"/>    
+    <position height="101" width="236" x="609" y="269"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      

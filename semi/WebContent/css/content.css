@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 
 	#board_content_wrap{
 		width:1000px;
@@ -20,11 +22,10 @@
     .board_content_table td{
          padding: 10px;
     }
+<<<<<<< HEAD
+=======
     
  
+>>>>>>> refs/remotes/origin/master
 
-
-    
-    
-    
     
