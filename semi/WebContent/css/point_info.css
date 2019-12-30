@@ -1,0 +1,220 @@
+@charset "UTF-8";
+
+
+
+
+#point_wrap{
+
+    width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 50px;
+
+}
+
+ 
+
+#pointdetail_header{
+
+	
+
+    margin-top: 50px;
+
+    
+
+}
+
+ 
+
+#pointdetail_header .point_title{
+
+	margin-top:50px;
+
+	color:#333;
+
+	font-size:34px;
+
+    font-weight: bold;
+
+    padding-bottom: 20px;
+
+    margin-left: 50px;
+
+}
+
+        
+
+        .pointdetail_wrap{
+
+            padding: 30px 20px 30px 20px;
+
+            background-color: #f5f5f5;
+
+            height: auto;
+
+            margin: 0 50px 0 50px;
+
+        }
+
+ 
+
+       
+
+        
+
+    .pointdetail_wrap .pwrap1{
+
+            width: 430px;
+
+           
+
+            float: left;
+
+        
+
+        }
+
+        
+
+        .pointdetail_wrap .pwrap2{
+
+            position: relative;
+
+            margin-left: 430px;
+
+            padding-left: 20px;
+
+            border-left: 1px solid #ccc;
+
+        }  
+
+        
+
+          
+
+        .pointdetail_wrap >div>ul>li{
+
+            margin-top: 10px;
+
+            margin-right: 20px;
+
+            text-align: right;
+
+        }
+
+        
+
+        .point_list{
+
+            margin-top: 30px;
+
+        }
+
+        
+
+                table {
+
+    border-collapse:collapse;
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+.point_list_wrap {
+
+    padding: 0 50px 50px 50px;
+
+}
+
+ 
+
+.point_list{
+
+    width: 100%;
+
+    border-top: 2px solid #ff8041;
+
+    margin-bottom:30px;
+
+}
+
+ 
+
+.point_list tr{
+
+    border-bottom: 1px solid #999;
+
+}
+
+ 
+
+.point_list th,
+
+.point_list td{
+
+     padding: 10px;
+
+     
+
+ 
+
+}
+
+ 
+
+.point_list td {
+
+    text-align: center;
+
+}
+
+ 
+
+.point_list tbody tr td:nth-child(2) {
+
+    text-align: left;
+
+}
+
+        .point_list input[type=button]{
+
+            width: 50px;
+
+            height: 32px;
+
+            border: 1px solid #ff8041;
+
+            color: #ff8041;
+
+            background-color: #fff;
+
+        }
+
+ 
+
+        
+
+        .point_test{
+
+            padding-left: 50px;
+
+        }
+
+        .point_test >div{
+
+            float: left;
+
+        }
+
+        .point_test >div:first-child{
+
+            margin-right: 40px;
+
+        }

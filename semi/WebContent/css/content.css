@@ -1,3 +1,6 @@
+@charset "UTF-8";
+
+
 	#board_content_wrap{
 		width:1000px;
 		margin:0 auto;
@@ -19,7 +22,5 @@
     .board_content_table td{
          padding: 10px;
     }
-    
-    
-    
+
     

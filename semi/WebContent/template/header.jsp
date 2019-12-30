@@ -30,8 +30,6 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/admin.css">
 <link rel="stylesheet" type="text/css"
-href="<%=request.getContextPath()%>/css/header.css">
-<link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/boardlist.css">
@@ -50,7 +48,13 @@ href="<%=request.getContextPath()%>/css/write.css">
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/edit.css">
 <link rel="stylesheet" type="text/css" 
-href="<%=request.getContextPath()%>/css/content.css"> 
+href="<%=request.getContextPath()%>/css/date.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/customer.css"> 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/header.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/point_info.css">
 
 
 <title>당근나라</title>	
