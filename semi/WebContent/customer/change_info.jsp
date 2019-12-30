@@ -118,7 +118,7 @@ function sample6_execDaumPostcode() {
 				width="100" height="100" id="preview">
 			<%}%>
 			<%} else {%>
-			<img src="http://placehold.it/100x100" id="preview">
+			<img src="http://placehold.it/100x100" width="100" height="100" id="preview">
 			<%}%>
 			<input type="file" name="file" accept=".jpg, .png, .gif" onchange="previewImage(this);">
             </tr>
