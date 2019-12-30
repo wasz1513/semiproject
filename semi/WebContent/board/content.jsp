@@ -18,8 +18,8 @@
 	String userId = (String)session.getAttribute("customer_id");
 	String grade = (String)session.getAttribute("customer_grade");
 	
-	boolean isMine = userId.equals(bdto.getWriter());//사용자ID == 작성자ID
-	boolean isAdmin = grade.equals("관리자");//사용자권한==관리자
+	boolean isMine = userId !=null && userId.equals(bdto.getWriter());//사용자ID == 작성자ID
+	boolean isAdmin = grade != null && grade.equals("관리자");//사용자권한==관리자
 	
 	//추가 : Set<Integer> 형태의 저장소를 이용하여 이미 읽은 글은 조회수 증가를 방지
 	//[1] 세션에 있는 저장소를 꺼내고 없으면 신규 생성한다.
@@ -109,19 +109,58 @@ href="<%=request.getContextPath()%>/css/content.css">
             
       
        <!-- 댓글 목록  -->
-       
-   
-       <table class="board_content_table" border="1" width="60%">
-       <%for(ReplyDto rdto : list){ %>
-       <tr>
-       <th width="100">
-       <img src="http://placehold.it/100x100">
-       </th>
-       <td>
-           <%=rdto.getWriter()%>
-           <%if(bdto.getWriter().equals(rdto.getWriter())) %>
-           <font color="red">(작성자)</font>
+     <%if(isMine){ %>
+	   
+	       <table class="board_content_table" border="1" width="60%">
+	       <%for(ReplyDto rdto : list){ %>
+	       <tr>
+	       <th width="100">
+	       <img src="http://placehold.it/100x100">
+	       </th>
+	       <td>
+	           <%=rdto.getWriter()%>
+	           <%if(bdto.getWriter().equals(rdto.getWriter())) %>
+	           <font color="red">(작성자)</font>
+	           
+	           <%=rdto.getWdate()%>
+	         	  답글    	
+	           <%if(userId.equals(rdto.getWriter())){%>
+	           <a href="#">수정</a>
+	           <a href="reply_delete.do?no=<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
+	           <br><br>
+	           <%} %>
+	           <%=rdto.getContent()%>
+	           </td>
+	           </tr>
+	           <%} %>
+	           </table>
+	         <!-- 댓글 작성 -->
+			<table class="board_content_table1">
+			
+	           <tr>
+	               <td align="right" >
+	               
+	               <form action="reply_insert.do" method="post">
+	
+	                           
+	                      <input type="hidden" name="origin" value="<%=no%>">
+	
+	               
+	    	
+	             
+		               <textarea name="content" rows="5" cols="160" required style="width:100%;"></textarea>
+	
+		               <input type="submit" value="등록" style="height:50px; width:70px;">
+	               </div>
+	               
+	               
+	               </form>
+	               
+	               </td>
+	           </tr>
+      	<%} %>
            
+<<<<<<< HEAD
            <%=rdto.getWdate()%>
          	  답글    	
            <%if(userId.equals(rdto.getWriter())){%>
@@ -159,6 +198,8 @@ href="<%=request.getContextPath()%>/css/content.css">
                
                </td>
            </tr>
+=======
+>>>>>>> refs/remotes/origin/master
 		</table>
         </div>
         

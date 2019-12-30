@@ -271,6 +271,7 @@
 		
 		
 		<div align="right">
+		<a href="goods_write.jsp">
 			 <button type="button" class="btn btn-outline-primary" >상품등록</button>
 			</a>
 		</div>
