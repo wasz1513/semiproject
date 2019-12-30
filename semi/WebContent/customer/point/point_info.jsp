@@ -22,7 +22,7 @@ function check(){
         var choice = window.confirm("삭제하시겠습니까?");
         console.log(choice);
         if(choice){
-        	location.replace="/semi"
+        	location.replace="http://localhost:8080/semi"
         }
     }
 </script>
@@ -103,10 +103,6 @@ function check(){
 
     </div>
 
-        
-
-     
-
     <div class="point_list_wrap">
 
 		 <table class="point_list">
@@ -185,19 +181,19 @@ function check(){
 
 							<td>
 
-                                <%=dto.getPoint_save_dateWithFormat() %>
+                                <%=dto.getPoint_use_dateWithFormat() %>
 
 							</td>
 
 							<td>
 
-                                <%=dto.getPoint_save_details() %>
+                                <%=dto.getPoint_use_details() %>
 
 							</td>
 
                             <td>
 
-                                <%=dto.getPoint_save() %>
+                                <%=dto.getPoint_use() %>
 
                             </td>
 

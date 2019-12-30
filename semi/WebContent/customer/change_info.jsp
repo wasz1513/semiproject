@@ -176,6 +176,76 @@ function sample6_execDaumPostcode() {
                 </div>
                 </td>
             </tr>
+             <tr>
+                <th>관심 키워드</th>
+                <td>
+                	<select name=keyword_first placeholder="<%=dto.getKeyword_first()%>">
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>
+                    <select name=keyword_second>
+                   		<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>
+                    <select name=keyword_third>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>        
+                    <select name=keyword_fourth>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select> 
+                    <select name=keyword_fifth>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select> 
+                </td>
+             </tr>
         </table>
                 <div class="changeinfo_bottom">
                     <li>- 아이디, 이름은 수정이 불가능합니다.</li>
