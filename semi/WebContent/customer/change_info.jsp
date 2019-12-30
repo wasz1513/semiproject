@@ -115,7 +115,7 @@ function sample6_execDaumPostcode() {
                     <%if (flist.size() > 0) {%>
 			<%for (CustomerFilesDto fdto : flist) {%>
 			<img src="download.do?no=<%=fdto.getCustomer_files_no()%>"
-				width="10%" height="10%" id="preview">
+				width="100" height="100" id="preview">
 			<%}%>
 			<%} else {%>
 			<img src="http://placehold.it/100x100" id="preview">
