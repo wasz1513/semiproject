@@ -36,6 +36,15 @@ public class GoodsEditServlet extends HttpServlet {
 			dto.setGoods_price(Integer.parseInt(mRequest.getParameter("goods_price")));
 			dto.setGoods_content(mRequest.getParameter("goods_content"));
 			
+			int existence0 = Integer.parseInt(mRequest.getParameter("existence0"));
+//			0> or 0=0
+			int existence1 = Integer.parseInt(mRequest.getParameter("existence1"));
+			int existence2 = Integer.parseInt(mRequest.getParameter("existence2"));
+			int existence3 = Integer.parseInt(mRequest.getParameter("existence3"));
+			int existence4 = Integer.parseInt(mRequest.getParameter("existence4"));
+			
+			
+			
 			GoodsDao dao = new GoodsDao();
 			int seq = dao.getSequence();
 			dto.setGoods_no(seq);
@@ -51,7 +60,11 @@ public class GoodsEditServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.insert(gfdto);
+				if(existence0>0) {
+					gfdao.update(gfdto);
+				}else {
+					gfdao.insert(gfdto);					
+				}
 			}
 			
 			File file2 = mRequest.getFile("file2");
@@ -64,7 +77,11 @@ public class GoodsEditServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.insert(gfdto);
+				if(existence1>0) {
+					gfdao.update(gfdto);
+				}else {
+					gfdao.insert(gfdto);					
+				}
 			}
 			
 			File file3 = mRequest.getFile("file3");
@@ -77,8 +94,14 @@ public class GoodsEditServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.insert(gfdto);
+				if(existence2>0) {
+					gfdao.update(gfdto);
+				}else {
+					gfdao.insert(gfdto);					
+				}
 			}
+			
+			
 			File file4 = mRequest.getFile("file4");
 			if(file4!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
@@ -89,8 +112,14 @@ public class GoodsEditServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.insert(gfdto);
+				if(existence3>0) {
+					gfdao.update(gfdto);
+				}else {
+					gfdao.insert(gfdto);					
+				}
 			}
+			
+			
 			File file5 = mRequest.getFile("file5");
 			if(file5!=null) {
 				GoodsFilesDto gfdto = new GoodsFilesDto();
@@ -101,8 +130,14 @@ public class GoodsEditServlet extends HttpServlet {
 				gfdto.setFilesize(file.length());		
 				
 			GoodsFilesDao gfdao = new GoodsFilesDao();
-				gfdao.insert(gfdto);
+				if(existence4>0) {
+					gfdao.update(gfdto);
+				}else {
+					gfdao.insert(gfdto);					
+				}
 			}
+			
+			
 			//상세보기
 			resp.sendRedirect("goods_content.jsp?goods_no="+dto.getGoods_no());
 			
