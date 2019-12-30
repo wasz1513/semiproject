@@ -1,12 +1,4 @@
-
-    
-    
-   
-            
-            
-            
-            
-            <%@page import="semi.bean.CustomerDto"%>
+<%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerFilesDto"%>
 <%@page import="semi.bean.CustomerFilesDao"%>
@@ -110,7 +102,8 @@ function loadSlider(){
 		#content {
     margin-top: 100px;
     padding-bottom: 0;
-    width: 100%;
+     width: 900px;
+	 height: 1000px;
 }
 		
 		#article-images {
@@ -134,7 +127,6 @@ div {
 #article-profile {
     width: 677px;
     margin: 0 auto;
-        margin-top: 50px;
 }
 
 #article-profile #article-profile-link {
@@ -180,11 +172,12 @@ div {
 }
 
 #article-profile #article-profile-right {
-   
+    position: absolute;
+    right: 0;
+  padding-right: 36px;
      display: block; 
     margin-right: 8px; 
     float: right;
-        margin-top: 57px;
 }
 
 #article-profile #article-profile-right dl {
@@ -210,14 +203,16 @@ dl {
 }
 
 #article-profile #article-profile-right .text-color-03 {
-       color: #1561a9;
+    color: #1561a9;
+    padding: 1px
+        position: absolute;
+    right: 30px;
     font-size: 16px;
     font-weight: bold;
     line-height: 1;
     letter-spacing: -0.5px;
-    bottom: 40px;
-    text-align: center;
-    display: block;
+    margin-top: 1px;
+     bottom: 40px;
 }
 
 #article-profile #article-profile-right dl dd {
@@ -237,16 +232,24 @@ dd {
 }
 
 #article-profile #article-profile-right .meters {
-    display: inline-block;
+    clear: both;
+    display: block;
     width: 100px;
     background-color: #e9ecef;
     height: 4px;
-    border-radius: 100px;
-    position: sticky;
+	border-radius: 100px;
+	    position: relative;
     vertical-align: middle;
-    display: inline-block;
+    margin-top: 24px;
+    bottom: 30px;
+/*     font-size: 15px; */
+/*     font-weight: 600; */
+/*     line-height: 1.5; */
+/*     letter-spacing: -0.6px; */
+/*     color: #212529; */
+/*     margin-right: 30px; */
 }
-
+}
 
 element.style {
     width: 37%;
@@ -374,30 +377,21 @@ element.style {
             display: block;
             clear: both;
              margin-top: 50px;
-             padding: 30px;
         }
-.mannerimg{
-display: inline-block;
 
-}
-.manner-font{
-	text-align: end;
-    display: block;
-    font-size: 12px;
-    color: gray;
-}
+
 
 	</style>
 
 
 
 
-<div id = "content">
+<article id = "content">
 	<h2 class="goods-title" >상품등록 상세보기</h2>
 	
 
 	<!-- 이미지 올라오는 부분 -->
-<div id="article-images">
+<section id="article-images">
 <div> 
 			<div class="main-banner">
 				<div class="swiper-container">
@@ -410,7 +404,7 @@ display: inline-block;
 				</div>
 	</div>
 </div>
- </div>
+ </section>
  
  
  <!-- 이미지 올라오는 부분 끝 -->
@@ -418,7 +412,7 @@ display: inline-block;
  
  	 
  		
- <div id="article-profile">
+ <section id="article-profile">
  			
  			<div class="space-between">
  				
@@ -441,28 +435,23 @@ display: inline-block;
  		
  		
  		<div id="article-profile-right">
- 			
-               <div class="text-color-03"> 36.5° 
+ 			<div id="temperature-wrap">
+               <div>매너온도</div>
+               <div class="text-color-03"> 36.5° </div>
+ 			</div>
+ 		
  		 <div class="meters">
  			<div class="bar bar-color-03" style="width: 37%;"></div>
  		</div>
  		
- 			<div class="mannerimg">
- 			<img  src="../image/매너온도.png" width="40" height="40">
- 			</div>
-               
-               <div class="manner-font">매너온도</div>
-               </div>
-               
- 			
- 		
+ 			<div class="mannerimg"><img  src="../image/매너온도.png" width="40" height="40"></div>
  		</div>
  		
  		
  			</div>
- 	</div>
+ 	</section>
  	
- 	<div id="article-description">
+ 	<section id="article-description">
  		 <h1 property="schema:name" id="article-title"  style="margin-top:0px;">
  		 <%=goodsdto.getGoods_title()%>
  		 </h1>
@@ -487,13 +476,13 @@ display: inline-block;
  		
  		
  	
- 	</div>
- 	</div>
+ 	</section>
+ 	</article>
  	
  	
- 	<div>
- 		<div align="center">
- 			<table >	
+ 	<article>
+ 		<div class="filesview" align="center">
+ 			<table border="1" wid>	
 	<%if (flist.size() > 0) {%> 
  <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		<tr>
@@ -523,9 +512,9 @@ display: inline-block;
 			}
 		%>
  		</div>
- 	</div>
+ 	</article>
  	
- 	<div>
+ 	<section>
  		<div>
  		<tr>
 			<td>
@@ -536,20 +525,20 @@ display: inline-block;
 				%>
 
 		<% if(session_id !=null){ %>
-				<table class="filesview"  width="100%"  style="margin-left: auto; margin-right: auto;">
+				<table border="1" width="100%">
 					<% for (GoodsReplyDto goodsreplydto : list) { %>
 					<tr>
-						<th class="reply-th" width="100"><img src="http://placehold.it/100X100">
+						<th width="100"><img src="http://placehold.it/100X100">
 						</th>
-						<td class="reply-td">
+						<td>
 						<%=goodsreplydto.getGoods_reply_writer()%> 
-							<!--  판매글 판매자의 댓글에만 판매자 표시-->
+							<!-- 판매글 판매자의 댓글에만 판매자 표시 -->
 							<% if (isMine) { %> 
 							 	<font color="red">(판매자)</font> 
 							<% } %> 
 								<%=goodsreplydto.getGoods_reply_writetime()%>
 							
-<!-- 							 수정 /삭제 버튼은 본인의 댓글에만 표시  -->
+							 <!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 --> 
 							<% if (session_id.equals(goodsreplydto.getGoods_reply_writer()) && session_id != null) { %>
 								<a href="goods_content.jsp?goods_no=<%=goodsdto.getGoods_no()%>&goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>">수정</a>
 								<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>
@@ -578,11 +567,11 @@ display: inline-block;
  		
  		<!-- 댓글 작성칸 -->
 		<tr>
-			<td align="center" width="100%">
+			<td align="right">
 				<form action="goods_reply_insert.do" method="post">
 					<input type="hidden" name="goods_no"
 						value="<%=goodsdto.getGoods_no()%>">
-					<textarea name="goods_reply_content" rows="4" cols="120" required></textarea>
+					<textarea name="goods_reply_content" rows="4" cols="100" required></textarea>
 					<input type="submit" value="등록">
 
 				</form>
@@ -592,41 +581,32 @@ display: inline-block;
 
 
 		<!-- 버튼 -->
-		<tr class="button-tr">
-			<td align="center">
-				<a href="orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
-					<input type="button"value="구매하기">
-				</a> 
-			
-			<%if (interest) {%> 
-				<a href="interestremove.do?goods_no=<%=goodsdto.getGoods_no()%>">
-					<img src="../image/heart2.png" width="25" height="25">
-				</a> 
-			<%} else {%> 
-				<a href="interest.do?goods_no=<%=goodsdto.getGoods_no()%>">
-					<img src="../image/heart.png" width="25" height="25">
-				</a> 
-			<%}%> 
-			<a href="goods_write.jsp">
-				<input type="button" value="글쓰기">
-			</a>
-			
-			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
+		<tr>
+			<td align="right"><a href="orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>"><input type="button"
+					value="구매하기"></a> <%
+ 	if (interest) {
+ %> <a
+				href="interestremove.do?goods_no=<%=goodsdto.getGoods_no()%>"><img
+					src="../image/heart2.png" width="25" height="25"></a> <%
+ 	} else {
+ %> <a
+				href="interest.do?goods_no=<%=goodsdto.getGoods_no()%>"><img
+					src="../image/heart.png" width="25" height="25"></a> <%
+ 	}
+ %> <a
+				href="goods_write.jsp"><input type="button" value="글쓰기"></a>
+				<a
+				href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
 					<input type="button" value="답글쓰기">
-			</a> 
-			<%if (isAdmin || isMine) {%> <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 --> 
- 				<a href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
-					<input type="button" value="수정">
-				</a> 
-				
-				<a href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>">
-					 <input type="button" value="삭제">
-				</a> 
-			<%}%> 
-			<a href="goods_list.jsp">
-				<input type="button" value="목록">
-			</a>
-		</td>
+			</a> <%
+ 	if (isAdmin || isMine) {
+ %> <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 --> <a
+				href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>"> <input
+					type="button" value="수정"></a> <a
+				href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>"> <input
+					type="button" value="삭제"></a> <%
+ 	}
+ %> <a href="goods_list.jsp"><input type="button" value="목록"></a></td>
 		</tr>
 	</table>
  		
@@ -634,7 +614,7 @@ display: inline-block;
  	
  	
  	
- 	</div>
+ 	</section>
  	
 
 
