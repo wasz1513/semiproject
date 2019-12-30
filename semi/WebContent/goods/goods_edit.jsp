@@ -11,13 +11,12 @@
 	GoodsDto dto = dao.get(goods_no);
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/goods.css">
 
 <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
  <style>
-        .sun-editor{
-        	margin-left:190px;
-        	width:60% !important;
-        }
+
         img.img{
         	margin-right:1px;
         }
@@ -52,19 +51,94 @@
     	    }
         }
         window.onload = loadEditor;
-        </script>
-<article class="contents_wrap">
+        function preview1Image(target){
+            if(target.files && target.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(data){//data는 읽은 파일의 정보
+                    var img = document.querySelector("#preview1");
+                    img.src = data.target.result;
+                }
+                reader.readAsDataURL(target.files[0]);
+            }
+        }
+ 
+ function preview2Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview2");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+ 
+ function preview3Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview3");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+ 
+ function preview4Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview4");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+ 
+ function preview5Image(target){
+     if(target.files && target.files[0]){
+         var reader = new FileReader();
+         reader.onload = function(data){//data는 읽은 파일의 정보
+             var img = document.querySelector("#preview5");
+             img.src = data.target.result;
+         }
+         reader.readAsDataURL(target.files[0]);
+     }
+ }
+</script>
+        
+<style>
+	.goods_contents_wrap{
+		text-align: center;
+		margin:auto;
+	}
+	
+	.gallary{
+		width: 680px;
+   	 	margin: auto;
+	}
+	
+	.gallary::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.gallary>.gallary-item {
+		float: left;
+		width: 20%;
+		padding: 10px;
+	}
+	
+</style>
+<article>
 
 
-
-
-
-        <div class="row">
+        <div class="row goods_contents_wrap">
 	<h2>상품 등록 수정</h2>
-	<form action="goods_edit.do" method="post">
-
+	<form action="goods_edit.do" method="post" 
+	enctype="multipart/form-data">
 		<input type="hidden" name="goods_no" value="<%=dto.getGoods_no()%>">
-
 		  <div>
                    <p>카테고리</p>
 			   <select class="gcategory" name="goods_category" required>
@@ -80,18 +154,20 @@
 						<option value="생활">생활/건강</option>
 						<option value="여행">여행/문화</option>
 				</select>
+				
 				</div>
-	  <br></br>
+				
+	 		 <br></br>
               <div>
 			 <P>제목</p>
-				<input type="text" name="goods_title"
+				<input class="gcategory" type="text" name="goods_title"
 					value="<%=dto.getGoods_title()%>" required>
 			  </div>
                     
                     <br><br>
                     <div>
 				<p>가격</p>
-				<input type="text" name="goods_price"
+				<input class="gcategory" type="text" name="goods_price"
 					value="<%=dto.getGoods_price()%>" required>
 			        </div>
 			<br><br>
@@ -100,8 +176,38 @@
 				<textarea  id="gcontent"  name="goods_content" required
 						rows="15" cols="100" style="resize: vertical;"><%=dto.getGoods_content()%></textarea>
 			 </div>
+			 <div>
+                            <p>상품 이미지</p>
+    
+                            <div class="fileimg gallary">
+                            	<div class="gallary-item">
+                          		<img id="preview1" src="http://placehold.it/100x100" width="100" height="100">               	
+                            	</div>
+                            	<div class="gallary-item">
+	       	                	<img id="preview2" src="http://placehold.it/100x100" width="100" height="100">              	
+                            	</div>
+                            	<div class="gallary-item">
+	   	                    	<img id="preview3" src="http://placehold.it/100x100" width="100" height="100">
+                            	</div>
+                            	<div class="gallary-item">
+	                        	<img id="preview4" src="http://placehold.it/100x100" width="100" height="100">                         	
+                            	</div>
+                            	<div class="gallary-item">
+	                        	<img id="preview5" src="http://placehold.it/100x100" width="100" height="100">  	
+                            	</div>                     	
+                            </div>
+                        </div>
+                        
+                        <div class="fileupload">
+							<input type="file" name="file" accept=".jpg, .png, .gif" onchange="preview1Image(this);" required>
+      						<input type="file" name="file2" accept=".jpg, .png, .gif" onchange="preview2Image(this);">
+      						<input type="file" name="file3" accept=".jpg, .png, .gif" onchange="preview3Image(this);">
+      						<input type="file" name="file4" accept=".jpg, .png, .gif" onchange="preview4Image(this);">
+      			    		<input type="file" name="file5" accept=".jpg, .png, .gif" onchange="preview5Image(this);">
+                        </div>
+                    
           	<br><br>  
-				<div class="button"style="padding-right:300px;">
+				<div class="goods_button" >
 				<a href="goods_edit.do?goods_no=<%=dto.getGoods_no()%>"> 
 				<input  class=gclick type="submit"  value="수정하기">
 				</a> 
@@ -118,3 +224,7 @@
 
 </article>
 
+
+
+
+<jsp:include page="/template/footer.jsp"></jsp:include>

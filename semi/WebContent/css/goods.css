@@ -8,8 +8,9 @@ link href ="https: //cdn.jsdelivr.net
 	width: 60% !important;
 }
 
-img.img {
-	margin-right: 1px;
+img[Attributes Style] {
+    width: 100px;
+    height: 100px;
 }
 
 </
@@ -66,6 +67,7 @@ p {
 }
 
 .goods_contents_wrap {
+	text-align:center;
 	margin-top: 8px;
 	margin-bottom: 20px;
 	width: 1200px;
@@ -104,10 +106,10 @@ h2 {
 	width: 60% !important;
 }
 
-.row input[type="text"] {
+/* .row input[type="text"] {
 	width: 60%;
 	height: 40px;
-	/*       margin-right:90px; */
+	      margin-right:90px;
 	padding: 10px;
 	line-height: inherit;
 	border: 1px solid #ccc;
@@ -115,11 +117,11 @@ h2 {
 
 .row input[type="file"] {
 	margin-bottom: 1px;
-	/*             margin-right:90px; */
+	            margin-right:90px;
 	width: 60%;
 	line-height: normal;
 	border: 1px solid #ccc;
-}
+} */
 
 .option {
 	width: 60%;
@@ -155,5 +157,12 @@ h2 {
 	color: #fff;
 	background-color: #666;
 	cursor: pointer;
+}
+.fileupload input[type="file"]{
+		margin-bottom: 1px;
+	width: 60%;
+	line-height: normal;
+	border: 1px solid #ccc;
+	
 }
 
