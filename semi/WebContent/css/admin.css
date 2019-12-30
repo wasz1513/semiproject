@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 .menu-master {
-	position: relative;
-	margin-left: 1700px;
+	position: fixed;
+	margin-left: 100px;
 }
 
 .custom-list {
