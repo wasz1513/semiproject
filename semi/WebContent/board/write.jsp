@@ -18,11 +18,11 @@
 			<tr>
 				<th>제목</th>
 				<td>
-<<<<<<< HEAD
+
 					<input type="text" name="title" style="width:350px" required >
-=======
-					<input type="text" name="title" style="width:400px;" required>
->>>>>>> refs/remotes/origin/master
+
+				
+
 				</td>
 			</tr>
 			<tr>
@@ -34,11 +34,11 @@
 			<tr>
 				<td colspan="2" align="center">
 					
-<<<<<<< HEAD
+
 				  	<input type="submit" value="등록하기" >
-=======
+
 				  	<input type="submit" value="등록" style="height:30px; width:50px;">
->>>>>>> refs/remotes/origin/master
+
 					<a href="list.jsp">
 						<input type="button" value="목록" style="height:30px; width:50px;">
 					</a>
