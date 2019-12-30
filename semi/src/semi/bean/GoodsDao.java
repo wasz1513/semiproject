@@ -31,7 +31,7 @@ public class GoodsDao {
 	public void goods_write(GoodsDto dto) throws Exception {
 		Connection con = this.getConnection();
 
-		String sql = "insert into goods(goods_no,goods_category,goods_title,goods_content,goods_price,customer_id, goods_readcount, goods_replycount)"
+		String sql = "insert into goods(goods_no, goods_category, goods_title, goods_content, goods_price, customer_id, goods_readcount, goods_replycount)"
 				+ " values(?,?,?,?,?,?, 0, 0)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getGoods_no());
