@@ -46,12 +46,19 @@
 	List<ReplyDto> list = rdao.getList(no);
 	
 	
+	
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/content.css">
+<style>
+.board_content_table tr td{
+	border-bottom:1px solid black;
+}
+
+</style>
 
 <article id="board_content_wrap" >
 	
@@ -59,16 +66,14 @@ href="<%=request.getContextPath()%>/css/content.css">
                   
         
        <table class="board_content_table" border="1" >
-           <tbody>
+           <thead>
+          
            <tr>
-          	 <td>
-           		게시글번호  
-               	<input type="hidden" name="origin" value="<%=no%>">
+               <td>
+               <%=bdto.getTitle()%>
                </td>
            </tr>
-           <tr>
-               <td><%=bdto.getTitle()%></td>
-           </tr>
+           
            <tr>
                <td><%=bdto.getWriter()%></td>
            </tr>
@@ -79,7 +84,7 @@ href="<%=request.getContextPath()%>/css/content.css">
                <td align="right">댓글수 <%=bdto.getReplycount()%> 조회수 <%=bdto.getReadcount()%>
                </td>
            </tr>
-        
+        </thead>
            <tr>
                <td align="right">
                    <a href="write.jsp">
@@ -94,10 +99,11 @@ href="<%=request.getContextPath()%>/css/content.css">
                    <a href="list.jsp">
                        <input type="button" value="목록" style="height:30px; width:50px;">
                    </a>
+                  
                </td>
            </tr>
  
-           </tbody>
+          
 
     </table>
             
@@ -117,7 +123,7 @@ href="<%=request.getContextPath()%>/css/content.css">
            <font color="red">(작성자)</font>
            
            <%=rdto.getWdate()%>
-           답글    	
+         	  답글    	
            <%if(userId.equals(rdto.getWriter())){%>
            <a href="#">수정</a>
            <a href="reply_delete.do?no=<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
@@ -135,9 +141,8 @@ href="<%=request.getContextPath()%>/css/content.css">
                <td align="right" >
                
                <form action="reply_insert.do" method="post">
-               
-    	
-             
+                           
+                      <input type="hidden" name="origin" value="<%=no%>">
 	               <textarea name="content" rows="5" cols="160" required></textarea>
 	               <input type="submit" value="등록" style="height:50px; width:70px;">
                </div>
