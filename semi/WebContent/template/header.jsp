@@ -19,8 +19,6 @@
 <link rel="icon" href="<%=request.getContextPath()%>/image/carrot3232.png">
 
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/test.css">
 
 
 <link rel="stylesheet" type="text/css"

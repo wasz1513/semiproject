@@ -184,11 +184,7 @@
 				
 			</div>
 			<hr>
-			<%if(adto.getReply_content()!=null){ %>
-				<div>
-					
-				</div>
-			<%}else{ %>
+			<%if(adto.getReply_content().equals("답변을 작성중이에요 조금만 기다려주세요")){ %>
 				<div>
 					<form action="../help/reply_insert.do" method="post">
 						<input type="hidden" name="pno" value=<%=pno%>>
