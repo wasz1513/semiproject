@@ -1,4 +1,37 @@
 *{
+<<<<<<< HEAD
+    margin: 0;
+    padding: 0;
+    }
+    table {
+        border-collapse:collapse;
+       
+       
+    }
+    
+    
+    
+    
+   
+    
+    
+    
+    .board_edit th,
+    .board_edit td{
+         padding: 10px;
+         border: 1px solid#ff8041;
+    
+    }
+    
+    .board_edit td {
+        text-align: center;
+    }
+    
+    .board_edit tbody tr td:nth-child(2) {
+        text-align: left;
+        
+    }
+=======
     margin: 1;
     padding: 1;
     }
@@ -36,3 +69,4 @@
     }
     
   
+>>>>>>> refs/remotes/origin/master
