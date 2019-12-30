@@ -61,6 +61,8 @@
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/help2.css">
 
 
 
@@ -127,14 +129,19 @@
 
 <article>
 
-	<div align="center">
+	<div class="h2_wrap" align="center">
+	  <div>
 	
 		<br><br>
 		
 		<h2>관리자 문의/신고 내역</h2>
-		<h5>※ 댓글창 만들기 싫ㅇ다ㅜ</h5>
+		<h4>※ 회원분들께 친절한 상담을 합시다</h4>
+		
+
 	</div>
 		<br><br>
+		<div class="help2_list_wrap">
+
 	<div>
 		<%
 			for (HelpDto adto : list) {
@@ -160,17 +167,23 @@
 			<input id="show-<%=adto.getBoard_NO()%>" type="checkbox" class="togglebox">
 			
 			<div class="help-content">
+			<div class="hline">
 				문의/신고 내용 : <%= adto.getContent() %><br>
+				
+				
 				<%if(fdao.getfilesNo(adto.getBoard_NO())>0){ %>
 				첨부파일 :<img src="../help/download.do?board_no=<%=fdao.getfilesNo(adto.getBoard_NO())%>" width="100" height="100">
 				
 				<%} %>
-				<hr>
+				</div>
+				
+				
 				<br>
 				<div>당근나라 운영센터 답변</div>
 				<%=adto.getReply_content() %>
+				
 			</div>
-			
+			<hr>
 			<%if(adto.getReply_content()!=null){ %>
 				<div>
 					
@@ -194,17 +207,23 @@
 		
 		
 	</div>
-	
+	</div>
 	
 			<!-- 네비게이터 *************************** -->	
-<div>
-	<jsp:include page="/template/help_navi.jsp">
-			<jsp:param name="pno" value="<%=pno%>"/>
-			<jsp:param name="count" value="<%=count%>"/>
-			<jsp:param name="navsize" value="<%=navsize%>"/>
-			<jsp:param name="pagesize" value="<%=pagesize%>"/>
-	</jsp:include>
-</div>
+
+
+<div class="paging">
+           
+   	 <jsp:include page="/template/navigator.jsp">
+   	 	<jsp:param name="pno"  value="<%=pno %>" />
+   	    <jsp:param name="count"  value="<%=count %>" />
+   	    <jsp:param name="navisize"  value="<%=navsize %>" />
+   	    <jsp:param name="pagesize" value="<%=pagesize %>" />
+   	 </jsp:include>
+   	</div>
+   	 
+
+		<br>
 		<!-- 검색 -->
 	
 		
@@ -215,15 +234,14 @@
 		<option value="content">내용 키워드</option>
 		</select>
 		
-		<input type="seach" name="keyword" placeholder="검색어" required>
-		
-		<input type="submit" value="검색">
+		<input class="search-txt" type="seach" name="keyword" placeholder="검색어" required>
+		<input class="search-bt"input type="submit" value="검색">
 		
 		</form>
 		<br><br>
 	
 		
-		
+		</div>
 		
 </article>
 

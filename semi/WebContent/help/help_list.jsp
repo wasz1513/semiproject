@@ -8,6 +8,8 @@
 
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/help2.css">
 
 <%
 	//dao가져오기
@@ -75,6 +77,11 @@
 	max-height:1000px;
 }
 
+.row.row-multi.col-2 a .change_info{
+    background-color: #ff8041;
+    border: 1px solid #ff8041;
+    color: #fff
+}
 
 </style>
 
@@ -82,10 +89,11 @@
 
 	<div align="center">
 		<div class="row row-multi col-2">
-			<a href="help_write.jsp"> <input type="button"
-				style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
-			</a> <a href="help_list.jsp"> <input type="button"
-				style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
+			<a href="help_write.jsp"> 
+				<input class="change_info" type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
+			</a> 
+			<a href="help_list.jsp"> 
+				<input class="change_info" type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
 			</a>
 		</div>
 		<h2>문의/신고 내역</h2>
@@ -135,16 +143,23 @@
 			
 			<div class="help-content">
 				내용 : <%= dto.getContent() %><br>
-				첨부파일 :<img src="download.do?board_no=<%=fdao.getfilesNo(dto.getBoard_NO())%>" width="100" height="100">
+				<!--  -->
+				<div class="hline">
+				
+				첨부파일 :<img src="download.do?board_no=<%=fdao.getfilesNo(dto.getBoard_NO())%>" alt="첨부파일없음" width="100" height="100">
 				<br>
+				
+				</div>
+				<!--  -->
+				<br>
+				<div class="hline">
 				<div>당근나라 운영센터 답변</div>
 				<%=dto.getReply_content() %>
 			</div>
-			<hr>
-				
-				
-				<br><br><br><br>
 			
+			</div>
+				<br><br><br><br>
+			<hr>
 		</div>
 		<%
 			}
