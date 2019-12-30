@@ -44,7 +44,11 @@ public class HelpDto {
 	}
 
 	public String getReply_content() {
-		return reply_content;
+		if(reply_content==null) {
+			return "답변을 작성중이에요 조금만 기다려주세요";
+		}else {
+			return reply_content;			
+		}
 	}
 
 	public void setReply_content(String reply_content) {

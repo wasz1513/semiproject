@@ -70,7 +70,6 @@ public GoodsFilesDto filesInfo(int no) throws Exception{
 	GoodsFilesDto gfdto = null;
 	if(rs.next()) {
 		gfdto = new GoodsFilesDto();
-		gfdto = new GoodsFilesDto();
 		gfdto.setGoods_files_no(rs.getInt("goods_files_no"));
 		gfdto.setOrigin(rs.getInt("origin"));
 		gfdto.setUploadname(rs.getString("uploadname"));
