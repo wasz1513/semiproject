@@ -101,6 +101,9 @@ function sample6_execDaumPostcode() {
 <form action="change_info.do" method="post"
 	enctype="multipart/form-data">
 	<!-- get 메소드 추가시 input에 placeholder를 dto.get으로 가져와야함. -->
+
+			<input type="hidden"  name="existence"  value=<%if(flist.size()>0) {%>"1"<%}else{ %>"0"<%} %>>
+
 	  <div id="changeinfo">
 
         <header id="changeinfo_header">
