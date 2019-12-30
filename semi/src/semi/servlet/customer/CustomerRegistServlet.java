@@ -44,6 +44,11 @@ public class CustomerRegistServlet extends HttpServlet{
 			dto.setCustomer_post(mRequest.getParameter("customer_post"));
 			dto.setCustomer_basic_address(mRequest.getParameter("customer_basic_address"));
 			dto.setCustomer_extra_address(mRequest.getParameter("customer_extra_address"));
+			dto.setKeyword_first(mRequest.getParameter("keyword_first"));
+			dto.setKeyword_second(mRequest.getParameter("keyword_second"));
+			dto.setKeyword_third(mRequest.getParameter("keyword_third"));
+			dto.setKeyword_fourth(mRequest.getParameter("keyword_fourth"));
+			dto.setKeyword_fifth(mRequest.getParameter("keyword_fifth"));
 			
 			CustomerDao dao = new CustomerDao();
 			int seq = dao.getSequence();
@@ -67,7 +72,7 @@ public class CustomerRegistServlet extends HttpServlet{
 			resp.sendRedirect("regist_success.jsp");
 		
 		}catch(SQLIntegrityConstraintViolationException e) {
-			resp.sendRedirect("regist_fail.jsp");
+			resp.sendRedirect(req.getContextPath()+"/customer/regist.jsp");
 		
 		} catch (Exception e) {
 			e.printStackTrace();
