@@ -14,7 +14,7 @@ BoardDto dto = dao.get(no);
 <div align="center">
  <div class="board_edit">
              <table class="board_edit">	
-	<h2>게시글 수정</h2>
+
 
 
 <div align="center" class=board_edit_wrap">
