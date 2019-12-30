@@ -79,7 +79,7 @@ boolean master = admin != null && admin.equals("관리자");
 	                    	</font>
 	                    </td>
 	                    <%} %>
-	                    <td><%=dto.getWdate()%></td>
+	                    <td><%=dto.getWdateWithFormat()%></td>
 	                    <td><%=dto.getWriter()%></td>
 	                    <td><%=dto.getReadcount()%></td>
 	                  	                    
