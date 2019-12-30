@@ -19,8 +19,8 @@
 <link rel="icon" href="<%=request.getContextPath()%>/image/carrot3232.png">
 
 <meta charset="UTF-8">
-<!-- <link rel="stylesheet" type="text/css" -->
-<%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/test.css">
 
 
 <link rel="stylesheet" type="text/css"
@@ -29,8 +29,6 @@
 	href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/admin.css">
-<link rel="stylesheet" type="text/css"
-href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
 <link rel="stylesheet" type="text/css"
@@ -45,8 +43,18 @@ href="<%=request.getContextPath()%>/css/change_info.css">
 href="<%=request.getContextPath()%>/css/find.css"> 
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/find_pw.css"> 
-
-
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/write.css">
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/edit.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/date.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/customer.css"> 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/header.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/point_info.css">
 
 <title>당근나라</title>	
 
@@ -60,6 +68,11 @@ main {
 header, footer, article {
 	width: 1200px;
 	margin: auto;
+}
+	
+.menu-master{
+	z-index:150;
+}
 </style>
 <%
 	String id = (String) session.getAttribute("customer_id");
@@ -149,9 +162,7 @@ header, footer, article {
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/info.jsp">마이페이지</a></li>
-					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>
-					<li><a href="#">키워드입력</a></li>
-					<li><a href="#">위치수정</a></li>              			
+					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>        			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 					<li>
 						<a href="<%=request.getContextPath()%>/goods/salerequest.jsp">
@@ -173,10 +184,9 @@ header, footer, article {
 			<div class="topmenu_sub cart">
 
 				<ul class="sub_drop">
-						<li><a href="#">키워드</a></li>
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
 						<li><a href="<%=request.getContextPath()%>/goods/orders_list.jsp?customer_id=<%=id%>">구매내역</a></li>
-						<li><a href="#">판매내역</a></li>
+						<li><a href="<%=request.getContextPath()%>/goods/sale_list.jsp?customer_id=<%=id%>">판매내역</a></li>
 
 				</ul>
 			</div>

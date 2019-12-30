@@ -4,6 +4,9 @@
 <%@page import="semi.bean.PointDto"%>
 <%@page import="semi.bean.GoodsDto"%>
 <%@page import="semi.bean.GoodsDao"%>
+<%@page import="semi.bean.GoodsFilesDao"%>
+<%@page import="semi.bean.GoodsFilesDto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -15,11 +18,19 @@
 	}else{
 		goods_no=Integer.parseInt(request.getParameter("goods_no"));
 	}
+	System.out.println(goods_no);
 	CustomerDao cdao = new CustomerDao();
 	CustomerDto cdto = cdao.get(id);
 	int customer_no=cdto.getCustomer_no();
 	GoodsDao gdao = new GoodsDao();
 	GoodsDto gdto = gdao.get(goods_no);
+	
+	//첨부파일 불러오기
+
+	GoodsFilesDao gfdao = new GoodsFilesDao();
+	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
+	System.out.print(flist);
+
 %>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -73,24 +84,47 @@ function sample6_execDaumPostcode() {
 function point_use(){
 	var use_point = document.selectQuery('use_point');
 }
+
 </script>
 
-<style>
-	.order_table{
-		text-align: right;
-	}
-	.order_table2{
-		margin-top:10px;
-	}
-	.order_table3{
-		text-align: left;
-	}
-	.order_table4{
-		margin-top:40px;
-		text-align: right;
-	}
-</style>
+
 <jsp:include page = "/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/orders.css">
+
+
+
+ <div class="orders_wrap">
+        <h2 class="goods_buy">상품 구매하기</h2>
+       <!-- 구매할 상품 정보 -->	
+      <div class="order_wrap1">
+       <div class="order_table">
+        <p class="ofont">구매번호:
+		       <%if(gdto.getGoods_title()!=null){ %>
+		           <%=gdto.getGoods_title() %>
+		       <%}else{ %>	
+		             -
+		       <%} %></p>
+       </div>
+       <div class="order_table">
+           <p class="ofont">상품번호:
+           <%=gdto.getGoods_title() %>_<%=gdto.getGoods_no() %></p>
+       </div>
+       
+       <div class="order_table">
+        <p class="ofont">판매자:
+       <%=gdto.getCustomer_id() %></p>
+       </div>
+
+<!--        <div class="row-multi col-2"> -->
+<!--            <div class="row-multi col-2"> -->
+               <div>
+               <P>상품 이미지 </P>
+      
+                	<div class="orders_img">	
+	<%if (flist.size() > 0) {%> 
+ <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
+
 <article class="w-50">
 	 <h2>상품 구매하기</h2>
 	<!-- 구매할 상품 정보 -->	
@@ -107,76 +141,112 @@ function point_use(){
 	<div class="order_table">
 		판매자 : <%=gdto.getCustomer_id() %>
 	</div>
-	<div class="row-multi col-2">
-		<div class="row-multi col-2">
-			<div>
-				<img id = "product_sell" src = "../image/pointicon.jpg" width="80px" height="80px">
-			</div>
-			<div class="order_table2">
-				<div class="order_table3">판매 물품명 : <%=gdto.getGoods_title() %></div>
-				<div class="order_table3">판매 금액 : <%=gdto.getGoods_price() %></div>
-			</div>
-		</div>
-		<div class="order_table4">
-			결제 금액 : <%=gdto.getGoods_price() %>
-		</div>
-	</div>
-	
-	<!-- 구매할 상품 정보 -->
-<form action="orders.do" method="get">
-<input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
-<input type="hidden" name="customer_point" value="<%=cdto.getCustomer_point() %>">
-<input type="hidden" name="final_amount" value="<%=gdto.getGoods_price()-cdto.getCustomer_point() %>">
-<input type="hidden" name="orders_goods_title" value="<%=gdto.getGoods_title()%>">
-<input type="hidden" name="orders_goods_seller" value="<%=gdto.getCustomer_id() %>">
-<input type="hidden" name="goods_no" value="<%=gdto.getGoods_no() %>">
-<input type="hidden" name="goods_price" value="<%=gdto.getGoods_price()%>">
-	<div>
-		<div>배송지 정보<br>
-			직거래<input type="radio" name="orders_type" value="직거래" required>
-			Escrow 결제(중계)<input type="radio" name="orders_type" value="배송" required>
-			<div>
 				<ul>
-				<li>
-					<label>우편번호</label>
-					<input type="text" name="orders_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly" required>
-					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" required>
-				</li>
-				<li>
-					<label>기본주소</label>
-					<input type="text" name="orders_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly" required>
-				</li>
-				<li>
-					<label>상세주소</label>
-					<input type="text" name="orders_extra_address" id="sample6_detailAddress" placeholder="상세주소" required>
-					<input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly" required>
-				</li>		
-				</ul>		
+					<%
+						for (GoodsFilesDto gfdto : flist) {
+					%>
+					<li>
+						<!-- 미리보기 출력 --> <img
+						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="200" height="150"> 
+						<%=gfdto.getUploadname()%> (<%=gfdto.getFilesize()%>bytes)
+					
+												</li>
+												<%
+												}
+											%>
+									</ul>
+								<%
+								}
+						%>
 			</div>
-		</div>
-		<div>결제 방법<br>
-			<label>신용카드</label>
-				<input type="radio" name="orders_payment" value="신용카드" required>
-			<label>실시간 계좌이체</label>
-				<input type="radio" name="orders_payment" value="실시간 계좌이체" required>
-			<label>무통장 입금</label>
-				<input type="radio" name="orders_payment" value="무통장 입금" required>
-			<label>만나서 결제</label>
-				<input type="radio" name="orders_payment" value="만나서 결제" required>
-		</div>
-		
-		<div>사용할 포인트 정보<br>
-			사용 가능 포인트 : <%=cdto.getCustomer_point() %>
-			<input onclick="true" id="use_point" type="button" value="사용하기">
-		</div>
-		<div>
-			최종 결제 금액 : <%=gdto.getGoods_price()-cdto.getCustomer_point() %>
-		</div>
-		<div>
-			<input type="submit" value="결제하기">
-		</div>	
-		
-	</div>
-</form>	
-</article>
+		<br>
+         
+         
+            <!--    <div class="order_table2">
+                   <div class="order_table3"> -->
+                    <p class="ofont" >판매물품:
+                    <%=gdto.getGoods_title() %></p> 
+                      </div>
+                   
+                   <div>
+                    <p class="ofont">판매금액:
+                       <%=gdto.getGoods_price() %>원</p> 
+                    </div>
+<!--           </div> -->
+<!--                </div> -->
+           <div>
+            <p class="ofont">결제금액:
+               <%=gdto.getGoods_price() %>원</p> 
+           </div>
+            </div>
+    <!--    </div>
+      </div>  -->
+       <br><br>
+
+   <form action="orders.do" method="get">
+   <input type="hidden" name="customer_no" value="<%=cdto.getCustomer_no()%>">
+   <input type="hidden" name="customer_point" value="<%=cdto.getCustomer_point() %>">
+   <input type="hidden" name="final_amount" value="<%=gdto.getGoods_price()-cdto.getCustomer_point() %>">
+   <input type="hidden" name="orders_goods_title" value="<%=gdto.getGoods_title()%>">
+   <input type="hidden" name="orders_goods_seller" value="<%=gdto.getCustomer_id() %>">
+   <input type="hidden" name="goods_no" value="<%=gdto.getGoods_no() %>">
+   <input type="hidden" name="goods_price" value="<%=gdto.getGoods_price() %>">
+       <div class="adrress_info">
+          
+           <div style="text-align: center;">
+               <P class="info">배송지 정보</P>
+             <label>직거래  <input type="radio" name="orders_type" value="직거래" required></label> 
+             <label> Escrow 결제(중계)  <input type="radio" name="orders_type" value="배송" required></label> 
+            </div>
+               <div style="text-align: center;">
+                   <ul>
+                   <li class="orders_p">
+                       <label class="ofont">우편번호</orders_label>
+                       <input type="text" name="orders_post" id="sample6_postcode" placeholder="우편번호" readonly="readonly" required>
+                       <input  class="post_button" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" required>
+                   </li>
+                   <li class="orders_addr">
+                       <label  class="ofont">기본주소</label>
+                       <input type="text" name="orders_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly" required>
+                   </li class="orders_addr">
+                   <li class="orders_addr">
+                       <label  class="ofont">상세주소</label>
+                       <input class="ex_addr" type="text" name="orders_extra_address" id="sample6_detailAddress" placeholder="상세주소" required>
+                       <input class="e_address" type="text" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly" required>
+                   </li>		
+                   </ul>		
+               </div>
+           </div>
+           <br><br>
+           <div style="text-align: center">
+               <p class="info">결제 방법</p>
+               <label  >신용카드
+                   <input type="radio" name="orders_payment" value="신용카드" required></label>
+               <label>실시간 계좌이체
+                   <input type="radio" name="orders_payment" value="실시간 계좌이체" required></label>
+               <label>무통장 입금
+                   <input type="radio" name="orders_payment" value="무통장 입금" required></label>
+               <label>만나서 결제
+                   <input type="radio" name="orders_payment" value="만나서 결제" required></label>
+           </div>
+           <br><br>
+           <div>
+               <P class="info">사용할 포인트 정보</P>
+               <P class="ofont2">사용 가능 포인트 : <input class="p_point" type="text"name=customer_point value=" <%=cdto.getCustomer_point() %>">
+
+               <input class="point_button" onclick="true" id="use_point" type="button" value="사용하기"></p>
+           </div>
+           <div>
+               <p class="ofont3">최종 결제 금액 : <%=gdto.getGoods_price()-cdto.getCustomer_point() %>원</p>
+         
+           </div>
+           <br><br>
+           <div class="orders_button" >
+               <input type="submit"value="결제하기">
+           </div>	
+           
+       
+   </form>	
+   </div>
+ 
 <jsp:include page = "/template/footer.jsp"></jsp:include>

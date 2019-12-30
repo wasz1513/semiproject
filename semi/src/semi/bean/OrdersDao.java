@@ -29,7 +29,7 @@ public class OrdersDao {
 //	1. 구매시 구매 히스토리 전량 저장
 	public void insert_buy(OrdersDto dto) throws Exception{
 		Connection con = getConnection();
-		String sql="insert into orders values(?,sysdate,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into orders values(?,sysdate,?,?,?,?,?,?,?,?,?,?, sysdate)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setInt(1, dto.getOrders_no());
@@ -196,9 +196,41 @@ public class OrdersDao {
 	}
 	
 	//4.판매목록조회
+	public List<OrdersDto> history_sale_all(String id, int search_date) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from goods_orders where orders_goods_seller=? and goods_state='판매완료' and orders_date between sysdate-? and sysdate order by orders_date desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,id);
+		ps.setInt(2, search_date);
+		ResultSet rs = ps.executeQuery();
+		List<OrdersDto> list = new ArrayList<>();
+		while(rs.next()) {
+			OrdersDto dto = new OrdersDto();
+			dto.setOrders_no(rs.getInt("orders_no"));
+			dto.setOrders_goods_title(rs.getString("orders_goods_title"));
+			dto.setOrders_goods_seller(rs.getString("orders_goods_seller"));
+			dto.setOrders_date(rs.getString("orders_date"));
+			dto.setOrders_type(rs.getString("orders_type"));
+			dto.setOrders_post(rs.getString("orders_post"));
+			dto.setOrders_basic_address(rs.getString("orders_basic_address"));
+			dto.setOrders_extra_address(rs.getString("orders_extra_address"));
+			dto.setOrders_payment(rs.getString("orders_payment"));
+			dto.setOrders_amount(rs.getInt("orders_amount"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
+			dto.setGoods_sale(rs.getInt("goods_sale"));
+			dto.setSale_date(rs.getString("sale_date"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
+	}
+	
+	//판매완료전체목록
 	public List<OrdersDto> history_sale_all(String id) throws Exception{
 		Connection con = getConnection();
-		String sql = "select * from goods_orders where orders_goods_seller=?";
+		String sql = "select * from goods_orders where orders_goods_seller=? and goods_state='판매완료' order by orders_date desc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,id);
 		ResultSet rs = ps.executeQuery();
@@ -218,6 +250,7 @@ public class OrdersDao {
 			dto.setGoods_no(rs.getInt("goods_no"));
 			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
 			dto.setGoods_sale(rs.getInt("goods_sale"));
+			dto.setSale_date(rs.getString("sale_date"));
 			list.add(dto);
 		}
 		
@@ -228,7 +261,7 @@ public class OrdersDao {
 	//5. 판매요청받은 리스트
 	public List<OrdersDto> history_salerequest(String id) throws Exception{
 		Connection con = getConnection();
-		String sql = "select * from goods_orders where orders_goods_seller=? and goods_sale=0 order by orders_no desc";
+		String sql = "select * from goods_orders where orders_goods_seller=? and goods_sale=0 and goods_buy=1 order by orders_no desc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,id);
 		ResultSet rs = ps.executeQuery();
@@ -305,6 +338,44 @@ public class OrdersDao {
 		String sql2 = "update goods set goods_state='판매완료' where goods_buy=1 and goods_sale=1";
 		PreparedStatement ps2 = con.prepareStatement(sql2);
 		ps2.execute();
+		
+		String sql3 = "update orders set sale_date=sysdate where goods_no=?";
+		PreparedStatement ps3 = con.prepareStatement(sql3);
+		ps3.setInt(1, goods_no);
+		ps3.execute();
 		con.close();
+	}
+	
+	//9. 판매완료목록 날짜기간검색
+	public List<OrdersDto> history_sale_all(String id, String startdate, String finishdate) throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from goods_orders where orders_goods_seller=? and goods_state='판매완료' and orders_date between ? and ? order by orders_date desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,id);
+		ps.setString(2, startdate);
+		ps.setString(3, finishdate);
+		ResultSet rs = ps.executeQuery();
+		List<OrdersDto> list = new ArrayList<>();
+		while(rs.next()) {
+			OrdersDto dto = new OrdersDto();
+			dto.setOrders_no(rs.getInt("orders_no"));
+			dto.setOrders_goods_title(rs.getString("orders_goods_title"));
+			dto.setOrders_goods_seller(rs.getString("orders_goods_seller"));
+			dto.setOrders_date(rs.getString("orders_date"));
+			dto.setOrders_type(rs.getString("orders_type"));
+			dto.setOrders_post(rs.getString("orders_post"));
+			dto.setOrders_basic_address(rs.getString("orders_basic_address"));
+			dto.setOrders_extra_address(rs.getString("orders_extra_address"));
+			dto.setOrders_payment(rs.getString("orders_payment"));
+			dto.setOrders_amount(rs.getInt("orders_amount"));
+			dto.setGoods_no(rs.getInt("goods_no"));
+			dto.setOrders_goods_buyer(rs.getString("orders_goods_buyer"));
+			dto.setGoods_sale(rs.getInt("goods_sale"));
+			dto.setSale_date(rs.getString("sale_date"));
+			list.add(dto);
+		}
+		
+		con.close();
+		return list;
 	}
 }

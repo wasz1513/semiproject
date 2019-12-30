@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+  
+       .goods_buy{
+        text-align: center;
+        margin-bottom: 40px;
+        margin-top: 80px;
+       }
+       
+       .orders_wrap{
+       		width:800px;
+       		margin:0 auto;
+       	
+       }
+       .order_wrap1{
+       	width:800px;
+       	margin:0 auto;
+      
+       }
+       .orders_img{
+       
+     
+       }
+        .order_table {
+        	margin-bottom:30px;
+        }
+
+.info{
+	text-align: center;
+	margin-bottom: 8px;
+}
+   /*  .order_table input[type=text],
+    .order_table2 input[type=text],
+    .order_table3 input[type=text],
+    .order_table4 input[type=text]{
+        text-align: center;
+       margin-left: 20%;
+       margin-bottom: 15px;
+        font-size: 15px;
+        width: 60%;
+        height: 15px;
+        padding: 10px;
+        line-height: inherit;
+	border: 1px solid #ccc;
+    } */
+    .ofont{
+           text-align: left;
+         
+           margin-bottom: 8px;
+    }
+  
+    .ofont2{
+           text-align: left;
+   
+           margin-bottom: 8px;
+    }
+    .ofont3{
+
+           margin-bottom: 8px;
+    }
+
+    .deal{
+
+  margin-right:20px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .paytype{
+        text-align: center;
+    }
+
+.adrress_info{
+	width:800px;
+	margin:0 auto;
+}
+    .orders_p input[type="text"]{
+        margin-top:10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        width: 170px;
+        height: 35px;
+            padding: 5px;
+            line-height: inherit;
+	border: 1px solid #ccc;
+    }
+    .orders_addr input[type="text"]{
+        margin-bottom: 10px;
+        font-size: 15px;
+        width: 420px;
+        height: 35px;
+            padding: 5px;
+            line-height: inherit;
+	border: 1px solid #ccc;
+    }
+    .orders_addr input.ex_addr{
+        margin-bottom: 10px;
+        font-size: 15px;
+        width: 270px;
+        height: 35px;
+            padding: 5px;
+            line-height: inherit;
+	border: 1px solid #ccc;
+    }
+    .orders_addr input.e_address{
+        margin-bottom: 10px;
+        font-size: 15px;
+    width: 145px;
+    height: 35px;
+    padding: 5px;
+    line-height: inherit;
+	border: 1px solid #ccc;
+
+    }
+    .post_button{
+        margin-bottom: 10px;
+        font-size: 15px;
+        width: 170px;
+    height: 35px;
+    text-align: center;
+    padding: 2px;
+    line-height: inherit;
+	border: 1px solid #ccc;
+}
+    
+  
+    .orders_button input[type="submit"] {
+    
+	width: 160px;
+	height: 36px;
+	background-color: #fff;
+	border: 1px solid #FF8041;
+	color: #FF8041;
+		margin-bottom:120px;
+}
+.orders_button input[type="submit"]:hover {
+	color: #fff;
+	background-color: #FF8041;
+	cursor: pointer;
+}
+
+.p_point{
+    margin-bottom: 8px;
+    width: 130px;
+    height: 35px;
+    text-align: center;
+    padding: 2px;
+    line-height: inherit;
+	border: 1px solid #ccc;
+}
+.point_button{
+    margin-bottom: 8px;
+    font-size: 15px;
+    width: 110px;
+    height: 35px;
+    text-align: center;
+    padding: 2px;
+    line-height: inherit;
+	border: 1px solid #ccc;
+}
+.pay{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    padding: 2px;
+    line-height: inherit;
+	border: 1px solid #ccc;
+}

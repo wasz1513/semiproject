@@ -18,6 +18,8 @@
 		<div>게시글리스트</div>
 		<div>공지</div>
 		<div>신고</div>
+		<%= total %>
+		<%= today %>
 	</div>
 
 </article>

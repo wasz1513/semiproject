@@ -24,7 +24,18 @@ public class OrdersDto {
 		private int goods_buy;
 		private int goods_sale;
 		private int goods_price;
+		private String sale_date;
 		
+		public String getSale_date() {
+			return sale_date;
+		}
+
+
+		public void setSale_date(String sale_date) {
+			this.sale_date = sale_date;
+		}
+
+
 		public int getGoods_price() {
 			return goods_price;
 		}
@@ -219,6 +230,20 @@ public class OrdersDto {
 			} else {
 				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 				Date date = read.parse(orders_date);
+
+				SimpleDateFormat write = new SimpleDateFormat("y/M/d H:m");
+				String time = write.format(date);
+
+				return time;
+			}
+		}
+		
+		public String getSale_dateWithFormat() throws ParseException {
+			if (sale_date == null) {
+				return "";
+			} else {
+				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+				Date date = read.parse(sale_date);
 
 				SimpleDateFormat write = new SimpleDateFormat("y/M/d H:m");
 				String time = write.format(date);
