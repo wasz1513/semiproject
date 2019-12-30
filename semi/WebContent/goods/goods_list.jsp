@@ -14,6 +14,7 @@
     
     <%
     
+    
     String context = request.getContextPath();
     
     //페이지 크기
@@ -85,6 +86,9 @@
     	}
  
     	GoodsFilesDao fdao = new GoodsFilesDao();
+    	
+    	
+    	System.out.print(list);
     	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
