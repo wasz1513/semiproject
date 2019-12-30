@@ -1,11 +1,3 @@
-
-    
-    
-   
-            
-            
-            
-            
 <%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerFilesDto"%>
@@ -280,6 +272,7 @@ element.style {
 .face-01, .face-02, .face-03, .face-04, .face-05, .face-06 {
     display: inline-block;
     overflow: hidden;
+    
     text-indent: -9999px;
     text-align: left;
     background-size: 29px 147px;
@@ -486,7 +479,7 @@ display: inline-block;
  		</p>
  		
  		<p id="article-price" content="50000.0" style="font-size:18px; font-weight:bold;">
-           가격 뜨는 구간  원
+           <%=goodsdto.getGoods_price() %>원
         </p>
  		
  		 <div id="article-detail">
