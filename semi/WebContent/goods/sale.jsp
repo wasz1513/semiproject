@@ -60,7 +60,7 @@
 	        	</tr>
 	        	<tr>
 	        		<th>첨부파일</th>
-	        		<td><img src="../download.do?goods_no=<%=odto.getGoods_no()%>"></td>
+	        		<td><img src="../goods/download.do?goods_no=<%=odto.getGoods_no()%>"></td>
 	        	</tr>
 	        	<tr>
 	        		<th>거래방법</th>

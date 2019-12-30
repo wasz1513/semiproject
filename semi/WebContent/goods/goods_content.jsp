@@ -388,6 +388,19 @@ display: inline-block;
     color: gray;
 }
 
+.goods-reply{
+	width:677px;
+	margin:auto;
+}
+
+.filesview .reply-td{
+	text-align:left;
+	padding-left:20px;
+}
+
+#reply-submit{
+	text-align: right;
+}
 	</style>
 
 
@@ -494,11 +507,10 @@ display: inline-block;
  	
  	<div>
  		<div align="center">
- 			<table >	
+ 			
 	<%if (flist.size() > 0) {%> 
  <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
-		<tr>
-			<td>
+		
 				<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 
 				<ul>
@@ -518,18 +530,16 @@ display: inline-block;
 					%>
 				</ul>
 
-			</td>
-		</tr>
+		
 		<%
 			}
 		%>
  		</div>
  	</div>
  	
- 	<div>
- 		<div>
- 		<tr>
-			<td>
+ 	<div class="row">
+ 		<div class="goods-reply">
+ 		
 				<%
 					GoodsReplyDao goodsreplydao = new GoodsReplyDao();
 					List<GoodsReplyDto> list = goodsreplydao.goods_reply_getList(goods_no);
@@ -564,27 +574,28 @@ display: inline-block;
 									<input type="submit" value="댓글수정">
 								</form> 
 							<% } else { %>
+								<br><br>
 								<%=goodsreplydto.getGoods_reply_content()%>
 							<% } %>
 							</td>
 					<% } %>
 					</tr>
-				</div>
+			
 
 
 
-			</td>
-		</tr>
  		
  		
  		<!-- 댓글 작성칸 -->
 		<tr>
-			<td align="center" width="100%">
+			<td align="center" colspan="2">
 				<form action="goods_reply_insert.do" method="post">
 					<input type="hidden" name="goods_no"
 						value="<%=goodsdto.getGoods_no()%>">
 					<textarea name="goods_reply_content" rows="4" cols="120" required></textarea>
+					<div id="reply-submit">
 					<input type="submit" value="등록">
+					</div>
 
 				</form>
 			</td>
@@ -594,7 +605,7 @@ display: inline-block;
 
 		<!-- 버튼 -->
 		<tr class="button-tr">
-			<td align="center">
+			<td align="center" colspan="2">
 				<a href="orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
 					<input type="button"value="구매하기">
 				</a> 
