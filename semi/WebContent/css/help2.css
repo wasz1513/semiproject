@@ -1,0 +1,151 @@
+*{
+margin: 0;
+padding: 0;
+
+}
+table {
+    border-collapse:collapse;
+}
+
+caption {
+    display: none;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+
+}
+
+.maintitle{
+	font-size:36px;
+	color: #222;
+}
+
+.subtitle{
+	font-size:14px;
+	color:#999;
+	margin-top:10px
+}
+
+.help2_list_wrap {
+    padding: 50px;
+    width:1200px;
+}
+
+.help2_list{
+    width: 100%;
+    border-top: 2px solid #ff8041;
+    margin-bottom:30px;
+}
+
+.help2_list tr{
+    border-bottom: 1px solid #999;
+}
+
+.help2_list th,
+.help2_list td{
+     padding: 10px;
+     
+
+}
+
+.help2_list td {
+    text-align: center;
+}
+
+.help2_list tbody tr td:nth-child(2) {
+    text-align: left;
+}
+
+.help2_list_wrap .paging{
+    margin-top: 20px;
+    text-align: left;
+
+}
+.help2_list_wrap .paging a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.help2_list_wrap .paging a:first-child{
+    margin-left: 0;
+}
+.help-content{
+	margin-top:20px;
+
+}
+
+.help-content > .hline{
+	
+	background-color:#f8f8f8;
+	border-top:1px solid #ff8041;
+	height:120px;
+}
+
+
+.help2_list_wrap .paging a.num{
+   border: 1px solid #ff8041;
+   font-weight: 600;
+   color : #ff8041;
+}
+
+.help2_list_wrap .paging a.num.on {
+    background:#ff8041;
+    color: #fff;
+}
+
+.search-drop{
+	height:40px;
+	border:1px solid #ddd;
+}
+
+.search-bt {
+    height:40px;
+    width: 65px;
+    background: #ff8041;
+    color: #ffffff;
+    font-size:16px;
+    border:1px solid #ff8041;
+	cursor:pointer;
+ }
+ 
+
+
+.search-txt {
+    height: 40px;
+    width:300px;
+    border:1px solid#ddd;
+    font-size:16px;
+}
+
+.search-txt:focus {
+    border:1px solid#ff8041;
+    
+}
+
+.title{
+    height:220px;
+    background:#F5F5F5;
+    text-align:center;
+}
+
+.bt{
+    display: inline-block;
+    border: 1px solid #ddd;
+    color :#666;
+    padding: 5px;
+}
+   .b {
+        position: fixed;
+        top: 100px;
+        left: 100px;
+        width: 600px;
+        padding: 50px 0px;
+        border: 1px solid #ff9800;
+        background-color: #ff9800;
+        text-align: center;
+        color: #ffffff;
+        opacity: 0.7;
+      }

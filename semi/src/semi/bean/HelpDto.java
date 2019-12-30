@@ -87,7 +87,11 @@ public class HelpDto {
 		this.board_NO = board_NO;
 	}
 	public String getHead() {
-		return head;
+		if(head == null) {
+			return "문의";
+		}else {
+			return head;			
+		}
 	}
 	public void setHead(String head) {
 		this.head = head;

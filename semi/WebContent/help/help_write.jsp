@@ -37,6 +37,13 @@
 .row.row-multi.col-5>* {
 	width: 20%
 }
+
+.row.row-multi.col-2 a .change_info{
+    background-color: #ff8041;
+    border: 1px solid #ff8041;
+    color: #fff
+}
+
 </style>
 
 <article>
@@ -49,10 +56,10 @@
 		<div align="center" >
 		<div class="row row-multi col-2" >
 			<a href="help_write.jsp">
-				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
+				<input class="change_info" type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="1:1상담하기">
 			</a> 
 			<a href="help_list.jsp">
-				<input type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
+				<input class="change_info" type="button" style="WIDTH: 300pt; HEIGHT: 44pt" value="문의/신고내역">
 			</a> 
 			</div>
 		  
@@ -74,14 +81,14 @@
 		
 			<div>
 			
-				<textarea name="content" required rows="20" cols="100"
+				<textarea name="content" required rows="20" cols="120" 
 					style="resize: vertical;"></textarea>
 			</div>
 
 
 
 			<div class="row row-multi col-2">
-			<div align="left">
+			<div align="center">
 				 
 				<div>사진 첨부하기</div>
 				
@@ -90,16 +97,16 @@
     <div id="menu">
 
         <div>
-            <input type="file" name="file" accept=".jpg, .png, .gif"><br>
+            <input type="file" name="file" accept=".jpg, .png, .gif">
         </div>
   	</div>	
 				
 <!-- 			<img src=""> -->
 			</div>
 			
-			<div align="right">
+			<div align="center">
 				 <a href="help_list.jsp">
-				<input type="submit" value="상담신청"></a> 
+				<input type="submit" value="상담신청" style="width:100px"></a> 
 			</div>
 			</div>
 
