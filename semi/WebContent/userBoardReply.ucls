@@ -3,72 +3,43 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="semi.bean.CustomerDto" project="semi" file="/semi/src/semi/bean/CustomerDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="118" width="198" x="495" y="315"/>    
+    <position height="90" width="180" x="426" y="132"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="semi.bean.GoodsDao" project="semi" file="/semi/src/semi/bean/GoodsDao.java" 
+  <class id="2" language="java" name="semi.bean.ReplyDto" project="semi" file="/semi/src/semi/bean/ReplyDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="111" width="147" x="766" y="169"/>    
+    <position height="90" width="180" x="424" y="434"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="semi.bean.CustomerDao" project="semi" file="/semi/src/semi/bean/CustomerDao.java" 
+  <class id="3" language="java" name="semi.bean.ReplyDao" project="semi" file="/semi/src/semi/bean/ReplyDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="111" width="162" x="277" y="173"/>    
+    <position height="90" width="182" x="425" y="284"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="semi.bean.HelpDao" project="semi" file="/semi/src/semi/bean/HelpDao.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="111" width="147" x="768" y="447"/>    
+  <class id="4" language="java" name="servlet.board.BoardReplyInsertServlet" project="semi" 
+    file="/semi/src/servlet/board/BoardReplyInsertServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="145" width="213" x="76" y="271"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="semi.bean.BoardDao" project="semi" file="/semi/src/semi/bean/BoardDao.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="111" width="147" x="282" y="445"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <package id="6" language="java" name="semi.servlert.goods" project="semi" file="/semi/src/semi/servlert/goods" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="214" x="952" y="35"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="7" language="java" name="semi.servlet.customer" project="semi" file="/semi/src/semi/servlet/customer" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="229" x="51" y="34"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="8" language="java" name="semi.servlet.help" project="semi" file="/semi/src/semi/servlet/help" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="198" x="963" y="576"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="9" language="java" name="servlet.board" project="semi" file="/semi/src/servlet/board" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="99" width="178" x="64" y="581"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="10" language="java" name="semi.bean.GoodsDto" project="semi" file="/semi/src/semi/bean/GoodsDto.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="110" width="171" x="928" y="170"/>    
+  <class id="5" language="java" name="servlet.board.BoardReplyDeleteServlet" project="semi" 
+    file="/semi/src/servlet/board/BoardReplyDeleteServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="145" width="216" x="762" y="266"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
