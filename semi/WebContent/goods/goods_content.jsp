@@ -1,12 +1,4 @@
-
-    
-    
-   
-            
-            
-            
-            
-            <%@page import="semi.bean.CustomerDto"%>
+<%@page import="semi.bean.CustomerDto"%>
 <%@page import="semi.bean.CustomerDao"%>
 <%@page import="semi.bean.CustomerFilesDto"%>
 <%@page import="semi.bean.CustomerFilesDao"%>
@@ -486,7 +478,7 @@ display: inline-block;
  		</p>
  		
  		<p id="article-price" content="50000.0" style="font-size:18px; font-weight:bold;">
-           가격 뜨는 구간  원
+           <%=goodsdto.getGoods_price() %>원
         </p>
  		
  		 <div id="article-detail">
