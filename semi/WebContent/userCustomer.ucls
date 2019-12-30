@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="semi.bean.CustomerDao" project="semi" file="/semi/src/semi/bean/CustomerDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="100" width="205" x="358" y="265"/>    
+    <position height="100" width="205" x="502" y="267"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="semi.bean.CustomerDto" project="semi" file="/semi/src/semi/bean/CustomerDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="100" width="202" x="358" y="391"/>    
+    <position height="100" width="202" x="502" y="393"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="semi.servlet.customer.CustomerRegistServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerRegistServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="156" x="27" y="20"/>    
+    <position height="107" width="231" x="130" y="117"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="semi.servlet.customer.CustomerLoginServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerLoginServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="151" x="24" y="272"/>    
+    <position height="107" width="226" x="131" y="280"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="semi.servlet.customer.CustomerLogoutServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerLogoutServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="159" x="25" y="425"/>    
+    <position height="107" width="234" x="129" y="448"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="semi.servlet.customer.WithrawalCustomer" project="semi" 
     file="/semi/src/semi/servlet/customer/WithrawalCustomer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="138" x="849" y="174"/>    
+    <position height="84" width="238" x="1004" y="176"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="semi.common.PwCheckServlet" project="semi" 
     file="/semi/src/semi/common/PwCheckServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="118" x="667" y="294"/>    
+    <position height="84" width="155" x="782" y="334"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="semi.servlet.customer.ChangeInfoServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/ChangeInfoServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="128" x="852" y="320"/>    
+    <position height="84" width="235" x="1007" y="322"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="semi.servlet.customer.ChangePasswordServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/ChangePasswordServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="170" x="851" y="472"/>    
+    <position height="84" width="243" x="1006" y="474"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="semi.servlet.customer.CustomerFindPwServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerFindPwServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="161" x="534" y="583"/>    
+    <position height="84" width="224" x="633" y="619"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="semi.servlet.customer.CustomerFindServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerFindServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="143" x="279" y="581"/>    
+    <position height="84" width="206" x="378" y="617"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="semi.servlet.customer.CustomerInterestServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerInterestServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="164" x="460" y="40"/>    
+    <position height="84" width="197" x="415" y="21"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="semi.servlet.customer.CustomerInterestRemoverServlet" project="semi" 
     file="/semi/src/semi/servlet/customer/CustomerInterestRemoverServlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="84" width="215" x="653" y="39"/>    
+    <position height="84" width="248" x="638" y="22"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="semi.bean.InterestDao" project="semi" file="/semi/src/semi/bean/InterestDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="77" width="136" x="611" y="147"/>    
+    <position height="77" width="169" x="647" y="144"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="semi.bean.GoodsDto" project="semi" file="/semi/src/semi/bean/GoodsDto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="79" width="118" x="472" y="147"/>    
+    <position height="79" width="151" x="485" y="145"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
