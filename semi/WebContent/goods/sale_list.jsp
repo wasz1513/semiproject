@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 날짜선택기 -->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/date.css">
+<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/date.css"> --%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="<%=request.getContextPath()%>/js/date2.js"></script>
     <script>

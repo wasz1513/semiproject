@@ -76,11 +76,8 @@
 <script>
 function loadSlider(){
 	 var swiper = new Swiper('.swiper-container', {
-		 slidesPerView: 3,
-		 autoplay:{
-		     delay:3000,
-	     },
-	     loop: true,
+		 slidesPerView: 1,
+	     loop: false,
 	     pagination: {
 	         el: '.swiper-pagination',
 	         type: 'fraction',
@@ -337,6 +334,11 @@ element.style {
 		padding: 50px;
 	}
 	
+	.swiper-container{
+		width:400px;
+		height:400px;
+	}
+	
 	.swiper-wrapper{
 	    margin-left: auto;
     margin-right: auto;
@@ -356,7 +358,6 @@ element.style {
 /*     justify-content: space-between; */
 /*      margin-top: 50px; */
 /*     } */
-
 
 
 
@@ -409,7 +410,7 @@ display: inline-block;
 				<div class="swiper-container">
 				    <div class="swiper-wrapper">
 				    <%for (GoodsFilesDto gfdto : flist) {%>
-				      <div class="swiper-slide"><img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="200" height="200"></div>
+				      <div class="swiper-slide"><img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="100%" height="100%"></div>
 				      <%} %>
 				    </div>
 				    <div class="swiper-pagination"></div>
