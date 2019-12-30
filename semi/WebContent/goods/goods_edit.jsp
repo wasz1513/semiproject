@@ -28,11 +28,6 @@
 		}
 	}
 
-	System.out.print(a[0]);
-	System.out.print(a[1]);
-	System.out.print(a[2]);
-	System.out.print(a[3]);
-	System.out.print(a[4]);
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css"
@@ -162,7 +157,7 @@ href="<%=request.getContextPath()%>/css/goods.css">
 	<h2>상품 등록 수정</h2>
 	<form action="goods_edit.do" method="post" 
 	enctype="multipart/form-data">
-		<input type="hidden" name="goods_no" value="<%=dto.getGoods_no()%>">
+		<input type="hidden" name="goods_no" value="<%=goods_no%>">
 		  <div>
                    <p>카테고리</p>
 			   <select class="gcategory" name="goods_category" required>
