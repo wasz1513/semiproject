@@ -107,7 +107,7 @@ public class CustomerDao {
 	// 회원 탈퇴
 	public void withrawal(String customer_id) throws Exception {
 		Connection con = getConnection();
-		String sql = "delete customer where customer_id=?";
+		String sql = "delete from customer where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, customer_id);
 		ps.execute();

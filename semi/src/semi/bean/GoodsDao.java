@@ -127,10 +127,28 @@ public class GoodsDao {
 	// 기본목록(인기게시글)
 	public List<GoodsDto> getList(int start, int finish) throws Exception {
 		Connection con = getConnection();
-		String sql = "select * from(" + "select rownum rn, J.* from("
-				+ " select (goods_readcount + goods_replycount) g, customer_goods.* from customer_goods where goods_state='판매중'"
-				+ " ORDER BY G DESC)J"
-				+ " )where rn between ? and ? ";
+//		String sql = "select * from(" + "select rownum rn, J.* from("
+//				+ " select (goods_readcount + goods_replycount) g, customer_goods.* from customer_goods where goods_state='판매중'"
+//				+ " ORDER BY G DESC)J"
+//				+ " )where rn between ? and ? ";
+		String sql = "select "
+										+ "rn, "
+										+ "nvl(customer_id, '탈퇴한 사용자') customer_id, "
+										+ "goods_no, "
+										+ "goods_price, "
+										+ "goods_readcount, "
+										+ "goods_replycount, "
+										+ "goods_writetime, "
+										+ "goods_title, "
+										+ "goods_category, "
+										+ "goods_content, "
+										+ "goods_state, "
+										+ "customer_basic_address "
+								+ "from ("
+										+ "select rownum rn, J.* from ("
+												+ "select (goods_readcount + goods_replycount) g, customer_goods.* from customer_goods where goods_state='판매중' order by g desc"
+										+ ")J"
+								+ ") where rn between ? and ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);
 		ps.setInt(2, finish);
