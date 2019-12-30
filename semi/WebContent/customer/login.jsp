@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/customer.css">    
+<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/customer.css">     --%>
 <jsp:include page ="/template/header.jsp"></jsp:include>
 
 <form action="login.do" method="post">
