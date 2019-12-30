@@ -1,0 +1,38 @@
+*{
+    margin: 1;
+    padding: 1;
+    }
+    table {
+        border-collapse:collapse;
+       
+       
+    }
+    
+    
+    .board_edit_wrap {
+        
+    }
+    
+    .board_edit{
+        border-top: 1px solid #ff8041;
+        
+    }
+    
+    
+    .board_edit th,
+    .board_edit td{
+         padding: 10px;
+           border: 1px solid#ff8041;
+    
+    }
+    
+    .board_edit td {
+        text-align: center;
+    }
+    
+    .board_edit tbody tr td:nth-child(2) {
+        text-align: left;
+        
+    }
+    
+  

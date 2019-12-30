@@ -453,7 +453,7 @@ public class GoodsDao {
 	//찜 글개수
 	public int interestCount(String customer_id) throws Exception{
 		Connection con = getConnection();
-		String sql = "select count(*) from interest where customer_id=? and goods_state='판매중' ";
+		String sql = "select count(*) from interest where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, customer_id);
 		ResultSet rs = ps.executeQuery();

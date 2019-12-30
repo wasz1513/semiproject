@@ -45,7 +45,10 @@ href="<%=request.getContextPath()%>/css/change_info.css">
 href="<%=request.getContextPath()%>/css/find.css"> 
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/find_pw.css"> 
-
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/write.css">
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/edit.css"> 
 
 
 <title>당근나라</title>	

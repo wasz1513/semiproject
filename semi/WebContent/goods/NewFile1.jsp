@@ -184,7 +184,7 @@ div {
      display: block; 
     margin-right: 8px; 
     float: right;
-        margin-top: 57px;
+        margin-top: 35px;
 }
 
 #article-profile #article-profile-right dl {
@@ -211,6 +211,7 @@ dl {
 
 #article-profile #article-profile-right .text-color-03 {
        color: #1561a9;
+    padding: 1px position: absolute;
     font-size: 16px;
     font-weight: bold;
     line-height: 1;
@@ -283,7 +284,6 @@ element.style {
 .face-01, .face-02, .face-03, .face-04, .face-05, .face-06 {
     display: inline-block;
     overflow: hidden;
-    
     text-indent: -9999px;
     text-align: left;
     background-size: 29px 147px;
@@ -384,8 +384,7 @@ display: inline-block;
 .manner-font{
 	text-align: end;
     display: block;
-    font-size: 12px;
-    color: gray;
+    font-size: 13px;
 }
 
 	</style>
@@ -442,8 +441,8 @@ display: inline-block;
  		
  		
  		<div id="article-profile-right">
- 			
-               <div class="text-color-03"> 36.5° 
+ 			<div id="temperature-wrap"></div>
+               <div class="text-color-03"> 36.5° </div>
  		 <div class="meters">
  			<div class="bar bar-color-03" style="width: 37%;"></div>
  		</div>
@@ -453,7 +452,7 @@ display: inline-block;
  			</div>
                
                <div class="manner-font">매너온도</div>
-               </div>
+               
                
  			
  		
@@ -493,8 +492,8 @@ display: inline-block;
  	
  	
  	<div>
- 		<div align="center">
- 			<table >	
+ 		<div class="filesview" align="center">
+ 			<table border="1" wid>	
 	<%if (flist.size() > 0) {%> 
  <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		<tr>
@@ -537,20 +536,20 @@ display: inline-block;
 				%>
 
 		<% if(session_id !=null){ %>
-				<table class="filesview"  width="100%"  style="margin-left: auto; margin-right: auto;">
+				<table border="1" width="100%">
 					<% for (GoodsReplyDto goodsreplydto : list) { %>
 					<tr>
-						<th class="reply-th" width="100"><img src="http://placehold.it/100X100">
+						<th width="100"><img src="http://placehold.it/100X100">
 						</th>
-						<td class="reply-td">
+						<td>
 						<%=goodsreplydto.getGoods_reply_writer()%> 
-							<!--  판매글 판매자의 댓글에만 판매자 표시-->
+							<!-- 판매글 판매자의 댓글에만 판매자 표시 -->
 							<% if (isMine) { %> 
 							 	<font color="red">(판매자)</font> 
 							<% } %> 
 								<%=goodsreplydto.getGoods_reply_writetime()%>
 							
-<!-- 							 수정 /삭제 버튼은 본인의 댓글에만 표시  -->
+							 <!-- 수정 /삭제 버튼은 본인의 댓글에만 표시 --> 
 							<% if (session_id.equals(goodsreplydto.getGoods_reply_writer()) && session_id != null) { %>
 								<a href="goods_content.jsp?goods_no=<%=goodsdto.getGoods_no()%>&goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>">수정</a>
 								<a href="goods_reply_delete.do?goods_reply_no=<%=goodsreplydto.getGoods_reply_no()%>&goods_no=<%=goodsdto.getGoods_no()%>">삭제</a>
@@ -579,11 +578,11 @@ display: inline-block;
  		
  		<!-- 댓글 작성칸 -->
 		<tr>
-			<td align="center" width="100%">
+			<td align="right">
 				<form action="goods_reply_insert.do" method="post">
 					<input type="hidden" name="goods_no"
 						value="<%=goodsdto.getGoods_no()%>">
-					<textarea name="goods_reply_content" rows="4" cols="120" required></textarea>
+					<textarea name="goods_reply_content" rows="4" cols="100" required></textarea>
 					<input type="submit" value="등록">
 
 				</form>
@@ -593,41 +592,32 @@ display: inline-block;
 
 
 		<!-- 버튼 -->
-		<tr class="button-tr">
-			<td align="center">
-				<a href="orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
-					<input type="button"value="구매하기">
-				</a> 
-			
-			<%if (interest) {%> 
-				<a href="interestremove.do?goods_no=<%=goodsdto.getGoods_no()%>">
-					<img src="../image/heart2.png" width="25" height="25">
-				</a> 
-			<%} else {%> 
-				<a href="interest.do?goods_no=<%=goodsdto.getGoods_no()%>">
-					<img src="../image/heart.png" width="25" height="25">
-				</a> 
-			<%}%> 
-			<a href="goods_write.jsp">
-				<input type="button" value="글쓰기">
-			</a>
-			
-			<a href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
+		<tr>
+			<td align="right"><a href="orders.jsp?goods_no=<%=goodsdto.getGoods_no()%>"><input type="button"
+					value="구매하기"></a> <%
+ 	if (interest) {
+ %> <a
+				href="interestremove.do?goods_no=<%=goodsdto.getGoods_no()%>"><img
+					src="../image/heart2.png" width="25" height="25"></a> <%
+ 	} else {
+ %> <a
+				href="interest.do?goods_no=<%=goodsdto.getGoods_no()%>"><img
+					src="../image/heart.png" width="25" height="25"></a> <%
+ 	}
+ %> <a
+				href="goods_write.jsp"><input type="button" value="글쓰기"></a>
+				<a
+				href="goods_reply_write.jsp?goods_reply_superno=<%=goodsdto.getGoods_no()%>">
 					<input type="button" value="답글쓰기">
-			</a> 
-			<%if (isAdmin || isMine) {%> <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 --> 
- 				<a href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>">
-					<input type="button" value="수정">
-				</a> 
-				
-				<a href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>">
-					 <input type="button" value="삭제">
-				</a> 
-			<%}%> 
-			<a href="goods_list.jsp">
-				<input type="button" value="목록">
-			</a>
-		</td>
+			</a> <%
+ 	if (isAdmin || isMine) {
+ %> <!-- 수정/삭제 버튼은 관리자이거나 본인 글에만 표시 --> <a
+				href="goods_edit.jsp?goods_no=<%=goodsdto.getGoods_no()%>"> <input
+					type="button" value="수정"></a> <a
+				href="goods_delete.do?goods_no=<%=goodsdto.getGoods_no()%>"> <input
+					type="button" value="삭제"></a> <%
+ 	}
+ %> <a href="goods_list.jsp"><input type="button" value="목록"></a></td>
 		</tr>
 	</table>
  		
