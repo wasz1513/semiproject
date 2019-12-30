@@ -11,11 +11,9 @@
 <%
 	int no = Integer.parseInt(request.getParameter("no"));
 	//int Origin = Integer.parseInt(request.getParameter("Origin"));
-
 	BoardDao bdao = new BoardDao();
 	BoardDto bdto = bdao.get(no);
 	
-
 	
 	String userId = (String)session.getAttribute("customer_id");
 	String grade = (String)session.getAttribute("customer_grade");
@@ -50,16 +48,24 @@
 	
 %>
 
-
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/content.css">
 
-
-        <div class="board_content" align="center">
+<article id="board_content_wrap" >
+	
+        <div class="board_content">
                   
         
-       <table border="1" width="60%">
-           
+       <table class="board_content_table" border="1" >
+           <tbody>
+           <tr>
+          	 <td>
+           		게시글번호  
+               	<input type="hidden" name="origin" value="<%=no%>">
+               </td>
+           </tr>
            <tr>
                <td><%=bdto.getTitle()%></td>
            </tr>
@@ -74,7 +80,6 @@
                </td>
            </tr>
         
-           
            <tr>
                <td align="right">
                    <a href="write.jsp">
@@ -91,16 +96,16 @@
                    </a>
                </td>
            </tr>
-        </div>
-    </table>   
+ 
+           </tbody>
+
     </table>
             
       
        <!-- 댓글 목록  -->
        
-       <tr>
-       <td>
-       <table border="1" width="60%">
+   
+       <table class="board_content_table" border="1" width="60%">
        <%for(ReplyDto rdto : list){ %>
        <tr>
        <th width="100">
@@ -124,32 +129,29 @@
            <%} %>
            </table>
          <!-- 댓글 작성 -->
+		<table class="board_content_table1">
+		
            <tr>
                <td align="right" >
                
                <form action="reply_insert.do" method="post">
                
-    <!-- 			게시글번호 -->
-                
-               <input type="hidden" name="origin" value="<%=no%>">
-               
-               <textarea name="content" rows="5" cols="188" align="center" required></textarea>
-               <input type="submit" value="등록" style="height:50px; width:70px;">
+    	
+             
+	               <textarea name="content" rows="5" cols="160" required></textarea>
+	               <input type="submit" value="등록" style="height:50px; width:70px;">
+               </div>
                
                
                </form>
                
                </td>
            </tr>
+		</table>
         </div>
         
         
-    </div>
-    </body>
-    </html>
-    
-</body>
-</html>
 
+</article>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
