@@ -163,9 +163,7 @@ header, footer, article {
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/info.jsp">마이페이지</a></li>
-					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>
-					<li><a href="#">키워드입력</a></li>
-					<li><a href="#">위치수정</a></li>              			
+					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>        			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 					<li>
 						<a href="<%=request.getContextPath()%>/goods/salerequest.jsp">
@@ -187,7 +185,6 @@ header, footer, article {
 			<div class="topmenu_sub cart">
 
 				<ul class="sub_drop">
-						<li><a href="#">키워드</a></li>
 						<li><a href="<%=context%>/goods/goods_list.jsp?customer_id=<%=id%>">찜상품</a></li>
 						<li><a href="<%=request.getContextPath()%>/goods/orders_list.jsp?customer_id=<%=id%>">구매내역</a></li>
 						<li><a href="<%=request.getContextPath()%>/goods/sale_list.jsp?customer_id=<%=id%>">판매내역</a></li>
