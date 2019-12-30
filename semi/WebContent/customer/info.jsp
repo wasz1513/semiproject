@@ -77,6 +77,25 @@
                 <th>최종로그인</th>
                 <td><%=dto.getCustomer_lastloginWithFormat()%></td>
             </tr>
+            <tr>
+                <th>관심 키워드</th>
+                <td><%if(!dto.getKeyword_first().equals("null")){ %>
+                	<%=dto.getKeyword_first() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_second().equals("null")){ %>
+                	/ <%=dto.getKeyword_second() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_third().equals("null")){ %>
+                	/ <%=dto.getKeyword_third() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_fourth().equals("null")){ %>
+                	/ <%=dto.getKeyword_fourth() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_fifth().equals("null")){ %>
+                	/ <%=dto.getKeyword_fifth() %>
+                	<%} %>
+                </td>
+             </tr>
         </table>
                 <div class="info_bottom">
                     <li>- 아이디, 이름은 수정이 불가능합니다.</li>

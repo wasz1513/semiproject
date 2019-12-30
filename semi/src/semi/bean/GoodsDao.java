@@ -462,8 +462,10 @@ public class GoodsDao {
 		ps.setString(2, key);
 		ps.setString(3, key);
 		ResultSet rs = ps.executeQuery();
-		rs.next();
-		int count = rs.getInt(1);
+		int count = 0;
+		if(rs.next()) {			
+			count = rs.getInt(1);
+		}
 		con.close();
 		return count;
 	}

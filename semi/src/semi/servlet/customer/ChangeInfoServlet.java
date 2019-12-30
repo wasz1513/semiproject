@@ -40,6 +40,11 @@ public class ChangeInfoServlet extends HttpServlet {
 			dto.setCustomer_post(mRequest.getParameter("customer_post"));
 			dto.setCustomer_basic_address(mRequest.getParameter("customer_basic_address"));
 			dto.setCustomer_extra_address(mRequest.getParameter("customer_extra_address"));
+			dto.setKeyword_first(mRequest.getParameter("keyword_first"));
+			dto.setKeyword_second(mRequest.getParameter("keyword_second"));
+			dto.setKeyword_third(mRequest.getParameter("keyword_third"));
+			dto.setKeyword_fourth(mRequest.getParameter("keyword_fourth"));
+			dto.setKeyword_fifth(mRequest.getParameter("keyword_fifth"));
 
 			int asd = Integer.parseInt(mRequest.getParameter("existence"));
 			
