@@ -50,6 +50,8 @@ color:inherit;
 
 }
 
+
+
 .board_list td {
     text-align: center;
 }
@@ -114,11 +116,11 @@ color:inherit;
     
 }
 
-.title{
-    height:220px;
-    background:#F5F5F5;
-    text-align:center;
-}
+/* .h2_wrap{ */
+/*     height:3000px; */
+/*     background:#F5F5F5; */
+/*     text-align:center; */
+/* } */
 
 .bt{
     display: inline-block;
