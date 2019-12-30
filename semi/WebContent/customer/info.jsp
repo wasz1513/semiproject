@@ -106,7 +106,7 @@
                         <a href="#"><input class="sellproduct" type="submit" value="판매중인 물품보기"></a>
                         <a href="check_pw.jsp?go=/customer/change_pw.jsp"><input class="change_password" type="submit" value="비밀번호 변경"></a>
                         <a href="check_pw.jsp?go=/customer/change_info.jsp"><input class="change_info" type="submit" value="회원정보 수정">	</a>
-                        <a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input class="withdraw" type="submit" value="탈퇴" onclick="withdrawal();"></a>
+                        <a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input class="withdraw" type="submit" value="탈퇴"></a>
                 </div>
       </div>  
     </div>
