@@ -160,46 +160,6 @@ href="<%=request.getContextPath()%>/css/content.css">
 	           </tr>
       	<%} %>
            
-<<<<<<< HEAD
-           <%=rdto.getWdate()%>
-         	  답글    	
-           <%if(userId.equals(rdto.getWriter())){%>
-           <a href="#">수정</a>
-           <a href="reply_delete.do?no=<%=rdto.getNo()%>&origin=<%=bdto.getNo()%>">삭제</a>
-           <br><br>
-           <%} %>
-           <%=rdto.getContent()%>
-           </td>
-           </tr>
-           <%} %>
-           </table>
-         <!-- 댓글 작성 -->
-		<table class="board_content_table1">
-		
-           <tr>
-               <td align="right" >
-               
-               <form action="reply_insert.do" method="post">
-
-                           
-                      <input type="hidden" name="origin" value="<%=no%>">
-	               <textarea name="content" rows="5" cols="160" required></textarea>
-
-               
-    	
-             
-	               <textarea name="content" rows="5" cols="160" required style="width:100%;"></textarea>
-
-	               <input type="submit" value="등록" style="height:50px; width:70px;">
-               </div>
-               
-               
-               </form>
-               
-               </td>
-           </tr>
-=======
->>>>>>> refs/remotes/origin/master
 		</table>
         </div>
         
