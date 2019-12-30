@@ -82,7 +82,26 @@ function sample6_execDaumPostcode() {
                 reader.readAsDataURL(target.files[0]);
             }
         }
+        
+        
 //경고창은 입력창 밑에 출력
+    var maxCount = 5;
+    var count = 0;  
+
+    function CountCheck(field) {	
+		if(field.checked){
+			count +=1;
+		}else{
+			count -=1;
+		}	
+    
+		if(count>maxCount){
+			alert("최대 "+maxCount+"개까지만 선택가능합니다!");
+			field.checked=false;
+			count-=1;
+    	}
+		
+    }	
 </script>
 
 <form action = "regist.do" method="post" enctype="multipart/form-data">		
@@ -178,8 +197,82 @@ function sample6_execDaumPostcode() {
 
                 </td>
             </tr>
+            <!-- 키워드 추가 -->
+            <tr>
+                <td colspan="2">
+                    <div class="inputlabel">
+                    <label>관심 키워드  (최대 5개 선택가능)<br></label>
+                    </div>
+                    <select name=keyword_first>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>
+                    <select name=keyword_second>
+                   		<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>
+                    <select name=keyword_third>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>        
+                    <select name=keyword_fourth>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select> 
+                    <select name=keyword_fifth>
+                    	<option value="null">선택</option>
+                    	<option value="패션의류">패션의류</option>
+                    	<option value="패션잡화">패션잡화</option>
+                    	<option value="미용">화장품/미용</option>
+                    	<option value="가전">디지털/가전</option>
+                    	<option value="가구">가구/인테리어</option>
+                    	<option value="육아">출산/육아</option>
+                    	<option value="식품">식품</option>
+                    	<option value="스포츠">스포츠/레저</option>
+                    	<option value="생활">생활/건강</option>
+                    	<option value="여행">여행/문화</option>
+                    </select>                                                     
+                </td>
+            </tr>            
         </table>
         <div class="regist_bottom">
+
             <input class="regist_button" type="submit" value="회원가입">	
             <input class="regist_button" type="reset" value="초기화">	
         </div>		
