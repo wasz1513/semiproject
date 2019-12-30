@@ -56,14 +56,13 @@
             </form>
           
             <input type="submit" value="찾기">
-     	       <%if(error!=null){ %>
-            <h4><font color = "red"> 입력하신 정보가 일치하지 않습니다.</font></h4>
-            <%} %>
+     	     
     </ul>
       
 </div>
-   	<h4 class="pwfind_inputerror"><font color = "red"> 입력하신 정보가 일치하지 않습니다.</font></h4>
-   	
+ 				<%if(error!=null){ %>
+   					<h4 class="pwfind_inputerror"><font color = "red"> 입력하신 정보가 일치하지 않습니다.</font></h4>
+   	    	 	<%} %>
             <div class="login_idfind">
                 <a href="<%=request.getContextPath()%>/customer/login.jsp">로그인</a>
                 <span>|</span>
