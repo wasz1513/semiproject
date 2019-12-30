@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="semi.bean.GoodsFilesDto"%>
+<%@page import="semi.bean.GoodsFilesDao"%>
 <%@page import="semi.bean.GoodsDto"%>
 <%@page import="semi.bean.GoodsDao"%>
 
@@ -9,6 +12,22 @@
 	int goods_no2 = Integer.parseInt(request.getParameter("goods_no"));
 	GoodsDao dao = new GoodsDao();
 	GoodsDto dto = dao.get(goods_no);
+	GoodsFilesDao fdao = new GoodsFilesDao();
+	List<GoodsFilesDto> flist = fdao.getList(goods_no);
+	
+// 	List<GoodsFilesDto0, 1 , 2, 3, 4>
+
+	int a[] = new int[5];
+// 	a[0,1,2,3,4]
+// 	a[0,0,0,0,0]
+	
+	if(flist.size()>0){
+		for(int i=0; i<flist.size(); i++){
+			a[i] = flist.get(i).getGoods_files_no();
+// 			i = 0 1 2 3 4
+		}
+	}
+
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css"
@@ -138,7 +157,7 @@ href="<%=request.getContextPath()%>/css/goods.css">
 	<h2>상품 등록 수정</h2>
 	<form action="goods_edit.do" method="post" 
 	enctype="multipart/form-data">
-		<input type="hidden" name="goods_no" value="<%=dto.getGoods_no()%>">
+		<input type="hidden" name="goods_no" value="<%=goods_no%>">
 		  <div>
                    <p>카테고리</p>
 			   <select class="gcategory" name="goods_category" required>
@@ -181,19 +200,39 @@ href="<%=request.getContextPath()%>/css/goods.css">
     
                             <div class="fileimg gallary">
                             	<div class="gallary-item">
-                          		<img id="preview1" src="http://placehold.it/100x100" width="100" height="100">               	
+	                            	<%if(a[0]>0){%>
+	                            		<img id="preview1" src="download.do?no=<%=a[0]%>" width="100" height="100">
+	                            	<%}else{ %>
+	                          			<img id="preview1" src="http://placehold.it/100x100" width="100" height="100">               	
+	                            	<%} %>
                             	</div>
                             	<div class="gallary-item">
-	       	                	<img id="preview2" src="http://placehold.it/100x100" width="100" height="100">              	
+                            		<%if(a[1]>0){%>
+	                            		<img id="preview2" src="download.do?no=<%=a[1]%>" width="100" height="100">
+	                            	<%}else{ %>
+	                          			<img id="preview2" src="http://placehold.it/100x100" width="100" height="100">               	
+	                            	<%} %>          	
                             	</div>
                             	<div class="gallary-item">
-	   	                    	<img id="preview3" src="http://placehold.it/100x100" width="100" height="100">
+                            		<%if(a[2]>0){%>
+	                            		<img id="preview3" src="download.do?no=<%=a[2]%>" width="100" height="100">
+	                            	<%}else{ %>
+	                          			<img id="preview3" src="http://placehold.it/100x100" width="100" height="100">               	
+	                            	<%} %>
                             	</div>
                             	<div class="gallary-item">
-	                        	<img id="preview4" src="http://placehold.it/100x100" width="100" height="100">                         	
+                            		<%if(a[3]>0){%>
+	                            		<img id="preview4" src="download.do?no=<%=a[3]%>" width="100" height="100">
+	                            	<%}else{ %>
+	                          			<img id="preview4" src="http://placehold.it/100x100" width="100" height="100">               	
+	                            	<%} %>   	
                             	</div>
                             	<div class="gallary-item">
-	                        	<img id="preview5" src="http://placehold.it/100x100" width="100" height="100">  	
+                            		<%if(a[4]>0){%>
+	                            		<img id="preview5" src="download.do?no=<%=a[4]%>" width="100" height="100">
+	                            	<%}else{ %>
+	                          			<img id="preview5" src="http://placehold.it/100x100" width="100" height="100">               	
+	                            	<%} %> 	
                             	</div>                     	
                             </div>
                         </div>
@@ -215,9 +254,14 @@ href="<%=request.getContextPath()%>/css/goods.css">
 				 <input class=lclick  type="button"value="목록보기">
 				</a>
     </div>
-
-
-
+				
+				
+<!-- 			파일이 존재하는지 보냄 -->
+		<input type="hidden" name="existence0" value="<%=a[0] %>">
+		<input type="hidden" name="existence1" value="<%=a[1] %>">
+		<input type="hidden" name="existence2" value="<%=a[2] %>">
+		<input type="hidden" name="existence3" value="<%=a[3] %>">
+		<input type="hidden" name="existence4" value="<%=a[4] %>">
 	</form>
 
 </div>

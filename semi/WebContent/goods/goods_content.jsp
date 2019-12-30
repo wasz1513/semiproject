@@ -31,6 +31,8 @@
 	String session_grade = (String) session.getAttribute("customer_grade");
 	//  System.out.println(session_id);
 	//  System.out.println(session_grade);
+	System.out.println(goodsdto);
+	System.out.println(session_id);
 	boolean isMine = session_id != null && session_id.equals(goodsdto.getCustomer_id());//사용자 id ==작성자 id
 	boolean isAdmin = session_grade != null && session_grade.equals("관리자");//사용자 권한 == 관리자
 	//저장소를 이용하여 이미 읽은 글은 조회수 증가 방지
