@@ -190,6 +190,7 @@ function point_use(){
    <input type="hidden" name="orders_goods_title" value="<%=gdto.getGoods_title()%>">
    <input type="hidden" name="orders_goods_seller" value="<%=gdto.getCustomer_id() %>">
    <input type="hidden" name="goods_no" value="<%=gdto.getGoods_no() %>">
+   <input type="hidden" name="goods_price" value="<%=gdto.getGoods_price() %>">
        <div class="adrress_info">
           
            <div style="text-align: center;">
@@ -207,7 +208,7 @@ function point_use(){
                    <li class="orders_addr">
                        <label  class="ofont">기본주소</label>
                        <input type="text" name="orders_basic_address" id="sample6_address" placeholder="기본주소"  readonly="readonly" required>
-                   </liclass="orders_addr">
+                   </li class="orders_addr">
                    <li class="orders_addr">
                        <label  class="ofont">상세주소</label>
                        <input class="ex_addr" type="text" name="orders_extra_address" id="sample6_detailAddress" placeholder="상세주소" required>
