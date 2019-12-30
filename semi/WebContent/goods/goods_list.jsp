@@ -121,8 +121,6 @@
 
 .gallary>.gallary-item > a  img {
 	width: 100%;
-	border-radius: 10%;
-    opacity: 0.5;
     cursor: pointer;
 }
 
