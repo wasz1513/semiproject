@@ -37,63 +37,62 @@
 	}
 %>
 <article>
-	<div class="row">
+	<div class="board_list_wrap">
 	
-	<form action="list.jsp" method="get">
-		<div class="w-50">
-			<div class="row-multi col3">
-				<div>
-					<select name="type">
-						<option value="customer_id">아이디</option>
-						<option value="customer_name">이름</option>
-						<option value="customer_grade">회원등급</option>
-					</select>
-				</div>
-				<div>
-					<input type="text" name="keyword" <% if(keyword!=null)%>value="<%=keyword%>">
-				</div>
-				<div>
-					<input type="submit" value="검색">
+		<form action="list.jsp" method="get">
+			<div class="w-50">
+				<div class="row-multi col3">
+					<div>
+						<select name="type">
+							<option value="customer_id">아이디</option>
+							<option value="customer_name">이름</option>
+							<option value="customer_grade">회원등급</option>
+						</select>
+					</div>
+					<div>
+						<input type="text" name="keyword" <% if(keyword!=null)%>value="<%=keyword%>">
+					</div>
+					<div>
+						<input type="submit" value="검색">
+					</div>
 				</div>
 			</div>
+		</form>
+		
+			<table class="board_list">
+				<thead>
+					<tr>
+						<th>아이디</th>
+						<th>닉네임</th>
+						<th>이름</th>
+						<th>등급</th>
+						<th>포인트</th>
+						<th colspan="3">관리메뉴</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%for(CustomerDto dto : list){ %>
+					<tr>
+						<td><%=dto.getCustomer_id() %></td>
+						<td><%=dto.getCustomer_nickname()%></td>
+						<td><%=dto.getCustomer_name() %></td>
+						<td><%=dto.getCustomer_grade() %></td>
+						<td><%=dto.getCustomer_point() %></td>
+						<td><a href="info.jsp?id=<%=dto.getCustomer_id()%>">회원정보</a></td>
+						<td><a href="out.do?id=<%=dto.getCustomer_id()%>">회원탈퇴</a></td>
+					</tr>
+					<%} %>
+				</tbody>	
+			</table>
+		
+		<div class="paging">
+			<jsp:include page="/template/adminlistnav.jsp">
+				<jsp:param name="pno" value="<%=pno%>"/>
+				<jsp:param name="count" value="<%=count%>"/>
+				<jsp:param name="navsize" value="<%=navsize%>"/>
+				<jsp:param name="pagesize" value="<%=pagesize%>"/>
+			</jsp:include>
 		</div>
-	</form>
-	
-	<table>
-		<thead>
-			<tr>
-				<th>아이디</th>
-				<th>닉네임</th>
-				<th>이름</th>
-				<th>등급</th>
-				<th>포인트</th>
-				<th colspan="3">관리메뉴</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%for(CustomerDto dto : list){ %>
-			<tr>
-				<td><%=dto.getCustomer_id() %></td>
-				<td><%=dto.getCustomer_nickname()%></td>
-				<td><%=dto.getCustomer_name() %></td>
-				<td><%=dto.getCustomer_grade() %></td>
-				<td><%=dto.getCustomer_point() %></td>
-				<td><a href="info.jsp?id=<%=dto.getCustomer_id()%>">회원정보</a></td>
-				<td><a href="out.do?id=<%=dto.getCustomer_id()%>">회원탈퇴</a></td>
-				<td>????</td>
-			</tr>
-			<%} %>
-		</tbody>	
-	</table>
-	
-	<div class="w-50">
-		<jsp:include page="/template/adminlistnav.jsp">
-			<jsp:param name="pno" value="<%=pno%>"/>
-			<jsp:param name="count" value="<%=count%>"/>
-			<jsp:param name="navsize" value="<%=navsize%>"/>
-			<jsp:param name="pagesize" value="<%=pagesize%>"/>
-		</jsp:include>
-	</div>
 	
 	</div>
 
