@@ -1,6 +1,10 @@
 package semi.bean;
 
-	public class BoardDto{
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class BoardDto{
 	
 	private int no, rn;
 	private String head;
@@ -109,6 +113,21 @@ package semi.bean;
 
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	
+	public String getWdateWithFormat() throws ParseException {
+		if (wdate == null) {
+			return "";
+		} else {
+			SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+			Date date = read.parse(wdate);
+			
+			SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+			String time = write.format(date);
+
+			return time;
+		}
+
 	}
 	
 }
