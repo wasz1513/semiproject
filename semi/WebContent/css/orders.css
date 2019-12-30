@@ -1,32 +1,41 @@
 @charset "UTF-8";
 
   
+       .orders_wrap{
+       		width:800px;
+       		margin:0 auto;
+       
+       }
        .goods_buy{
         text-align: center;
         margin-bottom: 40px;
         margin-top: 80px;
        }
        
-       .orders_wrap{
-       		width:800px;
-       		margin:0 auto;
-       	
-       }
        .order_wrap1{
        	width:800px;
        	margin:0 auto;
+       	font-size: 20px;
       
        }
+        .order_table {
+        font-size:20px;
+   text-align:center;
+        	margin-bottom:30px;
+        }
+        
+    .order_table.p{
+           font-size:50px;
+         
+      margin-bottom: 8px; 
+    }
        .orders_img{
        
      
        }
-        .order_table {
-        	margin-bottom:30px;
-        }
 
 .info{
-	text-align: center;
+	text-align: left;
 	margin-bottom: 8px;
 }
    /*  .order_table input[type=text],
@@ -43,14 +52,9 @@
         line-height: inherit;
 	border: 1px solid #ccc;
     } */
-    .ofont{
-           text-align: left;
-         
-           margin-bottom: 8px;
-    }
   
     .ofont2{
-           text-align: left;
+           text-align: center;
    
            margin-bottom: 8px;
     }
@@ -124,7 +128,7 @@
     
   
     .orders_button input[type="submit"] {
-    
+   
 	width: 160px;
 	height: 36px;
 	background-color: #fff;
@@ -133,6 +137,7 @@
 		margin-bottom:120px;
 }
 .orders_button input[type="submit"]:hover {
+	
 	color: #fff;
 	background-color: #FF8041;
 	cursor: pointer;
