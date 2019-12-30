@@ -160,14 +160,14 @@ href="<%=request.getContextPath()%>/css/goods.css">
 	 		 <br></br>
               <div>
 			 <P>제목</p>
-				<input type="text" name="goods_title"
+				<input class="gcategory" type="text" name="goods_title"
 					value="<%=dto.getGoods_title()%>" required>
 			  </div>
                     
                     <br><br>
                     <div>
 				<p>가격</p>
-				<input type="text" name="goods_price"
+				<input class="gcategory" type="text" name="goods_price"
 					value="<%=dto.getGoods_price()%>" required>
 			        </div>
 			<br><br>

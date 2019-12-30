@@ -8,8 +8,9 @@ link href ="https: //cdn.jsdelivr.net
 	width: 60% !important;
 }
 
-img.img {
-	margin-right: 1px;
+img[Attributes Style] {
+    width: 100px;
+    height: 100px;
 }
 
 </
@@ -156,5 +157,12 @@ h2 {
 	color: #fff;
 	background-color: #666;
 	cursor: pointer;
+}
+.fileupload input[type="file"]{
+		margin-bottom: 1px;
+	width: 60%;
+	line-height: normal;
+	border: 1px solid #ccc;
+	
 }
 

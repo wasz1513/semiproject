@@ -9,7 +9,7 @@ href="<%=request.getContextPath()%>/css/goods.css">
 <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
  <style>
         img.img{
-        	margin-right:1px;
+        	margin-right:50px;
         }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
@@ -188,7 +188,7 @@ href="<%=request.getContextPath()%>/css/goods.css">
                             </div>
                         </div>
                         
-                        <div class="fileupload">
+                        <div class="fileupload" >
 							<input type="file" name="file" accept=".jpg, .png, .gif" onchange="preview1Image(this);" required>
       						<input type="file" name="file2" accept=".jpg, .png, .gif" onchange="preview2Image(this);">
       						<input type="file" name="file3" accept=".jpg, .png, .gif" onchange="preview3Image(this);">
