@@ -286,6 +286,7 @@ element.style {
 .face-01, .face-02, .face-03, .face-04, .face-05, .face-06 {
     display: inline-block;
     overflow: hidden;
+    
     text-indent: -9999px;
     text-align: left;
     background-size: 29px 147px;
