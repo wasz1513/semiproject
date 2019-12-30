@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="semi.bean.CustomerDto" project="semi" file="/semi/src/semi/bean/CustomerDto.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="118" width="198" x="495" y="315"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="semi.bean.GoodsDao" project="semi" file="/semi/src/semi/bean/GoodsDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="147" x="766" y="169"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="semi.bean.CustomerDao" project="semi" file="/semi/src/semi/bean/CustomerDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="162" x="277" y="173"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="semi.bean.HelpDao" project="semi" file="/semi/src/semi/bean/HelpDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="147" x="768" y="447"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="semi.bean.BoardDao" project="semi" file="/semi/src/semi/bean/BoardDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="147" x="282" y="445"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <package id="6" language="java" name="semi.servlert.goods" project="semi" file="/semi/src/semi/servlert/goods" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="214" x="55" y="30"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="7" language="java" name="semi.servlet.customer" project="semi" file="/semi/src/semi/servlet/customer" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="229" x="935" y="40"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="8" language="java" name="semi.servlet.help" project="semi" file="/semi/src/semi/servlet/help" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="198" x="963" y="576"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="9" language="java" name="servlet.board" project="semi" file="/semi/src/servlet/board" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="178" x="64" y="581"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="false"/>    
+    <operations public="false" package="false" protected="false" private="false" static="false"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

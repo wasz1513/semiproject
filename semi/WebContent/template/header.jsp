@@ -19,8 +19,8 @@
 <link rel="icon" href="<%=request.getContextPath()%>/image/carrot3232.png">
 
 <meta charset="UTF-8">
-<!-- <link rel="stylesheet" type="text/css" -->
-<%-- 	href="<%=request.getContextPath()%>/css/test.css"> --%>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/test.css">
 
 
 <link rel="stylesheet" type="text/css"
@@ -29,8 +29,6 @@
 	href="<%=request.getContextPath()%>/css/swiper.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/admin.css">
-<link rel="stylesheet" type="text/css"
-href="<%=request.getContextPath()%>/css/header.css">
 <link rel="stylesheet" type="text/css"
 href="<%=request.getContextPath()%>/css/footer.css">
 <link rel="stylesheet" type="text/css"
@@ -45,8 +43,18 @@ href="<%=request.getContextPath()%>/css/change_info.css">
 href="<%=request.getContextPath()%>/css/find.css"> 
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/find_pw.css"> 
-
-
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/write.css">
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/edit.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/date.css"> 
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/customer.css"> 
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/header.css">
+<link rel="stylesheet" type="text/css"
+href="<%=request.getContextPath()%>/css/point_info.css">
 
 <title>당근나라</title>	
 

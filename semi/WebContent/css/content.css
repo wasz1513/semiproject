@@ -1,0 +1,30 @@
+
+	#board_content_wrap{
+		width:1000px;
+		margin:0 auto;
+	}
+
+    .board_content {
+    	width: 1000px;
+       margin-top:50px;
+       margin-bottom:120px;
+    }
+  
+    .board_content_table,
+    .board_content_table1{
+    	width:1000px;
+    }
+
+
+    .board_content_table th,
+    .board_content_table td{
+         padding: 10px;
+    }
+    
+    
+
+
+    
+    
+    
+    
