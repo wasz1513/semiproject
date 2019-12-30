@@ -14,7 +14,6 @@
 
 <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
  <style>
-
         .sun-editor{
         	margin-left:190px;
         	width:60% !important;
@@ -119,7 +118,3 @@
 
 </article>
 
-
-
-
-<jsp:include page="/template/footer.jsp"></jsp:include>

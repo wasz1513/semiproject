@@ -189,7 +189,7 @@ href="<%=request.getContextPath()%>/css/goods.css">
                         </div>
                         
                         <div class="fileupload">
-							<input type="file" name="file" accept=".jpg, .png, .gif" onchange="preview1Image(this);">
+							<input type="file" name="file" accept=".jpg, .png, .gif" onchange="preview1Image(this);" required>
       						<input type="file" name="file2" accept=".jpg, .png, .gif" onchange="preview2Image(this);">
       						<input type="file" name="file3" accept=".jpg, .png, .gif" onchange="preview3Image(this);">
       						<input type="file" name="file4" accept=".jpg, .png, .gif" onchange="preview4Image(this);">
