@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+    table {
+        border-collapse:collapse;
+    }
+    
+  
+    .board_content {
+       
+       
+    }
+    
+   
+    
+    
+    .board_content th,
+    .board_content td{
+         padding: 10px;
+         
+    
+    }
+    
+    .board_content {
+        text-align: center;
+    }
+    
+    .board_content{
+        text-align: left;
+    }
+    
+    .board_content{
+        margin-top: 20px;
+        text-align: center;
+        font-size: 0;
+    }
+    .board_content {
+        display: inline-block;
+        margin-left: 10px;
+        
+       
+        font-size: 12px;
+    }
+    .board_content {
+        margin-left: 0;
+    }
+    
+    
+    
+    
+    
