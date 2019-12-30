@@ -141,16 +141,16 @@ href="<%=request.getContextPath()%>/css/content.css">
                <td align="right" >
                
                <form action="reply_insert.do" method="post">
-<<<<<<< HEAD
+
                            
                       <input type="hidden" name="origin" value="<%=no%>">
 	               <textarea name="content" rows="5" cols="160" required></textarea>
-=======
+
                
     	
              
 	               <textarea name="content" rows="5" cols="160" required style="width:100%;"></textarea>
->>>>>>> refs/remotes/origin/master
+
 	               <input type="submit" value="등록" style="height:50px; width:70px;">
                </div>
                
