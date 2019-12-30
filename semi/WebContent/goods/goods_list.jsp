@@ -211,19 +211,19 @@
 		
 			<% if(customer_id!=null){%>
 			<h6> 관심상품 : 
-				<%if(kdto.getKeyword_first()!=null){ %>
+				<%if(!kdto.getKeyword_first().equals("null")){ %>
 			 		<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_first() %>"><%=kdto.getKeyword_first() %></a>         
 				<%} %>
-				<%if(kdto.getKeyword_second()!=null){ %>
+				<%if(!kdto.getKeyword_second().equals("null")){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_second()%>"> <%=kdto.getKeyword_second() %></a>          
 				<%} %>
-				<%if(kdto.getKeyword_third()!=null){ %>
+				<%if(!kdto.getKeyword_third().equals("null")){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_third() %>"> <%=kdto.getKeyword_third() %></a>         
 				<%} %>
-				<%if(kdto.getKeyword_fourth()!=null){ %>
+				<%if(!kdto.getKeyword_fourth().equals("null")){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fourth()%>"><%=kdto.getKeyword_fourth()%></a>        
 				<%} %>
-				<%if(kdto.getKeyword_fifth()!=null){ %>
+				<%if(!kdto.getKeyword_fifth().equals("null")){ %>
 					<a href="<%=context%>/goods/goods_list.jsp?keyword_search=<%=kdto.getKeyword_fifth()%>"> <%=kdto.getKeyword_fifth()%></a>
 				<%} %>
 			</h6>

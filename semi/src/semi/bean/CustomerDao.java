@@ -91,7 +91,7 @@ public class CustomerDao {
 	// 회원 정보 변경(닉네임, 폰번호, post, 기본주소, 상세주소 / ID)
 	public void updateCustomerInfo(CustomerDto dto) throws Exception {
 		Connection con = getConnection();
-		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email=?,customer_post=?,customer_basic_address=?,customer_extra_address=? where customer_id=?";
+		String sql = "update customer set customer_nickname=?,customer_phone=?,customer_email=?,customer_post=?,customer_basic_address=?,customer_extra_address=?,keyword_first=?,keyword_second=?,keyword_third=?,keyword_fourth=?,keyword_fifth=? where customer_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, dto.getCustomer_nickname());
 		ps.setString(2, dto.getCustomer_phone());
@@ -99,7 +99,12 @@ public class CustomerDao {
 		ps.setString(4, dto.getCustomer_post());
 		ps.setString(5, dto.getCustomer_basic_address());
 		ps.setString(6, dto.getCustomer_extra_address());
-		ps.setString(7, dto.getCustomer_id());
+		ps.setString(7, dto.getKeyword_first());
+		ps.setString(8, dto.getKeyword_second());
+		ps.setString(9, dto.getKeyword_third());
+		ps.setString(10, dto.getKeyword_fourth());
+		ps.setString(11, dto.getKeyword_fifth());
+		ps.setString(12, dto.getCustomer_id());
 		ps.execute();
 		con.close();
 	}
@@ -129,7 +134,7 @@ public class CustomerDao {
 	// 회원가입(추가사항 : 회원가입시 100포인트 추가)
 	public void regist(CustomerDto dto) throws Exception {
 		Connection con = this.getConnection();
-		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100, null, null, null, null, null)";
+		String sql = "insert into customer values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'오렌지',sysdate,sysdate,100,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, dto.getCustomer_no());
 		ps.setString(2, dto.getCustomer_name());
@@ -142,6 +147,12 @@ public class CustomerDao {
 		ps.setString(9, dto.getCustomer_post());
 		ps.setString(10, dto.getCustomer_basic_address());
 		ps.setString(11, dto.getCustomer_extra_address());
+		ps.setString(12, dto.getKeyword_first());
+		ps.setString(13, dto.getKeyword_second());
+		ps.setString(14, dto.getKeyword_third());
+		ps.setString(15, dto.getKeyword_fourth());
+		ps.setString(16, dto.getKeyword_fifth());
+		
 		ps.execute();
 		
 		String sql2="insert into point values(point_seq.nextval,100,sysdate,'회원가입축하금',0,null,null,?)";
