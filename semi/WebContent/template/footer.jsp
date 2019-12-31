@@ -36,11 +36,11 @@
 					String id = (String)session.getAttribute("customer_id"); 
 					String grade = (String)session.getAttribute("customer_grade");
 				%>
-				<div class="test">
-					<h5>id = <%= id %></h5>
-					<h5>grade = <%= grade %></h5>
-					<h5>로그인 상태 = <%= id != null %></h5>	 
-				</div>
+<!-- 				<div class="test"> -->
+<%-- 					<h5>id = <%= id %></h5> --%>
+<%-- 					<h5>grade = <%= grade %></h5> --%>
+<%-- 					<h5>로그인 상태 = <%= id != null %></h5>	  --%>
+<!-- 				</div> -->
 		</footer>
 
 

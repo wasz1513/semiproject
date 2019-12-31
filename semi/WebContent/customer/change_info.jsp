@@ -179,8 +179,14 @@ function sample6_execDaumPostcode() {
              <tr>
                 <th>관심 키워드</th>
                 <td>
-                	<select name=keyword_first placeholder="<%=dto.getKeyword_first()%>">
-                    	<option value="null">선택</option>
+                	<select name=keyword_first >
+                    	<option value="<%=dto.getKeyword_first()%>">
+                    	<%if(!dto.getKeyword_first().equals("null")){ %>
+                    		<%=dto.getKeyword_first()%>
+                    	<%}else{ %>
+                    		선택
+                    	<%} %>	
+                    	</option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -193,7 +199,13 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select>
                     <select name=keyword_second>
-                   		<option value="null">선택</option>
+                   		<option value="<%=dto.getKeyword_second()%>">
+                   		<%if(!dto.getKeyword_second().equals("null")){ %>
+                    		<%=dto.getKeyword_second()%>
+                    	<%}else{ %>
+                    		선택
+                    	<%} %>	
+                   		</option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -206,7 +218,13 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select>
                     <select name=keyword_third>
-                    	<option value="null">선택</option>
+                    	<option value="<%=dto.getKeyword_third()%>">
+                    	<%if(!dto.getKeyword_third().equals("null")){ %>
+                    		<%=dto.getKeyword_third()%>
+                    	<%}else{ %>
+                    		선택
+                    	<%} %>	
+                    	</option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -219,7 +237,13 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select>        
                     <select name=keyword_fourth>
-                    	<option value="null">선택</option>
+                    	<option value="<%=dto.getKeyword_fourth()%>">
+                    	<%if(!dto.getKeyword_fourth().equals("null")){ %>
+                    		<%=dto.getKeyword_fourth()%>
+                    	<%}else{ %>
+                    		선택
+                    	<%} %>	
+                    	</option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -232,7 +256,13 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select> 
                     <select name=keyword_fifth>
-                    	<option value="null">선택</option>
+                    	<option value="<%=dto.getKeyword_fifth()%>">
+                    	<%if(!dto.getKeyword_fifth().equals("null")){ %>
+                    		<%=dto.getKeyword_fifth()%>
+                    	<%}else{ %>
+                    		선택
+                    	<%} %>	
+                    	</option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
