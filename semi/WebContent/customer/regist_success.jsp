@@ -10,6 +10,8 @@
 
 	<h2 class="regist_success_title">회원가입을 축하합니다!</h2>	
 	<h5>축하 포인트 100point를 지급합니다!</h5>
+	<br><br><br>
+	<a href="login.jsp"><h2>로그인</h2></a>
 
 
 </div>

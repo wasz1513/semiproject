@@ -34,6 +34,7 @@
 // 	System.out.println(goodsdto);
 // 	System.out.println(session_id);
 	boolean isMine = session_id != null && session_id.equals(goodsdto.getCustomer_id());//사용자 id ==작성자 id
+// 	boolean replyMine = session_id !=null && session_id.equals();
 	boolean isAdmin = session_grade != null && session_grade.equals("관리자");//사용자 권한 == 관리자
 	//저장소를 이용하여 이미 읽은 글은 조회수 증가 방지
 	Set<Integer> memory = (Set<Integer>) session.getAttribute("memory");
@@ -547,12 +548,13 @@ display: inline-block;
 				<table class="filesview"  width="100%"  style="margin-left: auto; margin-right: auto;">
 					<% for (GoodsReplyDto goodsreplydto : list) { %>
 					<tr>
-						<th class="reply-th" width="100"><img src="http://placehold.it/100X100">
+						<th class="reply-th" width="100">
+							<img src="http://placehold.it/100X100">
 						</th>
 						<td class="reply-td">
 						<%=goodsreplydto.getGoods_reply_writer()%> 
 							<!--  판매글 판매자의 댓글에만 판매자 표시-->
-							<% if (isMine) { %> 
+							<% if (session_id.equals(goodsreplydto.getGoods_reply_writer())) { %> 
 							 	<font color="red">(판매자)</font> 
 							<% } %> 
 								<%=goodsreplydto.getGoods_reply_writetime()%>
