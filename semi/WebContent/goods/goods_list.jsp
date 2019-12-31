@@ -139,19 +139,19 @@
         
 #p2{
    color: #ff8041;
-            font-size: medium;
+            font-size: 15px;
 }
         
            #p1{
             color: gray;
-            font-size: large;
+            font-size: 16px;
     
           
         }
         
           #p0 {
             color: black;
-            font-size: x-large;
+            font-size: 20px;
         }
         
         
