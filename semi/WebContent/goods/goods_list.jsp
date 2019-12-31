@@ -88,7 +88,6 @@
     	GoodsFilesDao fdao = new GoodsFilesDao();
     	
     	
-    	System.out.print(list);
     	
     %> 
 <jsp:include page="/template/header.jsp"></jsp:include>
