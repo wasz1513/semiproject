@@ -179,8 +179,8 @@ function sample6_execDaumPostcode() {
              <tr>
                 <th>관심 키워드</th>
                 <td>
-                	<select name=keyword_first placeholder="<%=dto.getKeyword_first()%>">
-                    	<option value="null">선택</option>
+                	<select name=keyword_first >
+                    	<option value="<%=dto.getKeyword_first()%>"><%=dto.getKeyword_first()%></option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -193,7 +193,7 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select>
                     <select name=keyword_second>
-                   		<option value="null">선택</option>
+                   		<option value="<%=dto.getKeyword_second()%>"><%=dto.getKeyword_second()%></option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -206,7 +206,7 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select>
                     <select name=keyword_third>
-                    	<option value="null">선택</option>
+                    	<option value="<%=dto.getKeyword_third()%>"><%=dto.getKeyword_third()%></option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -219,7 +219,7 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select>        
                     <select name=keyword_fourth>
-                    	<option value="null">선택</option>
+                    	<option value="<%=dto.getKeyword_fourth()%>"><%=dto.getKeyword_fourth()%></option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
@@ -232,7 +232,7 @@ function sample6_execDaumPostcode() {
                     	<option value="여행">여행/문화</option>
                     </select> 
                     <select name=keyword_fifth>
-                    	<option value="null">선택</option>
+                    	<option value="<%=dto.getKeyword_fifth()%>"><%=dto.getKeyword_fifth()%></option>
                     	<option value="패션의류">패션의류</option>
                     	<option value="패션잡화">패션잡화</option>
                     	<option value="미용">화장품/미용</option>
