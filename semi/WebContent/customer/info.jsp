@@ -77,6 +77,25 @@
                 <th>최종로그인</th>
                 <td><%=dto.getCustomer_lastloginWithFormat()%></td>
             </tr>
+            <tr>
+                <th>관심 키워드</th>
+                <td><%if(!dto.getKeyword_first().equals("null")){ %>
+                	<%=dto.getKeyword_first() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_second().equals("null")){ %>
+                	/ <%=dto.getKeyword_second() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_third().equals("null")){ %>
+                	/ <%=dto.getKeyword_third() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_fourth().equals("null")){ %>
+                	/ <%=dto.getKeyword_fourth() %>
+                	<%} %>
+                	<%if(!dto.getKeyword_fifth().equals("null")){ %>
+                	/ <%=dto.getKeyword_fifth() %>
+                	<%} %>
+                </td>
+             </tr>
         </table>
                 <div class="info_bottom">
                     <li>- 아이디, 이름은 수정이 불가능합니다.</li>
@@ -87,7 +106,7 @@
                         <a href="#"><input class="sellproduct" type="submit" value="판매중인 물품보기"></a>
                         <a href="check_pw.jsp?go=/customer/change_pw.jsp"><input class="change_password" type="submit" value="비밀번호 변경"></a>
                         <a href="check_pw.jsp?go=/customer/change_info.jsp"><input class="change_info" type="submit" value="회원정보 수정">	</a>
-                        <a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input class="withdraw" type="submit" value="탈퇴" onclick="withdrawal();"></a>
+                        <a href="check_pw.jsp?go=/customer/customer_withrawal.do"><input class="withdraw" type="submit" value="탈퇴"></a>
                 </div>
       </div>  
     </div>

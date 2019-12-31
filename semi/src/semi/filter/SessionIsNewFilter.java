@@ -15,8 +15,7 @@ import semi.bean.SessionVisitDao;
 public class SessionIsNewFilter implements Filter{
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
-		HttpServletRequest req = (HttpServletRequest)request;
+			throws IOException, ServletException {HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
 		boolean visit = req.getSession().isNew();
 		
