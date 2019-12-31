@@ -80,9 +80,30 @@ public GoodsFilesDto filesInfo(int no) throws Exception{
 	}
 con.close();
 return gfdto;
-
-	
 }
+
+public GoodsFilesDto getfilesInfo(int no) throws Exception{
+	Connection con = this.getConnection();
+	String sql = "select * from goods_files where origin=?";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1, no);
+	ResultSet rs = ps.executeQuery();
+	
+	GoodsFilesDto gfdto = null;
+	if(rs.next()) {
+		gfdto = new GoodsFilesDto();
+		gfdto.setGoods_files_no(rs.getInt("goods_files_no"));
+		gfdto.setOrigin(rs.getInt("origin"));
+		gfdto.setUploadname(rs.getString("uploadname"));
+		gfdto.setSavename(rs.getString("savename"));
+		gfdto.setFiletype(rs.getString("filetype"));
+		gfdto.setFilesize(rs.getLong("filesize"));
+	}
+con.close();
+return gfdto;
+}
+
+
 public void update(GoodsFilesDto gfdto) throws Exception{
 	Connection con = this.getConnection();
 	String sql = "update Goods_files set uploadname=?, savename=?, filetype=?, filesize=? where goods_files_no=?";
