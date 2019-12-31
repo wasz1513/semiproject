@@ -37,21 +37,21 @@
 	</filter-mapping>
 <!--  로그인 필터 -->
 	<filter>
-	<filter-name>loginFilter</filter-name>
-	<filter-class>semi.filter.LoginFilter</filter-class>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>semi.filter.LoginFilter</filter-class>
 	</filter>
 	<filter-mapping>
 	<filter-name>loginFilter</filter-name>
-	<url-pattern>/admin/*</url-pattern>
-	<url-pattern>/member/info.jsp</url-pattern>
-	<url-pattern>/member/change_info.do</url-pattern>
-	<url-pattern>/member/change_info.jsp</url-pattern>
-	<url-pattern>/member/check.do</url-pattern>	
-	<url-pattern>/member/check.jsp</url-pattern>
-	<url-pattern>/member/exit.do</url-pattern>
-	<url-pattern>/member/change_pw.jsp</url-pattern>
-	<url-pattern>/member/change_pw.do</url-pattern>
-	<url-pattern>/member/change_pw_result.jsp</url-pattern>
+		<url-pattern>/admin/*</url-pattern>
+		<url-pattern>/customer/info.jsp</url-pattern>
+		<url-pattern>/customer/change_info.do</url-pattern>
+		<url-pattern>/customer/change_info.jsp</url-pattern>
+		<url-pattern>/customer/check.do</url-pattern>	
+		<url-pattern>/customer/check.jsp</url-pattern>
+		<url-pattern>/customer/exit.do</url-pattern>
+		<url-pattern>/customer/change_pw.jsp</url-pattern>
+		<url-pattern>/customer/change_pw.do</url-pattern>
+		<url-pattern>/customer/change_pw_result.jsp</url-pattern>
 	</filter-mapping>
 	
 <!-- 	AdminFilter -->
@@ -64,7 +64,7 @@
 		<url-pattern>/admin/*</url-pattern>
 		<url-pattern>/board/write.jsp</url-pattern>
 		<url-pattern>/board/edit.jsp</url-pattern>
-	<url-pattern>/board/delete.do</url-pattern>
+		<url-pattern>/board/delete.do</url-pattern>
 	</filter-mapping>
 	<!-- 이 필터는 게시글 수정/삭제 시 본인이나 관리자만 통과하도록 차단하는 필터 -->
 	<filter>
