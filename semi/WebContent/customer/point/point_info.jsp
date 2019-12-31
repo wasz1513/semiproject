@@ -20,7 +20,7 @@
 function check(){
     // confirm() : 확인창 확인/취소
         var choice = window.confirm("삭제하시겠습니까?");
-        console.log(choice);
+//         console.log(choice);
         if(choice){
         	location.replace="http://localhost:8080/semi"
         }
