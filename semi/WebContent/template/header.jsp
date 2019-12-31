@@ -161,6 +161,7 @@ header, footer, article {
 		<div class="topmenu_sub my">
 				<ul class="sub_drop">
 					<li><a href="<%=request.getContextPath()%>/customer/info.jsp">마이페이지</a></li>
+					
 					<li><a href="<%=request.getContextPath()%>/customer/point/point_info.jsp">포인트내역</a></li>        			
 					<li><a href="<%=request.getContextPath()%>/customer/logout.do">로그아웃</a></li>
 					<li>

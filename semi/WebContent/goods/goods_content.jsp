@@ -514,7 +514,7 @@ display: inline-block;
 					%>
 					<li>
 						<!-- 미리보기 출력 --> <img
-						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80" height="50"> 
+						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="600" > 
 						<%=gfdto.getUploadname()%> (<%=gfdto.getFilesize()%>bytes)
 						 <a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
 							<img src="../image/download.png" width="15" height="15">
