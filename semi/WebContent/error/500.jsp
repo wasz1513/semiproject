@@ -2,7 +2,12 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>	
 
-	500
+<article>
+	<div class="row">
+	
+		<h1>500</h1>
 
+	</div>
+</article>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>	

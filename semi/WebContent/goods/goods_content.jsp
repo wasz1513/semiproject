@@ -31,9 +31,10 @@
 	String session_grade = (String) session.getAttribute("customer_grade");
 	//  System.out.println(session_id);
 	//  System.out.println(session_grade);
-	System.out.println(goodsdto);
-	System.out.println(session_id);
+// 	System.out.println(goodsdto);
+// 	System.out.println(session_id);
 	boolean isMine = session_id != null && session_id.equals(goodsdto.getCustomer_id());//사용자 id ==작성자 id
+// 	boolean replyMine = session_id !=null && session_id.equals();
 	boolean isAdmin = session_grade != null && session_grade.equals("관리자");//사용자 권한 == 관리자
 	//저장소를 이용하여 이미 읽은 글은 조회수 증가 방지
 	Set<Integer> memory = (Set<Integer>) session.getAttribute("memory");
@@ -52,7 +53,7 @@
 
 	GoodsFilesDao gfdao = new GoodsFilesDao();
 	List<GoodsFilesDto> flist = gfdao.getList(goods_no);
-	System.out.print(flist);
+	GoodsFilesDto fdto = gfdao.getfilesInfo(goods_no);
 
 	//좋아요 확인
 	InterestDao interestdao = new InterestDao();
@@ -86,6 +87,7 @@ function loadSlider(){
 	     },
 	  });
 }
+
 </script>
 
 	<style>
@@ -396,6 +398,11 @@ display: inline-block;
 #reply-submit{
 	text-align: right;
 }
+
+.img-download{
+	width:700px;
+	margin:auto;
+}
 	</style>
 
 
@@ -408,15 +415,11 @@ display: inline-block;
 	<!-- 이미지 올라오는 부분 -->
 <div id="article-images">
 <div> 
-			<div class="main-banner">
-				<div class="swiper-container">
-				    <div class="swiper-wrapper">
-				    <%for (GoodsFilesDto gfdto : flist) {%>
-				      <div class="swiper-slide"><img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="100%" height="100%"></div>
-				      <%} %>
-				    </div>
-				    <div class="swiper-pagination"></div>
-				</div>
+
+				   
+				      <img src="download.do?no=<%=fdto.getGoods_files_no()%>" width="100%" height="100%">
+
+
 	</div>
 </div>
  </div>
@@ -507,24 +510,25 @@ display: inline-block;
  <!-- 첨부파일 출력줄 : 있을 때만 출력 -->
 		
 				<!-- 첨부파일 출력줄 : 있을 때만 출력 -->
-
-				<ul>
+	<div class="img-download">
+				<div class="row-multi col-5">
 					<%
 						for (GoodsFilesDto gfdto : flist) {
 					%>
-					<li>
-						<!-- 미리보기 출력 --> <img
-						src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="600" > 
-						<%=gfdto.getUploadname()%> (<%=gfdto.getFilesize()%>bytes)
-						 <a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
+
+					<div>
+						<!-- 미리보기 출력 -->
+						<img src="download.do?no=<%=gfdto.getGoods_files_no()%>" width="80" height="50"> 
+						<br>
+						<a href="download.do?no=<%=gfdto.getGoods_files_no()%>">
 							<img src="../image/download.png" width="15" height="15">
-					</a>
-					</li>
+						</a>
+					</div>
 					<%
 						}
 					%>
-				</ul>
-
+				</div>
+	</div>
 		
 		<%
 			}
@@ -545,12 +549,13 @@ display: inline-block;
 				<table class="filesview"  width="100%"  style="margin-left: auto; margin-right: auto;">
 					<% for (GoodsReplyDto goodsreplydto : list) { %>
 					<tr>
-						<th class="reply-th" width="100"><img src="http://placehold.it/100X100">
+						<th class="reply-th" width="100">
+							<img src="http://placehold.it/100X100">
 						</th>
 						<td class="reply-td">
 						<%=goodsreplydto.getGoods_reply_writer()%> 
 							<!--  판매글 판매자의 댓글에만 판매자 표시-->
-							<% if (isMine) { %> 
+							<% if (session_id.equals(goodsreplydto.getGoods_reply_writer())) { %> 
 							 	<font color="red">(판매자)</font> 
 							<% } %> 
 								<%=goodsreplydto.getGoods_reply_writetime()%>

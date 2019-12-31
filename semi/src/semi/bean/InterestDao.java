@@ -50,9 +50,11 @@ public class InterestDao {
 	public List<GoodsDto> getList(String customer_id, int start, int finish) throws Exception{
 		Connection con = getConnection();
 		String sql = "select * from("
+				+ "select * from("
 				+ "select rownum R, G.* from interest I "
 				+ "inner join goods G on I.goods_no = G.goods_no where I.customer_id=? order by I.interest_no desc)"
-				+ " where R between ? and ?";
+				+ " where R between ? and ?) T "
+				+ "inner join customer C on T.customer_id=c.customer_id";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, customer_id);
 		ps.setInt(2, start);
@@ -71,6 +73,7 @@ public class InterestDao {
 			dto.setGoods_category(rs.getString("goods_category"));
 			dto.setGoods_content(rs.getString("goods_content"));
 			dto.setGoods_state(rs.getString("goods_state"));
+			dto.setCustomer_basic_address(rs.getString("customer_basic_address"));
 			list.add(dto);
 		}
 		con.close();

@@ -21,8 +21,8 @@ public class PwCheckServlet extends HttpServlet {
 			String pw = req.getParameter("customer_pw");
 			String go = req.getParameter("go");
 
-			System.out.println(id+"/"+pw+"/"+go);
-			System.out.println("pw : "+pw);
+//			System.out.println(id+"/"+pw+"/"+go);
+//			System.out.println("pw : "+pw);
 			CustomerDao dao = new CustomerDao();
 			boolean result = dao.login(id, pw);
 			
